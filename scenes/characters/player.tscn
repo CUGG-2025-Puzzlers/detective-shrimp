@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dknb10beku6mq"]
+
+[ext_resource type="Script" uid="uid://cukhysnrqmpxl" path="res://scripts/player.gd" id="1_76oj4"]
+[ext_resource type="Script" uid="uid://wa6267kvap86" path="res://addons/shape_texture_2d/shape_texture_2d.gd" id="1_yewv4"]
+[ext_resource type="Script" uid="uid://cpl68x6wog55p" path="res://addons/shape_texture_2d/drawable_rectangle.gd" id="2_76oj4"]
+
+[sub_resource type="Resource" id="Resource_dyp2m"]
+script = ExtResource("2_76oj4")
+metadata/_custom_type_script = "uid://cpl68x6wog55p"
+
+[sub_resource type="Texture2D" id="Texture2D_atpat"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_yewv4")
+size = Vector2i(32, 64)
+shape = SubResource("Resource_dyp2m")
+fill_color = Color(0.3137255, 0.76862746, 1, 1)
+metadata/_custom_type_script = "uid://wa6267kvap86"
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_76oj4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("Texture2D_atpat")
