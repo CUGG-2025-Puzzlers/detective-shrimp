@@ -1,9 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://378jmngcigte"]
+[gd_scene load_steps=4 format=3 uid="uid://378jmngcigte"]
 
 [ext_resource type="PackedScene" uid="uid://dknb10beku6mq" path="res://scenes/characters/player.tscn" id="1_v3uhd"]
+[ext_resource type="Texture2D" uid="uid://b3txqamkair0f" path="res://assets/ui/dialogue_backgroung.png" id="2_ufxs0"]
+[ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://assets/ui/m5x7.ttf" id="3_8ra5a"]
 
 [node name="Main Level" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_v3uhd")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_left = -155.0
+offset_top = 45.0
+offset_right = 155.0
+offset_bottom = 95.0
+texture = ExtResource("2_ufxs0")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Text" type="RichTextLabel" parent="Control/NinePatchRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 295.0
+offset_bottom = 45.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_8ra5a")
+theme_override_fonts/bold_font = ExtResource("3_8ra5a")
+theme_override_fonts/bold_italics_font = ExtResource("3_8ra5a")
+theme_override_fonts/italics_font = ExtResource("3_8ra5a")
+theme_override_fonts/mono_font = ExtResource("3_8ra5a")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
+scroll_active = false
