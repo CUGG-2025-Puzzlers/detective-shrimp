@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://df56glnmpcbej"]
+
+[ext_resource type="Texture2D" uid="uid://b3txqamkair0f" path="res://assets/ui/dialogue_backgroung.png" id="1_tm68y"]
+[ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://assets/ui/m5x7.ttf" id="2_hvmm2"]
+[ext_resource type="Texture2D" uid="uid://cgyimct3i3kis" path="res://assets/characters/Cameron_Icon.png" id="3_p0wdv"]
+
+[node name="Dialogue Box" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -216.0
+offset_top = -36.0
+offset_right = 216.0
+offset_bottom = 36.0
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 432.0
+offset_bottom = 72.0
+texture = ExtResource("1_tm68y")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Title Background" type="NinePatchRect" parent="Background"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 4.0
+offset_right = 200.0
+offset_bottom = 20.0
+texture = ExtResource("1_tm68y")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="Speaker Title" type="RichTextLabel" parent="Background/Title Background"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 120.0
+offset_bottom = 16.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_hvmm2")
+theme_override_fonts/bold_font = ExtResource("2_hvmm2")
+theme_override_fonts/bold_italics_font = ExtResource("2_hvmm2")
+theme_override_fonts/italics_font = ExtResource("2_hvmm2")
+theme_override_fonts/mono_font = ExtResource("2_hvmm2")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+bbcode_enabled = true
+text = "Cameron
+"
+scroll_active = false
+
+[node name="Dialogue Text" type="RichTextLabel" parent="Background"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 20.0
+offset_right = 416.0
+offset_bottom = 60.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_hvmm2")
+theme_override_fonts/bold_font = ExtResource("2_hvmm2")
+theme_override_fonts/bold_italics_font = ExtResource("2_hvmm2")
+theme_override_fonts/italics_font = ExtResource("2_hvmm2")
+theme_override_fonts/mono_font = ExtResource("2_hvmm2")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
+scroll_active = false
+
+[node name="Speaker Icon" type="Sprite2D" parent="Background"]
+position = Vector2(36, 36)
+texture = ExtResource("3_p0wdv")
