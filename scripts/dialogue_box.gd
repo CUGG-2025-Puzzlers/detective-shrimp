@@ -16,6 +16,12 @@ var text_speed: int = NORMAL_TEXT_SPEED
 func _ready() -> void:
 	displayText("Joseph", "Testing, testing, 1..2..3..")
 
+func open() -> void:
+	visible = true
+	
+func close() -> void:
+	visible = false
+
 func displayText(speaker_name: String, dialogue: String) -> void:
 	speaker.set_text(speaker_name)
 	text.clear()
