@@ -34,8 +34,10 @@ func displayText(speaker_name: String, dialogue: String) -> void:
 	speaker.set_text(speaker_name)
 	text.clear()
 	
+	GameEvents.dialogue_started.emit()
 	for c in dialogue:
 		text.add_text(c)
 		for i in range(text_speed):
 			await Engine.get_main_loop().process_frame
+	GameEvents.dialogue_ended.emit()
 	typing = false
