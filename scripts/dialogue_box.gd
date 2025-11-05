@@ -11,6 +11,7 @@ const NORMAL_TEXT_SPEED = 45
 const SLOW_TEXT_SPEED = 60
 
 var text_speed: int = NORMAL_TEXT_SPEED
+var typing: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +27,10 @@ func close() -> void:
 	visible = false
 
 func displayText(speaker_name: String, dialogue: String) -> void:
+	if (typing || !visible):
+		return
+	
+	typing = true
 	speaker.set_text(speaker_name)
 	text.clear()
 	
@@ -33,3 +38,4 @@ func displayText(speaker_name: String, dialogue: String) -> void:
 		text.add_text(c)
 		for i in range(text_speed):
 			await Engine.get_main_loop().process_frame
+	typing = false
