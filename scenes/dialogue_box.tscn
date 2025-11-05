@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://df56glnmpcbej"]
+[gd_scene load_steps=5 format=3 uid="uid://df56glnmpcbej"]
 
+[ext_resource type="Script" uid="uid://co0iu57gta684" path="res://scripts/dialogue_box.gd" id="1_hvmm2"]
 [ext_resource type="Texture2D" uid="uid://b3txqamkair0f" path="res://assets/ui/dialogue_backgroung.png" id="1_tm68y"]
 [ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://assets/ui/m5x7.ttf" id="2_hvmm2"]
 [ext_resource type="Texture2D" uid="uid://cgyimct3i3kis" path="res://assets/characters/Cameron_Icon.png" id="3_p0wdv"]
@@ -11,6 +12,9 @@ offset_left = -216.0
 offset_top = -36.0
 offset_right = 216.0
 offset_bottom = 36.0
+script = ExtResource("1_hvmm2")
+speaker_title_node = NodePath("Background/Title Background/Speaker Title")
+dialogue_text_node = NodePath("Background/Dialogue Text")
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 0
