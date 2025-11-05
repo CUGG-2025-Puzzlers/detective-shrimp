@@ -14,7 +14,10 @@ var text_speed: int = NORMAL_TEXT_SPEED
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	displayText("Joseph", "Testing, testing, 1..2..3..")
+	GameEvents.dialogue_opened.connect(open)
+	GameEvents.dialogue_closed.connect(close)
+	GameEvents.dialogue.connect(displayText)
+	close()
 
 func open() -> void:
 	visible = true
