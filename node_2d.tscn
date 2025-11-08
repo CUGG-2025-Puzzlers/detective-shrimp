@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://k5um4plprs76"]
+
+[ext_resource type="Script" uid="uid://cl1pnl10x8jml" path="res://wire_1.gd" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Wire1" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+script = ExtResource("1_wtcfe")
+
+[node name="Button" type="Button" parent="Wire1"]
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+mouse_filter = 1
+icon_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="button_down" from="Wire1/Button" to="Wire1" method="_on_button_button_down"]
+[connection signal="button_up" from="Wire1/Button" to="Wire1" method="_on_button_button_up"]
