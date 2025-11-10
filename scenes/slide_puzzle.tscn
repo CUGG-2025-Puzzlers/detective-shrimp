@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://l5rnkr1rcvun"]
+
+[ext_resource type="Script" uid="uid://b18mg5dobt73m" path="res://scripts/slide_board.gd" id="1_8cgnj"]
+
+[node name="Slide Puzzle" type="Node2D"]
+
+[node name="Board" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_8cgnj")
