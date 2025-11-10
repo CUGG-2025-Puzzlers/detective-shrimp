@@ -8,3 +8,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		on_mouse_down(event.position)
+
+func on_mouse_down(pos):
+	print(pos.x, ",",pos.y)
