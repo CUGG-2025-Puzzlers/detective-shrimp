@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf8xoru5eg3vr"]
+
+[ext_resource type="Script" uid="uid://bripj1obpu7od" path="res://scenes/ray_cast_2d.gd" id="1_apstt"]
+[ext_resource type="Script" uid="uid://dxnh4rum8udw8" path="res://scenes/light_source.gd" id="1_nk2lv"]
+[ext_resource type="Texture2D" uid="uid://decdy672cx1ug" path="res://assets/ui/topdown-player.svg" id="3_vtulw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nk2lv"]
+radius = 3.0
+
+[node name="LightBendingPuzzle" type="Node2D"]
+
+[node name="LightSource" type="Area2D" parent="."]
+disable_mode = 2
+script = ExtResource("1_nk2lv")
+
+[node name="RayCast2D" type="RayCast2D" parent="LightSource"]
+target_position = Vector2(67, 0)
+script = ExtResource("1_apstt")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="LightSource/RayCast2D"]
+visible = false
+
+[node name="Line2D" type="Line2D" parent="LightSource"]
+scale = Vector2(0.88461536, 1)
+points = PackedVector2Array(0, 0, 22, 0)
+width = 1.0
+default_color = Color(0.7882657, 0.93940043, 1, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="LightSource"]
+scale = Vector2(0.06250001, 0.062499993)
+texture = ExtResource("3_vtulw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightSource"]
+shape = SubResource("CircleShape2D_nk2lv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
