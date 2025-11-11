@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf8xoru5eg3vr"]
+[gd_scene load_steps=7 format=3 uid="uid://cf8xoru5eg3vr"]
 
 [ext_resource type="Script" uid="uid://bripj1obpu7od" path="res://scenes/ray_cast_2d.gd" id="1_apstt"]
 [ext_resource type="Script" uid="uid://dxnh4rum8udw8" path="res://scenes/light_source.gd" id="1_nk2lv"]
 [ext_resource type="Texture2D" uid="uid://decdy672cx1ug" path="res://assets/ui/topdown-player.svg" id="3_vtulw"]
+[ext_resource type="Texture2D" uid="uid://dqrngw1qgr7kr" path="res://assets/ui/glowing_circle.png" id="4_vtulw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nk2lv"]
 radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nk2lv"]
+size = Vector2(6, 20)
 
 [node name="LightBendingPuzzle" type="Node2D"]
 
@@ -37,3 +41,31 @@ shape = SubResource("CircleShape2D_nk2lv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+modulate = Color(0.93415105, 0, 0.2010853, 1)
+position = Vector2(36, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+modulate = Color(0.7230451, 0, 0.30759415, 1)
+shape = SubResource("RectangleShape2D_nk2lv")
+debug_color = Color(0.9174209, 0.088295914, 0.66695297, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.2754237, 1)
+texture = ExtResource("4_vtulw")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+modulate = Color(0.93415105, 0, 0.2010853, 1)
+position = Vector2(36, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+modulate = Color(0.7230451, 0, 0.30759415, 1)
+position = Vector2(-59, 18)
+shape = SubResource("RectangleShape2D_nk2lv")
+debug_color = Color(0.9174209, 0.088295914, 0.66695297, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(-59, 18)
+scale = Vector2(0.2754237, 1)
+texture = ExtResource("4_vtulw")
