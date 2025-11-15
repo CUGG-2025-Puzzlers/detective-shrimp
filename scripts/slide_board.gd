@@ -27,6 +27,16 @@ func _input(event: InputEvent) -> void:
 func on_mouse_down(pos):
 	print(pos.x, ",",pos.y)
 
+# Hide an out of bounds piece and print a message
+func hide_oob(piece):
+	print (piece.name, " is out of bounds, hiding it")
+	piece.visible = false
+
+# Hide an overlapping piece and print a message
+func hide_overlap(piece):
+	print("Cannot place ", piece.name, " on top of another piece, hiding it instead")
+	piece.visible = false
+
 func print_board() -> void:
 	for i in range(board_size.x):
 		var row = ""
