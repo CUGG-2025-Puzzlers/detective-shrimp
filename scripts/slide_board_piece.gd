@@ -1,5 +1,5 @@
 class_name SlideBoardPiece
-extends Control
+extends TextureRect
 
 @export var identifier: int
 
