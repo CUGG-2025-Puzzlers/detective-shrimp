@@ -14,7 +14,14 @@ const FILLER_2x2 = 9
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	board = []
+	board.resize(board_size.x * board_size.y)
+	board.fill(0)
+	
+	set_up_board()
+	
+	print("\nBoard:")
+	print_board()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
