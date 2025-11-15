@@ -26,3 +26,10 @@ func _input(event: InputEvent) -> void:
 
 func on_mouse_down(pos):
 	print(pos.x, ",",pos.y)
+
+func print_board() -> void:
+	for i in range(board_size.x):
+		var row = ""
+		for j in range(board_size.y):
+			row += str(board[i * board_size.x + j]) + " "
+		print(row)
