@@ -31,8 +31,13 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		on_mouse_down(event.position)
 
-func on_mouse_down(pos):
-	print(pos.x, ",",pos.y)
+func on_mouse_down(pos) -> void:
+	var clicked_cell: Vector2i = (pos - global_position) / tile_size
+	if (clicked_cell.x < 0 || clicked_cell.x >= board_size.x 
+	|| clicked_cell.y < 0 || clicked_cell.y >= board_size.y):
+		return
+	
+	print("Clicked cell (", clicked_cell.x, ", ", clicked_cell.y, ")")
 
 func set_up_board() -> void:
 	# Loop through children and fill in their positions with their identifiers
