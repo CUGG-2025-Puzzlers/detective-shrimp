@@ -2,7 +2,7 @@ extends Line2D
 
 var dragging = false
 var hovered_panel = null
-@onready var button = get_node("Button1") 
+@onready var button = get_node("Button2") 
 var origin
 var connected_panel = null
 
@@ -32,6 +32,7 @@ func _on_button_button_up():
 	connected_panel = hovered_panel
 	get_node("../Gate1").check_state()
 
+
 func _on_end_panel_1_mouse_entered():
 	hovered_panel = get_node("../Gate1/EndPanel1")
 
@@ -41,5 +42,5 @@ func _on_end_panel_1_mouse_exited():
 func _on_end_panel_2_mouse_entered():
 	hovered_panel = get_node("../Gate1/EndPanel2")
 
-func _on_end_panel_2_mouse_exited() -> void:
+func _on_end_panel_2_mouse_exited():
 	hovered_panel = null

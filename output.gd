@@ -2,20 +2,24 @@ extends Line2D
 
 var dragging = false
 var hovered_panel = null
-@onready var button = get_node("Button1") 
+@onready var button = get_node("Button") 
 var origin
 var connected_panel = null
+var gate
 
 func _ready():
-	origin = position
+	gate = get_parent()
+	origin = position + gate.position
 	print(origin)
-	set_meta("state", true)
+	set_meta("state", gate.get_meta("state"))
 
 func _process(delta):
 	if dragging:
 		set_point_position(1,get_global_mouse_position() - origin)
 	
 func _on_button_button_down():
+	set_meta("state", gate.get_meta("state"))
+	print(get_meta("state"))
 	dragging = true
 
 func _on_button_button_up():
@@ -30,16 +34,16 @@ func _on_button_button_up():
 		hovered_panel.set_meta("state", get_meta("state"));
 	button.position = get_point_position(1)
 	connected_panel = hovered_panel
-	get_node("../Gate1").check_state()
+
 
 func _on_end_panel_1_mouse_entered():
 	hovered_panel = get_node("../Gate1/EndPanel1")
 
 func _on_end_panel_1_mouse_exited():
 	hovered_panel = null
-		
+
 func _on_end_panel_2_mouse_entered():
 	hovered_panel = get_node("../Gate1/EndPanel2")
 
-func _on_end_panel_2_mouse_exited() -> void:
+func _on_end_panel_2_mouse_exited():
 	hovered_panel = null
