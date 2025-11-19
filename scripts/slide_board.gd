@@ -153,6 +153,10 @@ func hide_overlap(piece):
 
 #region Piece Movement
 
+func move_texture(start_index: int, end_index: int):
+	var cell = Vector2i(end_index % board_size.x, end_index / board_size.x)
+	pieces[start_index].position = cell * tile_size
+
 #endregion
 
 #region Position Checks
