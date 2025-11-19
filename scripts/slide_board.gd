@@ -84,6 +84,7 @@ func set_up_1x1(piece: SlideBoardPiece, index: int):
 		hide_overlap(piece)
 		return
 	
+	pieces[index] = piece
 	board[index] = INDICATOR_1x1
 
 # Attempts to add a square piece that is 1 tall and 2 wide
@@ -98,6 +99,7 @@ func set_up_1x2(piece: SlideBoardPiece, index: int):
 		hide_overlap(piece)
 		return
 	
+	pieces[index] = piece
 	board[index] = INDICATOR_1x2
 	board[index + 1] = FILLER_1x2
 
@@ -113,6 +115,7 @@ func set_up_2x1(piece: SlideBoardPiece, index: int):
 		hide_overlap(piece)
 		return
 	
+	pieces[index] = piece
 	board[index] = INDICATOR_2x1
 	board[index + board_size.x] = FILLER_2x1
 
@@ -128,6 +131,7 @@ func set_up_2x2(piece: SlideBoardPiece, index: int):
 		hide_overlap(piece)
 		return
 	
+	pieces[index] = piece
 	board[index] = INDICATOR_2x2
 	board[index + 1] = FILLER_2x2
 	board[index + board_size.x] = FILLER_2x2
