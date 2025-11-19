@@ -18,6 +18,8 @@ const FILLER_2x2 = 9
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SlidePuzzleEvents.selected_direction.connect(on_selected_direction)
+	
 	board = []
 	board.resize(board_size.x * board_size.y)
 	board.fill(0)
@@ -30,11 +32,16 @@ func _ready() -> void:
 	print("\nBoard:")
 	print_board()
 
+#region Event Handlers
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		on_mouse_down(event.position)
 
 func on_mouse_down(pos) -> void:
+	if choosing_direction:
+		return
+	
 	var clicked_cell: Vector2i = (pos - global_position) / tile_size
 	if (clicked_cell.x < 0 || clicked_cell.x >= board_size.x 
 	|| clicked_cell.y < 0 || clicked_cell.y >= board_size.y):
@@ -47,6 +54,23 @@ func on_mouse_down(pos) -> void:
 		return
 	
 	try_move_piece(get_indicator_index(clicked_index))
+
+func on_selected_direction(pos: Vector2, direction: Globals.Direction) -> void:
+	var cell: Vector2i = (pos - position) / tile_size
+	var index = cell.y * board_size.x + cell.x
+	
+	hide_directional_arrows()
+	match direction:
+		Globals.Direction.Left:
+			move_piece_left(index)
+		Globals.Direction.Right:
+			move_piece_right(index)
+		Globals.Direction.Up:
+			move_piece_up(index)
+		Globals.Direction.Down:
+			move_piece_down(index)
+
+#endregion
 
 #region Board Setup
 
