@@ -231,7 +231,8 @@ func try_move_piece(index: int) -> void:
 		return
 	
 	# Multiple possible moves, ask user
-	print("This piece can move in multiple directions... NYI")
+	choosing_direction = true
+	show_directional_arrows(index, possible_moves)
 
 # Moves the piece up, updates the board and pieces arrays
 func move_piece_up(index: int):
