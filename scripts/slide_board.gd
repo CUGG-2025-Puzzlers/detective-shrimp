@@ -426,6 +426,7 @@ func can_move_down(index: int) -> bool:
 
 #endregion
 
+# Prints the board to the console as a 2D array
 func print_board() -> void:
 	for i in range(board_size.x):
 		var row = ""
