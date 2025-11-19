@@ -45,6 +45,12 @@ func on_mouse_down(pos) -> void:
 		return
 	
 	print("Clicked cell (", clicked_cell.x, ", ", clicked_cell.y, ")")
+	var clicked_index = clicked_cell.y * board_size.x + clicked_cell.x
+	if board[clicked_index] == 0:
+		print("Clicked on nothing")
+		return
+	
+	try_move_piece(get_indicator_index(clicked_index))
 
 #region Board Setup
 
