@@ -153,6 +153,110 @@ func hide_overlap(piece):
 
 #region Piece Movement
 
+# Moves the piece up, updates the board and pieces arrays
+func move_piece_up(index: int):
+	match pieces[index].piece_type:
+		SlideBoardPiece.PieceType.OneByOne:
+			board[index - board_size.x] = INDICATOR_1x1
+			board[index] = INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.OneByTwo:
+			board[index - board_size.x] = INDICATOR_1x2
+			board[index - board_size.x + 1] = FILLER_1x2
+			board[index] = INDICATOR_EMPTY
+			board[index + 1] = INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByOne:
+			board[index - board_size.x] = INDICATOR_2x1
+			board[index] = FILLER_2x1
+			board[index + board_size.x] = INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByTwo:
+			board[index - board_size.x] = INDICATOR_2x2
+			board[index - board_size.x + 1] = FILLER_2x2
+			board[index] = FILLER_2x2
+			board[index + board_size.x] = INDICATOR_EMPTY
+			board[index + board_size.x + 1] = INDICATOR_EMPTY
+	
+	move_texture(index, index - board_size.x)
+	pieces[index - board_size.x] = pieces[index];
+	pieces[index] = null
+
+# Moves the piece down, updates the board and pieces arrays
+func move_piece_down(index: int):
+	match pieces[index].piece_type:
+		SlideBoardPiece.PieceType.OneByOne:
+			board[index + board_size.x] = INDICATOR_1x1
+			board[index] = INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.OneByTwo:
+			board[index + board_size.x] = INDICATOR_1x2
+			board[index + board_size.x + 1] = FILLER_1x2
+			board[index] = INDICATOR_EMPTY
+			board[index + 1] = INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByOne:
+			board[index + board_size.x] = INDICATOR_2x1
+			board[index + 2 * board_size.x] = FILLER_2x1
+			board[index] = INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByTwo:
+			board[index + board_size.x] = INDICATOR_2x2
+			board[index + 2 * board_size.x] = FILLER_2x2
+			board[index + 2 * board_size.x + 1] = FILLER_2x2
+			board[index] = INDICATOR_EMPTY
+			board[index + 1] = INDICATOR_EMPTY
+	
+	move_texture(index, index + board_size.x)
+	pieces[index + board_size.x] = pieces[index];
+	pieces[index] = null
+
+# Moves the piece left, updates the board and pieces arrays
+func move_piece_left(index: int):
+	match pieces[index].piece_type:
+		SlideBoardPiece.PieceType.OneByOne:
+			board[index - 1] = INDICATOR_1x1
+			board[index] = INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.OneByTwo:
+			board[index - 1] = INDICATOR_1x2
+			board[index] = FILLER_1x2
+			board[index + 1] = INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByOne:
+			board[index - 1] = INDICATOR_2x1
+			board[index + board_size.x - 1] = FILLER_2x1
+			board[index] = INDICATOR_EMPTY
+			board[index + board_size.x] = INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByTwo:
+			board[index - 1] = INDICATOR_2x2
+			board[index] = FILLER_2x2
+			board[index + board_size.x - 1] = FILLER_2x2
+			board[index + 1] = INDICATOR_EMPTY
+			board[index + board_size.x + 1] = INDICATOR_EMPTY
+	
+	move_texture(index, index - 1)
+	pieces[index - 1] = pieces[index];
+	pieces[index] = null
+
+# Moves the piece right, updates the board and pieces arrays
+func move_piece_right(index: int):
+	match pieces[index].piece_type:
+		SlideBoardPiece.PieceType.OneByOne:
+			board[index + 1] = INDICATOR_1x1
+			board[index] = INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.OneByTwo:
+			board[index + 1] = INDICATOR_1x2
+			board[index + 2] = FILLER_1x2
+			board[index] = INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByOne:
+			board[index + 1] = INDICATOR_2x1
+			board[index + board_size.x + 1] = FILLER_2x1
+			board[index] = INDICATOR_EMPTY
+			board[index + board_size.x] = INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByTwo:
+			board[index + 1] = INDICATOR_2x2
+			board[index + 2] = FILLER_2x2
+			board[index + board_size.x + 2] = FILLER_2x2
+			board[index] = INDICATOR_EMPTY
+			board[index + board_size.x] = INDICATOR_EMPTY
+	
+	move_texture(index, index + 1)
+	pieces[index + 1] = pieces[index];
+	pieces[index] = null
+
 func move_texture(start_index: int, end_index: int):
 	var cell = Vector2i(end_index % board_size.x, end_index / board_size.x)
 	pieces[start_index].position = cell * tile_size
