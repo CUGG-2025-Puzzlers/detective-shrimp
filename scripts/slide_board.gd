@@ -30,10 +30,6 @@ func _ready() -> void:
 	print("\nBoard:")
 	print_board()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		on_mouse_down(event.position)
