@@ -157,6 +157,59 @@ func hide_overlap(piece):
 
 #region Position Checks
 
+func get_indicator_index(clicked_index: int) -> int:
+	if board[clicked_index] == 0:
+		return -1
+		
+	if board[clicked_index] in [INDICATOR_1x1, INDICATOR_1x2, INDICATOR_2x1, INDICATOR_2x2]:
+		return clicked_index
+	
+	match board[clicked_index]:
+		FILLER_1x2:
+			return clicked_index - 1
+		FILLER_2x1:
+			return clicked_index - board_size.x
+		FILLER_2x2:
+			if board[clicked_index - 1] == INDICATOR_2x2:
+				return clicked_index - 1
+			if board[clicked_index - board_size.x] == INDICATOR_2x2:
+				return clicked_index - board_size.x
+			if board[clicked_index - board_size.x - 1] == INDICATOR_2x2:
+				return clicked_index - board_size.x - 1
+			
+			return -1
+		_:
+			return -1
+	
+
+# Checks if the piece is touching the left edge of the board
+func touching_left_edge(index: int) -> bool:
+	return index % 5 == 0
+
+# Checks if the piece is touching the right edge of the board
+func touching_right_edge(index: int) -> bool:
+	match pieces[index].piece_type:
+		SlideBoardPiece.PieceType.OneByOne, SlideBoardPiece.PieceType.TwoByOne:
+			return (index + 1) % 5 == 0
+		SlideBoardPiece.PieceType.OneByTwo, SlideBoardPiece.PieceType.TwoByTwo:
+			return (index + 2) % 5 == 0
+		_:
+			return false
+
+# Checks if the piece is touching the top edge of the board
+func touching_top_edge(index: int) -> bool:
+	return index < board_size.x
+
+# Checks if the piece is touching the bottom edge of the board
+func touching_bottom_edge(index: int) -> bool:
+	match pieces[index].piece_type:
+		SlideBoardPiece.PieceType.OneByOne, SlideBoardPiece.PieceType.OneByTwo:
+			return index + board_size.x >= board.size()
+		SlideBoardPiece.PieceType.TwoByOne, SlideBoardPiece.PieceType.TwoByTwo:
+			return index + 2 * board_size.x >= board.size()
+		_:
+			return false
+
 #endregion
 
 func print_board() -> void:
