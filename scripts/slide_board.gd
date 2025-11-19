@@ -165,3 +165,10 @@ func print_board() -> void:
 		for j in range(board_size.y):
 			row += str(board[i * board_size.x + j]) + " "
 		print(row)
+
+enum Direction {
+	Left,
+	Right,
+	Up,
+	Down,
+}
