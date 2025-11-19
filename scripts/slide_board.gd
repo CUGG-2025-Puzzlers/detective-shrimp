@@ -3,6 +3,7 @@ extends Control
 @export var board_size: Vector2i
 @export var tile_size: int
 @onready var board: Array[int]
+@onready var pieces: Array[SlideBoardPiece]
 
 const INDICATOR_EMPTY = 0
 const INDICATOR_GOAL = 1
@@ -20,6 +21,9 @@ func _ready() -> void:
 	board = []
 	board.resize(board_size.x * board_size.y)
 	board.fill(0)
+	
+	pieces = []
+	pieces.resize(board_size.x * board_size.y)
 	
 	set_up_board()
 	
