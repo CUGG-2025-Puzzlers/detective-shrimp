@@ -179,6 +179,20 @@ func hide_overlap(piece):
 
 #region Piece Movement
 
+# Displays the appropriate movement arrows around a selected piece
+func show_directional_arrows(index: int, directions: Array[Globals.Direction]) -> void:
+	await Engine.get_main_loop().process_frame
+	
+	var pos = Vector2i(index % board_size.x, index / board_size.x)
+	directional_arrows.position = pos * tile_size
+	directional_arrows.show_arrows(directions)
+
+# Hides the movement arrows
+func hide_directional_arrows() -> void:
+	choosing_direction = false
+	directional_arrows.hide_arrows()
+	pass
+
 # Checks if the piece at the given position can be moved in any direction
 # If no possible moves, does nothing
 # If only one possible move, does that move
