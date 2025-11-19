@@ -4,6 +4,9 @@ extends Control
 @export var tile_size: int
 @onready var board: Array[int]
 
+const INDICATOR_EMPTY = 0
+const INDICATOR_GOAL = 1
+const INDICATOR_KEY = 2
 const INDICATOR_1x1 = 3
 const INDICATOR_1x2 = 4
 const FILLER_1x2 = 5
