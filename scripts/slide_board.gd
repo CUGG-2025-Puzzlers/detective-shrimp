@@ -164,17 +164,17 @@ func hide_overlap(piece):
 # If only one possible move, does that move
 # If multiple possible moves, asks the user to choose a direction
 func try_move_piece(index: int) -> void:
-	var possible_moves = []
+	var possible_moves: Array[Globals.Direction] = []
 	
 	# Check each direction for possible movement
 	if can_move_down(index):
-		possible_moves.append(Direction.Down)
+		possible_moves.append(Globals.Direction.Down)
 	if can_move_left(index):
-		possible_moves.append(Direction.Left)
+		possible_moves.append(Globals.Direction.Left)
 	if can_move_up(index):
-		possible_moves.append(Direction.Up)
+		possible_moves.append(Globals.Direction.Up)
 	if can_move_right(index):
-		possible_moves.append(Direction.Right)
+		possible_moves.append(Globals.Direction.Right)
 	
 	# No possible moves, do nothing
 	if possible_moves.size() == 0:
@@ -184,13 +184,13 @@ func try_move_piece(index: int) -> void:
 	# Only one possible move, do it
 	if possible_moves.size() == 1:
 		match possible_moves[0]:
-			Direction.Up:
+			Globals.Direction.Up:
 				move_piece_up(index)
-			Direction.Down:
+			Globals.Direction.Down:
 				move_piece_down(index)
-			Direction.Left:
+			Globals.Direction.Left:
 				move_piece_left(index)
-			Direction.Right:
+			Globals.Direction.Right:
 				move_piece_right(index)
 		
 		print_board()
@@ -433,10 +433,3 @@ func print_board() -> void:
 		for j in range(board_size.y):
 			row += str(board[i * board_size.x + j]) + " "
 		print(row)
-
-enum Direction {
-	Left,
-	Right,
-	Up,
-	Down,
-}
