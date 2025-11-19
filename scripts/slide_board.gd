@@ -46,6 +46,8 @@ func on_mouse_down(pos) -> void:
 	
 	print("Clicked cell (", clicked_cell.x, ", ", clicked_cell.y, ")")
 
+#region Board Setup
+
 func set_up_board() -> void:
 	# Loop through children and fill in their positions with their identifiers
 	var children = get_children()
@@ -146,6 +148,16 @@ func hide_oob(piece):
 func hide_overlap(piece):
 	print("Cannot place ", piece.name, " on top of another piece, hiding it instead")
 	piece.visible = false
+
+#endregion
+
+#region Piece Movement
+
+#endregion
+
+#region Position Checks
+
+#endregion
 
 func print_board() -> void:
 	for i in range(board_size.x):
