@@ -1,10 +1,14 @@
+class_name SlideBoard
 extends Control
 
 @export var board_size: Vector2i
 @export var tile_size: int
+@export var directional_arrows: DirectionalArrows
+
 @onready var board: Array[int]
 @onready var pieces: Array[SlideBoardPiece]
 
+var choosing_direction = false
 const INDICATOR_EMPTY = 0
 const INDICATOR_GOAL = 1
 const INDICATOR_KEY = 2
@@ -23,13 +27,13 @@ func _ready() -> void:
 	board = []
 	board.resize(board_size.x * board_size.y)
 	board.fill(0)
+	size = board_size * tile_size
 	
 	pieces = []
 	pieces.resize(board_size.x * board_size.y)
 	
+	directional_arrows.hide_arrows()
 	set_up_board()
-	
-	print("\nBoard:")
 	print_board()
 
 #region Event Handlers
@@ -463,6 +467,7 @@ func can_move_down(index: int) -> bool:
 
 # Prints the board to the console as a 2D array
 func print_board() -> void:
+	print("Board State:")
 	for i in range(board_size.x):
 		var row = ""
 		for j in range(board_size.y):
