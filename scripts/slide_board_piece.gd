@@ -8,4 +8,5 @@ enum PieceType {
 	OneByTwo,
 	TwoByOne,
 	TwoByTwo,
+	PuzzleKey,
 }
