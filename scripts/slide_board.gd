@@ -210,6 +210,66 @@ func touching_bottom_edge(index: int) -> bool:
 		_:
 			return false
 
+# Checks if the piece can move left
+func can_move_left(index: int) -> bool:
+	if touching_left_edge(index):
+		return false
+	
+	match pieces[index].piece_type:
+		SlideBoardPiece.PieceType.OneByOne, SlideBoardPiece.PieceType.OneByTwo:
+			return board[index - 1] == INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByOne, SlideBoardPiece.PieceType.TwoByTwo:
+			return board[index - 1] == INDICATOR_EMPTY && board[index + board_size.x - 1] == INDICATOR_EMPTY
+		_:
+			return false
+
+# Checks if the piece can move right
+func can_move_right(index: int) -> bool:
+	if touching_right_edge(index):
+		return false
+	
+	match pieces[index].piece_type:
+		SlideBoardPiece.PieceType.OneByOne:
+			return board[index + 1] == INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.OneByTwo:
+			return board[index + 2] == INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByOne:
+			return board[index + 1] == INDICATOR_EMPTY && board[index + board_size.x + 1] == INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByTwo:
+			return board[index + 2] == INDICATOR_EMPTY && board[index + board_size.x + 2] == INDICATOR_EMPTY
+		_:
+			return false
+
+# Checks if the piece can move up
+func can_move_up(index: int) -> bool:
+	if touching_top_edge(index):
+		return false
+	
+	match pieces[index].piece_type:
+		SlideBoardPiece.PieceType.OneByOne, SlideBoardPiece.PieceType.TwoByOne:
+			return board[index - board_size.x] == INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.OneByTwo, SlideBoardPiece.PieceType.TwoByTwo:
+			return board[index - board_size.x] == INDICATOR_EMPTY && board[index + 1 - board_size.x] == INDICATOR_EMPTY
+		_:
+			return false
+
+# Checks if the piece can move down
+func can_move_down(index: int) -> bool:
+	if touching_bottom_edge(index):
+		return false
+	
+	match pieces[index].piece_type:
+		SlideBoardPiece.PieceType.OneByOne:
+			return board[index + board_size.x] == INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.OneByTwo:
+			return board[index + board_size.x] == INDICATOR_EMPTY && board[index + board_size.x + 1] == INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByOne:
+			return board[index + 2 * board_size.x] == INDICATOR_EMPTY
+		SlideBoardPiece.PieceType.TwoByTwo:
+			return board[index + 2 * board_size.x] == INDICATOR_EMPTY && board[index + 2 * board_size.x + 1] == INDICATOR_EMPTY
+		_:
+			return false
+
 #endregion
 
 func print_board() -> void:
