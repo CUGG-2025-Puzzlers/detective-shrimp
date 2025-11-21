@@ -46,12 +46,12 @@ visible = false
 scale = Vector2(0.88461536, 1)
 points = PackedVector2Array(0, 0, 22, 0)
 width = 1.0
-default_color = Color(0.7882657, 0.93940043, 1, 1)
+default_color = Color(1, 0.8745098, 0.13333334, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="LightSource"]
-modulate = Color(1, 1, 0.3647059, 1)
+modulate = Color(1, 0.8745098, 0.13333334, 1)
 scale = Vector2(0.4, 0.395)
 texture = ExtResource("2_imgww")
 
