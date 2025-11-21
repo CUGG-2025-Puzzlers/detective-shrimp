@@ -44,14 +44,14 @@ func can_move_up(board: Array[int], board_width: int) -> bool:
 	return false
 
 func can_move_right(board: Array[int], board_width: int) -> bool:
-	if (index + 1) % board_width != 0:
+	if (index + 2) % board_width != 0:
 		return (board[index + 2] == Globals.SlidePuzzleValues.Empty and
 				board[index + board_width + 2] == Globals.SlidePuzzleValues.Empty)
 	
 	return false
 
 func can_move_down(board: Array[int], board_width: int) -> bool:
-	if index + board_width < board.size():
+	if index + 2 * board_width < board.size():
 		return (board[index + 2 * board_width] == Globals.SlidePuzzleValues.Empty and
 				board[index + 2 * board_width + 1] == Globals.SlidePuzzleValues.Empty)
 	
