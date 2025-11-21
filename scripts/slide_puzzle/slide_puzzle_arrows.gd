@@ -21,6 +21,9 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 			_on_mouse_down()
 
+func _on_mouse_down():
+	pass
+
 func show_arrows(directions: Array[Globals.Direction]) -> void:
 	shown = true
 	for direction in directions:
