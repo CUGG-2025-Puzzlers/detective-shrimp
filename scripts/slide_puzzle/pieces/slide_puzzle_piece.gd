@@ -66,13 +66,16 @@ func _on_selected_direction(direction: Globals.Direction) -> void:
 	SlidePuzzleEvents.selected_direction.disconnect(_on_selected_direction)
 
 func _on_piece_clicked() -> void:
-	SlidePuzzleEvents.selected_direction.disconnect(_on_selected_direction)
+	if SlidePuzzleEvents.selected_direction.is_connected(_on_selected_direction):
+		SlidePuzzleEvents.selected_direction.disconnect(_on_selected_direction)
 
 func _on_hid_directions() -> void:
-	SlidePuzzleEvents.selected_direction.disconnect(_on_selected_direction)
+	if SlidePuzzleEvents.selected_direction.is_connected(_on_selected_direction):
+		SlidePuzzleEvents.selected_direction.disconnect(_on_selected_direction)
 
 func _on_requested_directions() -> void:
-	SlidePuzzleEvents.selected_direction.disconnect(_on_selected_direction)
+	if SlidePuzzleEvents.selected_direction.is_connected(_on_selected_direction):
+		SlidePuzzleEvents.selected_direction.disconnect(_on_selected_direction)
 
 func try_move_piece(board: Array[int], board_width: int) -> void:
 	var possible_moves = get_possible_moves(board, board_width)
