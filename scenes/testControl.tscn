@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://dljux3j3i8nt2"]
+
+[ext_resource type="Script" path="res://scripts/testControl.gd" id="1_5842w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r7yw2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5842w"]
+bg_color = Color(1, 0.55, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.08625444, 0.0052685016, 0, 0.70980394)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frdaq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyyl6"]
+bg_color = Color(1, 0.40000004, 0, 0.40392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icvbs"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixpn6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncu16"]
+bg_color = Color(1, 0.40000004, 0, 0.40392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xky3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.21, 0.065100014, 0.021000003, 0.8627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpd2m"]
+bg_color = Color(1, 0.40000004, 0, 0.40392157)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.21, 0.065100014, 0.021000003, 0.8627451)
+
+[node name="testControl" type="Node2D"]
+script = ExtResource("1_5842w")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 35.0
+offset_bottom = 45.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_r7yw2")
+
+[node name="HoverRect" type="Panel" parent="Control/Button"]
+layout_mode = 0
+offset_right = 35.0
+offset_bottom = 45.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5842w")
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -51.0
+offset_top = 22.0
+offset_right = -33.0
+offset_bottom = 48.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_frdaq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kyyl6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_icvbs")
+
+[node name="hover" type="Button" parent="."]
+custom_minimum_size = Vector2(9, 14)
+offset_left = -20.0
+offset_top = -14.0
+offset_right = -11.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ixpn6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ncu16")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3xky3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vpd2m")
+
+[connection signal="mouse_entered" from="Control/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

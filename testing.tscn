@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://dx0oauj37uikt"]
+
+[ext_resource type="Script" uid="uid://dxe1mk0verpau" path="res://scripts/letter_slot_1.gd" id="1_feb8i"]
+[ext_resource type="PackedScene" uid="uid://lpkbd7fmqk8y" path="res://scenes/camera_2d.tscn" id="2_kj3p2"]
+[ext_resource type="FontFile" uid="uid://dp421ommw2lqx" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_lc7k4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wh6d8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uex03"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uex03"]
+bg_color = Color(0.67, 0.67, 0.67, 0.21176471)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1t3q"]
+bg_color = Color(1, 0.40000004, 0, 0.40392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjeiq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.21, 0.065100014, 0.021000003, 0.8627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y80c"]
+bg_color = Color(1, 0.40000004, 0, 0.44313726)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.21, 0.065100014, 0.021000003, 0.8627451)
+
+[node name="LetterSlot" type="Control"]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -86.0
+offset_top = -104.0
+offset_right = -73.0
+offset_bottom = -84.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_feb8i")
+
+[node name="camera_2d" parent="." instance=ExtResource("2_kj3p2")]
+position = Vector2(6.912094, 10.087685)
+
+[node name="LetterIn" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("3_lc7k4")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wh6d8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uex03")
+placeholder_text = "s"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="hover" type="Button" parent="."]
+custom_minimum_size = Vector2(9, 14)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 11.0
+offset_bottom = 20.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_uex03")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y1t3q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qjeiq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7y80c")
+
+[connection signal="pressed" from="hover" to="." method="_on_hover_pressed"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf8o2ue66tkr5"]
+
+[ext_resource type="Script" uid="uid://dxe1mk0verpau" path="res://scripts/letter_slot_1.gd" id="1_11dhy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uex03"]
+bg_color = Color(0.67, 0.67, 0.67, 0.21176471)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1t3q"]
+bg_color = Color(1, 0.40000004, 0, 0.40392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjeiq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.21, 0.065100014, 0.021000003, 0.8627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y80c"]
+bg_color = Color(1, 0.40000004, 0, 0.44313726)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.21, 0.065100014, 0.021000003, 0.8627451)
+
+[node name="LetterSlot" type="Control"]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -86.0
+offset_top = -104.0
+offset_right = -73.0
+offset_bottom = -84.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_11dhy")
+
+[node name="hover" type="Button" parent="."]
+custom_minimum_size = Vector2(9, 14)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 11.0
+offset_bottom = 20.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_uex03")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y1t3q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qjeiq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7y80c")
+
+[connection signal="pressed" from="hover" to="." method="_on_hover_pressed"]

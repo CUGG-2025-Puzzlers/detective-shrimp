@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://ca63dn5xn6ng"]
+[gd_scene load_steps=30 format=4 uid="uid://ca63dn5xn6ng"]
 
 [ext_resource type="PackedScene" uid="uid://lpkbd7fmqk8y" path="res://scenes/camera_2d.tscn" id="1_vas6c"]
 [ext_resource type="Texture2D" uid="uid://1eyj6fdhmafi" path="res://assets/plain paper (texture)/1.png" id="2_lkpnm"]
@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b5trnwyq0iqs2" path="res://assets/plain paper (texture)/7.png" id="7_xoyd6"]
 [ext_resource type="Texture2D" uid="uid://dm12t6gxxsmr7" path="res://assets/plain paper (texture)/4.png" id="8_yodfr"]
 [ext_resource type="Texture2D" uid="uid://cpjbxqnty44a7" path="res://assets/plain paper (texture)/9.png" id="9_tf5m5"]
+[ext_resource type="Script" uid="uid://dlatcfayklgf5" path="res://scripts/puzzle_area.gd" id="10_h7ly7"]
+[ext_resource type="PackedScene" uid="uid://cf8o2ue66tkr5" path="res://scenes/letter_slot.tscn" id="11_6yxq7"]
 [ext_resource type="FontFile" uid="uid://dp421ommw2lqx" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="12_h7ly7"]
-[ext_resource type="Script" uid="uid://dxe1mk0verpau" path="res://scripts/letter_slot_1.gd" id="12_invp3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fhxge"]
 texture = ExtResource("2_lkpnm")
@@ -95,21 +96,16 @@ texture_region_size = Vector2i(28, 28)
 [sub_resource type="TileSet" id="TileSet_hnojf"]
 sources/0 = SubResource("TileSetAtlasSource_lkpnm")
 
+[sub_resource type="FontVariation" id="FontVariation_invp3"]
+base_font = ExtResource("12_h7ly7")
+
 [sub_resource type="FontVariation" id="FontVariation_h7ly7"]
 base_font = ExtResource("12_h7ly7")
 spacing_glyph = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7ly7"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.08625444, 0.0052685016, 0, 0.70980394)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yxq7"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7ly7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_invp3"]
 
 [node name="paper" type="Sprite2D"]
 
@@ -128,57 +124,916 @@ tile_set = SubResource("TileSet_3g63a")
 tile_map_data = PackedByteArray("AAAEAPn/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_hnojf")
 
-[node name="KnownText" type="Label" parent="."]
+[node name="Text" type="Label" parent="."]
 custom_minimum_size = Vector2(16, 16)
-offset_left = -82.0
-offset_top = -109.0
-offset_right = 88.0
-offset_bottom = 229.0
+offset_left = -88.0
+offset_top = -88.0
+offset_right = 97.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 2
+theme_override_fonts/font = SubResource("FontVariation_invp3")
+theme_override_font_sizes/font_size = 8
+text = "Cryptogram: Use the given letters to uncover the missing ones and solve the puzzle......"
+autowrap_mode = 3
+
+[node name="PuzzleArea" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -88.0
+offset_top = -56.0
+offset_right = 82.0
+offset_bottom = 144.0
+script = ExtResource("10_h7ly7")
+
+[node name="Text" type="Label" parent="PuzzleArea"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 169.0
+offset_bottom = 189.0
 theme_override_colors/font_color = Color(0.32, 0.12319999, 0.032000005, 1)
 theme_override_constants/line_spacing = 7
 theme_override_fonts/font = SubResource("FontVariation_h7ly7")
 theme_override_font_sizes/font_size = 8
 text = "
-__th___ _s s_ p____ul t_ th_ hum__ m___ _s _ ____t ___ su____ ch____. Th_ su_ m__ht sh___ __ th_ cl_u_s m__ht l____, _ut __th___ c_ul_ _pp___ t_ m_ _s _t h__ ____ th_ ___ ______. "
+__TH___ _S S_ P____UL T_ TH_ HUM__ M___ _S _ ____T ___ SU____ CH____. "
+horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="LetterSlot1" type="Control" parent="."]
-custom_minimum_size = Vector2(12, 20)
-layout_mode = 3
-anchors_preset = 0
-offset_left = -86.0
-offset_top = -104.0
-offset_right = -73.0
-offset_bottom = -84.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 2
-script = ExtResource("12_invp3")
-
-[node name="MarginContainer" type="MarginContainer" parent="LetterSlot1"]
+[node name="LetterSlot-N" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 4.0
-offset_right = 11.0
-offset_bottom = 18.0
+offset_left = 16.0
+offset_top = 5.0
+offset_right = 29.0
+offset_bottom = 25.0
 
-[node name="HoverRect" type="Panel" parent="LetterSlot1/MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h7ly7")
-
-[node name="LetterIn" type="LineEdit" parent="LetterSlot1"]
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-N"]
 layout_mode = 0
-offset_left = -28.999998
+offset_left = -29.0
 offset_top = -2.0
 offset_right = 43.0
 offset_bottom = 32.0
+mouse_filter = 2
 theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
 theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
 theme_override_fonts/font = ExtResource("12_h7ly7")
 theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxEmpty_6yxq7")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_h7ly7")
-text = "K"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "N"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot_O2" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 5.0
+offset_right = 147.0
+offset_bottom = 25.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot_O2"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "O"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot_O" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 5.0
+offset_right = 38.0
+offset_bottom = 25.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot_O"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "O"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-I" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 5.0
+offset_right = 71.0
+offset_bottom = 25.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-I"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "I"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-G" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 5.0
+offset_right = 89.0
+offset_bottom = 25.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-G"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "G"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-N2" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 5.0
+offset_right = 80.0
+offset_bottom = 25.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-N2"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "N"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot5-A" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 5.0
+offset_right = 106.0
+offset_bottom = 25.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot5-A"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "A"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot5-A2" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 35.0
+offset_right = 55.0
+offset_bottom = 55.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot5-A2"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "A"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot5-A3" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 35.0
+offset_right = 129.0
+offset_bottom = 55.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot5-A3"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "A"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot5-A4" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 35.0
+offset_right = 158.0
+offset_bottom = 55.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot5-A4"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "A"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot5-A5" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 50.0
+offset_right = 44.0
+offset_bottom = 70.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot5-A5"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "A"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot5-A6" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 50.0
+offset_right = 73.0
+offset_bottom = 70.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot5-A6"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "A"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-N3" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 20.0
+offset_right = 52.0
+offset_bottom = 40.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-N3"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "N"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-N4" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 35.0
+offset_right = 64.0
+offset_bottom = 55.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-N4"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "N"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-N5" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 50.0
+offset_right = 82.0
+offset_bottom = 70.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-N5"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "N"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-N6" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 50.0
+offset_right = 159.0
+offset_bottom = 70.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-N6"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "N"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-N7" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 65.0
+offset_right = 87.0
+offset_bottom = 85.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-N7"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "N"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-N8" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 35.0
+offset_right = 103.0
+offset_bottom = 55.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-N8"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "N"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot5-A7" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 65.0
+offset_right = 78.0
+offset_bottom = 85.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot5-A7"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "A"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-I2" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 20.0
+offset_right = 43.0
+offset_bottom = 40.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-I2"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "I"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-I3" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 35.0
+offset_right = 94.0
+offset_bottom = 55.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-I3"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "I"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot_O4" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 20.0
+offset_right = 114.0
+offset_bottom = 40.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot_O4"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "O"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-D" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 50.0
+offset_right = 91.0
+offset_bottom = 70.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-D"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "D"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-D2" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 50.0
+offset_right = 132.0
+offset_bottom = 70.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-D2"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "D"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-D3" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 50.0
+offset_right = 141.0
+offset_bottom = 70.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-D3"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "D"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-D4" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 35.0
+offset_right = 112.0
+offset_bottom = 55.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-D4"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "D"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-G2" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 50.0
+offset_right = 17.0
+offset_bottom = 70.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-G2"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "G"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-G3" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 65.0
+offset_right = 96.0
+offset_bottom = 85.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-G3"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "G"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-E4" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 50.0
+offset_right = 150.0
+offset_bottom = 70.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-E4"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "E"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-E3" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 65.0
+offset_right = 105.0
+offset_bottom = 85.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-E3"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "E"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-E2" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 50.0
+offset_right = 35.0
+offset_bottom = 70.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-E2"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "E"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-E" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 20.0
+offset_right = 155.0
+offset_bottom = 40.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-E"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "E"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-R" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 50.0
+offset_right = 26.0
+offset_bottom = 70.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-R"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "R"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot-F" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 20.0
+offset_right = 61.0
+offset_bottom = 40.0
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot-F"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "F"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false
+
+[node name="LetterSlot5-A8" parent="PuzzleArea" instance=ExtResource("11_6yxq7")]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 20.0
+offset_right = 34.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="LetterIn2" type="LineEdit" parent="PuzzleArea/LetterSlot5-A8"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7ly7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_invp3")
+text = "A"
 alignment = 1
 max_length = 1
 middle_mouse_paste_enabled = false
