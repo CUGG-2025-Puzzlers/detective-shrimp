@@ -1,14 +1,89 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2qfxbamrkkk6"]
+[gd_scene load_steps=13 format=3 uid="uid://b2qfxbamrkkk6"]
 
 [ext_resource type="Texture2D" uid="uid://c0x4p2j8v550h" path="res://icon.svg" id="1_0e48y"]
-[ext_resource type="Shader" uid="uid://b8qcks1w2bvwd" path="res://colorchange.gdshader" id="1_0hol4"]
-[ext_resource type="Script" uid="uid://cl1pnl10x8jml" path="res://wire_1.gd" id="1_wtcfe"]
-[ext_resource type="Script" uid="uid://b6atdh43ft16y" path="res://gate_1.gd" id="3_q6r6c"]
+[ext_resource type="Script" uid="uid://b6atdh43ft16y" path="res://gate_1.gd" id="3_d21ai"]
+[ext_resource type="Script" uid="uid://dkp0geijip8kp" path="res://xor.gd" id="3_kdubu"]
+[ext_resource type="Script" uid="uid://cc1qb3ftbcute" path="res://end_panel_1.gd" id="4_kdubu"]
 [ext_resource type="Script" uid="uid://bkbqx3qlidjp5" path="res://output.gd" id="4_q6r6c"]
 [ext_resource type="Script" uid="uid://dyob40r7eqwbo" path="res://wire_2.gd" id="6_kdubu"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
-shader = ExtResource("1_0hol4")
+[sub_resource type="Shader" id="Shader_rj586"]
+code = "shader_type canvas_item;
+uniform float strength : hint_range(0, 1);
+
+uniform vec4 target_color : source_color;
+uniform vec4 replace_color : source_color; 
+uniform float tolerance : hint_range(0, 1); 
+ 
+void fragment() {
+    vec4 tex_color = texture(TEXTURE, UV);
+ 	if (strength > 0.5) {
+		float dist = distance(tex_color.rgb, target_color.rgb);
+	    if (dist < tolerance) {
+	        tex_color.rgb = replace_color.rgb;
+	    }
+	    COLOR = tex_color;
+	} 
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4d7sh"]
+shader = SubResource("Shader_rj586")
+shader_parameter/strength = 0.0
+shader_parameter/target_color = Color(0.2784314, 0.54901963, 0.7490196, 1)
+shader_parameter/replace_color = Color(0.4372514, 0.4372514, 0.4372514, 1)
+shader_parameter/tolerance = 0.10000000475
+
+[sub_resource type="Shader" id="Shader_kdubu"]
+code = "shader_type canvas_item;
+uniform float strength : hint_range(0, 1);
+
+uniform vec4 target_color : source_color;
+uniform vec4 replace_color : source_color; 
+uniform float tolerance : hint_range(0, 1); 
+ 
+void fragment() {
+    vec4 tex_color = texture(TEXTURE, UV);
+ 	if (strength > 0.5) {
+		float dist = distance(tex_color.rgb, target_color.rgb);
+	    if (dist < tolerance) {
+	        tex_color.rgb = replace_color.rgb;
+	    }
+	    COLOR = tex_color;
+	} 
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d21ai"]
+shader = SubResource("Shader_kdubu")
+shader_parameter/strength = 0.0
+shader_parameter/target_color = Color(0.2784314, 0.54901963, 0.7490196, 1)
+shader_parameter/replace_color = Color(0.4372514, 0.4372514, 0.4372514, 1)
+shader_parameter/tolerance = 0.10000000475
+
+[sub_resource type="Shader" id="Shader_d21ai"]
+code = "shader_type canvas_item;
+uniform float strength : hint_range(0, 1);
+
+uniform vec4 target_color : source_color;
+uniform vec4 replace_color : source_color; 
+uniform float tolerance : hint_range(0, 1); 
+ 
+void fragment() {
+    vec4 tex_color = texture(TEXTURE, UV);
+ 	if (strength > 0.5) {
+		float dist = distance(tex_color.rgb, target_color.rgb);
+	    if (dist < tolerance) {
+	        tex_color.rgb = replace_color.rgb;
+	    }
+	    COLOR = tex_color;
+	} 
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rj586"]
+resource_local_to_scene = true
+shader = SubResource("Shader_d21ai")
 shader_parameter/strength = 0.0
 shader_parameter/target_color = Color(0.2784314, 0.54901963, 0.7490196, 1)
 shader_parameter/replace_color = Color(0.4372514, 0.4372514, 0.4372514, 1)
@@ -17,30 +92,36 @@ shader_parameter/tolerance = 0.10000000475
 [node name="Node2D" type="Node2D"]
 
 [node name="Gate1" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_q6r6c")
-offset_left = 51.0
-offset_top = -142.0
-offset_right = 179.0
-offset_bottom = -14.0
+material = SubResource("ShaderMaterial_4d7sh")
+offset_left = 387.0
+offset_top = -173.0
+offset_right = 515.0
+offset_bottom = -45.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_0e48y")
-script = ExtResource("3_q6r6c")
+script = ExtResource("3_d21ai")
 metadata/state = false
+metadata/_edit_use_anchors_ = true
 
 [node name="EndPanel1" type="Panel" parent="Gate1"]
 layout_mode = 0
 offset_left = -15.0
 offset_top = 83.0
-offset_right = 25.0
-offset_bottom = 123.0
+offset_right = 45.0
+offset_bottom = 143.0
+script = ExtResource("4_kdubu")
 metadata/state = false
+metadata/_edit_use_anchors_ = true
 
 [node name="EndPanel2" type="Panel" parent="Gate1"]
 layout_mode = 0
 offset_left = -15.0
 offset_top = -7.0
-offset_right = 25.0
-offset_bottom = 33.0
+offset_right = 45.0
+offset_bottom = 53.0
+script = ExtResource("4_kdubu")
 metadata/state = false
+metadata/_edit_use_anchors_ = true
 
 [node name="OutputWire" type="Line2D" parent="Gate1"]
 position = Vector2(113, 50)
@@ -50,21 +131,133 @@ script = ExtResource("4_q6r6c")
 metadata/state = false
 
 [node name="Button" type="Button" parent="Gate1/OutputWire"]
-offset_right = 30.0
-offset_bottom = 30.0
+offset_left = -3.0
+offset_top = -16.0
+offset_right = 57.0
+offset_bottom = 44.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate2" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_d21ai")
+anchors_preset = -1
+anchor_left = -4.3828125
+anchor_top = -0.2734375
+anchor_right = -4.3828125
+anchor_bottom = -0.2734375
+offset_left = 244.0
+offset_top = -303.0
+offset_right = 372.0
+offset_bottom = -175.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0e48y")
+script = ExtResource("3_d21ai")
+metadata/state = false
+metadata/_edit_use_anchors_ = true
+
+[node name="EndPanel1" type="Panel" parent="Gate2"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 83.0
+offset_right = 45.0
+offset_bottom = 143.0
+script = ExtResource("4_kdubu")
+metadata/state = false
+metadata/_edit_use_anchors_ = true
+
+[node name="EndPanel2" type="Panel" parent="Gate2"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -7.0
+offset_right = 45.0
+offset_bottom = 53.0
+script = ExtResource("4_kdubu")
+metadata/state = false
+metadata/_edit_use_anchors_ = true
+
+[node name="OutputWire" type="Line2D" parent="Gate2"]
+position = Vector2(113, 50)
+points = PackedVector2Array(0, 0, 0, 0)
+antialiased = true
+script = ExtResource("4_q6r6c")
+metadata/state = false
+
+[node name="Button" type="Button" parent="Gate2/OutputWire"]
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate3" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_rj586")
+anchors_preset = -1
+anchor_left = -4.3828125
+anchor_top = -0.2734375
+anchor_right = -4.3828125
+anchor_bottom = -0.2734375
+offset_left = 100.0
+offset_top = -200.0
+offset_right = 228.0
+offset_bottom = -72.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0e48y")
+script = ExtResource("3_kdubu")
+metadata/state = false
+metadata/_edit_use_anchors_ = true
+
+[node name="EndPanel1" type="Panel" parent="Gate3"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 83.0
+offset_right = 45.0
+offset_bottom = 143.0
+script = ExtResource("4_kdubu")
+metadata/state = false
+metadata/_edit_use_anchors_ = true
+
+[node name="EndPanel2" type="Panel" parent="Gate3"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -7.0
+offset_right = 45.0
+offset_bottom = 53.0
+script = ExtResource("4_kdubu")
+metadata/state = false
+metadata/_edit_use_anchors_ = true
+
+[node name="OutputWire" type="Line2D" parent="Gate3"]
+position = Vector2(113, 50)
+points = PackedVector2Array(0, 0, 0, 0)
+antialiased = true
+script = ExtResource("4_q6r6c")
+metadata/state = false
+
+[node name="Button" type="Button" parent="Gate3/OutputWire"]
+offset_right = 60.0
+offset_bottom = 60.0
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Wire1" type="Line2D" parent="."]
-position = Vector2(-112, -2)
+position = Vector2(-112, -300)
 points = PackedVector2Array(0, 0, 0, 0)
 antialiased = true
-script = ExtResource("1_wtcfe")
+script = ExtResource("6_kdubu")
 metadata/state = false
 
-[node name="Button1" type="Button" parent="Wire1"]
+[node name="CheckButton" type="CheckButton" parent="Wire1"]
+offset_left = -60.0
+offset_top = 2.0
+offset_right = -16.0
+offset_bottom = 26.0
+
+[node name="Button" type="Button" parent="Wire1"]
 offset_right = 30.0
 offset_bottom = 30.0
 mouse_filter = 1
@@ -79,7 +272,77 @@ antialiased = true
 script = ExtResource("6_kdubu")
 metadata/state = false
 
-[node name="Button2" type="Button" parent="Wire2"]
+[node name="CheckButton" type="CheckButton" parent="Wire2"]
+offset_left = -60.0
+offset_top = 2.0
+offset_right = -16.0
+offset_bottom = 26.0
+
+[node name="Button" type="Button" parent="Wire2"]
+offset_right = 30.0
+offset_bottom = 30.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire3" type="Line2D" parent="."]
+position = Vector2(-112, -80)
+points = PackedVector2Array(0, 0, 0, 0)
+antialiased = true
+script = ExtResource("6_kdubu")
+metadata/state = false
+
+[node name="CheckButton" type="CheckButton" parent="Wire3"]
+offset_left = -60.0
+offset_top = 2.0
+offset_right = -16.0
+offset_bottom = 26.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Wire3"]
+offset_right = 30.0
+offset_bottom = 30.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire4" type="Line2D" parent="."]
+position = Vector2(-112, -240)
+points = PackedVector2Array(0, 0, 0, 0)
+antialiased = true
+script = ExtResource("6_kdubu")
+metadata/state = false
+
+[node name="CheckButton" type="CheckButton" parent="Wire4"]
+offset_left = -60.0
+offset_top = 2.0
+offset_right = -16.0
+offset_bottom = 26.0
+
+[node name="Button" type="Button" parent="Wire4"]
+offset_right = 30.0
+offset_bottom = 30.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire5" type="Line2D" parent="."]
+position = Vector2(-114, -131.55)
+points = PackedVector2Array(0, 0, 0, 0)
+antialiased = true
+script = ExtResource("6_kdubu")
+metadata/state = false
+
+[node name="CheckButton" type="CheckButton" parent="Wire5"]
+offset_left = -60.0
+offset_top = 2.0
+offset_right = -16.0
+offset_bottom = 26.0
+
+[node name="Button" type="Button" parent="Wire5"]
 offset_right = 30.0
 offset_bottom = 30.0
 mouse_filter = 1
@@ -88,18 +351,79 @@ icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(120, -150)
+zoom = Vector2(1.5, 1.5)
 
 [connection signal="mouse_entered" from="Gate1/EndPanel1" to="Wire1" method="_on_end_panel_1_mouse_entered"]
 [connection signal="mouse_entered" from="Gate1/EndPanel1" to="Wire2" method="_on_end_panel_1_mouse_entered"]
+[connection signal="mouse_entered" from="Gate1/EndPanel1" to="Wire3" method="_on_end_panel_1_mouse_entered"]
+[connection signal="mouse_entered" from="Gate1/EndPanel1" to="Wire4" method="_on_end_panel_1_mouse_entered"]
 [connection signal="mouse_exited" from="Gate1/EndPanel1" to="Wire1" method="_on_end_panel_1_mouse_exited"]
 [connection signal="mouse_exited" from="Gate1/EndPanel1" to="Wire2" method="_on_end_panel_1_mouse_exited"]
+[connection signal="mouse_exited" from="Gate1/EndPanel1" to="Wire3" method="_on_end_panel_1_mouse_exited"]
+[connection signal="mouse_exited" from="Gate1/EndPanel1" to="Wire4" method="_on_end_panel_1_mouse_exited"]
 [connection signal="mouse_entered" from="Gate1/EndPanel2" to="Wire1" method="_on_end_panel_2_mouse_entered"]
 [connection signal="mouse_entered" from="Gate1/EndPanel2" to="Wire2" method="_on_end_panel_2_mouse_entered"]
+[connection signal="mouse_entered" from="Gate1/EndPanel2" to="Wire3" method="_on_end_panel_2_mouse_entered"]
+[connection signal="mouse_entered" from="Gate1/EndPanel2" to="Wire4" method="_on_end_panel_2_mouse_entered"]
 [connection signal="mouse_exited" from="Gate1/EndPanel2" to="Wire1" method="_on_end_panel_2_mouse_exited"]
 [connection signal="mouse_exited" from="Gate1/EndPanel2" to="Wire2" method="_on_end_panel_2_mouse_exited"]
+[connection signal="mouse_exited" from="Gate1/EndPanel2" to="Wire3" method="_on_end_panel_2_mouse_exited"]
+[connection signal="mouse_exited" from="Gate1/EndPanel2" to="Wire4" method="_on_end_panel_2_mouse_exited"]
 [connection signal="button_down" from="Gate1/OutputWire/Button" to="Gate1/OutputWire" method="_on_button_button_down"]
 [connection signal="button_up" from="Gate1/OutputWire/Button" to="Gate1/OutputWire" method="_on_button_button_up"]
-[connection signal="button_down" from="Wire1/Button1" to="Wire1" method="_on_button_button_down"]
-[connection signal="button_up" from="Wire1/Button1" to="Wire1" method="_on_button_button_up"]
-[connection signal="button_down" from="Wire2/Button2" to="Wire2" method="_on_button_button_down"]
-[connection signal="button_up" from="Wire2/Button2" to="Wire2" method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Gate2/EndPanel1" to="Wire1" method="_on_end_panel_1_mouse_entered"]
+[connection signal="mouse_entered" from="Gate2/EndPanel1" to="Wire2" method="_on_end_panel_1_mouse_entered"]
+[connection signal="mouse_entered" from="Gate2/EndPanel1" to="Wire3" method="_on_end_panel_1_mouse_entered"]
+[connection signal="mouse_entered" from="Gate2/EndPanel1" to="Wire4" method="_on_end_panel_1_mouse_entered"]
+[connection signal="mouse_exited" from="Gate2/EndPanel1" to="Wire1" method="_on_end_panel_1_mouse_exited"]
+[connection signal="mouse_exited" from="Gate2/EndPanel1" to="Wire2" method="_on_end_panel_1_mouse_exited"]
+[connection signal="mouse_exited" from="Gate2/EndPanel1" to="Wire3" method="_on_end_panel_1_mouse_exited"]
+[connection signal="mouse_exited" from="Gate2/EndPanel1" to="Wire4" method="_on_end_panel_1_mouse_exited"]
+[connection signal="mouse_entered" from="Gate2/EndPanel2" to="Wire1" method="_on_end_panel_2_mouse_entered"]
+[connection signal="mouse_entered" from="Gate2/EndPanel2" to="Wire2" method="_on_end_panel_2_mouse_entered"]
+[connection signal="mouse_entered" from="Gate2/EndPanel2" to="Wire3" method="_on_end_panel_2_mouse_entered"]
+[connection signal="mouse_entered" from="Gate2/EndPanel2" to="Wire4" method="_on_end_panel_2_mouse_entered"]
+[connection signal="mouse_exited" from="Gate2/EndPanel2" to="Wire1" method="_on_end_panel_2_mouse_exited"]
+[connection signal="mouse_exited" from="Gate2/EndPanel2" to="Wire2" method="_on_end_panel_2_mouse_exited"]
+[connection signal="mouse_exited" from="Gate2/EndPanel2" to="Wire3" method="_on_end_panel_2_mouse_exited"]
+[connection signal="mouse_exited" from="Gate2/EndPanel2" to="Wire4" method="_on_end_panel_2_mouse_exited"]
+[connection signal="button_down" from="Gate2/OutputWire/Button" to="Gate2/OutputWire" method="_on_button_button_down"]
+[connection signal="button_up" from="Gate2/OutputWire/Button" to="Gate2/OutputWire" method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Gate3/EndPanel1" to="Wire1" method="_on_end_panel_1_mouse_entered"]
+[connection signal="mouse_entered" from="Gate3/EndPanel1" to="Wire2" method="_on_end_panel_1_mouse_entered"]
+[connection signal="mouse_entered" from="Gate3/EndPanel1" to="Wire3" method="_on_end_panel_1_mouse_entered"]
+[connection signal="mouse_entered" from="Gate3/EndPanel1" to="Wire4" method="_on_end_panel_1_mouse_entered"]
+[connection signal="mouse_exited" from="Gate3/EndPanel1" to="Wire1" method="_on_end_panel_1_mouse_exited"]
+[connection signal="mouse_exited" from="Gate3/EndPanel1" to="Wire2" method="_on_end_panel_1_mouse_exited"]
+[connection signal="mouse_exited" from="Gate3/EndPanel1" to="Wire3" method="_on_end_panel_1_mouse_exited"]
+[connection signal="mouse_exited" from="Gate3/EndPanel1" to="Wire4" method="_on_end_panel_1_mouse_exited"]
+[connection signal="mouse_entered" from="Gate3/EndPanel2" to="Wire1" method="_on_end_panel_2_mouse_entered"]
+[connection signal="mouse_entered" from="Gate3/EndPanel2" to="Wire2" method="_on_end_panel_2_mouse_entered"]
+[connection signal="mouse_entered" from="Gate3/EndPanel2" to="Wire3" method="_on_end_panel_2_mouse_entered"]
+[connection signal="mouse_entered" from="Gate3/EndPanel2" to="Wire4" method="_on_end_panel_2_mouse_entered"]
+[connection signal="mouse_exited" from="Gate3/EndPanel2" to="Wire1" method="_on_end_panel_2_mouse_exited"]
+[connection signal="mouse_exited" from="Gate3/EndPanel2" to="Wire2" method="_on_end_panel_2_mouse_exited"]
+[connection signal="mouse_exited" from="Gate3/EndPanel2" to="Wire3" method="_on_end_panel_2_mouse_exited"]
+[connection signal="mouse_exited" from="Gate3/EndPanel2" to="Wire4" method="_on_end_panel_2_mouse_exited"]
+[connection signal="button_down" from="Gate3/OutputWire/Button" to="Gate3/OutputWire" method="_on_button_button_down"]
+[connection signal="button_up" from="Gate3/OutputWire/Button" to="Gate3/OutputWire" method="_on_button_button_up"]
+[connection signal="toggled" from="Wire1/CheckButton" to="Wire1" method="_on_check_button_toggled"]
+[connection signal="button_down" from="Wire1/Button" to="Wire1" method="_on_button_button_down"]
+[connection signal="button_up" from="Wire1/Button" to="Wire1" method="_on_button_2_button_up"]
+[connection signal="button_up" from="Wire1/Button" to="Wire1" method="_on_button_button_up"]
+[connection signal="toggled" from="Wire2/CheckButton" to="Wire2" method="_on_check_button_toggled"]
+[connection signal="button_down" from="Wire2/Button" to="Wire2" method="_on_button_button_down"]
+[connection signal="button_up" from="Wire2/Button" to="Wire2" method="_on_button_button_up"]
+[connection signal="toggled" from="Wire3/CheckButton" to="Wire3" method="_on_check_button_toggled"]
+[connection signal="button_down" from="Wire3/Button" to="Wire3" method="_on_button_button_down"]
+[connection signal="button_up" from="Wire3/Button" to="Wire3" method="_on_button_2_button_up"]
+[connection signal="button_up" from="Wire3/Button" to="Wire3" method="_on_button_button_up"]
+[connection signal="toggled" from="Wire4/CheckButton" to="Wire4" method="_on_check_button_toggled"]
+[connection signal="button_down" from="Wire4/Button" to="Wire4" method="_on_button_button_down"]
+[connection signal="button_up" from="Wire4/Button" to="Wire4" method="_on_button_2_button_up"]
+[connection signal="button_up" from="Wire4/Button" to="Wire4" method="_on_button_button_up"]
+[connection signal="toggled" from="Wire5/CheckButton" to="Wire5" method="_on_check_button_toggled"]
+[connection signal="button_down" from="Wire5/Button" to="Wire5" method="_on_button_button_down"]
+[connection signal="button_up" from="Wire5/Button" to="Wire5" method="_on_button_2_button_up"]
+[connection signal="button_up" from="Wire5/Button" to="Wire5" method="_on_button_button_up"]

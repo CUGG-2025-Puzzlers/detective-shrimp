@@ -2,7 +2,7 @@ extends Line2D
 
 var dragging = false
 var hovered_panel = null
-@onready var button = get_node("Button1") 
+@onready var button = get_node("Button") 
 var origin
 var connected_panel = null
 

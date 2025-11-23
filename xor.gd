@@ -8,6 +8,7 @@ func _ready():
 	input2 = get_child(1)
 	
 	var v 
+	print(get_meta("state"))
 	if (get_meta("state")):
 		v = 0
 	else:
@@ -16,7 +17,7 @@ func _ready():
 	material.set_shader_parameter("strength", v)
 
 func check_state():
-	set_meta("state", input1.get_meta("state") && input2.get_meta("state"))
+	set_meta("state", (input1.get_meta("state") && !input2.get_meta("state")) || (!input1.get_meta("state") && input2.get_meta("state")))
 	get_child(2).set_meta("state", input1.get_meta("state") && input2.get_meta("state"))
 	if get_meta("state"):
 		material.set_shader_parameter("strength", 0)
