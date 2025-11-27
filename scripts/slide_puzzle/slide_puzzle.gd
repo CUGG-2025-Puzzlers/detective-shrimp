@@ -20,15 +20,15 @@ func _ready() -> void:
 	set_up_board()
 	print_board()
 
+#region Event Handlers
+
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-			_on_mouse_down()
+			on_mouse_down()
 
-#region Event Handlers
-
-func _on_mouse_down():
-	pass
+func on_mouse_down() -> void:
+	SlidePuzzleEvents.click_board()
 
 func on_piece_moved() -> void:
 	await Engine.get_main_loop().process_frame
