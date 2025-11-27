@@ -15,7 +15,6 @@ func _gui_input(event: InputEvent) -> void:
 			on_mouse_down()
 
 func on_mouse_down():
-	print("Selected direction")
 	SlidePuzzleEvents.select_direction(direction)
 
 func on_mouse_entered():

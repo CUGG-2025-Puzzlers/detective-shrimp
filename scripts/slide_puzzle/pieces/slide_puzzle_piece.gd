@@ -71,7 +71,6 @@ func _on_puzzle_completed() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _on_selected_direction(direction: Globals.Direction) -> void:
-	print("Selected Direction")
 	move(direction)
 	SlidePuzzleEvents.directions_selected.disconnect(_on_selected_direction)
 
