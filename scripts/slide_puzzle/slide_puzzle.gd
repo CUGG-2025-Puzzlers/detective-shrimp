@@ -19,6 +19,7 @@ func _ready() -> void:
 	SlidePuzzleEvents.hide_directions()
 	set_up_board()
 	print_board()
+	start()
 
 #region Event Handlers
 
@@ -31,8 +32,11 @@ func on_mouse_down() -> void:
 	SlidePuzzleEvents.click_board()
 
 func on_piece_moved() -> void:
-	await Engine.get_main_loop().process_frame
 	print_board()
+	
+	# Check for win state
+	if board[goal_index] == Globals.SlidePuzzleValues.KeyPiece:
+		complete()
 
 #endregion
 
@@ -62,7 +66,15 @@ func set_up_board() -> void:
 		
 		child.set_up(board, board_size, tile_size)
 
+func start() -> void:
+	SlidePuzzleEvents.start_puzzle()
+
 #endregion
+
+# Completes this board
+func complete() -> void:
+	print("You win!")
+	SlidePuzzleEvents.complete_puzzle()
 
 # Prints the board to the console as a 2D array
 func print_board() -> void:
