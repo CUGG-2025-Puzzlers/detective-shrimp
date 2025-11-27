@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://l5rnkr1rcvun"]
+[gd_scene load_steps=12 format=3 uid="uid://l5rnkr1rcvun"]
 
 [ext_resource type="Script" uid="uid://b18mg5dobt73m" path="res://scripts/slide_puzzle/slide_puzzle.gd" id="1_p6xdk"]
 [ext_resource type="Texture2D" uid="uid://djwjq6sdse1u8" path="res://textures/slide_puzzle/background.png" id="1_tunya"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bfhsl8g57pdfd" path="res://scenes/slide_puzzle/pieces/piece_2x2.tscn" id="5_0rcvq"]
 [ext_resource type="PackedScene" uid="uid://dmf136m2lw3jo" path="res://scenes/slide_puzzle/pieces/piece_key.tscn" id="6_avuny"]
 [ext_resource type="Script" uid="uid://dei5dyvwkle7g" path="res://scripts/slide_puzzle/slide_puzzle_arrows.gd" id="7_c3wdx"]
+[ext_resource type="Script" uid="uid://b1asa31885gq8" path="res://scripts/slide_puzzle/slide_puzzle_goal.gd" id="8_0rcvq"]
 [ext_resource type="Texture2D" uid="uid://x4ww3iqcwdxg" path="res://textures/slide_puzzle/arrow.png" id="8_isxt6"]
 [ext_resource type="Script" uid="uid://bxt6vw0pqa7as" path="res://scripts/slide_puzzle/slide_puzzle_arrow.gd" id="9_w33xh"]
 
@@ -110,13 +111,22 @@ offset_right = 64.0
 offset_bottom = 32.0
 mouse_filter = 1
 
+[node name="Goal" type="Control" parent="Board"]
+anchors_preset = 0
+offset_left = 96.0
+offset_top = 128.0
+offset_right = 160.0
+offset_bottom = 160.0
+mouse_filter = 2
+script = ExtResource("8_0rcvq")
+
 [node name="Directional Arrows" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 110.0
-offset_top = -46.0
-offset_right = 142.0
-offset_bottom = -14.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 36.0
+offset_bottom = 36.0
 mouse_filter = 2
 script = ExtResource("7_c3wdx")
 
