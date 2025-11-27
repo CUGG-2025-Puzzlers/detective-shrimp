@@ -32,6 +32,8 @@ func _ready() -> void:
 		return
 	
 	SlidePuzzleEvents.piece_clicked.connect(_on_piece_clicked)
+	SlidePuzzleEvents.puzzle_started.connect(_on_puzzle_started)
+	SlidePuzzleEvents.puzzle_completed.connect(_on_puzzle_completed)
 
 func set_up(board: Array[int], board_size: Vector2i, tile_size: int) -> void:
 	if not is_in_bounds(board_size, tile_size):
@@ -50,6 +52,8 @@ func set_up(board: Array[int], board_size: Vector2i, tile_size: int) -> void:
 
 #endregion
 
+#region Event Handlers
+
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
@@ -59,6 +63,12 @@ func _on_mouse_down() -> void:
 	SlidePuzzleEvents.click_piece()
 	var parent = get_parent()
 	try_move_piece(parent.board, parent.board_size.x)
+
+func _on_puzzle_started() -> void:
+	mouse_filter = Control.MOUSE_FILTER_STOP
+
+func _on_puzzle_completed() -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _on_selected_direction(direction: Globals.Direction) -> void:
 	print("Selected Direction")
