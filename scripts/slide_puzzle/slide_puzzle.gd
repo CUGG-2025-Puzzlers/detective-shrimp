@@ -5,6 +5,7 @@ extends Control
 @export var tile_size: int
 
 @onready var board: Array[int]
+@onready var goal_index: int = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,6 +42,20 @@ func set_up_board() -> void:
 	# Loop through children and fill in their positions with their identifiers
 	var children = get_children()
 	for child in children:
+		# Set up the goal position
+		if child is SlidePuzzleGoal:
+			if goal_index != -1:
+				push_error("Multiple goals present on this board, remove all but one")
+				continue
+				
+			var cell: Vector2i = child.position / tile_size
+			if (cell.x < 0 or cell.x > board_size.x - 2 or
+				cell.y < 0 or cell.y > board_size.y - 1):
+				push_error("Goal not within bounds of the board")
+				continue
+			
+			goal_index = cell.y * board_size.x + cell.x
+		
 		# Skip through all non puzzle piece nodes
 		if not child is SlidePuzzlePiece:
 			continue
