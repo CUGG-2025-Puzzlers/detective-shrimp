@@ -63,19 +63,21 @@ func _on_mouse_down() -> void:
 func _on_selected_direction(direction: Globals.Direction) -> void:
 	print("Selected Direction")
 	move(direction)
-	SlidePuzzleEvents.selected_direction.disconnect(_on_selected_direction)
+	SlidePuzzleEvents.directions_selected.disconnect(_on_selected_direction)
 
 func _on_piece_clicked() -> void:
-	if SlidePuzzleEvents.selected_direction.is_connected(_on_selected_direction):
-		SlidePuzzleEvents.selected_direction.disconnect(_on_selected_direction)
+	if SlidePuzzleEvents.directions_selected.is_connected(_on_selected_direction):
+		SlidePuzzleEvents.directions_selected.disconnect(_on_selected_direction)
 
 func _on_hid_directions() -> void:
-	if SlidePuzzleEvents.selected_direction.is_connected(_on_selected_direction):
-		SlidePuzzleEvents.selected_direction.disconnect(_on_selected_direction)
+	if SlidePuzzleEvents.directions_selected.is_connected(_on_selected_direction):
+		SlidePuzzleEvents.directions_selected.disconnect(_on_selected_direction)
 
 func _on_requested_directions() -> void:
-	if SlidePuzzleEvents.selected_direction.is_connected(_on_selected_direction):
-		SlidePuzzleEvents.selected_direction.disconnect(_on_selected_direction)
+	if SlidePuzzleEvents.directions_selected.is_connected(_on_selected_direction):
+		SlidePuzzleEvents.directions_selected.disconnect(_on_selected_direction)
+
+#endregion
 
 func try_move_piece(board: Array[int], board_width: int) -> void:
 	var possible_moves = get_possible_moves(board, board_width)
@@ -92,7 +94,7 @@ func try_move_piece(board: Array[int], board_width: int) -> void:
 	
 	# Multiple possible moves, ask user
 	SlidePuzzleEvents.request_directions(position, possible_moves)
-	SlidePuzzleEvents.selected_direction.connect(_on_selected_direction)
+	SlidePuzzleEvents.directions_selected.connect(_on_selected_direction)
 
 func get_possible_moves(board: Array[int], board_width: int) -> Array[Globals.Direction]:
 	var possible_moves: Array[Globals.Direction] = []

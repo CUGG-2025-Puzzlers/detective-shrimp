@@ -4,9 +4,9 @@ extends Control
 var shown
 
 func _ready() -> void:
-	SlidePuzzleEvents.requested_directions.connect(on_requested_directions)
-	SlidePuzzleEvents.selected_direction.connect(on_selected_direction)
-	SlidePuzzleEvents.hid_directions.connect(hide_arrows)
+	SlidePuzzleEvents.directions_requested.connect(on_requested_directions)
+	SlidePuzzleEvents.directions_selected.connect(on_selected_direction)
+	SlidePuzzleEvents.directions_hidden.connect(hide_arrows)
 	hide_arrows()
 
 func on_requested_directions(pos: Vector2, directions: Array[Globals.Direction]):

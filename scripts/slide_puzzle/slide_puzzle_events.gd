@@ -1,19 +1,19 @@
 extends Node
 
-signal requested_directions(pos: Vector2, directions: Array[Globals.Direction])
-signal selected_direction(direction: Globals.Direction)
-signal hid_directions()
+signal directions_requested(pos: Vector2, directions: Array[Globals.Direction])
+signal directions_selected(direction: Globals.Direction)
+signal directions_hidden()
 signal piece_moved()
 signal piece_clicked()
 
 func request_directions(pos: Vector2, directions: Array[Globals.Direction]) -> void:
-	requested_directions.emit(pos, directions)
+	directions_requested.emit(pos, directions)
 
 func select_direction(direction: Globals.Direction) -> void:
-	selected_direction.emit(direction)
+	directions_selected.emit(direction)
 
 func hide_directions() -> void:
-	hid_directions.emit()
+	directions_hidden.emit()
 
 func move_piece() -> void:
 	piece_moved.emit()
