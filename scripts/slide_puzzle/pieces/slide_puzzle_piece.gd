@@ -103,6 +103,7 @@ func try_move_piece(board: Array[int], board_width: int) -> void:
 		return
 	
 	# Multiple possible moves, ask user
+	await Engine.get_main_loop().process_frame
 	SlidePuzzleEvents.request_directions(position, possible_moves)
 	SlidePuzzleEvents.directions_selected.connect(_on_selected_direction)
 
