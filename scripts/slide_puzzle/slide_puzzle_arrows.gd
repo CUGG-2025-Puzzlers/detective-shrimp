@@ -7,6 +7,8 @@ func _ready() -> void:
 	SlidePuzzleEvents.directions_requested.connect(on_requested_directions)
 	SlidePuzzleEvents.directions_selected.connect(on_selected_direction)
 	SlidePuzzleEvents.directions_hidden.connect(hide_arrows)
+	SlidePuzzleEvents.piece_clicked.connect(hide_arrows)
+	SlidePuzzleEvents.board_clicked.connect(hide_arrows)
 	hide_arrows()
 
 func on_requested_directions(pos: Vector2, directions: Array[Globals.Direction]):
