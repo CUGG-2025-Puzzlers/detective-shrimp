@@ -1,0 +1,197 @@
+[gd_scene load_steps=12 format=3 uid="uid://dc4tvs8q0i3hb"]
+
+[ext_resource type="Texture2D" uid="uid://djwjq6sdse1u8" path="res://textures/slide_puzzle/background.png" id="1_r4okv"]
+[ext_resource type="Script" uid="uid://b18mg5dobt73m" path="res://scripts/slide_puzzle/slide_puzzle.gd" id="2_r3pct"]
+[ext_resource type="PackedScene" uid="uid://cboumc36hyhwu" path="res://scenes/slide_puzzle/pieces/piece_1x1.tscn" id="3_ljts4"]
+[ext_resource type="PackedScene" uid="uid://xcxstsq1ci2n" path="res://scenes/slide_puzzle/pieces/piece_1x2.tscn" id="4_x5vdi"]
+[ext_resource type="PackedScene" uid="uid://ciayqcy3xcbjm" path="res://scenes/slide_puzzle/pieces/piece_2x1.tscn" id="5_qifi4"]
+[ext_resource type="PackedScene" uid="uid://bfhsl8g57pdfd" path="res://scenes/slide_puzzle/pieces/piece_2x2.tscn" id="6_t6tvq"]
+[ext_resource type="PackedScene" uid="uid://dmf136m2lw3jo" path="res://scenes/slide_puzzle/pieces/piece_key.tscn" id="7_oekne"]
+[ext_resource type="Script" uid="uid://b1asa31885gq8" path="res://scripts/slide_puzzle/slide_puzzle_goal.gd" id="8_6mp66"]
+[ext_resource type="Script" uid="uid://dei5dyvwkle7g" path="res://scripts/slide_puzzle/slide_puzzle_arrows.gd" id="9_okwap"]
+[ext_resource type="Texture2D" uid="uid://x4ww3iqcwdxg" path="res://textures/slide_puzzle/arrow.png" id="10_neo7a"]
+[ext_resource type="Script" uid="uid://bxt6vw0pqa7as" path="res://scripts/slide_puzzle/slide_puzzle_arrow.gd" id="11_e28v1"]
+
+[node name="Slide Puzzle" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r4okv")
+centered = false
+
+[node name="Board" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 36.0
+offset_bottom = 36.0
+script = ExtResource("2_r3pct")
+board_size = Vector2i(5, 5)
+tile_size = 32
+
+[node name="Piece (1x1)" parent="Board" instance=ExtResource("3_ljts4")]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 32.0
+offset_bottom = 160.0
+mouse_filter = 1
+
+[node name="Piece (1x1)3" parent="Board" instance=ExtResource("3_ljts4")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 96.0
+mouse_filter = 1
+
+[node name="Piece (1x1)4" parent="Board" instance=ExtResource("3_ljts4")]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 96.0
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 1
+
+[node name="Piece (1x1)5" parent="Board" instance=ExtResource("3_ljts4")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 64.0
+mouse_filter = 1
+
+[node name="Piece (1x2)" parent="Board" instance=ExtResource("4_x5vdi")]
+layout_mode = 0
+offset_left = 96.0
+offset_right = 160.0
+offset_bottom = 32.0
+mouse_filter = 1
+
+[node name="Piece (1x2)3" parent="Board" instance=ExtResource("4_x5vdi")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 128.0
+offset_bottom = 160.0
+mouse_filter = 1
+
+[node name="Piece (1x2)2" parent="Board" instance=ExtResource("4_x5vdi")]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 1
+
+[node name="Piece (2x1)2" parent="Board" instance=ExtResource("5_qifi4")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 96.0
+offset_right = 160.0
+offset_bottom = 160.0
+mouse_filter = 1
+
+[node name="Piece (2x1)4" parent="Board" instance=ExtResource("5_qifi4")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 160.0
+mouse_filter = 1
+
+[node name="Piece (2x1)3" parent="Board" instance=ExtResource("5_qifi4")]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 32.0
+offset_bottom = 128.0
+mouse_filter = 1
+
+[node name="Piece (2x2)" parent="Board" instance=ExtResource("6_t6tvq")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 96.0
+mouse_filter = 1
+
+[node name="Piece (Key)" parent="Board" instance=ExtResource("7_oekne")]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 32.0
+mouse_filter = 1
+
+[node name="Goal" type="Control" parent="Board"]
+anchors_preset = 0
+offset_left = 96.0
+offset_top = 128.0
+offset_right = 160.0
+offset_bottom = 160.0
+mouse_filter = 2
+script = ExtResource("8_6mp66")
+
+[node name="Directional Arrows" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 36.0
+offset_bottom = 36.0
+mouse_filter = 2
+script = ExtResource("9_okwap")
+
+[node name="LeftArrow" type="TextureRect" parent="Directional Arrows"]
+layout_mode = 0
+offset_left = -32.0
+offset_bottom = 32.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(16, 16)
+mouse_filter = 0
+texture = ExtResource("10_neo7a")
+flip_h = true
+script = ExtResource("11_e28v1")
+
+[node name="RightArrow" type="TextureRect" parent="Directional Arrows"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 64.0
+offset_bottom = 32.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(16, 16)
+mouse_filter = 0
+texture = ExtResource("10_neo7a")
+script = ExtResource("11_e28v1")
+direction = 1
+
+[node name="UpArrow" type="TextureRect" parent="Directional Arrows"]
+layout_mode = 0
+offset_top = -32.0
+offset_right = 32.0
+rotation = 1.5707964
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(16, 16)
+mouse_filter = 0
+texture = ExtResource("10_neo7a")
+flip_h = true
+script = ExtResource("11_e28v1")
+direction = 2
+
+[node name="DownArrow" type="TextureRect" parent="Directional Arrows"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 64.0
+rotation = 1.5707964
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(16, 16)
+mouse_filter = 0
+texture = ExtResource("10_neo7a")
+script = ExtResource("11_e28v1")
+direction = 3
+
+[connection signal="mouse_entered" from="Directional Arrows/LeftArrow" to="Directional Arrows/LeftArrow" method="on_mouse_entered"]
+[connection signal="mouse_exited" from="Directional Arrows/LeftArrow" to="Directional Arrows/LeftArrow" method="on_mouse_exited"]
+[connection signal="mouse_entered" from="Directional Arrows/RightArrow" to="Directional Arrows/RightArrow" method="on_mouse_entered"]
+[connection signal="mouse_exited" from="Directional Arrows/RightArrow" to="Directional Arrows/RightArrow" method="on_mouse_exited"]
+[connection signal="mouse_entered" from="Directional Arrows/UpArrow" to="Directional Arrows/UpArrow" method="on_mouse_entered"]
+[connection signal="mouse_exited" from="Directional Arrows/UpArrow" to="Directional Arrows/UpArrow" method="on_mouse_exited"]
+[connection signal="mouse_entered" from="Directional Arrows/DownArrow" to="Directional Arrows/DownArrow" method="on_mouse_entered"]
+[connection signal="mouse_exited" from="Directional Arrows/DownArrow" to="Directional Arrows/DownArrow" method="on_mouse_exited"]
