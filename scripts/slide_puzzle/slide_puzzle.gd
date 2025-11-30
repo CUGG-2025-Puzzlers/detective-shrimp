@@ -4,16 +4,22 @@ extends Control
 @export var board_size: Vector2i
 @export var tile_size: int
 
-@onready var board: Array[int]
-@onready var goal_index: int = -1
+@onready var board
+@onready var goal: Vector2i = Vector2i(-1, -1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SlidePuzzleEvents.piece_moved.connect(on_piece_moved)
 	
+	# Create 2D board matrix
 	board = []
-	board.resize(board_size.x * board_size.y)
-	board.fill(Globals.SlidePuzzleValues.Empty)
+	board.resize(board_size.x)
+	for i in range(board_size.x):
+		board[i] = []
+		board[i].resize(board_size.y)
+		board[i].fill(Globals.SlidePuzzleValues.Empty)
+	
+	# Resize node to encompass entire board
 	size = board_size * tile_size
 	
 	SlidePuzzleEvents.hide_directions()
@@ -35,7 +41,8 @@ func on_piece_moved() -> void:
 	print_board()
 	
 	# Check for win state
-	if board[goal_index] == Globals.SlidePuzzleValues.KeyPiece:
+	if (board[goal.x][goal.y] == Globals.SlidePuzzleValues.IndicatorKey and 
+		board[goal.x + 1][goal.y] == Globals.SlidePuzzleValues.IndicatorKey):
 		complete()
 
 #endregion
@@ -48,7 +55,7 @@ func set_up_board() -> void:
 	for child in children:
 		# Set up the goal position
 		if child is SlidePuzzleGoal:
-			if goal_index != -1:
+			if goal.x != -1:
 				push_error("Multiple goals present on this board, remove all but one")
 				continue
 				
@@ -58,7 +65,7 @@ func set_up_board() -> void:
 				push_error("Goal not within bounds of the board")
 				continue
 			
-			goal_index = cell.y * board_size.x + cell.x
+			goal = child.position / tile_size
 		
 		# Skip through all non puzzle piece nodes
 		if not child is SlidePuzzlePiece:
@@ -79,8 +86,8 @@ func complete() -> void:
 # Prints the board to the console as a 2D array
 func print_board() -> void:
 	print("Board State:")
-	for i in range(board_size.x):
+	for i in range(board_size.y):
 		var row = ""
-		for j in range(board_size.y):
-			row += str(board[i * board_size.x + j]) + " "
+		for j in range(board_size.x):
+			row += str(board[j][i]) + " "
 		print(row)

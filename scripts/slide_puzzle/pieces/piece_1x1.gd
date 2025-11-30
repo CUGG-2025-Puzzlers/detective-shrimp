@@ -12,44 +12,44 @@ func is_in_bounds(board_size: Vector2i, tile_size: int) -> bool:
 	return (pos.x >= 0 and pos.x < board_size.x and
 			pos.y >= 0 and pos.y < board_size.y)
 
-func would_overlap(board: Array[int], board_width: int) -> bool:
-	if index == -1:
-		print("Index not set, cannot check overlap, defaulting to true")
+func would_overlap(board) -> bool:
+	if cell.x == -1:
+		print("Cell not set, cannot check overlap, defaulting to true")
 		return true
 	
-	return board[index] != Globals.SlidePuzzleValues.Empty
+	return board[cell.x][cell.y] != Globals.SlidePuzzleValues.Empty
 
-func add_to_board(board: Array[int], board_width: int) -> void:
-	if board[index] != Globals.SlidePuzzleValues.Empty:
+func add_to_board(board) -> void:
+	if board[cell.x][cell.y] != Globals.SlidePuzzleValues.Empty:
 		return
 	
-	board[index] = indicator
+	board[cell.x][cell.y] = indicator
 
 #endregion
 
 #region Movement Checks
 
-func can_move_up(board: Array[int], board_width: int) -> bool:
-	if index - board_width >= 0:
-		return board[index - board_width] == Globals.SlidePuzzleValues.Empty
+func can_move_up(board) -> bool:
+	if cell.y > 0:
+		return board[cell.x][cell.y - 1] == Globals.SlidePuzzleValues.Empty
 	
 	return false
 
-func can_move_right(board: Array[int], board_width: int) -> bool:
-	if (index + 1) % board_width != 0:
-		return board[index + 1] == Globals.SlidePuzzleValues.Empty
+func can_move_right(board) -> bool:
+	if cell.x < board.size() - 1:
+		return board[cell.x + 1][cell.y] == Globals.SlidePuzzleValues.Empty
 	
 	return false
 
-func can_move_down(board: Array[int], board_width: int) -> bool:
-	if index + board_width < board.size():
-		return board[index + board_width] == Globals.SlidePuzzleValues.Empty
+func can_move_down(board) -> bool:
+	if cell.y < board[0].size() - 1:
+		return board[cell.x][cell.y + 1] == Globals.SlidePuzzleValues.Empty
 	
 	return false
 
-func can_move_left(board: Array[int], board_width: int) -> bool:
-	if index % board_width != 0:
-		return board[index - 1] == Globals.SlidePuzzleValues.Empty
+func can_move_left(board) -> bool:
+	if cell.x > 0:
+		return board[cell.x - 1][cell.y] == Globals.SlidePuzzleValues.Empty
 	
 	return false
 
@@ -57,20 +57,20 @@ func can_move_left(board: Array[int], board_width: int) -> bool:
 
 #region Movement
 
-func _move_up(board: Array[int], board_width: int) -> void:
-	board[index - board_width] = indicator
-	board[index] = Globals.SlidePuzzleValues.Empty
+func _move_up(board) -> void:
+	board[cell.x][cell.y - 1] = indicator
+	board[cell.x][cell.y] = Globals.SlidePuzzleValues.Empty
 
-func _move_right(board: Array[int], board_width: int) -> void:
-	board[index + 1] = indicator
-	board[index] = Globals.SlidePuzzleValues.Empty
+func _move_right(board) -> void:
+	board[cell.x + 1][cell.y] = indicator
+	board[cell.x][cell.y] = Globals.SlidePuzzleValues.Empty
 
-func _move_down(board: Array[int], board_width: int) -> void:
-	board[index + board_width] = indicator
-	board[index] = Globals.SlidePuzzleValues.Empty
+func _move_down(board) -> void:
+	board[cell.x][cell.y + 1] = indicator
+	board[cell.x][cell.y] = Globals.SlidePuzzleValues.Empty
 
-func _move_left(board: Array[int], board_width: int) -> void:
-	board[index - 1] = indicator
-	board[index] = Globals.SlidePuzzleValues.Empty
+func _move_left(board) -> void:
+	board[cell.x - 1][cell.y] = indicator
+	board[cell.x][cell.y] = Globals.SlidePuzzleValues.Empty
 
 #endregion
