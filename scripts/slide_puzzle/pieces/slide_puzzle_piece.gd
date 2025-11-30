@@ -3,7 +3,6 @@ extends TextureRect
 
 @onready var cell: Vector2i = Vector2i(-1, -1)
 @onready var indicator = -1
-@onready var filler = -1
 
 #region Abstract functions
 

@@ -1,17 +1,14 @@
 extends Node
 
 enum SlidePuzzleValues {
-	Wall,
 	Empty,
-	Goal,
-	KeyPiece,
+	Wall,
+	IndicatorKey,
 	Indicator1x1,
 	Indicator1x2,
-	Filler1x2,
 	Indicator2x1,
-	Filler2x1,
 	Indicator2x2,
-	Filler2x2,
+	IndicatorTRL,
 }
 
 enum Direction {
