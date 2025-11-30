@@ -59,9 +59,7 @@ func set_up_board() -> void:
 				push_error("Multiple goals present on this board, remove all but one")
 				continue
 				
-			var cell: Vector2i = child.position / tile_size
-			if (cell.x < 0 or cell.x > board_size.x - 2 or
-				cell.y < 0 or cell.y > board_size.y - 1):
+			if not child.is_in_bounds(board_size, tile_size):
 				push_error("Goal not within bounds of the board")
 				continue
 			
