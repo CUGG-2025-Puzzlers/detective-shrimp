@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cf8xoru5eg3vr"]
+[gd_scene load_steps=11 format=3 uid="uid://cf8xoru5eg3vr"]
 
 [ext_resource type="Script" uid="uid://bripj1obpu7od" path="res://scenes/ray_cast_2d.gd" id="1_apstt"]
 [ext_resource type="Texture2D" uid="uid://dqrngw1qgr7kr" path="res://assets/ui/glowing_circle.png" id="2_imgww"]
 [ext_resource type="PackedScene" uid="uid://63lsrxugl7an" path="res://scenes/reflectors.tscn" id="4_vtulw"]
-[ext_resource type="PackedScene" uid="uid://d10edroohmpw5" path="res://scenes/wall.tscn" id="5_7fncp"]
 [ext_resource type="TileSet" uid="uid://cvprit4qech2u" path="res://assets/wall_tileset.tres" id="6_73fua"]
 [ext_resource type="Texture2D" uid="uid://dykw8k1csla8c" path="res://assets/ui/Letter.png" id="6_imgww"]
 
@@ -39,9 +38,6 @@ target_position = Vector2(67, 0)
 collide_with_areas = true
 script = ExtResource("1_apstt")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="LightSource/RayCast2D"]
-visible = false
-
 [node name="Line2D" type="Line2D" parent="LightSource"]
 scale = Vector2(0.88461536, 1)
 points = PackedVector2Array(0, 0, 22, 0)
@@ -66,21 +62,20 @@ script = SubResource("GDScript_imgww")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightSource"]
 shape = SubResource("CircleShape2D_nk2lv")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["target"]]
-visible = false
+[node name="Letter" type="Area2D" parent="." groups=["reflector", "target"]]
 modulate = Color(0.93415105, 0, 0.2010853, 1)
-position = Vector2(-26, -12)
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="Letter"]
 top_level = true
-position = Vector2(-26.000002, -12)
-scale = Vector2(0.34375, 0.34375)
+position = Vector2(-140, -15)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_imgww")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Letter"]
 self_modulate = Color(1, 1, 1, 0)
-scale = Vector2(0.9999999, 0.9999999)
+position = Vector2(-140, -15)
+scale = Vector2(2.4, 2.4)
 shape = SubResource("RectangleShape2D_nk2lv")
 
 [node name="Reflectors" parent="." instance=ExtResource("4_vtulw")]
@@ -119,12 +114,6 @@ rotation = 1.5707964
 scale = Vector2(0.08, 0.08)
 
 [node name="Node2D" type="Node2D" parent="."]
-
-[node name="Wall" parent="." instance=ExtResource("5_7fncp")]
-visible = false
-position = Vector2(149, -38)
-rotation = 1.5707964
-scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(8, -10)
