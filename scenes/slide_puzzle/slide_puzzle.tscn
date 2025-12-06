@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cboumc36hyhwu" path="res://scenes/slide_puzzle/pieces/piece_1x1.tscn" id="2_tunya"]
 [ext_resource type="PackedScene" uid="uid://xcxstsq1ci2n" path="res://scenes/slide_puzzle/pieces/piece_1x2.tscn" id="3_p6xdk"]
 [ext_resource type="PackedScene" uid="uid://ciayqcy3xcbjm" path="res://scenes/slide_puzzle/pieces/piece_2x1.tscn" id="4_tunya"]
-[ext_resource type="PackedScene" uid="uid://bfhsl8g57pdfd" path="res://scenes/slide_puzzle/pieces/piece_2x2.tscn" id="5_0rcvq"]
 [ext_resource type="PackedScene" uid="uid://dmf136m2lw3jo" path="res://scenes/slide_puzzle/pieces/piece_key.tscn" id="6_avuny"]
 [ext_resource type="Script" uid="uid://dei5dyvwkle7g" path="res://scripts/slide_puzzle/slide_puzzle_arrows.gd" id="7_c3wdx"]
 [ext_resource type="Script" uid="uid://b1asa31885gq8" path="res://scripts/slide_puzzle/slide_puzzle_goal.gd" id="8_0rcvq"]
+[ext_resource type="PackedScene" uid="uid://c4t51cm8rt4de" path="res://scenes/slide_puzzle/pieces/slide_puzzle_wall.tscn" id="8_avuny"]
 [ext_resource type="Texture2D" uid="uid://x4ww3iqcwdxg" path="res://textures/slide_puzzle/arrow.png" id="8_isxt6"]
 [ext_resource type="Script" uid="uid://bxt6vw0pqa7as" path="res://scripts/slide_puzzle/slide_puzzle_arrow.gd" id="9_w33xh"]
 
@@ -31,9 +31,10 @@ tile_size = 32
 
 [node name="Piece (1x1)" parent="Board" instance=ExtResource("2_tunya")]
 layout_mode = 0
-offset_top = 128.0
-offset_right = 32.0
-offset_bottom = 160.0
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 96.0
 mouse_filter = 1
 
 [node name="Piece (1x1)3" parent="Board" instance=ExtResource("2_tunya")]
@@ -44,65 +45,87 @@ offset_right = 64.0
 offset_bottom = 160.0
 mouse_filter = 1
 
-[node name="Piece (1x1)5" parent="Board" instance=ExtResource("2_tunya")]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 96.0
-offset_right = 160.0
-offset_bottom = 128.0
-mouse_filter = 1
-
 [node name="Piece (1x1)4" parent="Board" instance=ExtResource("2_tunya")]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 96.0
-offset_right = 128.0
-offset_bottom = 128.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 64.0
+offset_bottom = 64.0
 mouse_filter = 1
 
 [node name="Piece (1x1)2" parent="Board" instance=ExtResource("2_tunya")]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 64.0
-offset_right = 160.0
-offset_bottom = 96.0
+offset_left = 64.0
+offset_top = 96.0
+offset_right = 96.0
+offset_bottom = 128.0
 mouse_filter = 1
 
-[node name="Piece (1x2)" parent="Board" instance=ExtResource("3_p6xdk")]
+[node name="Piece (1x1)5" parent="Board" instance=ExtResource("2_tunya")]
 layout_mode = 0
-offset_left = 96.0
+offset_left = 128.0
 offset_right = 160.0
 offset_bottom = 32.0
 mouse_filter = 1
 
-[node name="Piece (1x2)2" parent="Board" instance=ExtResource("3_p6xdk")]
+[node name="Piece (1x1)7" parent="Board" instance=ExtResource("2_tunya")]
+layout_mode = 0
+offset_left = 96.0
+offset_right = 128.0
+offset_bottom = 32.0
+mouse_filter = 1
+
+[node name="Piece (1x1)6" parent="Board" instance=ExtResource("2_tunya")]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 96.0
+mouse_filter = 1
+
+[node name="Piece (1x2)" parent="Board" instance=ExtResource("3_p6xdk")]
 layout_mode = 0
 offset_top = 96.0
 offset_right = 64.0
 offset_bottom = 128.0
 mouse_filter = 1
 
-[node name="Piece (2x1)" parent="Board" instance=ExtResource("4_tunya")]
+[node name="Piece (1x2)2" parent="Board" instance=ExtResource("3_p6xdk")]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 64.0
+mouse_filter = 1
+
+[node name="Piece (1x2)3" parent="Board" instance=ExtResource("3_p6xdk")]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 96.0
-offset_right = 96.0
+offset_top = 128.0
+offset_right = 128.0
 offset_bottom = 160.0
 mouse_filter = 1
 
-[node name="Piece (2x1)3" parent="Board" instance=ExtResource("4_tunya")]
+[node name="Piece (2x1)" parent="Board" instance=ExtResource("4_tunya")]
 layout_mode = 0
 offset_top = 32.0
 offset_right = 32.0
 offset_bottom = 96.0
 mouse_filter = 1
 
-[node name="Piece (2x2)" parent="Board" instance=ExtResource("5_0rcvq")]
+[node name="Piece (2x1)2" parent="Board" instance=ExtResource("4_tunya")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 160.0
+offset_bottom = 128.0
+mouse_filter = 1
+
+[node name="Piece (2x1)4" parent="Board" instance=ExtResource("4_tunya")]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 32.0
-offset_right = 128.0
-offset_bottom = 96.0
+offset_right = 96.0
+offset_bottom = 64.0
 mouse_filter = 1
 
 [node name="Piece (Key)" parent="Board" instance=ExtResource("6_avuny")]
@@ -111,7 +134,15 @@ offset_right = 64.0
 offset_bottom = 32.0
 mouse_filter = 1
 
+[node name="Wall" parent="Board" instance=ExtResource("8_avuny")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 96.0
+offset_bottom = 96.0
+
 [node name="Goal" type="Control" parent="Board"]
+visible = false
 anchors_preset = 0
 offset_left = 96.0
 offset_top = 128.0
