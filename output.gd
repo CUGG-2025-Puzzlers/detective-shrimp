@@ -34,7 +34,6 @@ func _on_button_button_down():
 
 func _on_button_button_up():
 	print("button up")
-	print(hovered_panel)
 	var offset = Vector2(0,0)
 	dragging = false
 	if hovered_panel == null:
@@ -42,11 +41,13 @@ func _on_button_button_up():
 		set_point_position(1, Vector2(0,0))
 		if (connected_panel != null):
 			connected_panel.set_meta("state", false)
+			connected_panel.get_parent().check_state()
 	else:
 		print("snapping!")
 		offset = Vector2(30,30)
 		set_point_position(1, to_local(hovered_panel.global_position) + offset)
 		hovered_panel.set_meta("state", get_meta("state"));
+		hovered_panel.get_parent().check_state()
 	button.position = get_point_position(1) - offset - button.position
 	if hovered_panel == null:
 		button.position = Vector2(0,0)
@@ -62,6 +63,9 @@ func _on_panel_enter(panel: Panel):
 	
 func _on_panel_exit():
 	hovered_panel = null
+	
+func update_state():
+	connected_panel.set_meta("state", get_meta("state"))
 	
 """
 func _on_end_panel_1_mouse_entered():

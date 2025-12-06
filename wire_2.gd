@@ -6,6 +6,9 @@ var hovered_panel = null
 @onready var chkbtn = get_node("CheckButton")
 var origin
 var connected_panel = null
+var max_length = 500
+var length
+var wire_end
 
 func _ready():
 	origin = position
@@ -22,7 +25,13 @@ func _ready():
 
 func _process(delta):
 	if dragging:
-		set_point_position(1,get_global_mouse_position() - origin)
+		wire_end = get_global_mouse_position()
+		if (get_point_count() > 1):
+			length = get_point_position(1).length()
+			if (length > max_length):
+				wire_end = wire_end.normalized() * max_length
+
+		set_point_position(1,wire_end - origin)
 	
 func _on_button_button_down():
 	dragging = true
@@ -34,6 +43,7 @@ func _on_button_button_up():
 	if hovered_panel == null:
 		set_point_position(0, Vector2(0,0))
 		set_point_position(1, Vector2(0,0))
+		print(connected_panel)
 		if (connected_panel != null):
 			connected_panel.set_meta("state", false)
 	else:
@@ -49,7 +59,8 @@ func _on_button_button_up():
 			child.check_state()
 
 func _on_panel_enter(panel: Panel):
-	hovered_panel = panel
+	if (to_global(get_point_position(1)).distance_to(panel.global_position) < 50):
+		hovered_panel = panel
 	
 func _on_panel_exit():
 	hovered_panel = null
