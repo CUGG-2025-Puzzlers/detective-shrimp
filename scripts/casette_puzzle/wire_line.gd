@@ -35,4 +35,8 @@ func adjust() -> void:
 	else:
 		set_point_position(2, mouse_pos)
 
+# Clears the wire by removing all points
+func clear() -> void:
+	clear_points()
+
 #endregion
