@@ -39,4 +39,13 @@ func adjust() -> void:
 func clear() -> void:
 	clear_points()
 
+# Attaches the end of the wire to the given positions
+func attach(end: Vector2, end_center: Vector2) -> void:
+	if get_point_count() < 3:
+		return
+	
+	set_point_position(2, end)
+	add_point(end_center)
+	print("Attached wire at (", end.x, ", ", end.y, ")")
+
 #endregion
