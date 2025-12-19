@@ -22,4 +22,17 @@ func start() -> void:
 	add_point(Vector2.ZERO)
 	add_point(get_local_mouse_position())
 
+# Moves the wire end to follow the mouse, clamped by max_length
+func adjust() -> void:
+	if get_point_count() < 3:
+		return
+	
+	var mouse_pos = get_local_mouse_position()
+	
+	# Clamps the wire length to max_length
+	if  mouse_pos.length() > max_length:
+		set_point_position(2, mouse_pos.normalized() * max_length)
+	else:
+		set_point_position(2, mouse_pos)
+
 #endregion
