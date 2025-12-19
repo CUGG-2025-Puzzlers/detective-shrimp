@@ -60,3 +60,11 @@ func _on_unhovered_input() -> void:
 	hovered_input = null
 
 #endregion
+
+# Changes the state of this wire if the new state is different than the current
+func change_state(newState: bool):
+	if state == newState:
+		return
+	
+	state = newState
+	stateChanged.emit()
