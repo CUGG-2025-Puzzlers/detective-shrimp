@@ -15,6 +15,11 @@ func _ready() -> void:
 	# Set WireLine reference to child
 	wire = $Wire_Line
 
+func _process(delta: float) -> void:
+	# Wire follows mouse while dragging
+	if dragging:
+		wire.adjust()
+
 #region Event Handlers
 
 # Check for GUI Input events
