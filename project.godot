@@ -15,6 +15,10 @@ run/main_scene="uid://b2qfxbamrkkk6"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+CasettePuzzleEvents="*res://scripts/casette_puzzle/casette_puzzle_events.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
