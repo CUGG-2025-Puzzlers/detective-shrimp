@@ -12,3 +12,14 @@ func _ready() -> void:
 	position.y = center.y
 	max_length = parent.max_length
 
+#region Wire Drawing
+
+# Starts the wire by adding a point to the center of the parent texture, another
+# at the edge (where this object is placed), and one at the mouse position to
+# follow the mouse
+func start() -> void:
+	add_point(Vector2(-center.x, 0))
+	add_point(Vector2.ZERO)
+	add_point(get_local_mouse_position())
+
+#endregion
