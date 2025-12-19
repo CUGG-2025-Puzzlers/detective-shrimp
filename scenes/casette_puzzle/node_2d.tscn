@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://b2qfxbamrkkk6"]
 
-[ext_resource type="Texture2D" uid="uid://c0x4p2j8v550h" path="res://icon.svg" id="1_0e48y"]
-[ext_resource type="Script" uid="uid://b6atdh43ft16y" path="res://gate_1.gd" id="3_d21ai"]
-[ext_resource type="Script" uid="uid://dkp0geijip8kp" path="res://xor.gd" id="3_kdubu"]
-[ext_resource type="Script" uid="uid://cc1qb3ftbcute" path="res://end_panel_1.gd" id="4_kdubu"]
-[ext_resource type="Script" uid="uid://bkbqx3qlidjp5" path="res://output.gd" id="4_q6r6c"]
-[ext_resource type="Script" uid="uid://dyob40r7eqwbo" path="res://wire_2.gd" id="6_kdubu"]
+[ext_resource type="Texture2D" uid="uid://c0x4p2j8v550h" path="res://icon.svg" id="1_186k2"]
+[ext_resource type="Script" uid="uid://bpr02xto5vr4s" path="res://scripts/casette_puzzle/gate_1.gd" id="2_bac6v"]
+[ext_resource type="Script" uid="uid://cc1qb3ftbcute" path="res://scripts/casette_puzzle/end_panel_1.gd" id="3_lxk25"]
+[ext_resource type="Script" uid="uid://bjb45i6m8lstd" path="res://scripts/casette_puzzle/output.gd" id="4_kjasd"]
+[ext_resource type="Script" uid="uid://bqt3jjir00po7" path="res://scripts/casette_puzzle/xor.gd" id="5_wc6au"]
+[ext_resource type="Script" uid="uid://cfbtjp57v22bp" path="res://scripts/casette_puzzle/wire_2.gd" id="6_qtt67"]
 
 [sub_resource type="Shader" id="Shader_rj586"]
 code = "shader_type canvas_item;
@@ -98,8 +98,8 @@ offset_top = -173.0
 offset_right = 515.0
 offset_bottom = -45.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_0e48y")
-script = ExtResource("3_d21ai")
+texture = ExtResource("1_186k2")
+script = ExtResource("2_bac6v")
 metadata/state = false
 metadata/_edit_use_anchors_ = true
 
@@ -109,7 +109,7 @@ offset_left = -15.0
 offset_top = 83.0
 offset_right = 45.0
 offset_bottom = 143.0
-script = ExtResource("4_kdubu")
+script = ExtResource("3_lxk25")
 metadata/state = false
 metadata/_edit_use_anchors_ = true
 
@@ -119,7 +119,7 @@ offset_left = -15.0
 offset_top = -7.0
 offset_right = 45.0
 offset_bottom = 53.0
-script = ExtResource("4_kdubu")
+script = ExtResource("3_lxk25")
 metadata/state = false
 metadata/_edit_use_anchors_ = true
 
@@ -127,7 +127,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(113, 50)
 points = PackedVector2Array(0, 0, 0, 0)
 antialiased = true
-script = ExtResource("4_q6r6c")
+script = ExtResource("4_kjasd")
 metadata/state = false
 
 [node name="Button" type="Button" parent="Gate1/OutputWire"]
@@ -152,8 +152,8 @@ offset_top = -303.0
 offset_right = 372.0
 offset_bottom = -175.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_0e48y")
-script = ExtResource("3_d21ai")
+texture = ExtResource("1_186k2")
+script = ExtResource("2_bac6v")
 metadata/state = false
 metadata/_edit_use_anchors_ = true
 
@@ -163,7 +163,7 @@ offset_left = -15.0
 offset_top = 83.0
 offset_right = 45.0
 offset_bottom = 143.0
-script = ExtResource("4_kdubu")
+script = ExtResource("3_lxk25")
 metadata/state = false
 metadata/_edit_use_anchors_ = true
 
@@ -173,7 +173,7 @@ offset_left = -15.0
 offset_top = -7.0
 offset_right = 45.0
 offset_bottom = 53.0
-script = ExtResource("4_kdubu")
+script = ExtResource("3_lxk25")
 metadata/state = false
 metadata/_edit_use_anchors_ = true
 
@@ -181,7 +181,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(113, 50)
 points = PackedVector2Array(0, 0, 0, 0)
 antialiased = true
-script = ExtResource("4_q6r6c")
+script = ExtResource("4_kjasd")
 metadata/state = false
 
 [node name="Button" type="Button" parent="Gate2/OutputWire"]
@@ -204,8 +204,8 @@ offset_top = -200.0
 offset_right = 228.0
 offset_bottom = -72.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_0e48y")
-script = ExtResource("3_kdubu")
+texture = ExtResource("1_186k2")
+script = ExtResource("5_wc6au")
 metadata/state = false
 metadata/_edit_use_anchors_ = true
 
@@ -215,7 +215,7 @@ offset_left = -15.0
 offset_top = 83.0
 offset_right = 45.0
 offset_bottom = 143.0
-script = ExtResource("4_kdubu")
+script = ExtResource("3_lxk25")
 metadata/state = false
 metadata/_edit_use_anchors_ = true
 
@@ -225,7 +225,7 @@ offset_left = -15.0
 offset_top = -7.0
 offset_right = 45.0
 offset_bottom = 53.0
-script = ExtResource("4_kdubu")
+script = ExtResource("3_lxk25")
 metadata/state = false
 metadata/_edit_use_anchors_ = true
 
@@ -233,7 +233,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(113, 50)
 points = PackedVector2Array(0, 0, 0, 0)
 antialiased = true
-script = ExtResource("4_q6r6c")
+script = ExtResource("4_kjasd")
 metadata/state = false
 
 [node name="Button" type="Button" parent="Gate3/OutputWire"]
@@ -248,7 +248,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-112, -300)
 points = PackedVector2Array(0, 0, 0, 0)
 antialiased = true
-script = ExtResource("6_kdubu")
+script = ExtResource("6_qtt67")
 metadata/state = false
 
 [node name="CheckButton" type="CheckButton" parent="Wire1"]
@@ -269,7 +269,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-112, -180)
 points = PackedVector2Array(0, 0, 0, 0)
 antialiased = true
-script = ExtResource("6_kdubu")
+script = ExtResource("6_qtt67")
 metadata/state = false
 
 [node name="CheckButton" type="CheckButton" parent="Wire2"]
@@ -290,7 +290,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-112, -80)
 points = PackedVector2Array(0, 0, 0, 0)
 antialiased = true
-script = ExtResource("6_kdubu")
+script = ExtResource("6_qtt67")
 metadata/state = false
 
 [node name="CheckButton" type="CheckButton" parent="Wire3"]
@@ -312,7 +312,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-112, -240)
 points = PackedVector2Array(0, 0, 0, 0)
 antialiased = true
-script = ExtResource("6_kdubu")
+script = ExtResource("6_qtt67")
 metadata/state = false
 
 [node name="CheckButton" type="CheckButton" parent="Wire4"]
@@ -333,7 +333,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-114, -131.55)
 points = PackedVector2Array(0, 0, 0, 0)
 antialiased = true
-script = ExtResource("6_kdubu")
+script = ExtResource("6_qtt67")
 metadata/state = false
 
 [node name="CheckButton" type="CheckButton" parent="Wire5"]
