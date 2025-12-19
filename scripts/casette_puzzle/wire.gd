@@ -51,4 +51,12 @@ func _on_mouse_up():
 	var input_center = hovered_input.position + hovered_input.size / 2
 	wire.attach(input_edge, input_center)
 
+# Set the hovered input connection reference
+func _on_hovered_input(input: GateInput) -> void:
+	hovered_input = input
+
+# Clear the hovered input connection reference
+func _on_unhovered_input() -> void:
+	hovered_input = null
+
 #endregion
