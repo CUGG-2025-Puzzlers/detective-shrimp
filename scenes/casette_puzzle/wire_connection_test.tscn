@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://de2vgeavfl3x8"]
+
+[ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/casette_puzzle/wire.tscn" id="1_r8n4t"]
+[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/casette_puzzle/gate_input.tscn" id="2_0q4s1"]
+
+[node name="Wire Connection Test" type="Node2D"]
+
+[node name="Wire" parent="." instance=ExtResource("1_r8n4t")]
+
+[node name="Gate Input" parent="." instance=ExtResource("2_0q4s1")]
+offset_left = 512.0
+offset_top = 256.0
+offset_right = 640.0
+offset_bottom = 384.0
