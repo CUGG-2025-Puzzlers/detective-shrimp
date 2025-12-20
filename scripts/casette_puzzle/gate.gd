@@ -18,3 +18,11 @@ func _on_input_state_changed() -> void:
 	evaluate()
 
 #endregion
+
+# Checks for any null connections
+func has_null_connection() -> bool:
+	for input in inputs:
+		if input.wire == null or input.wire.state == null:
+			return true
+	
+	return false
