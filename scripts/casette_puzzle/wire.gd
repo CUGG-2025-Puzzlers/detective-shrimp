@@ -90,8 +90,9 @@ func change_state(newState):
 
 # Checks if the wire can reach a specified GateInput
 func can_reach(input: GateInput):
-	var wire_start = wire.position
-	var input_edge = Vector2(input.position.x, input.position.y + input.size.y / 2)
+	var wire_start = wire.global_position
+	var input_edge = input.global_position
+	input_edge.y += input.size.y / 2
 	
 	return wire_start.distance_to(input_edge) <= max_length
 
