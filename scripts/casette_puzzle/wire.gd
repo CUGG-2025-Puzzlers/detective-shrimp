@@ -10,6 +10,7 @@ signal stateChanged;
 var state = false
 var dragging = false
 var hovered_input: GateInput = null
+var connected_input: GateInput = null
 var on_color: Color = Color(0, 0.2, 1)
 var off_color: Color = Color(1, 0, 0.2)
 
@@ -36,7 +37,10 @@ func _gui_input(event: InputEvent) -> void:
 
 # Mouse Button Left clicked: Start the wire dragging
 func _on_mouse_down():
-	wire.clear()
+	# Clear any previous connections
+	disconnect_from_input()
+	
+	# Start new wire
 	wire.start()
 	CasettePuzzleEvents.hovered_input.connect(_on_hovered_input)
 	CasettePuzzleEvents.unhovered_input.connect(_on_unhovered_input)
@@ -53,9 +57,8 @@ func _on_mouse_up():
 		wire.clear()
 		return
 	
-	# Connect wire if hovering over reachable input connection
-	wire.attach(hovered_input)
-	hovered_input = null
+	# Connect wire
+	connect_to_input()
 
 # Set the hovered input connection reference if in reach
 func _on_hovered_input(input: GateInput) -> void:
@@ -86,3 +89,22 @@ func can_reach(input: GateInput):
 	var input_edge = Vector2(input.position.x, input.position.y + input.size.y / 2)
 	
 	return wire_start.distance_to(input_edge) <= max_length
+
+# Connects to the hovered Gate Input
+func connect_to_input():
+	if hovered_input == null:
+		return
+	
+	wire.attach(hovered_input)
+	hovered_input.connect_wire(self)
+	connected_input = hovered_input
+	hovered_input = null
+
+# Disconnects from the connected Gate Input
+func disconnect_from_input():
+	if connected_input == null:
+		return
+	
+	wire.clear()
+	connected_input.disconnect_wire()
+	connected_input = null
