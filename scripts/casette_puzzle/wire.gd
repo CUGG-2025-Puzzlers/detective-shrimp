@@ -33,6 +33,7 @@ func _gui_input(event: InputEvent) -> void:
 
 # Mouse Button Left clicked: Start the wire dragging
 func _on_mouse_down():
+	wire.clear()
 	wire.start()
 	CasettePuzzleEvents.hovered_input.connect(_on_hovered_input)
 	CasettePuzzleEvents.unhovered_input.connect(_on_unhovered_input)
