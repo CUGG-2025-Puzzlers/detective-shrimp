@@ -44,7 +44,7 @@ func attach(input: GateInput) -> void:
 	if get_point_count() < 3:
 		return
 	
-	var input_edge = input.position - position
+	var input_edge = input.global_position - global_position
 	input_edge.y += input.size.y / 2
 	var input_center = input_edge
 	input_center.x += input.size.x / 2
