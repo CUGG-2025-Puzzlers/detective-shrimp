@@ -2,6 +2,8 @@ class_name Wire
 extends TextureRect
 
 @export var max_length: int
+@export var on_color: Color = Color(0, 0.2, 1)
+@export var off_color: Color = Color(1, 0, 0.2)
 
 @onready var wire : WireLine
 
@@ -14,6 +16,7 @@ var hovered_input: GateInput = null
 func _ready() -> void:
 	# Set WireLine reference to child
 	wire = $Wire_Line
+	set_wire_color()
 
 func _process(delta: float) -> void:
 	# Wire follows mouse while dragging
@@ -65,12 +68,16 @@ func _on_unhovered_input() -> void:
 
 #endregion
 
+func set_wire_color():
+	wire.default_color = on_color if state else off_color
+
 # Changes the state of this wire if the new state is different than the current
 func change_state(newState: bool):
 	if state == newState:
 		return
 	
 	state = newState
+	set_wire_color()
 	stateChanged.emit()
 
 # Checks if the wire can reach a specified GateInput
