@@ -49,12 +49,9 @@ func _on_mouse_up():
 		wire.clear()
 		return
 	
-	# Connect wire if hovering over input connection
-	'''Acount for wire offset'''
-	var input_edge = hovered_input.position
-	input_edge.y += hovered_input.size.y / 2
-	var input_center = hovered_input.position + hovered_input.size / 2
-	wire.attach(input_edge, input_center)
+	# Connect wire if hovering over reachable input connection
+	wire.attach(hovered_input)
+	hovered_input = null
 
 # Set the hovered input connection reference
 func _on_hovered_input(input: GateInput) -> void:

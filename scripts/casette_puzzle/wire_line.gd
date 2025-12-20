@@ -40,12 +40,15 @@ func clear() -> void:
 	clear_points()
 
 # Attaches the end of the wire to the given positions
-func attach(end: Vector2, end_center: Vector2) -> void:
+func attach(input: GateInput) -> void:
 	if get_point_count() < 3:
 		return
 	
-	set_point_position(2, end)
-	add_point(end_center)
-	print("Attached wire at (", end.x, ", ", end.y, ")")
+	var input_edge = input.position - position
+	input_edge.y += input.size.y / 2
+	var input_center = input_edge
+	input_center.x += input.size.x / 2
+	set_point_position(2, input_edge)
+	add_point(input_center)
 
 #endregion
