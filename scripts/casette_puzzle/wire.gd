@@ -71,6 +71,7 @@ func _on_unhovered_input() -> void:
 
 #endregion
 
+# Sets the wire's color based on the state
 func set_wire_color():
 	wire.default_color = on_color if state else off_color
 
