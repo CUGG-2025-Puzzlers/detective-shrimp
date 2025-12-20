@@ -44,9 +44,10 @@ func _on_mouse_up():
 	CasettePuzzleEvents.hovered_input.disconnect(_on_hovered_input)
 	CasettePuzzleEvents.unhovered_input.disconnect(_on_unhovered_input)
 	
-	# Clear wire if not hovering over input connection
-	if hovered_input == null:
+	# Clear wire if not hovering over input connection or can't reach hovered input
+	if hovered_input == null or not can_reach(hovered_input):
 		wire.clear()
+		hovered_input = null
 		return
 	
 	# Connect wire if hovering over reachable input connection
@@ -70,3 +71,10 @@ func change_state(newState: bool):
 	
 	state = newState
 	stateChanged.emit()
+
+# Checks if the wire can reach a specified GateInput
+func can_reach(input: GateInput):
+	var wire_start = wire.position
+	var input_edge = Vector2(input.position.x, input.position.y + input.size.y / 2)
+	
+	return wire_start.distance_to(input_edge) <= max_length
