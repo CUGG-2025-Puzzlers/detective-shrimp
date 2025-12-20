@@ -4,7 +4,7 @@ extends Gate
 # Evaluates the AND gate
 func evaluate() -> void:
 	# Nullifies output if any null inputs
-	if (has_null_connection()):
+	if has_null_connection():
 		output.change_state(null)
 		return
 	
