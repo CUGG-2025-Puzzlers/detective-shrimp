@@ -62,7 +62,7 @@ func _on_mouse_up():
 
 # Set the hovered input connection reference if in reach
 func _on_hovered_input(input: GateInput) -> void:
-	if can_reach(input):
+	if can_reach(input) and get_parent() != input.get_parent():
 		hovered_input = input
 
 # Clear the hovered input connection reference
