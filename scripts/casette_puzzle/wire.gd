@@ -42,25 +42,25 @@ func _on_mouse_down():
 	CasettePuzzleEvents.unhovered_input.connect(_on_unhovered_input)
 	dragging = true
 
-# Mouse Button Left let go: Stop the wire dragging
+# Mouse Button Left let go: Stop the wire dragging and connect if possible
 func _on_mouse_up():
 	dragging = false
 	CasettePuzzleEvents.hovered_input.disconnect(_on_hovered_input)
 	CasettePuzzleEvents.unhovered_input.disconnect(_on_unhovered_input)
 	
-	# Clear wire if not hovering over input connection or can't reach hovered input
-	if hovered_input == null or not can_reach(hovered_input):
+	# Clear wire if not hovering over reachable input connection
+	if hovered_input == null:
 		wire.clear()
-		hovered_input = null
 		return
 	
 	# Connect wire if hovering over reachable input connection
 	wire.attach(hovered_input)
 	hovered_input = null
 
-# Set the hovered input connection reference
+# Set the hovered input connection reference if in reach
 func _on_hovered_input(input: GateInput) -> void:
-	hovered_input = input
+	if can_reach(input):
+		hovered_input = input
 
 # Clear the hovered input connection reference
 func _on_unhovered_input() -> void:
