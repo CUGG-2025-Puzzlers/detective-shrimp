@@ -2,8 +2,6 @@ class_name Wire
 extends TextureRect
 
 @export var max_length: int
-@export var on_color: Color = Color(0, 0.2, 1)
-@export var off_color: Color = Color(1, 0, 0.2)
 
 @onready var wire : WireLine
 
@@ -12,6 +10,8 @@ signal stateChanged;
 var state = false
 var dragging = false
 var hovered_input: GateInput = null
+var on_color: Color = Color(0, 0.2, 1)
+var off_color: Color = Color(1, 0, 0.2)
 
 func _ready() -> void:
 	# Set WireLine reference to child
