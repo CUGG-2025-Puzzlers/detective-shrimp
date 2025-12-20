@@ -15,13 +15,13 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	CasettePuzzleEvents.unhover_input()
 
-# Sets the connedted wire and emits a signal when a wire is connected
-func _on_connected(new_wire: Wire):
+# Sets the connedted wire and listens for the wire's state change
+func connect_wire(new_wire: Wire):
 	wire = new_wire
 	wire.stateChanged.connect(_on_changed_state)
 
-# Clears the connected wire and emits a signal when it's disconnected
-func _on_disconnected():
+# Clears the connected wire and stops listening for the wire's state change
+func disconnect_wire():
 	wire.stateChanged.disconnect(_on_changed_state)
 	wire = null
 
