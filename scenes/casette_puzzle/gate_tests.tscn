@@ -7,19 +7,29 @@
 [node name="Gate Tests" type="Node2D"]
 
 [node name="AND Gate" parent="." instance=ExtResource("1_icp3b")]
-offset_left = 98.0
-offset_top = 11.0
-offset_right = 162.0
-offset_bottom = 75.0
+offset_left = 226.0
+offset_top = 119.0
+offset_right = 290.0
+offset_bottom = 183.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Wire" parent="." instance=ExtResource("2_x2hrl")]
+offset_left = 128.0
+offset_top = 108.0
+offset_right = 144.0
+offset_bottom = 124.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Wire2" parent="." instance=ExtResource("2_x2hrl")]
-offset_top = 73.0
-offset_bottom = 89.0
+offset_left = 128.0
+offset_top = 181.0
+offset_right = 144.0
+offset_bottom = 197.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Gate Input" parent="." instance=ExtResource("3_3hsje")]
-offset_left = 257.0
-offset_top = 36.0
-offset_right = 273.0
-offset_bottom = 52.0
+offset_left = 385.0
+offset_top = 144.0
+offset_right = 401.0
+offset_bottom = 160.0
+metadata/_edit_use_anchors_ = true
