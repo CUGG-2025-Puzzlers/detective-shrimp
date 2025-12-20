@@ -1,68 +1,82 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmqincd4yvheb"]
+[gd_scene load_steps=6 format=3 uid="uid://dmqincd4yvheb"]
 
 [ext_resource type="PackedScene" uid="uid://6irm70cy4miu" path="res://scenes/casette_puzzle/and_gate.tscn" id="1_icp3b"]
 [ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/casette_puzzle/wire.tscn" id="2_x2hrl"]
 [ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/casette_puzzle/gate_input.tscn" id="3_3hsje"]
+[ext_resource type="PackedScene" uid="uid://bdv0ahcvmixa6" path="res://scenes/casette_puzzle/nand_gate.tscn" id="4_3hsje"]
 [ext_resource type="PackedScene" uid="uid://u6t6nj04n00i" path="res://scenes/casette_puzzle/or_gate.tscn" id="4_x2hrl"]
 
 [node name="Gate Tests" type="Node2D"]
 
 [node name="AND Test" type="Node2D" parent="."]
+position = Vector2(50, 50)
 
 [node name="AND Gate" parent="AND Test" instance=ExtResource("1_icp3b")]
-offset_left = 226.0
-offset_top = 119.0
-offset_right = 290.0
-offset_bottom = 183.0
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Wire" parent="AND Test" instance=ExtResource("2_x2hrl")]
-offset_left = 128.0
-offset_top = 108.0
-offset_right = 144.0
-offset_bottom = 124.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Wire2" parent="AND Test" instance=ExtResource("2_x2hrl")]
-offset_left = 128.0
-offset_top = 181.0
-offset_right = 144.0
-offset_bottom = 197.0
+offset_top = 73.0
+offset_bottom = 89.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Gate Input" parent="AND Test" instance=ExtResource("3_3hsje")]
-offset_left = 385.0
-offset_top = 144.0
-offset_right = 401.0
-offset_bottom = 160.0
+offset_left = 257.0
+offset_top = 36.0
+offset_right = 273.0
+offset_bottom = 52.0
+metadata/_edit_use_anchors_ = true
+
+[node name="NAND Test" type="Node2D" parent="."]
+position = Vector2(50, 350)
+
+[node name="NAND Gate" parent="NAND Test" instance=ExtResource("4_3hsje")]
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
+
+[node name="Wire" parent="NAND Test" instance=ExtResource("2_x2hrl")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire2" parent="NAND Test" instance=ExtResource("2_x2hrl")]
+offset_top = 73.0
+offset_bottom = 89.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate Input" parent="NAND Test" instance=ExtResource("3_3hsje")]
+offset_left = 257.0
+offset_top = 36.0
+offset_right = 273.0
+offset_bottom = 52.0
 metadata/_edit_use_anchors_ = true
 
 [node name="OR Test" type="Node2D" parent="."]
-position = Vector2(0, 200)
+position = Vector2(50, 200)
 
 [node name="OR Gate" parent="OR Test" instance=ExtResource("4_x2hrl")]
-offset_left = 226.0
-offset_top = 119.0
-offset_right = 290.0
-offset_bottom = 183.0
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
 
 [node name="Wire" parent="OR Test" instance=ExtResource("2_x2hrl")]
-offset_left = 128.0
-offset_top = 108.0
-offset_right = 144.0
-offset_bottom = 124.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Wire2" parent="OR Test" instance=ExtResource("2_x2hrl")]
-offset_left = 128.0
-offset_top = 181.0
-offset_right = 144.0
-offset_bottom = 197.0
+offset_top = 73.0
+offset_bottom = 89.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Gate Input" parent="OR Test" instance=ExtResource("3_3hsje")]
-offset_left = 385.0
-offset_top = 144.0
-offset_right = 401.0
-offset_bottom = 160.0
+offset_left = 257.0
+offset_top = 36.0
+offset_right = 273.0
+offset_bottom = 52.0
 metadata/_edit_use_anchors_ = true
