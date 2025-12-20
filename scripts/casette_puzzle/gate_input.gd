@@ -19,11 +19,13 @@ func _on_mouse_exited() -> void:
 func connect_wire(new_wire: Wire):
 	wire = new_wire
 	wire.stateChanged.connect(_on_changed_state)
+	_on_changed_state()
 
 # Clears the connected wire and stops listening for the wire's state change
 func disconnect_wire():
 	wire.stateChanged.disconnect(_on_changed_state)
 	wire = null
+	_on_changed_state()
 
 # Relays a state change signal when the connected wire changes state
 func _on_changed_state():
