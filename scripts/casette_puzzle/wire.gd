@@ -7,7 +7,7 @@ extends TextureRect
 
 signal stateChanged;
 
-var state = false
+var state = null
 var dragging = false
 var hovered_input: GateInput = null
 var connected_input: GateInput = null
@@ -73,10 +73,14 @@ func _on_unhovered_input() -> void:
 
 # Sets the wire's color based on the state
 func set_wire_color():
+	if state == null:
+		wire.default_color = Color.WHITE
+		return
+	
 	wire.default_color = on_color if state else off_color
 
 # Changes the state of this wire if the new state is different than the current
-func change_state(newState: bool):
+func change_state(newState):
 	if state == newState:
 		return
 	
