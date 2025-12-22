@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/casette_puzzle/wire.tscn" id="4_k8a2s"]
 
 [node name="NAND Gate" type="TextureRect" node_paths=PackedStringArray("inputs", "output")]
-self_modulate = Color(0.19652674, 0.11890001, 0.41, 1)
+self_modulate = Color(0.90588236, 0.64705884, 0.79607844, 1)
 offset_right = 64.0
 offset_bottom = 64.0
 texture = ExtResource("1_bwnpn")
