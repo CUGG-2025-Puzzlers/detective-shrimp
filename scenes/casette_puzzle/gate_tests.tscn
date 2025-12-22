@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmqincd4yvheb"]
+[gd_scene load_steps=10 format=3 uid="uid://dmqincd4yvheb"]
 
 [ext_resource type="PackedScene" uid="uid://6irm70cy4miu" path="res://scenes/casette_puzzle/and_gate.tscn" id="1_icp3b"]
 [ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/casette_puzzle/wire.tscn" id="2_x2hrl"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cb8ou2h3t2tol" path="res://scenes/casette_puzzle/nor_gate.tscn" id="6_5r0jm"]
 [ext_resource type="PackedScene" uid="uid://cyi8enbwjas5f" path="res://scenes/casette_puzzle/xor_gate.tscn" id="7_nv61p"]
 [ext_resource type="PackedScene" uid="uid://bt327g5yqnw88" path="res://scenes/casette_puzzle/xnor_gate.tscn" id="8_uec5i"]
+[ext_resource type="PackedScene" uid="uid://brtj6y84xuyc0" path="res://scenes/casette_puzzle/not_gate.tscn" id="9_m6fgy"]
 
 [node name="Gate Tests" type="Node2D"]
 
@@ -124,13 +125,14 @@ offset_bottom = 51.0
 metadata/_edit_use_anchors_ = true
 
 [node name="NOR Test" type="Node2D" parent="."]
-position = Vector2(500, 50)
+position = Vector2(450, 50)
 
 [node name="NOR Gate" parent="NOR Test" instance=ExtResource("6_5r0jm")]
 offset_left = 98.0
 offset_top = 11.0
 offset_right = 162.0
 offset_bottom = 75.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label4" type="Label" parent="NOR Test/NOR Gate"]
 layout_mode = 1
@@ -144,6 +146,7 @@ theme_override_font_sizes/font_size = 30
 text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Wire" parent="NOR Test" instance=ExtResource("2_x2hrl")]
 metadata/_edit_use_anchors_ = true
@@ -161,13 +164,14 @@ offset_bottom = 51.0
 metadata/_edit_use_anchors_ = true
 
 [node name="XOR Test" type="Node2D" parent="."]
-position = Vector2(500, 200)
+position = Vector2(450, 200)
 
 [node name="XOR Gate" parent="XOR Test" instance=ExtResource("7_nv61p")]
 offset_left = 98.0
 offset_top = 11.0
 offset_right = 162.0
 offset_bottom = 75.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label5" type="Label" parent="XOR Test/XOR Gate"]
 layout_mode = 1
@@ -181,6 +185,7 @@ theme_override_font_sizes/font_size = 30
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Wire" parent="XOR Test" instance=ExtResource("2_x2hrl")]
 metadata/_edit_use_anchors_ = true
@@ -197,16 +202,17 @@ offset_right = 273.0
 offset_bottom = 51.0
 metadata/_edit_use_anchors_ = true
 
-[node name="XNOR Test2" type="Node2D" parent="."]
-position = Vector2(500, 350)
+[node name="XNOR Test" type="Node2D" parent="."]
+position = Vector2(450, 350)
 
-[node name="XNOR Gate" parent="XNOR Test2" instance=ExtResource("8_uec5i")]
+[node name="XNOR Gate" parent="XNOR Test" instance=ExtResource("8_uec5i")]
 offset_left = 98.0
 offset_top = 11.0
 offset_right = 162.0
 offset_bottom = 75.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Label6" type="Label" parent="XNOR Test2/XNOR Gate"]
+[node name="Label6" type="Label" parent="XNOR Test/XNOR Gate"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,16 +224,52 @@ theme_override_font_sizes/font_size = 30
 text = "6"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Wire" parent="XNOR Test2" instance=ExtResource("2_x2hrl")]
 metadata/_edit_use_anchors_ = true
 
-[node name="Wire2" parent="XNOR Test2" instance=ExtResource("2_x2hrl")]
+[node name="Wire" parent="XNOR Test" instance=ExtResource("2_x2hrl")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire2" parent="XNOR Test" instance=ExtResource("2_x2hrl")]
 offset_top = 73.0
 offset_bottom = 89.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Gate Input" parent="XNOR Test2" instance=ExtResource("3_3hsje")]
+[node name="Gate Input" parent="XNOR Test" instance=ExtResource("3_3hsje")]
+offset_left = 257.0
+offset_top = 35.0
+offset_right = 273.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="NOT Test" type="Node2D" parent="."]
+position = Vector2(850, 200)
+
+[node name="NOT Gate" parent="NOT Test" instance=ExtResource("9_m6fgy")]
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
+
+[node name="Label7" type="Label" parent="NOT Test/NOT Gate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire" parent="NOT Test" instance=ExtResource("2_x2hrl")]
+offset_top = 35.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate Input" parent="NOT Test" instance=ExtResource("3_3hsje")]
 offset_left = 257.0
 offset_top = 35.0
 offset_right = 273.0
