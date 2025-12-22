@@ -12,7 +12,7 @@ offset_bottom = 40.0
 texture = ExtResource("1_htn8q")
 script = ExtResource("2_htn8q")
 inputs = [NodePath("Gate Input"), NodePath("Gate Input2")]
-output = NodePath("Wire")
+output = NodePath("Output")
 
 [node name="Gate Input" parent="." instance=ExtResource("3_tc5bv")]
 layout_mode = 0
@@ -28,7 +28,7 @@ offset_top = 40.0
 offset_right = 8.0
 offset_bottom = 56.0
 
-[node name="Wire" parent="." instance=ExtResource("4_cxwxy")]
+[node name="Output" parent="." instance=ExtResource("4_cxwxy")]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
