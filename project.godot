@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-CasettePuzzleEvents="*res://scripts/casette_puzzle/casette_puzzle_events.gd"
+CasettePuzzleEvents="*res://scripts/cassette_puzzle/casette_puzzle_events.gd"
 
 [rendering]
 

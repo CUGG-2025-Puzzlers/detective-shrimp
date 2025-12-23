@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://brtj6y84xuyc0"]
 
-[ext_resource type="Texture2D" uid="uid://b01tl21uouprl" path="res://textures/gate_shape_1.png" id="1_tr75b"]
-[ext_resource type="Script" uid="uid://c050tfee8gml8" path="res://scripts/casette_puzzle/not_gate.gd" id="2_tr75b"]
-[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/casette_puzzle/gate_input.tscn" id="3_h2oe8"]
-[ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/casette_puzzle/wire.tscn" id="4_4xair"]
+[ext_resource type="Texture2D" uid="uid://b01tl21uouprl" path="res://textures/cassette_puzzle/gate_shape_1.png" id="1_tr75b"]
+[ext_resource type="Script" uid="uid://c050tfee8gml8" path="res://scripts/cassette_puzzle/not_gate.gd" id="2_tr75b"]
+[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="3_h2oe8"]
+[ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="4_4xair"]
+
 
 [node name="NOT Gate" type="TextureRect" node_paths=PackedStringArray("inputs", "output")]
 self_modulate = Color(0.4, 0.5686275, 0.85490197, 1)

@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://cu3elfl8n7fub"]
 
-[ext_resource type="Texture2D" uid="uid://b01tl21uouprl" path="res://textures/gate_shape_1.png" id="1_a3e84"]
-[ext_resource type="Script" uid="uid://onkw0wathqf3" path="res://scripts/casette_puzzle/splitter_gate.gd" id="2_a3e84"]
-[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/casette_puzzle/gate_input.tscn" id="3_ir86c"]
-[ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/casette_puzzle/wire.tscn" id="4_telbk"]
+[ext_resource type="Texture2D" uid="uid://b01tl21uouprl" path="res://textures/cassette_puzzle/gate_shape_1.png" id="1_a3e84"]
+[ext_resource type="Script" uid="uid://onkw0wathqf3" path="res://scripts/cassette_puzzle/splitter_gate.gd" id="2_a3e84"]
+[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="3_ir86c"]
+[ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="4_telbk"]
+
 
 [node name="Splitter Gate" type="TextureRect" node_paths=PackedStringArray("outputs", "inputs", "output")]
 self_modulate = Color(0.20784314, 0.7921569, 0.3372549, 1)
