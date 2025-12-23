@@ -101,6 +101,11 @@ func connect_to_input():
 	if hovered_input == null:
 		return
 	
+	# Hovered input is already connected to another wire
+	if hovered_input.wire != null:
+		wire.clear()
+		return
+	
 	wire.attach(hovered_input)
 	hovered_input.connect_wire(self)
 	connected_input = hovered_input
