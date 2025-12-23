@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b01tl21uouprl"
-path="res://.godot/imported/gate_shape_1.png-d46aed1164d43fb6e2e45d177b837fcf.ctex"
+uid="uid://5xb07g7w2c2t"
+path="res://.godot/imported/gate_io.png-098cc1526fe2f996775406ad55b3b0e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/gate_shape_1.png"
-dest_files=["res://.godot/imported/gate_shape_1.png-d46aed1164d43fb6e2e45d177b837fcf.ctex"]
+source_file="res://textures/cassette_puzzle/gate_io.png"
+dest_files=["res://.godot/imported/gate_io.png-098cc1526fe2f996775406ad55b3b0e1.ctex"]
 
 [params]
 
