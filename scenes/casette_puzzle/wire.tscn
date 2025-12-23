@@ -9,7 +9,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 texture = ExtResource("1_o6qwa")
 script = ExtResource("1_210fl")
-max_length = 100
+max_length = 200
 
 [node name="Wire_Line" type="Line2D" parent="."]
 z_index = 1
