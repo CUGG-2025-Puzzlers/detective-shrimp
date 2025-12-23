@@ -1,5 +1,2 @@
 # Detective-Shrimp
-
-
-
-Shripm
+## Dominic is the killer!
