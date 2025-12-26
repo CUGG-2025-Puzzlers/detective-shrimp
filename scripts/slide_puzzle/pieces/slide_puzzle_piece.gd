@@ -4,6 +4,8 @@ extends TextureRect
 @onready var cell: Vector2i = Vector2i(-1, -1)
 @onready var indicator = -1
 
+var dragging: bool = false
+
 #region Abstract functions
 
 @abstract func is_in_bounds(board_size: Vector2i, tile_size: int) -> bool
@@ -52,15 +54,21 @@ func set_up(board, board_size: Vector2i, tile_size: int) -> void:
 
 #region Event Handlers
 
+# Checks for clicks on this node to toggle dragging
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.is_pressed():
 			_on_mouse_down()
+		elif event.is_released():
+			_on_mouse_up()
 
+# Begins dragging on click
 func _on_mouse_down() -> void:
-	SlidePuzzleEvents.click_piece()
-	var parent = get_parent()
-	try_move_piece(parent.board)
+	dragging = true
+
+# Stops dragging on release
+func _on_mouse_up() -> void:
+	dragging = false
 
 func _on_puzzle_started() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
