@@ -126,16 +126,16 @@ func move(direction: Globals.Direction) -> void:
 	
 	match direction:
 		Globals.Direction.Up:
-			_move_up(board)
+			move_up(board)
 			cell.y -= 1
 		Globals.Direction.Right:
-			_move_right(board)
+			move_right(board)
 			cell.x += 1
 		Globals.Direction.Down:
-			_move_down(board)
+			move_down(board)
 			cell.y += 1
 		Globals.Direction.Left:
-			_move_left(board)
+			move_left(board)
 			cell.x -= 1
 		
 	move_texture(direction)
