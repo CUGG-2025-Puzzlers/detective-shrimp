@@ -27,6 +27,7 @@ var dragging: bool = false
 #region Setup
 
 func _ready() -> void:
+	# Hide pieces not part of a slide puzzle
 	if not get_parent() is SlidePuzzle:
 		print("Piece (", name, ") is not part of a puzzle, hiding it")
 		hide()
@@ -35,17 +36,22 @@ func _ready() -> void:
 	SlidePuzzleEvents.puzzle_started.connect(_on_puzzle_started)
 	SlidePuzzleEvents.puzzle_completed.connect(_on_puzzle_completed)
 
+# Attempts to add this piece to the board
 func set_up(board, board_size: Vector2i, tile_size: int) -> void:
+	# Hide pieces that are out of bounds
 	if not is_in_bounds(board_size, tile_size):
 		print("Piece (", name, ") is not within the puzzle bounds, hiding it")
 		hide()
+		return
 	
 	cell = position / tile_size
 	print(name, " at cell ", cell.x, ", ", cell.y)
 	
+	# Hide pieces that overlap already placed pieces
 	if would_overlap(board):
 		print("Piece (", name, ") would overlap another piece, hiding it instead")
 		hide()
+		return
 	
 	add_to_board(board)
 
@@ -76,9 +82,11 @@ func _on_mouse_down() -> void:
 func _on_mouse_up() -> void:
 	dragging = false
 
+# Allows clicking while puzzle is active
 func _on_puzzle_started() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 
+# Ignores clicking once puzzle is complete
 func _on_puzzle_completed() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
@@ -120,6 +128,8 @@ func try_drag():
 		move(board, Globals.Direction.Left)
 		return
 
+# Moves this piece in the given direction
+# Updates the board
 func move(board, direction: Globals.Direction) -> void:
 	match direction:
 		Globals.Direction.Up:
@@ -138,6 +148,7 @@ func move(board, direction: Globals.Direction) -> void:
 	move_texture(direction)
 	SlidePuzzleEvents.move_piece()
 
+# Updates this piece's position using the given direction
 func move_texture(direction: Globals.Direction) -> void:
 	var tile_size = get_parent().tile_size
 	match direction:
