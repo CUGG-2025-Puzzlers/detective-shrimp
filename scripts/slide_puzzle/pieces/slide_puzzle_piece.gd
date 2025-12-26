@@ -32,7 +32,6 @@ func _ready() -> void:
 		hide()
 		return
 	
-	SlidePuzzleEvents.piece_clicked.connect(_on_piece_clicked)
 	SlidePuzzleEvents.puzzle_started.connect(_on_puzzle_started)
 	SlidePuzzleEvents.puzzle_completed.connect(_on_puzzle_completed)
 
