@@ -15,10 +15,10 @@ extends TextureRect
 @abstract func can_move_down(board) -> bool
 @abstract func can_move_left(board) -> bool
 
-@abstract func _move_up(board) -> void
-@abstract func _move_right(board) -> void
-@abstract func _move_down(board) -> void
-@abstract func _move_left(board) -> void
+@abstract func move_up(board) -> void
+@abstract func move_right(board) -> void
+@abstract func move_down(board) -> void
+@abstract func move_left(board) -> void
 
 #endregion
 

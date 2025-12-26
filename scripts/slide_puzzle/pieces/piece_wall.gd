@@ -17,16 +17,16 @@ func can_move_down(board) -> bool:
 func can_move_left(board) -> bool:
 	return false
 
-func _move_up(board) -> void:
+func move_up(board) -> void:
 	pass
 
-func _move_right(board) -> void:
+func move_right(board) -> void:
 	pass
 
-func _move_down(board) -> void:
+func move_down(board) -> void:
 	pass
 
-func _move_left(board) -> void:
+func move_left(board) -> void:
 	pass
 
 func move(direction: Globals.Direction) -> void:

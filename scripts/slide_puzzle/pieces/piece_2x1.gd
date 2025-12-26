@@ -62,24 +62,24 @@ func can_move_left(board) -> bool:
 
 #region Movement
 
-func _move_up(board) -> void:
+func move_up(board) -> void:
 	board[cell.x][cell.y - 1] = indicator
 	
 	board[cell.x][cell.y + 1] = Globals.SlidePuzzleValues.Empty
 
-func _move_right(board) -> void:
+func move_right(board) -> void:
 	board[cell.x + 1][cell.y] = indicator
 	board[cell.x + 1][cell.y + 1] = indicator
 	
 	board[cell.x][cell.y] = Globals.SlidePuzzleValues.Empty
 	board[cell.x][cell.y + 1] = Globals.SlidePuzzleValues.Empty
 
-func _move_down(board) -> void:
+func move_down(board) -> void:
 	board[cell.x][cell.y + 2] = indicator
 	
 	board[cell.x][cell.y] = Globals.SlidePuzzleValues.Empty
 
-func _move_left(board) -> void:
+func move_left(board) -> void:
 	board[cell.x - 1][cell.y] = indicator
 	board[cell.x - 1][cell.y + 1] = indicator
 	
