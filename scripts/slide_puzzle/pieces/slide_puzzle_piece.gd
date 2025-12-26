@@ -76,22 +76,6 @@ func _on_puzzle_started() -> void:
 func _on_puzzle_completed() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-func _on_selected_direction(direction: Globals.Direction) -> void:
-	move(direction)
-	SlidePuzzleEvents.directions_selected.disconnect(_on_selected_direction)
-
-func _on_piece_clicked() -> void:
-	if SlidePuzzleEvents.directions_selected.is_connected(_on_selected_direction):
-		SlidePuzzleEvents.directions_selected.disconnect(_on_selected_direction)
-
-func _on_hid_directions() -> void:
-	if SlidePuzzleEvents.directions_selected.is_connected(_on_selected_direction):
-		SlidePuzzleEvents.directions_selected.disconnect(_on_selected_direction)
-
-func _on_requested_directions() -> void:
-	if SlidePuzzleEvents.directions_selected.is_connected(_on_selected_direction):
-		SlidePuzzleEvents.directions_selected.disconnect(_on_selected_direction)
-
 #endregion
 
 #region Movement
