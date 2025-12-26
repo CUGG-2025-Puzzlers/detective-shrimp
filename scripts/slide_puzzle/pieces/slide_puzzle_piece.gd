@@ -121,9 +121,7 @@ func get_possible_moves(board) -> Array[Globals.Direction]:
 	
 	return possible_moves
 
-func move(direction: Globals.Direction) -> void:
-	var board = get_parent().board
-	
+func move(board, direction: Globals.Direction) -> void:
 	match direction:
 		Globals.Direction.Up:
 			move_up(board)
