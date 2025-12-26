@@ -1,6 +1,12 @@
 class_name Piece2x1
 extends SlidePuzzlePiece
 
+# PIECE SHAPE (Xs)
+# OOO
+# OXO
+# OXO
+# OOO
+
 #region Setup
 
 func _ready() -> void:

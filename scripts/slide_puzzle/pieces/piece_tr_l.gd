@@ -1,6 +1,11 @@
 class_name PieceTopRightL
 extends SlidePuzzlePiece
 
+# PIECE SHAPE (Xs)
+# OOOO
+# OXXO
+# OOXO
+# OOOO
 
 #region Setup
 
