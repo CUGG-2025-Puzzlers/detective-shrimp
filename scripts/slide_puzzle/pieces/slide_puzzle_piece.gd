@@ -80,38 +80,39 @@ func _on_puzzle_completed() -> void:
 
 #region Movement
 
-func try_move_piece(board) -> void:
-	var possible_moves = get_possible_moves(board)
-	
-	# No possible moves, do nothing
-	if possible_moves.size() == 0:
-		print("This piece cannot move")
+# Attempts to move the piece in the direction of the mouse
+func try_drag():
+	if not dragging:
 		return
 	
-	# Only one possible move, do it
-	if possible_moves.size() == 1:
-		move(possible_moves[0])
+	var board = get_parent().board
+	var tile_size = get_parent().tile_size
+	
+	# Find relative direction of mouse in cell units
+	var mouse_board_pos = get_global_mouse_position() - get_parent().global_position
+	var mouse_cell: Vector2i = mouse_board_pos / tile_size
+	var direction = mouse_cell - cell
+	
+	# Try to drag in the direction we're attempting to
+	# Up
+	if direction.y < 0 and can_move_up(board):
+		move(board, Globals.Direction.Up)
 		return
 	
-	# Multiple possible moves, ask user
-	await Engine.get_main_loop().process_frame
-	SlidePuzzleEvents.request_directions(position, possible_moves)
-	SlidePuzzleEvents.directions_selected.connect(_on_selected_direction)
-
-func get_possible_moves(board) -> Array[Globals.Direction]:
-	var possible_moves: Array[Globals.Direction] = []
+	# Right
+	if direction.x > 0 and can_move_right(board):
+		move(board, Globals.Direction.Right)
+		return
 	
-	# Check each direction for possible movement
-	if can_move_up(board):
-		possible_moves.append(Globals.Direction.Up)
-	if can_move_right(board):
-		possible_moves.append(Globals.Direction.Right)
-	if can_move_down(board):
-		possible_moves.append(Globals.Direction.Down)
-	if can_move_left(board):
-		possible_moves.append(Globals.Direction.Left)
+	# Down
+	if direction.y > 0 and can_move_down(board):
+		move(board, Globals.Direction.Down)
+		return
 	
-	return possible_moves
+	# Left
+	if direction.x < 0 and can_move_left(board):
+		move(board, Globals.Direction.Left)
+		return
 
 func move(board, direction: Globals.Direction) -> void:
 	match direction:
