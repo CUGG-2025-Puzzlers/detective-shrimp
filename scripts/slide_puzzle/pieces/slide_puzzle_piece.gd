@@ -54,6 +54,13 @@ func set_up(board, board_size: Vector2i, tile_size: int) -> void:
 
 #region Event Handlers
 
+# Checks for mouse movement only if dragging
+func _process(delta: float) -> void:
+	if not dragging:
+		return
+	
+	try_drag()
+
 # Checks for clicks on this node to toggle dragging
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
