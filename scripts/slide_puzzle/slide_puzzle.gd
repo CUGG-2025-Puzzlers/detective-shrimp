@@ -22,20 +22,11 @@ func _ready() -> void:
 	# Resize node to encompass entire board
 	size = board_size * tile_size
 	
-	SlidePuzzleEvents.hide_directions()
 	set_up_board()
 	print_board()
 	start()
 
 #region Event Handlers
-
-func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-			on_mouse_down()
-
-func on_mouse_down() -> void:
-	SlidePuzzleEvents.click_board()
 
 func on_piece_moved() -> void:
 	print_board()
