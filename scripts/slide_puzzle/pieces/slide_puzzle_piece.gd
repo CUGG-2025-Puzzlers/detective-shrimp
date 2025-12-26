@@ -89,6 +89,7 @@ func _on_puzzle_started() -> void:
 # Ignores clicking once puzzle is complete
 func _on_puzzle_completed() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	dragging = false
 
 #endregion
 
