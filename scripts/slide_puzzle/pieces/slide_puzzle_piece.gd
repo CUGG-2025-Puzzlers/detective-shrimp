@@ -5,6 +5,7 @@ extends TextureRect
 @onready var indicator = -1
 
 var dragging: bool = false
+var clicked_cell_offset: Vector2i
 
 #region Abstract functions
 
@@ -76,6 +77,10 @@ func _gui_input(event: InputEvent) -> void:
 
 # Begins dragging on click
 func _on_mouse_down() -> void:
+	var tile_size = get_parent().tile_size
+	var mouse_board_pos = get_global_mouse_position() - get_parent().global_position
+	var mouse_cell: Vector2i = mouse_board_pos / tile_size
+	clicked_cell_offset = mouse_cell - cell
 	dragging = true
 
 # Stops dragging on release
@@ -106,7 +111,7 @@ func try_drag():
 	# Find relative direction of mouse in cell units
 	var mouse_board_pos = get_global_mouse_position() - get_parent().global_position
 	var mouse_cell: Vector2i = mouse_board_pos / tile_size
-	var direction = mouse_cell - cell
+	var direction = mouse_cell - cell - clicked_cell_offset
 	
 	# Try to drag in the direction we're attempting to
 	# Up
