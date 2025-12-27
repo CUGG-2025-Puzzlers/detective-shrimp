@@ -29,7 +29,7 @@ func move_down(board) -> void:
 func move_left(board) -> void:
 	pass
 
-func move(direction: Globals.Direction) -> void:
+func move(board, direction: Globals.Direction) -> void:
 	pass
 
 func try_move_piece(board) -> void:
