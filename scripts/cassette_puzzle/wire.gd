@@ -37,6 +37,8 @@ func _gui_input(event: InputEvent) -> void:
 
 # Mouse Button Left clicked: Start the wire dragging
 func _on_mouse_down():
+	mouse_default_cursor_shape = Control.CURSOR_DRAG
+	
 	# Clear any previous connections
 	disconnect_from_input()
 	
@@ -54,11 +56,25 @@ func _on_mouse_up():
 	
 	# Clear wire if not hovering over reachable input connection
 	if hovered_input == null:
+		mouse_default_cursor_shape = Control.CURSOR_ARROW
 		wire.clear()
 		return
 	
 	# Connect wire
+	mouse_default_cursor_shape = Control.CURSOR_MOVE
 	connect_to_input()
+
+func _on_mouse_entered():
+	if dragging:
+		return
+	
+	mouse_default_cursor_shape = Control.CURSOR_MOVE
+
+func _on_mouse_exited():
+	if dragging:
+		return
+	
+	mouse_default_cursor_shape = Control.CURSOR_ARROW
 
 # Set the hovered input connection reference if in reach
 func _on_hovered_input(input: GateInput) -> void:
