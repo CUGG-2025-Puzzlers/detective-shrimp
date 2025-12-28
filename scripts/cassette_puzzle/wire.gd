@@ -91,9 +91,11 @@ func _on_unhovered_input() -> void:
 func set_wire_color():
 	if state == null:
 		wire.default_color = Color.WHITE
+		self_modulate = Color.WHITE
 		return
 	
 	wire.default_color = on_color if state else off_color
+	self_modulate = on_color if state else off_color
 
 # Changes the state of this wire if the new state is different than the current
 func change_state(newState):
