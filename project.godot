@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameEvents="*res://scripts/game_events.gd"
+Globals="*res://scripts/globals.gd"
+SlidePuzzleEvents="*res://scripts/slide_puzzle/slide_puzzle_events.gd"
 
 [display]
 

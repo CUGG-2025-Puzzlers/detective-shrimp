@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfhsl8g57pdfd"]
+
+[ext_resource type="Texture2D" uid="uid://wly2kisemq5s" path="res://textures/slide_puzzle/piece_2x2.png" id="1_usrxg"]
+[ext_resource type="Script" uid="uid://djbrv5fjr6dbe" path="res://scripts/slide_puzzle/pieces/piece_2x2.gd" id="2_aa0nj"]
+
+[node name="Piece (2x2)" type="TextureRect"]
+mouse_filter = 0
+texture = ExtResource("1_usrxg")
+script = ExtResource("2_aa0nj")
