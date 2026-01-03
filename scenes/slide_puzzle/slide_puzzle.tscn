@@ -1,0 +1,149 @@
+[gd_scene load_steps=9 format=3 uid="uid://l5rnkr1rcvun"]
+
+[ext_resource type="Script" uid="uid://b18mg5dobt73m" path="res://scripts/slide_puzzle/slide_puzzle.gd" id="1_p6xdk"]
+[ext_resource type="Texture2D" uid="uid://djwjq6sdse1u8" path="res://textures/slide_puzzle/background.png" id="1_tunya"]
+[ext_resource type="PackedScene" uid="uid://cboumc36hyhwu" path="res://scenes/slide_puzzle/pieces/piece_1x1.tscn" id="2_tunya"]
+[ext_resource type="PackedScene" uid="uid://xcxstsq1ci2n" path="res://scenes/slide_puzzle/pieces/piece_1x2.tscn" id="3_p6xdk"]
+[ext_resource type="PackedScene" uid="uid://ciayqcy3xcbjm" path="res://scenes/slide_puzzle/pieces/piece_2x1.tscn" id="4_tunya"]
+[ext_resource type="PackedScene" uid="uid://dmf136m2lw3jo" path="res://scenes/slide_puzzle/pieces/piece_key.tscn" id="6_avuny"]
+[ext_resource type="Script" uid="uid://b1asa31885gq8" path="res://scripts/slide_puzzle/slide_puzzle_goal.gd" id="8_0rcvq"]
+[ext_resource type="PackedScene" uid="uid://c4t51cm8rt4de" path="res://scenes/slide_puzzle/pieces/slide_puzzle_wall.tscn" id="8_avuny"]
+
+[node name="Slide Puzzle" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tunya")
+centered = false
+
+[node name="Board" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 36.0
+offset_bottom = 36.0
+script = ExtResource("1_p6xdk")
+board_size = Vector2i(5, 5)
+tile_size = 32
+
+[node name="Piece (1x1)" parent="Board" instance=ExtResource("2_tunya")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 96.0
+mouse_filter = 1
+
+[node name="Piece (1x1)3" parent="Board" instance=ExtResource("2_tunya")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 128.0
+offset_right = 64.0
+offset_bottom = 160.0
+mouse_filter = 1
+
+[node name="Piece (1x1)4" parent="Board" instance=ExtResource("2_tunya")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 1
+
+[node name="Piece (1x1)2" parent="Board" instance=ExtResource("2_tunya")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 96.0
+offset_right = 96.0
+offset_bottom = 128.0
+mouse_filter = 1
+
+[node name="Piece (1x1)5" parent="Board" instance=ExtResource("2_tunya")]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 160.0
+offset_bottom = 32.0
+mouse_filter = 1
+
+[node name="Piece (1x1)7" parent="Board" instance=ExtResource("2_tunya")]
+layout_mode = 0
+offset_left = 96.0
+offset_right = 128.0
+offset_bottom = 32.0
+mouse_filter = 1
+
+[node name="Piece (1x1)6" parent="Board" instance=ExtResource("2_tunya")]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 96.0
+mouse_filter = 1
+
+[node name="Piece (1x2)" parent="Board" instance=ExtResource("3_p6xdk")]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 128.0
+mouse_filter = 1
+
+[node name="Piece (1x2)2" parent="Board" instance=ExtResource("3_p6xdk")]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 64.0
+mouse_filter = 1
+
+[node name="Piece (1x2)3" parent="Board" instance=ExtResource("3_p6xdk")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 128.0
+offset_bottom = 160.0
+mouse_filter = 1
+
+[node name="Piece (2x1)" parent="Board" instance=ExtResource("4_tunya")]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 96.0
+mouse_filter = 1
+
+[node name="Piece (2x1)2" parent="Board" instance=ExtResource("4_tunya")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 160.0
+offset_bottom = 128.0
+mouse_filter = 1
+
+[node name="Piece (2x1)4" parent="Board" instance=ExtResource("4_tunya")]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 96.0
+offset_bottom = 64.0
+mouse_filter = 1
+
+[node name="Piece (Key)" parent="Board" instance=ExtResource("6_avuny")]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 32.0
+mouse_filter = 1
+
+[node name="Wall" parent="Board" instance=ExtResource("8_avuny")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="Goal" type="Control" parent="Board"]
+visible = false
+anchors_preset = 0
+offset_left = 96.0
+offset_top = 128.0
+offset_right = 160.0
+offset_bottom = 160.0
+mouse_filter = 2
+script = ExtResource("8_0rcvq")

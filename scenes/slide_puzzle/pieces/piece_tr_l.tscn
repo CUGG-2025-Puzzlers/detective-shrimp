@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://conm83dkdgkr2"]
+
+[ext_resource type="Texture2D" uid="uid://cynpqvpxoe5gj" path="res://textures/slide_puzzle/piece_top_right_l.png" id="1_lntyx"]
+[ext_resource type="Script" uid="uid://djbrv5fjr6dbe" path="res://scripts/slide_puzzle/pieces/piece_2x2.gd" id="2_tgdce"]
+
+[node name="Piece TR L" type="TextureRect"]
+mouse_filter = 0
+texture = ExtResource("1_lntyx")
+script = ExtResource("2_tgdce")
