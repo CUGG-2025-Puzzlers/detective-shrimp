@@ -2,10 +2,10 @@ class_name SlidePuzzle
 extends Control
 
 @export var board_size: Vector2i
+@export var goal_pos: Vector2i
 @export var tile_size: int
 
 @onready var board
-@onready var goal: Vector2i = Vector2i(-1, -1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +20,8 @@ func _ready() -> void:
 		board[i].fill(Globals.SlidePuzzleValues.Empty)
 	
 	# Resize node to encompass entire board
-	size = board_size * tile_size
+	$Grid.size = board_size * tile_size
+	$Goal.position = goal_pos * tile_size
 	
 	set_up_board()
 	print_board()
@@ -32,8 +33,8 @@ func on_piece_moved() -> void:
 	print_board()
 	
 	# Check for win state
-	if (board[goal.x][goal.y] == Globals.SlidePuzzleValues.IndicatorKey and 
-		board[goal.x + 1][goal.y] == Globals.SlidePuzzleValues.IndicatorKey):
+	if (board[goal_pos.x][goal_pos.y] == Globals.SlidePuzzleValues.IndicatorKey and 
+		board[goal_pos.x + 1][goal_pos.y] == Globals.SlidePuzzleValues.IndicatorKey):
 		complete()
 
 #endregion
@@ -44,18 +45,6 @@ func set_up_board() -> void:
 	# Loop through children and fill in their positions with their identifiers
 	var children = get_children()
 	for child in children:
-		# Set up the goal position
-		if child is SlidePuzzleGoal:
-			if goal.x != -1:
-				push_error("Multiple goals present on this board, remove all but one")
-				continue
-				
-			if not child.is_in_bounds(board_size, tile_size):
-				push_error("Goal not within bounds of the board")
-				continue
-			
-			goal = child.position / tile_size
-		
 		# Skip through all non puzzle piece nodes
 		if not child is SlidePuzzlePiece:
 			continue
