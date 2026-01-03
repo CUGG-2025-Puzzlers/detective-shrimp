@@ -14,6 +14,11 @@ config/name="Detective Shrimp"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://scripts/globals.gd"
+SlidePuzzleEvents="*res://scripts/slide_puzzle/slide_puzzle_events.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
