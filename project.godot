@@ -11,15 +11,27 @@ config_version=5
 [application]
 
 config/name="Detective Shrimp"
+run/main_scene="uid://378jmngcigte"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
+GameEvents="*res://scripts/game_events.gd"
 Globals="*res://scripts/globals.gd"
 SlidePuzzleEvents="*res://scripts/slide_puzzle/slide_puzzle_events.gd"
 
+[display]
+
+window/size/viewport_width=560
+window/size/viewport_height=320
+window/size/window_width_override=960
+window/size/window_height_override=600
+window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
