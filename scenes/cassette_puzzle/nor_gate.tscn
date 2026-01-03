@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb8ou2h3t2tol"]
+
+[ext_resource type="Texture2D" uid="uid://b01tl21uouprl" path="res://textures/cassette_puzzle/gate_shape_1.png" id="1_htn8q"]
+[ext_resource type="Script" uid="uid://ceje0xtlop5lg" path="res://scripts/cassette_puzzle/nor_gate.gd" id="2_htn8q"]
+[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="3_tc5bv"]
+[ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="4_cxwxy"]
+
+
+[node name="NOR Gate" type="TextureRect" node_paths=PackedStringArray("inputs", "output")]
+self_modulate = Color(0.4, 0.88235295, 0.85490197, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_htn8q")
+script = ExtResource("2_htn8q")
+inputs = [NodePath("Gate Input"), NodePath("Gate Input2")]
+output = NodePath("Output")
+
+[node name="Gate Input" parent="." instance=ExtResource("3_tc5bv")]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 8.0
+offset_right = 8.0
+offset_bottom = 24.0
+
+[node name="Gate Input2" parent="." instance=ExtResource("3_tc5bv")]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 40.0
+offset_right = 8.0
+offset_bottom = 56.0
+
+[node name="Output" parent="." instance=ExtResource("4_cxwxy")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)

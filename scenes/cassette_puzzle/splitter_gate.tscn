@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu3elfl8n7fub"]
+
+[ext_resource type="Texture2D" uid="uid://b01tl21uouprl" path="res://textures/cassette_puzzle/gate_shape_1.png" id="1_a3e84"]
+[ext_resource type="Script" uid="uid://onkw0wathqf3" path="res://scripts/cassette_puzzle/splitter_gate.gd" id="2_a3e84"]
+[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="3_ir86c"]
+[ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="4_telbk"]
+
+
+[node name="Splitter Gate" type="TextureRect" node_paths=PackedStringArray("outputs", "inputs", "output")]
+self_modulate = Color(0.20784314, 0.7921569, 0.3372549, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_a3e84")
+flip_h = true
+script = ExtResource("2_a3e84")
+outputs = [NodePath("Output 2")]
+inputs = [NodePath("Gate Input")]
+output = NodePath("Output 1")
+
+[node name="Gate Input" parent="." instance=ExtResource("3_ir86c")]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 24.0
+offset_right = 8.0
+offset_bottom = 40.0
+
+[node name="Output 1" parent="." instance=ExtResource("4_telbk")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -24.0
+offset_right = 8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+
+[node name="Output 2" parent="." instance=ExtResource("4_telbk")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = 8.0
+offset_right = 8.0
+offset_bottom = 24.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)

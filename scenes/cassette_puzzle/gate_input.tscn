@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1r8sisc3ep03"]
+
+[ext_resource type="Script" uid="uid://rj83i8vfgccq" path="res://scripts/cassette_puzzle/gate_input.gd" id="1_ab1gx"]
+[ext_resource type="Texture2D" uid="uid://5xb07g7w2c2t" path="res://textures/cassette_puzzle/gate_io.png" id="1_b4186"]
+
+[node name="Gate Input" type="TextureRect"]
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("1_b4186")
+flip_v = true
+script = ExtResource("1_ab1gx")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
