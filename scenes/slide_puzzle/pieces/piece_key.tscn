@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmf136m2lw3jo"]
 
-[ext_resource type="Texture2D" uid="uid://cb630wjkdwkfi" path="res://textures/slide_puzzle/key.png" id="1_ch2rb"]
+[ext_resource type="Texture2D" uid="uid://c58dr5087ix7x" path="res://textures/slide_puzzle/house_key.png" id="1_ch2rb"]
 [ext_resource type="Script" uid="uid://d2fqgskxs16tm" path="res://scripts/slide_puzzle/pieces/piece_key.gd" id="2_6mkaw"]
 
 [node name="Piece (Key)" type="TextureRect"]

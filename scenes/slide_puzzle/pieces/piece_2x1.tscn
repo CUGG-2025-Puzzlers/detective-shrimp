@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ciayqcy3xcbjm"]
 
-[ext_resource type="Texture2D" uid="uid://k3trfwwcsdtl" path="res://textures/slide_puzzle/piece_2x1.png" id="1_ca26w"]
+[ext_resource type="Texture2D" uid="uid://70881sv3vhhg" path="res://textures/slide_puzzle/block_2x1.png" id="1_ca26w"]
 [ext_resource type="Script" uid="uid://v1xyk8ja10jp" path="res://scripts/slide_puzzle/pieces/piece_2x1.gd" id="2_ca26w"]
 
 [node name="Piece (2x1)" type="TextureRect"]
