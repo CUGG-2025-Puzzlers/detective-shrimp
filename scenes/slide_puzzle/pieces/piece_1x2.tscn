@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://xcxstsq1ci2n"]
 
 [ext_resource type="Texture2D" uid="uid://dbcwpoydm1xoq" path="res://textures/slide_puzzle/block_1x2.png" id="1_evnby"]
-[ext_resource type="Script" uid="uid://vlefs1e8oo4m" path="res://scripts/slide_puzzle/pieces/slide_puzzle_piece.gd" id="2_evnby"]
+[ext_resource type="Script" uid="uid://vlefs1e8oo4m" path="res://scripts/slide_puzzle/slide_puzzle_piece.gd" id="2_evnby"]
 
 [node name="Piece (1x2)" type="TextureRect"]
 mouse_filter = 0
