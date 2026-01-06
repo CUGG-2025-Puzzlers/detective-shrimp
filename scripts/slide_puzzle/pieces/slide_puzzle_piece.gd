@@ -1,4 +1,4 @@
-@abstract class_name SlidePuzzlePiece
+class_name SlidePuzzlePiece
 extends TextureRect
 
 @onready var cell: Vector2i = Vector2i(-1, -1)
@@ -6,24 +6,6 @@ extends TextureRect
 
 var dragging: bool = false
 var clicked_cell_offset: Vector2i
-
-#region Abstract functions
-
-@abstract func is_in_bounds(board_size: Vector2i, tile_size: int) -> bool
-@abstract func would_overlap(board) -> bool
-@abstract func add_to_board(board) -> void
-
-@abstract func can_move_up(board) -> bool
-@abstract func can_move_right(board) -> bool
-@abstract func can_move_down(board) -> bool
-@abstract func can_move_left(board) -> bool
-
-@abstract func move_up(board) -> void
-@abstract func move_right(board) -> void
-@abstract func move_down(board) -> void
-@abstract func move_left(board) -> void
-
-#endregion
 
 #region Setup
 
