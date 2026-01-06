@@ -1,16 +1,34 @@
 class_name SlidePuzzle
 extends Control
 
-@export var board_size: Vector2i
-@export var goal_pos: Vector2i
 @export var tile_size: int
 
 @onready var board
+@export var board_size: Vector2i = Vector2i(2, 1) : set = resize_board
+@export var goal_pos: Vector2i : set = reposition_goal
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SlidePuzzleEvents.piece_moved.connect(on_piece_moved)
+
+#region Editor Functions
+
+# Resizes the board in the editor whenever the board size is changed
+func resize_board(value: Vector2i) -> void:
+	if value.x < 2 or value.y < 1:
+		return
 	
+	board_size = value
+	$%Grid.size = value * TILE_SIZE
+
+# Repositions the goal space in the editor whenever the goal position is changed
+func reposition_goal(value: Vector2i) -> void:
+	if value.x < 0 or value.y < 0:
+		return
+	
+	goal_pos = value
+	$%Goal.position = value * TILE_SIZE
+
 	# Create 2D board matrix
 	board = []
 	board.resize(board_size.x)
