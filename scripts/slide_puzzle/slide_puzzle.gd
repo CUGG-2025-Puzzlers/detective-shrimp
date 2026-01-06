@@ -110,6 +110,215 @@ func complete() -> void:
 	print("You win!")
 	SlidePuzzleEvents.complete_puzzle()
 
+#endregion
+
+#region Piece Movement Check
+
+# Checks if the given piece can move in the given direction
+func can_move(piece: SlidePuzzlePiece, direction: Globals.Direction) -> bool:
+	# Ignore pieces that are not part of this board
+	if not piece in pieces:
+		return false
+	
+	var shape = piece.shape
+	var cell: Vector2i = piece.position / TILE_SIZE
+	
+	match direction:
+		Globals.Direction.Up:
+			return can_move_up(shape, cell)
+		Globals.Direction.Right:
+			return can_move_right(shape, cell)
+		Globals.Direction.Down:
+			return can_move_down(shape, cell)
+		Globals.Direction.Left:
+			return can_move_left(shape, cell)
+		_:
+			return false
+
+# Checks if the given shape can be moved up from its current position
+func can_move_up(shape: Array[Array], cur_cell_pos: Vector2i) -> bool:
+	# Shape is on the top edge
+	if cur_cell_pos.y == 0:
+		return false
+	
+	# Check if the topmost part of each column can move up
+	for col in range(shape[0].size()):
+		var row: int = 0
+		while row < shape.size() && shape[row][col] == 0:
+			row += 1
+		
+		# Skip empty columns (all 0s)
+		# Shouldn't happen but this is here just in case
+		if row >= shape.size():
+			continue
+		
+		if board[cur_cell_pos.x + col][cur_cell_pos.y + row - 1] != Globals.SlidePuzzleValues.Empty:
+			return false
+	
+	return true
+
+# Checks if the given shape can be moved right from its current position
+func can_move_right(shape: Array[Array], cur_cell_pos: Vector2i) -> bool:
+	# Shape is on the right edge
+	if cur_cell_pos.x + shape[0].size() + 1 > board_size.x:
+		return false
+	
+	# Check if the rightmost part of each row can move right
+	for row in range(shape.size()):
+		var col: int = shape[0].size() - 1
+		while col >= 0 && shape[row][col] == 0:
+			col -= 1
+		
+		# Skip empty rows (all 0s)
+		# Shouldn't happen but this is here just in case
+		if col < 0:
+			continue
+		
+		if board[cur_cell_pos.x + col + 1][cur_cell_pos.y + row] != Globals.SlidePuzzleValues.Empty:
+			return false
+	
+	return true
+
+# Checks if the given shape can be moved down from its current position
+func can_move_down(shape: Array[Array], cur_cell_pos: Vector2i) -> bool:
+	# Shape is on the bottom edge
+	if cur_cell_pos.y + shape.size() + 1 > board_size.y:
+		return false
+	
+	# Check if the bottommost part of each column can move down
+	for col in range(shape[0].size()):
+		var row: int = shape.size() - 1
+		while row >= 0 && shape[row][col] == 0:
+			row -= 1
+		
+		# Skip empty columns (all 0s)
+		# Shouldn't happen but this is here just in case
+		if row < 0:
+			continue
+		
+		if board[cur_cell_pos.x + col][cur_cell_pos.y + row + 1] != Globals.SlidePuzzleValues.Empty:
+			return false
+	
+	return true
+
+# Checks if the given shape can be moved left from its current position
+func can_move_left(shape: Array[Array], cur_cell_pos: Vector2i) -> bool:
+	# Shape is on the left edge
+	if cur_cell_pos.x == 0:
+		return false
+	
+	# Check if the leftmost part of each row can move left
+	for row in range(shape.size()):
+		var col: int = 0
+		while col < shape[0].size() && shape[row][col] == 0:
+			col += 1
+		
+		# Skip empty rows (all 0s)
+		# Shouldn't happen but this is here just in case
+		if col >= shape[0].size():
+			continue
+		
+		if board[cur_cell_pos.x + col - 1][cur_cell_pos.y + row] != Globals.SlidePuzzleValues.Empty:
+			return false
+	
+	return true
+
+#endregion
+
+#region Piece Movement
+
+# Moves a piece in the given direction if it's part of this board
+func move(piece: SlidePuzzlePiece, direction: Globals.Direction) -> void:
+	if not piece in pieces:
+		return
+	
+	var shape = piece.shape
+	var cell: Vector2i = piece.position / TILE_SIZE
+	var indicator = piece.indicator
+	
+	match direction:
+		Globals.Direction.Up:
+			move_up(shape, cell, indicator)
+			cell.y -= 1
+		Globals.Direction.Right:
+			move_right(shape, cell, indicator)
+			cell.x += 1
+		Globals.Direction.Down:
+			move_down(shape, cell, indicator)
+			cell.y += 1
+		Globals.Direction.Left:
+			move_left(shape, cell, indicator)
+			cell.x -= 1
+	
+	piece.position = cell * TILE_SIZE
+	print_board()
+	
+	if key_in_goal():
+		complete()
+
+# Moves a piece up
+func move_up(shape: Array[Array], cur_cell_pos: Vector2i, indicator: Globals.SlidePuzzleValues) -> void:
+	# Go by rows from top to bottom
+	for row in range(shape.size()):
+		for col in range(shape[0].size()):
+			var cur_col = cur_cell_pos.x + col
+			var cur_row = cur_cell_pos.y + row
+			
+			move_cell(shape[row][col], indicator, cur_col, cur_row, 0, -1)
+
+# Moves a piece to the right
+func move_right(shape: Array[Array], cur_cell_pos: Vector2i, indicator: Globals.SlidePuzzleValues) -> void:
+	# Go by columns from right to left
+	for col in range(shape[0].size() - 1, -1, -1):
+		for row in range(shape.size()):
+			var cur_col = cur_cell_pos.x + col
+			var cur_row = cur_cell_pos.y + row
+			
+			move_cell(shape[row][col], indicator, cur_col, cur_row, 1, 0)
+
+# Moves a piece down
+func move_down(shape: Array[Array], cur_cell_pos: Vector2i, indicator: Globals.SlidePuzzleValues) -> void:
+	# Go by rows from bottom to top
+	for row in range(shape.size() - 1, -1, -1):
+		for col in range(shape[0].size()):
+			var cur_col = cur_cell_pos.x + col
+			var cur_row = cur_cell_pos.y + row
+			
+			move_cell(shape[row][col], indicator, cur_col, cur_row, 0, 1)
+
+# Moves a piece to the left
+func move_left(shape: Array[Array], cur_cell_pos: Vector2i, indicator: Globals.SlidePuzzleValues) -> void:
+	# Go by columns from left to right
+	for col in range(shape[0].size()):
+		for row in range(shape.size()):
+			var cur_col = cur_cell_pos.x + col
+			var cur_row = cur_cell_pos.y + row
+			
+			move_cell(shape[row][col], indicator, cur_col, cur_row, -1, 0)
+
+# Moves a piece's individual cell
+# Row and column modifiers indicate the direction
+func move_cell(shape_value: int, indicator: Globals.SlidePuzzleValues, column: int, row: int, column_modifier: int, row_modifier: int):
+	if row_modifier != 0 and column_modifier != 0:
+		push_error("Row and column modifiers cannot both be non-zero")
+	
+	if row_modifier == 0 and column_modifier == 0:
+		push_error("Row and column modifiers cannot both be zero")
+	
+	if abs(row_modifier) > 1 or abs(column_modifier) > 1:
+		push_error("Row and column modifiers must be -1, 0, or 1")
+	
+	# Move hole in shape but leave it's previous cell as it is
+	if shape_value == 0:
+		board[column + column_modifier][row + row_modifier] = Globals.SlidePuzzleValues.Empty
+		return
+	
+	# Move part of piece, leave it's previous cell empty
+	board[column][row] = Globals.SlidePuzzleValues.Empty
+	board[column + column_modifier][row + row_modifier] = indicator
+
+#endregion
+
 # Checks if the key is in the goal squares
 func key_in_goal() -> bool:
 	return (board[goal_pos.x][goal_pos.y] == Globals.SlidePuzzleValues.IndicatorKey and
