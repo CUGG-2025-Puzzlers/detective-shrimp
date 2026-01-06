@@ -1,18 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://dc4tvs8q0i3hb"]
+[gd_scene load_steps=6 format=3 uid="uid://dc4tvs8q0i3hb"]
 
 [ext_resource type="PackedScene" uid="uid://rpc3kkyj58sj" path="res://scenes/slide_puzzle/slide_puzzle_board.tscn" id="1_fw6dy"]
 [ext_resource type="PackedScene" uid="uid://cboumc36hyhwu" path="res://scenes/slide_puzzle/pieces/piece_1x1.tscn" id="3_ljts4"]
 [ext_resource type="PackedScene" uid="uid://xcxstsq1ci2n" path="res://scenes/slide_puzzle/pieces/piece_1x2.tscn" id="4_x5vdi"]
 [ext_resource type="PackedScene" uid="uid://ciayqcy3xcbjm" path="res://scenes/slide_puzzle/pieces/piece_2x1.tscn" id="5_qifi4"]
 [ext_resource type="PackedScene" uid="uid://bfhsl8g57pdfd" path="res://scenes/slide_puzzle/pieces/piece_2x2.tscn" id="6_t6tvq"]
-[ext_resource type="PackedScene" uid="uid://dmf136m2lw3jo" path="res://scenes/slide_puzzle/pieces/piece_key.tscn" id="7_oekne"]
 
 [node name="Slide Puzzle 1" type="Node2D"]
 
-[node name="Slide Puzzle Board" parent="." instance=ExtResource("1_fw6dy")]
+[node name="Slide Puzzle Board" parent="." node_paths=PackedStringArray("pieces") instance=ExtResource("1_fw6dy")]
+offset_right = 0.0
+offset_bottom = 0.0
 board_size = Vector2i(5, 5)
 goal_pos = Vector2i(3, 4)
-tile_size = 32
+board = Array[Array]([[2, 4, 5, 5, 3], [2, 4, 3, 5, 5], [0, 6, 6, 0, 4], [4, 6, 6, 3, 4], [4, 3, 0, 5, 5]])
+pieces = [NodePath("Piece (Key)"), NodePath("Piece (1x1)"), NodePath("Piece (1x1)3"), NodePath("Piece (1x1)4"), NodePath("Piece (1x1)5"), NodePath("Piece (1x2)"), NodePath("Piece (1x2)3"), NodePath("Piece (1x2)2"), NodePath("Piece (2x1)2"), NodePath("Piece (2x1)4"), NodePath("Piece (2x1)3"), NodePath("Piece (2x2)")]
 
 [node name="Piece (1x1)" parent="Slide Puzzle Board" instance=ExtResource("3_ljts4")]
 layout_mode = 0
@@ -96,10 +98,4 @@ offset_left = 64.0
 offset_top = 32.0
 offset_right = 128.0
 offset_bottom = 96.0
-mouse_filter = 1
-
-[node name="Piece (Key)" parent="Slide Puzzle Board" instance=ExtResource("7_oekne")]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 32.0
 mouse_filter = 1
