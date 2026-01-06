@@ -89,22 +89,21 @@ func set_up_piece(piece: SlidePuzzlePiece) -> void:
 
 #endregion
 
-#region Board Setup
+# Starts the puzzle immediately
+# Start should be called elsewhere in response to an event or something
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	
+	start()
 
-func set_up_board() -> void:
-	# Loop through children and fill in their positions with their identifiers
-	var children = get_children()
-	for child in children:
-		# Skip through all non puzzle piece nodes
-		if not child is SlidePuzzlePiece:
-			continue
-		
-		child.set_up(board, board_size, tile_size)
+#region Puzzle Events
 
+# Starts the puzzle and notifies all pieces
 func start() -> void:
 	SlidePuzzleEvents.start_puzzle()
-
-#endregion
+	for piece in pieces:
+		piece._on_puzzle_started()
 
 # Completes this board
 func complete() -> void:
