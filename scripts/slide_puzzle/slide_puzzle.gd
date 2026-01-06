@@ -46,10 +46,7 @@ func reposition_goal(value: Vector2i) -> void:
 	print_board()
 	start()
 
-#region Event Handlers
 
-func on_piece_moved() -> void:
-	print_board()
 	
 
 #endregion

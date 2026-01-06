@@ -152,7 +152,6 @@ func move(board, direction: Globals.Direction) -> void:
 			cell.x -= 1
 		
 	move_texture(direction)
-	SlidePuzzleEvents.move_piece()
 
 # Updates this piece's position using the given direction
 func move_texture(direction: Globals.Direction) -> void:
