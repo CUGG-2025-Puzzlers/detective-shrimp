@@ -19,24 +19,6 @@ func _ready() -> void:
 	SlidePuzzleEvents.puzzle_started.connect(_on_puzzle_started)
 	SlidePuzzleEvents.puzzle_completed.connect(_on_puzzle_completed)
 
-# Attempts to add this piece to the board
-func set_up(board, board_size: Vector2i, tile_size: int) -> void:
-	# Hide pieces that are out of bounds
-	if not is_in_bounds(board_size, tile_size):
-		print("Piece (", name, ") is not within the puzzle bounds, hiding it")
-		hide()
-		return
-	
-	cell = position / tile_size
-	print(name, " at cell ", cell.x, ", ", cell.y)
-	
-	# Hide pieces that overlap already placed pieces
-	if would_overlap(board):
-		print("Piece (", name, ") would overlap another piece, hiding it instead")
-		hide()
-		return
-	
-	add_to_board(board)
 
 #endregion
 
