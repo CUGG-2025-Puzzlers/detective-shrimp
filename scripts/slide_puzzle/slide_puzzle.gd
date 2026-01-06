@@ -2,7 +2,7 @@
 class_name SlidePuzzle
 extends Control
 
-@export var tile_size: int
+const TILE_SIZE: int = 32
 
 @onready var board
 @export var board_size: Vector2i = Vector2i(2, 1) : set = resize_board
