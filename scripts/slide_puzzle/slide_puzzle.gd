@@ -51,10 +51,6 @@ func reposition_goal(value: Vector2i) -> void:
 func on_piece_moved() -> void:
 	print_board()
 	
-	# Check for win state
-	if (board[goal_pos.x][goal_pos.y] == Globals.SlidePuzzleValues.IndicatorKey and 
-		board[goal_pos.x + 1][goal_pos.y] == Globals.SlidePuzzleValues.IndicatorKey):
-		complete()
 
 #endregion
 
@@ -79,6 +75,11 @@ func start() -> void:
 func complete() -> void:
 	print("You win!")
 	SlidePuzzleEvents.complete_puzzle()
+
+# Checks if the key is in the goal squares
+func key_in_goal() -> bool:
+	return (board[goal_pos.x][goal_pos.y] == Globals.SlidePuzzleValues.IndicatorKey and
+			board[goal_pos.x + 1][goal_pos.y] == Globals.SlidePuzzleValues.IndicatorKey)
 
 # Prints the board to the console as a 2D array
 func print_board() -> void:
