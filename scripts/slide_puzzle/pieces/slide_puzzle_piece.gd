@@ -1,8 +1,9 @@
 class_name SlidePuzzlePiece
 extends TextureRect
 
-@onready var cell: Vector2i = Vector2i(-1, -1)
-@onready var indicator = -1
+@export var shape: Array[Array]
+@export var indicator: Globals.SlidePuzzleValues
+@export var moveable: bool = true
 
 var dragging: bool = false
 var clicked_cell_offset: Vector2i
@@ -15,10 +16,6 @@ func _ready() -> void:
 		print("Piece (", name, ") is not part of a puzzle, hiding it")
 		hide()
 		return
-	
-	SlidePuzzleEvents.puzzle_started.connect(_on_puzzle_started)
-	SlidePuzzleEvents.puzzle_completed.connect(_on_puzzle_completed)
-
 
 #endregion
 
@@ -33,6 +30,9 @@ func _process(delta: float) -> void:
 
 # Checks for clicks on this node to toggle dragging
 func _gui_input(event: InputEvent) -> void:
+	if not moveable:
+		return
+	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
 			_on_mouse_down()
@@ -41,10 +41,9 @@ func _gui_input(event: InputEvent) -> void:
 
 # Begins dragging on click
 func _on_mouse_down() -> void:
-	var tile_size = get_parent().tile_size
-	var mouse_board_pos = get_global_mouse_position() - get_parent().global_position
-	var mouse_cell: Vector2i = mouse_board_pos / tile_size
-	clicked_cell_offset = mouse_cell - cell
+	var piece_cell = get_piece_cell()
+	var mouse_cell = get_mouse_cell()
+	clicked_cell_offset = mouse_cell - piece_cell
 	dragging = true
 
 # Stops dragging on release
@@ -52,13 +51,17 @@ func _on_mouse_up() -> void:
 	dragging = false
 
 # Allows clicking while puzzle is active
+# Listens for puzzle completion
 func _on_puzzle_started() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
+	SlidePuzzleEvents.puzzle_completed.connect(_on_puzzle_completed)
 
 # Ignores clicking once puzzle is complete
+# Stops listening for puzzle completion
 func _on_puzzle_completed() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	dragging = false
+	SlidePuzzleEvents.puzzle_completed.disconnect(_on_puzzle_completed)
 
 #endregion
 
@@ -66,68 +69,46 @@ func _on_puzzle_completed() -> void:
 
 # Attempts to move the piece in the direction of the mouse
 func try_drag():
-	if not dragging:
+	if not dragging or not moveable:
 		return
 	
-	var board = get_parent().board
-	var tile_size = get_parent().tile_size
+	var puzzle_board: SlidePuzzle = get_parent()
 	
 	# Find relative direction of mouse in cell units
-	var mouse_board_pos = get_global_mouse_position() - get_parent().global_position
-	var mouse_cell: Vector2i = mouse_board_pos / tile_size
-	var direction = mouse_cell - cell - clicked_cell_offset
+	var piece_cell = get_piece_cell()
+	var mouse_cell = get_mouse_cell()
+	var direction = mouse_cell - piece_cell - clicked_cell_offset
 	
 	# Try to drag in the direction we're attempting to
 	# Up
-	if direction.y < 0 and can_move_up(board):
-		move(board, Globals.Direction.Up)
+	if direction.y < 0 and puzzle_board.can_move(self, Globals.Direction.Up):
+		puzzle_board.move(self, Globals.Direction.Up)
 		return
 	
 	# Right
-	if direction.x > 0 and can_move_right(board):
-		move(board, Globals.Direction.Right)
+	if direction.x > 0 and puzzle_board.can_move(self, Globals.Direction.Right):
+		puzzle_board.move(self, Globals.Direction.Right)
 		return
 	
 	# Down
-	if direction.y > 0 and can_move_down(board):
-		move(board, Globals.Direction.Down)
+	if direction.y > 0 and puzzle_board.can_move(self, Globals.Direction.Down):
+		puzzle_board.move(self, Globals.Direction.Down)
 		return
 	
 	# Left
-	if direction.x < 0 and can_move_left(board):
-		move(board, Globals.Direction.Left)
+	if direction.x < 0 and puzzle_board.can_move(self, Globals.Direction.Left):
+		puzzle_board.move(self, Globals.Direction.Left)
 		return
 
-# Moves this piece in the given direction
-# Updates the board
-func move(board, direction: Globals.Direction) -> void:
-	match direction:
-		Globals.Direction.Up:
-			move_up(board)
-			cell.y -= 1
-		Globals.Direction.Right:
-			move_right(board)
-			cell.x += 1
-		Globals.Direction.Down:
-			move_down(board)
-			cell.y += 1
-		Globals.Direction.Left:
-			move_left(board)
-			cell.x -= 1
-		
-	move_texture(direction)
-
-# Updates this piece's position using the given direction
-func move_texture(direction: Globals.Direction) -> void:
-	var tile_size = get_parent().tile_size
-	match direction:
-		Globals.Direction.Up:
-			position += Vector2(0, -tile_size)
-		Globals.Direction.Right:
-			position += Vector2(tile_size, 0)
-		Globals.Direction.Down:
-			position += Vector2(0, tile_size)
-		Globals.Direction.Left:
-			position += Vector2(-tile_size, 0)
-
 #endregion
+
+# Returns a Vector2i representing the cell on the board that this piece is in
+# This cell is the top-leftmost cell of the piece, even if the shape is empty there
+func get_piece_cell() -> Vector2i:
+	return position / get_parent().TILE_SIZE
+
+# Returns a Vector2i representing the cell on the board that the cursor is hovering
+func get_mouse_cell() -> Vector2i:
+	var tile_size = get_parent().TILE_SIZE
+	var mouse_board_pos = get_global_mouse_position() - get_parent().global_position
+	return mouse_board_pos / tile_size
