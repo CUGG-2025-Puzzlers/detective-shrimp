@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4t51cm8rt4de"]
 
 [ext_resource type="Texture2D" uid="uid://b1mvtso1nw5pp" path="res://textures/slide_puzzle/slide_puzzle_grid.png" id="1_4avxx"]
-[ext_resource type="Script" uid="uid://c7fq4hs4k0p8k" path="res://scripts/slide_puzzle/pieces/piece_wall.gd" id="2_3hh54"]
+[ext_resource type="Script" uid="uid://vlefs1e8oo4m" path="res://scripts/slide_puzzle/pieces/slide_puzzle_piece.gd" id="2_4avxx"]
 
 [node name="Wall" type="TextureRect"]
 self_modulate = Color(0.75, 0.75, 0.75, 1)
@@ -9,4 +9,7 @@ mouse_filter = 0
 texture = ExtResource("1_4avxx")
 flip_h = true
 flip_v = true
-script = ExtResource("2_3hh54")
+script = ExtResource("2_4avxx")
+shape = Array[Array]([[1]])
+indicator = 1
+moveable = false
