@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cboumc36hyhwu"]
 
-[ext_resource type="Texture2D" uid="uid://bhi6fh63itv6f" path="res://textures/slide_puzzle/piece_1x1.png" id="1_xw4r5"]
-[ext_resource type="Script" uid="uid://tfuq50u3mprh" path="res://scripts/slide_puzzle/pieces/piece_1x1.gd" id="2_5mpte"]
+[ext_resource type="Texture2D" uid="uid://dqvyc0nhjwh1c" path="res://textures/slide_puzzle/block_1x1.png" id="1_5mpte"]
+[ext_resource type="Script" uid="uid://vlefs1e8oo4m" path="res://scripts/slide_puzzle/slide_puzzle_piece.gd" id="2_5mpte"]
 
 [node name="Piece (1x1)" type="TextureRect"]
 mouse_filter = 0
-texture = ExtResource("1_xw4r5")
+texture = ExtResource("1_5mpte")
 script = ExtResource("2_5mpte")
+shape = Array[Array]([[1]])
+indicator = 3

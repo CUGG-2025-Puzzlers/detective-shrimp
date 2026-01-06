@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://conm83dkdgkr2"]
 
 [ext_resource type="Texture2D" uid="uid://cynpqvpxoe5gj" path="res://textures/slide_puzzle/piece_top_right_l.png" id="1_lntyx"]
-[ext_resource type="Script" uid="uid://djbrv5fjr6dbe" path="res://scripts/slide_puzzle/pieces/piece_2x2.gd" id="2_tgdce"]
+[ext_resource type="Script" uid="uid://vlefs1e8oo4m" path="res://scripts/slide_puzzle/slide_puzzle_piece.gd" id="2_lntyx"]
 
 [node name="Piece TR L" type="TextureRect"]
 mouse_filter = 0
 texture = ExtResource("1_lntyx")
-script = ExtResource("2_tgdce")
+script = ExtResource("2_lntyx")
+shape = Array[Array]([[1, 1], [0, 1]])
+indicator = 7
