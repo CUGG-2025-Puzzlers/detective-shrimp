@@ -83,9 +83,10 @@ func key_in_goal() -> bool:
 
 # Prints the board to the console as a 2D array
 func print_board() -> void:
-	print("Board State:")
+	var msg = "Board State:\n"
 	for i in range(board_size.y):
-		var row = ""
 		for j in range(board_size.x):
-			row += str(board[j][i]) + " "
-		print(row)
+			msg += str(board[j][i]) + " "
+		msg += "\n"
+	
+	print(msg)
