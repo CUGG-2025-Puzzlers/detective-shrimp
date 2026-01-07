@@ -32,17 +32,14 @@ position = Vector2(100, 0)
 
 [node name="NOT Gate" parent="Group 1" instance=ExtResource("2_ijqe3")]
 offset_top = 48.0
-offset_right = 64.0
 offset_bottom = 112.0
 
 [node name="OR Gate" parent="Group 1" instance=ExtResource("3_ahvs6")]
 offset_top = 176.0
-offset_right = 64.0
 offset_bottom = 240.0
 
 [node name="NOT Gate2" parent="Group 1" instance=ExtResource("2_ijqe3")]
 offset_top = 304.0
-offset_right = 64.0
 offset_bottom = 368.0
 
 [node name="Relay 1" type="Node2D" parent="."]
@@ -50,7 +47,6 @@ position = Vector2(250, 0)
 
 [node name="Relay Gate" parent="Relay 1" instance=ExtResource("4_u5eyv")]
 offset_top = 48.0
-offset_right = 64.0
 offset_bottom = 112.0
 
 [node name="Splitter Gate" parent="Relay 1" instance=ExtResource("5_2hin0")]
@@ -68,17 +64,14 @@ position = Vector2(400, 0)
 
 [node name="NOT Gate" parent="Group 2" instance=ExtResource("2_ijqe3")]
 offset_top = 48.0
-offset_right = 64.0
 offset_bottom = 112.0
 
 [node name="XOR Gate" parent="Group 2" instance=ExtResource("6_2hin0")]
 offset_top = 176.0
-offset_right = 64.0
 offset_bottom = 240.0
 
 [node name="XOR Gate2" parent="Group 2" instance=ExtResource("6_2hin0")]
 offset_top = 304.0
-offset_right = 64.0
 offset_bottom = 368.0
 
 [node name="Relay 2" type="Node2D" parent="."]
@@ -86,7 +79,6 @@ position = Vector2(550, 0)
 
 [node name="Relay Gate" parent="Relay 2" instance=ExtResource("4_u5eyv")]
 offset_top = 48.0
-offset_right = 64.0
 offset_bottom = 112.0
 
 [node name="Splitter Gate" parent="Relay 2" instance=ExtResource("5_2hin0")]
@@ -96,7 +88,6 @@ offset_bottom = 240.0
 
 [node name="Relay Gate2" parent="Relay 2" instance=ExtResource("4_u5eyv")]
 offset_top = 304.0
-offset_right = 64.0
 offset_bottom = 368.0
 
 [node name="Group 3" type="Node2D" parent="."]
@@ -108,7 +99,6 @@ offset_bottom = 176.0
 
 [node name="XOR Gate" parent="Group 3" instance=ExtResource("6_2hin0")]
 offset_top = 240.0
-offset_right = 64.0
 offset_bottom = 304.0
 
 [node name="Outputs" type="Node2D" parent="."]
