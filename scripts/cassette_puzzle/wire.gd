@@ -1,6 +1,8 @@
+@tool
 class_name Wire
 extends TextureRect
 
+@export var game_settings : GameSettings
 @export var max_length: int
 
 signal stateChanged;
@@ -84,12 +86,17 @@ func _on_unhovered_input() -> void:
 # Sets the wire's color based on the state
 func set_wire_color():
 	if state == null:
-		$%Wire_Line.default_color = Globals.null_color
-		self_modulate = Globals.null_color
+		$%Wire_Line.default_color = game_settings.null_color
+		self_modulate = game_settings.null_color
 		return
 	
-	$%Wire_Line.default_color = Globals.on_color if state else Globals.off_color
-	self_modulate = Globals.on_color if state else Globals.off_color
+	if state:
+		$%Wire_Line.default_color = game_settings.on_color
+		self_modulate = game_settings.on_color
+		return
+	
+	$%Wire_Line.default_color = game_settings.off_color
+	self_modulate = game_settings.off_color
 
 # Changes the state of this wire if the new state is different than the current
 func change_state(newState):
