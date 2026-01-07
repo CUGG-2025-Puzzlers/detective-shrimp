@@ -9,8 +9,6 @@ var state = null
 var dragging = false
 var hovered_input: GateInput = null
 var connected_input: GateInput = null
-var on_color: Color = Color(0, 0.2, 1)
-var off_color: Color = Color(1, 0, 0.2)
 
 func _ready() -> void:
 	set_wire_color()
@@ -86,12 +84,12 @@ func _on_unhovered_input() -> void:
 # Sets the wire's color based on the state
 func set_wire_color():
 	if state == null:
-		$%Wire_Line.default_color = Color.WHITE
-		self_modulate = Color.WHITE
+		$%Wire_Line.default_color = Globals.null_color
+		self_modulate = Globals.null_color
 		return
 	
-	$%Wire_Line.default_color = on_color if state else off_color
-	self_modulate = on_color if state else off_color
+	$%Wire_Line.default_color = Globals.on_color if state else Globals.off_color
+	self_modulate = Globals.on_color if state else Globals.off_color
 
 # Changes the state of this wire if the new state is different than the current
 func change_state(newState):
