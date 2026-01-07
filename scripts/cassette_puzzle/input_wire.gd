@@ -1,7 +1,15 @@
+@tool
 extends Node2D
 
-@export var state: bool
+@export var state: bool : set = set_state
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	$%Wire.change_state(state)
+#region Editor Functions
+
+func set_state(value: bool):
+	if value == state:
+		return
+	
+	$%Wire.change_state(value)
+	state = value
+
+#endregion

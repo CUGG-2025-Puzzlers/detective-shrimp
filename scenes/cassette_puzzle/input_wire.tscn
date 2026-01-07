@@ -8,3 +8,4 @@ script = ExtResource("1_i5rqe")
 
 [node name="Wire" parent="." instance=ExtResource("2_0qkiv")]
 unique_name_in_owner = true
+self_modulate = Color(1, 0, 0.2, 1)
