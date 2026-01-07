@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://n2hk45l3puvp" path="res://scripts/cassette_puzzle/input_wire.gd" id="1_i5rqe"]
 [ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="2_0qkiv"]
 
-
 [node name="InputWire" type="Node2D"]
 script = ExtResource("1_i5rqe")
 
 [node name="Wire" parent="." instance=ExtResource("2_0qkiv")]
+unique_name_in_owner = true
