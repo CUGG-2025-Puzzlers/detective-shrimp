@@ -1,16 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://bdv0ahcvmixa6"]
 
-[ext_resource type="Texture2D" uid="uid://b01tl21uouprl" path="res://textures/cassette_puzzle/gate_shape_1.png" id="1_bwnpn"]
+[ext_resource type="Texture2D" uid="uid://bcmgv5c5easct" path="res://textures/cassette_puzzle/gate_bubble_inverted.png" id="1_brxqj"]
 [ext_resource type="Script" uid="uid://ffjiygib7dmm" path="res://scripts/cassette_puzzle/nand_gate.gd" id="2_cnfh0"]
 [ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="3_yx4en"]
 [ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="4_k8a2s"]
 
-
 [node name="NAND Gate" type="TextureRect" node_paths=PackedStringArray("inputs", "output")]
-self_modulate = Color(0.90588236, 0.64705884, 0.79607844, 1)
 offset_right = 64.0
 offset_bottom = 64.0
-texture = ExtResource("1_bwnpn")
+texture = ExtResource("1_brxqj")
 script = ExtResource("2_cnfh0")
 inputs = [NodePath("Gate Input"), NodePath("Gate Input2")]
 output = NodePath("Output")

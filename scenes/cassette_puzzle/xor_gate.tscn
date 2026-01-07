@@ -1,16 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyi8enbwjas5f"]
 
-[ext_resource type="Texture2D" uid="uid://b01tl21uouprl" path="res://textures/cassette_puzzle/gate_shape_1.png" id="1_u1u31"]
+[ext_resource type="Texture2D" uid="uid://bc3rv5a7iw8ad" path="res://textures/cassette_puzzle/gate_shrimp.png" id="1_qg7xs"]
 [ext_resource type="Script" uid="uid://drv16e6c6fmws" path="res://scripts/cassette_puzzle/xor_gate.gd" id="2_u1u31"]
 [ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="3_1cf5o"]
 [ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="4_jwlv0"]
 
-
 [node name="XOR Gate" type="TextureRect" node_paths=PackedStringArray("inputs", "output")]
-self_modulate = Color(0.92156863, 0.9098039, 0.60784316, 1)
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_u1u31")
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_qg7xs")
 script = ExtResource("2_u1u31")
 inputs = [NodePath("Gate Input"), NodePath("Gate Input2")]
 output = NodePath("Output")

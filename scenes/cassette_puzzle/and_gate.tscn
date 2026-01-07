@@ -1,16 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://6irm70cy4miu"]
 
-[ext_resource type="Texture2D" uid="uid://b01tl21uouprl" path="res://textures/cassette_puzzle/gate_shape_1.png" id="1_6ap5d"]
+[ext_resource type="Texture2D" uid="uid://bmlpxsl83orai" path="res://textures/cassette_puzzle/gate_bubble.png" id="1_dxlqb"]
 [ext_resource type="Script" uid="uid://bq7tuaov216mr" path="res://scripts/cassette_puzzle/and_gate.gd" id="2_yjl0w"]
 [ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="3_4tspw"]
 [ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="4_clfja"]
 
-
 [node name="AND Gate" type="TextureRect" node_paths=PackedStringArray("inputs", "output")]
-self_modulate = Color(0.76862746, 0.68235296, 1, 1)
 offset_right = 64.0
 offset_bottom = 64.0
-texture = ExtResource("1_6ap5d")
+texture = ExtResource("1_dxlqb")
 script = ExtResource("2_yjl0w")
 inputs = [NodePath("Gate Input"), NodePath("Gate Input2")]
 output = NodePath("Output")
