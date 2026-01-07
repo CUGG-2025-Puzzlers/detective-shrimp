@@ -12,6 +12,7 @@ script = ExtResource("1_210fl")
 max_length = 200
 
 [node name="Wire_Line" type="Line2D" parent="."]
+unique_name_in_owner = true
 z_index = 1
 joint_mode = 2
 script = ExtResource("3_o6qwa")

@@ -3,8 +3,6 @@ extends TextureRect
 
 @export var max_length: int
 
-@onready var wire : WireLine
-
 signal stateChanged;
 
 var state = null
@@ -15,14 +13,12 @@ var on_color: Color = Color(0, 0.2, 1)
 var off_color: Color = Color(1, 0, 0.2)
 
 func _ready() -> void:
-	# Set WireLine reference to child
-	wire = $Wire_Line
 	set_wire_color()
 
 func _process(delta: float) -> void:
 	# Wire follows mouse while dragging
 	if dragging:
-		wire.adjust()
+		$%Wire_Line.adjust()
 
 #region Event Handlers
 
@@ -43,7 +39,7 @@ func _on_mouse_down():
 	disconnect_from_input()
 	
 	# Start new wire
-	wire.start()
+	$%Wire_Line.start()
 	CasettePuzzleEvents.hovered_input.connect(_on_hovered_input)
 	CasettePuzzleEvents.unhovered_input.connect(_on_unhovered_input)
 	dragging = true
@@ -57,7 +53,7 @@ func _on_mouse_up():
 	# Clear wire if not hovering over reachable input connection
 	if hovered_input == null:
 		mouse_default_cursor_shape = Control.CURSOR_ARROW
-		wire.clear()
+		$%Wire_Line.clear()
 		return
 	
 	# Connect wire
@@ -90,11 +86,11 @@ func _on_unhovered_input() -> void:
 # Sets the wire's color based on the state
 func set_wire_color():
 	if state == null:
-		wire.default_color = Color.WHITE
+		$%Wire_Line.default_color = Color.WHITE
 		self_modulate = Color.WHITE
 		return
 	
-	wire.default_color = on_color if state else off_color
+	$%Wire_Line.default_color = on_color if state else off_color
 	self_modulate = on_color if state else off_color
 
 # Changes the state of this wire if the new state is different than the current
@@ -108,7 +104,7 @@ func change_state(newState):
 
 # Checks if the wire can reach a specified GateInput
 func can_reach(input: GateInput):
-	var wire_start = wire.global_position
+	var wire_start = $%Wire_Line.global_position
 	var input_edge = input.global_position
 	input_edge.y += input.size.y / 2
 	
@@ -121,10 +117,10 @@ func connect_to_input():
 	
 	# Hovered input is already connected to another wire
 	if hovered_input.wire != null:
-		wire.clear()
+		$%Wire_Line.clear()
 		return
 	
-	wire.attach(hovered_input)
+	$%Wire_Line.attach(hovered_input)
 	hovered_input.connect_wire(self)
 	connected_input = hovered_input
 	hovered_input = null
@@ -134,6 +130,6 @@ func disconnect_from_input():
 	if connected_input == null:
 		return
 	
-	wire.clear()
+	$%Wire_Line.clear()
 	connected_input.disconnect_wire()
 	connected_input = null
