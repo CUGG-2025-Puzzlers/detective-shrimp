@@ -13,3 +13,6 @@ func set_state(value: bool):
 	state = value
 
 #endregion
+
+func _ready() -> void:
+	$%Wire.change_state(state)
