@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://bx504qsix0es6"]
+
+[ext_resource type="PackedScene" uid="uid://bukxbwoax8pwc" path="res://scenes/cassette_puzzle/input_wire.tscn" id="1_nlxpi"]
+[ext_resource type="PackedScene" uid="uid://cyi8enbwjas5f" path="res://scenes/cassette_puzzle/gates/xor_gate.tscn" id="2_ddvrl"]
+[ext_resource type="PackedScene" uid="uid://6irm70cy4miu" path="res://scenes/cassette_puzzle/gates/and_gate.tscn" id="3_nlxpi"]
+[ext_resource type="PackedScene" uid="uid://dvwbe6v72jqgb" path="res://scenes/cassette_puzzle/gates/relay_gate.tscn" id="4_io58p"]
+[ext_resource type="PackedScene" uid="uid://u6t6nj04n00i" path="res://scenes/cassette_puzzle/gates/or_gate.tscn" id="5_ah7v1"]
+[ext_resource type="PackedScene" uid="uid://brtj6y84xuyc0" path="res://scenes/cassette_puzzle/gates/not_gate.tscn" id="6_m2i0q"]
+[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="8_goy17"]
+
+[node name="Casette Puzzle 1" type="Node2D"]
+
+[node name="Inputs" type="Node2D" parent="."]
+
+[node name="InputWire" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(136, 8)
+state = true
+
+[node name="InputWire2" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(136, 72)
+
+[node name="InputWire3" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(8, 136)
+state = true
+
+[node name="InputWire4" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(8, 200)
+
+[node name="InputWire5" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(8, 264)
+state = true
+
+[node name="InputWire6" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(8, 328)
+state = true
+
+[node name="InputWire7" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(136, 392)
+state = true
+
+[node name="InputWire8" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(136, 456)
+
+[node name="Gates" type="Node2D" parent="."]
+
+[node name="OR Gate" parent="Gates" instance=ExtResource("5_ah7v1")]
+offset_left = 104.0
+offset_top = 144.0
+offset_right = 168.0
+offset_bottom = 208.0
+
+[node name="XOR Gate" parent="Gates" instance=ExtResource("2_ddvrl")]
+offset_left = 104.0
+offset_top = 272.0
+offset_right = 168.0
+offset_bottom = 336.0
+
+[node name="NOT Gate" parent="Gates" instance=ExtResource("6_m2i0q")]
+offset_left = 296.0
+offset_top = 16.0
+offset_right = 360.0
+offset_bottom = 80.0
+
+[node name="XOR Gate2" parent="Gates" instance=ExtResource("2_ddvrl")]
+offset_left = 264.0
+offset_top = 144.0
+offset_right = 328.0
+offset_bottom = 208.0
+
+[node name="XOR Gate3" parent="Gates" instance=ExtResource("2_ddvrl")]
+offset_left = 264.0
+offset_top = 272.0
+offset_right = 328.0
+offset_bottom = 336.0
+
+[node name="Relay Gate" parent="Gates" instance=ExtResource("4_io58p")]
+offset_left = 296.0
+offset_top = 385.0
+offset_right = 360.0
+offset_bottom = 449.0
+
+[node name="AND Gate" parent="Gates" instance=ExtResource("3_nlxpi")]
+offset_left = 424.0
+offset_top = 144.0
+offset_right = 488.0
+offset_bottom = 208.0
+
+[node name="OR Gate2" parent="Gates" instance=ExtResource("5_ah7v1")]
+offset_left = 424.0
+offset_top = 272.0
+offset_right = 488.0
+offset_bottom = 336.0
+
+[node name="AND Gate2" parent="Gates" instance=ExtResource("3_nlxpi")]
+offset_left = 552.0
+offset_top = 208.0
+offset_right = 616.0
+offset_bottom = 272.0
+
+[node name="Output" type="Node2D" parent="."]
+
+[node name="Gate Input" parent="Output" instance=ExtResource("8_goy17")]
+offset_left = 696.0
+offset_top = 232.0
+offset_right = 712.0
+offset_bottom = 248.0
