@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://wglw4rfn1fc1"]
+
+[ext_resource type="Script" uid="uid://dijhnm0wab0eb" path="res://scenes/puzzle_popup.gd" id="1_n6hj6"]
+
+[node name="PuzzlePopup" type="CanvasLayer"]
+script = ExtResource("1_n6hj6")
+
+[node name="Overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.003921569)
+
+[node name="PuzzleContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CloseButton" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "X"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7kq48qj8hkw5"
-path="res://.godot/imported/Obstacle.png-3cef7d1dc0386061a5439f627b9cdd76.ctex"
+uid="uid://cex82mv80lbgq"
+path="res://.godot/imported/tileset_2.png-83ae1a379fa4c0dc78cd43233d9c3a8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Obstacle.png"
-dest_files=["res://.godot/imported/Obstacle.png-3cef7d1dc0386061a5439f627b9cdd76.ctex"]
+source_file="res://assets/ui/tileset_2.png"
+dest_files=["res://.godot/imported/tileset_2.png-83ae1a379fa4c0dc78cd43233d9c3a8a.ctex"]
 
 [params]
 
