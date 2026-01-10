@@ -1,9 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://df56glnmpcbej"]
+[gd_scene load_steps=9 format=3 uid="uid://df56glnmpcbej"]
 
 [ext_resource type="Script" uid="uid://co0iu57gta684" path="res://scripts/dialogue/dialogue_box.gd" id="1_hvmm2"]
 [ext_resource type="Texture2D" uid="uid://b3txqamkair0f" path="res://assets/ui/dialogue_backgroung.png" id="1_tm68y"]
 [ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://assets/ui/m5x7.ttf" id="2_hvmm2"]
 [ext_resource type="Texture2D" uid="uid://cgyimct3i3kis" path="res://assets/characters/Cameron_Icon.png" id="3_p0wdv"]
+
+[sub_resource type="FontVariation" id="FontVariation_p0wdv"]
+base_font = ExtResource("2_hvmm2")
+variation_embolden = 0.5
+variation_transform = Transform2D(1, 0, 0, 0.95, 1, 0)
+spacing_glyph = 1
+
+[sub_resource type="FontVariation" id="FontVariation_pehjr"]
+base_font = ExtResource("2_hvmm2")
+variation_embolden = 0.5
+variation_transform = Transform2D(1, 0.3, 0, 0.95, 0, 0)
+spacing_glyph = 1
+
+[sub_resource type="FontVariation" id="FontVariation_hvmm2"]
+base_font = ExtResource("2_hvmm2")
+variation_transform = Transform2D(1, 0.3, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_c26ww"]
+base_font = ExtResource("2_hvmm2")
+variation_transform = Transform2D(1, 0.3, 0, 1, 0, 0)
 
 [node name="Dialogue Box" type="Control"]
 layout_mode = 3
@@ -44,9 +64,9 @@ offset_right = 120.0
 offset_bottom = 16.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_hvmm2")
-theme_override_fonts/bold_font = ExtResource("2_hvmm2")
-theme_override_fonts/bold_italics_font = ExtResource("2_hvmm2")
-theme_override_fonts/italics_font = ExtResource("2_hvmm2")
+theme_override_fonts/bold_font = SubResource("FontVariation_p0wdv")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_pehjr")
+theme_override_fonts/italics_font = SubResource("FontVariation_hvmm2")
 theme_override_fonts/mono_font = ExtResource("2_hvmm2")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
@@ -67,9 +87,9 @@ offset_right = 416.0
 offset_bottom = 60.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_hvmm2")
-theme_override_fonts/bold_font = ExtResource("2_hvmm2")
-theme_override_fonts/bold_italics_font = ExtResource("2_hvmm2")
-theme_override_fonts/italics_font = ExtResource("2_hvmm2")
+theme_override_fonts/bold_font = SubResource("FontVariation_p0wdv")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_pehjr")
+theme_override_fonts/italics_font = SubResource("FontVariation_c26ww")
 theme_override_fonts/mono_font = ExtResource("2_hvmm2")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
