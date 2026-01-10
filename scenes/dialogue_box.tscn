@@ -2,28 +2,8 @@
 
 [ext_resource type="Script" uid="uid://co0iu57gta684" path="res://scripts/dialogue/dialogue_box.gd" id="1_hvmm2"]
 [ext_resource type="Texture2D" uid="uid://b3txqamkair0f" path="res://assets/ui/dialogue_backgroung.png" id="1_tm68y"]
-[ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://assets/ui/m5x7.ttf" id="2_hvmm2"]
+[ext_resource type="PackedScene" uid="uid://5gvulpkdx1y2" path="res://scenes/configured_text_label.tscn" id="3_hvmm2"]
 [ext_resource type="Texture2D" uid="uid://cgyimct3i3kis" path="res://assets/characters/Cameron_Icon.png" id="3_p0wdv"]
-
-[sub_resource type="FontVariation" id="FontVariation_p0wdv"]
-base_font = ExtResource("2_hvmm2")
-variation_embolden = 0.5
-variation_transform = Transform2D(1, 0, 0, 0.95, 1, 0)
-spacing_glyph = 1
-
-[sub_resource type="FontVariation" id="FontVariation_pehjr"]
-base_font = ExtResource("2_hvmm2")
-variation_embolden = 0.5
-variation_transform = Transform2D(1, 0.3, 0, 0.95, 0, 0)
-spacing_glyph = 1
-
-[sub_resource type="FontVariation" id="FontVariation_hvmm2"]
-base_font = ExtResource("2_hvmm2")
-variation_transform = Transform2D(1, 0.3, 0, 1, 0, 0)
-
-[sub_resource type="FontVariation" id="FontVariation_c26ww"]
-base_font = ExtResource("2_hvmm2")
-variation_transform = Transform2D(1, 0.3, 0, 1, 0, 0)
 
 [node name="Dialogue Box" type="Control"]
 layout_mode = 3
@@ -56,49 +36,21 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="Name" type="RichTextLabel" parent="Background/Name Card"]
+[node name="Name" parent="Background/Name Card" instance=ExtResource("3_hvmm2")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
 offset_right = 120.0
-offset_bottom = 16.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_hvmm2")
-theme_override_fonts/bold_font = SubResource("FontVariation_p0wdv")
-theme_override_fonts/bold_italics_font = SubResource("FontVariation_pehjr")
-theme_override_fonts/italics_font = SubResource("FontVariation_hvmm2")
-theme_override_fonts/mono_font = ExtResource("2_hvmm2")
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
-theme_override_font_sizes/bold_italics_font_size = 16
-theme_override_font_sizes/italics_font_size = 16
-theme_override_font_sizes/mono_font_size = 16
-bbcode_enabled = true
-text = "Cameron
-"
-scroll_active = false
+text = "Cameron"
 
-[node name="Text" type="RichTextLabel" parent="Background"]
+[node name="Text" parent="Background" instance=ExtResource("3_hvmm2")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 72.0
 offset_top = 20.0
 offset_right = 416.0
 offset_bottom = 60.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_hvmm2")
-theme_override_fonts/bold_font = SubResource("FontVariation_p0wdv")
-theme_override_fonts/bold_italics_font = SubResource("FontVariation_pehjr")
-theme_override_fonts/italics_font = SubResource("FontVariation_c26ww")
-theme_override_fonts/mono_font = ExtResource("2_hvmm2")
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
-theme_override_font_sizes/bold_italics_font_size = 16
-theme_override_font_sizes/italics_font_size = 16
-theme_override_font_sizes/mono_font_size = 16
-bbcode_enabled = true
 text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
-scroll_active = false
 
 [node name="Portrait" type="Sprite2D" parent="Background"]
 unique_name_in_owner = true
