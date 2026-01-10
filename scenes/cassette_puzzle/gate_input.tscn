@@ -7,7 +7,6 @@
 offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("1_5702w")
-flip_v = true
 script = ExtResource("1_ab1gx")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
