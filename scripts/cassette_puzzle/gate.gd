@@ -1,15 +1,24 @@
 @abstract class_name Gate
 extends TextureRect
 
-@export var inputs: Array[GateInput]
-@export var output: Wire
+var inputs: Array[GateInput]
+var output: Wire
 
 @abstract func evaluate() -> void
 
 func _ready() -> void:
-	# Listens for input changes from all inputs for this gate
-	for input in inputs:
-		input.stateChanged.connect(_on_input_state_changed)
+	# Sets up input(s) and output
+	for child in get_children():
+		if not child.visible:
+			continue
+		
+		if child is GateInput:
+			inputs.append(child)
+			child.stateChanged.connect(_on_input_state_changed)
+			continue
+		
+		if child is Wire:
+			output = child
 
 #region Event Handlers
 
