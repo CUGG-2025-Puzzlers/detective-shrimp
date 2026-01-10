@@ -59,6 +59,7 @@ func _on_timer_finished():
 		return
 	
 	if cur_char_index == cur_dialogue.lines[cur_line].text.length():
+		cur_char_index += 1
 		$%TextTimer.start(END_OF_TEXT_PAUSE)
 		return
 	
