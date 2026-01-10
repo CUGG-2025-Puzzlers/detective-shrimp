@@ -19,7 +19,6 @@ func _resize_cursors():
 	scale_factor = (min(viewport_size.x / base_width, viewport_size.y / base_height) *
 					game_settings.mouse_scale)
 	
-	print("Resizing cursors with scale: ", scale_factor)
 	_resize_cursor(mouse_default, Input.CURSOR_ARROW)
 	_resize_cursor(mouse_move, Input.CURSOR_MOVE)
 	_resize_cursor(mouse_drag, Input.CURSOR_DRAG)
@@ -32,8 +31,6 @@ func _resize_cursor(base_texture: Resource, cursor_shape):
 				Image.INTERPOLATE_NEAREST)
 	var new_texture = ImageTexture.create_from_image(image)
 	Input.set_custom_mouse_cursor(new_texture, cursor_shape)
-	print(int(base_texture.get_width() * scale_factor))
-	
 
 enum SlidePuzzleValues {
 	Empty,
