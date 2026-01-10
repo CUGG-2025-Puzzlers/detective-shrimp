@@ -13,6 +13,7 @@ var hovered_input: GateInput = null
 var connected_input: GateInput = null
 
 func _ready() -> void:
+	mouse_default_cursor_shape = Control.CURSOR_MOVE
 	set_wire_color()
 
 func _process(delta: float) -> void:
@@ -47,30 +48,25 @@ func _on_mouse_down():
 # Mouse Button Left let go: Stop the wire dragging and connect if possible
 func _on_mouse_up():
 	dragging = false
+	mouse_default_cursor_shape = Control.CURSOR_MOVE
 	CasettePuzzleEvents.hovered_input.disconnect(_on_hovered_input)
 	CasettePuzzleEvents.unhovered_input.disconnect(_on_unhovered_input)
 	
 	# Clear wire if not hovering over reachable input connection
 	if hovered_input == null:
-		mouse_default_cursor_shape = Control.CURSOR_ARROW
 		$%Wire_Line.clear()
 		return
 	
 	# Connect wire
-	mouse_default_cursor_shape = Control.CURSOR_MOVE
 	connect_to_input()
 
 func _on_mouse_entered():
 	if dragging:
 		return
-	
-	mouse_default_cursor_shape = Control.CURSOR_MOVE
 
 func _on_mouse_exited():
 	if dragging:
 		return
-	
-	mouse_default_cursor_shape = Control.CURSOR_ARROW
 
 # Set the hovered input connection reference if in reach
 func _on_hovered_input(input: GateInput) -> void:
