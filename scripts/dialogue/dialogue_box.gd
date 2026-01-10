@@ -6,6 +6,7 @@ const SLOW_TEXT_SPEED = 60
 
 var text_speed: int = NORMAL_TEXT_SPEED
 var typing: bool = false
+var skip_typing: bool = false
 
 var cur_dialogue: Dialogue
 
@@ -29,6 +30,10 @@ func _on_dialogue_started(dialogue: Dialogue):
 	displayNextLine()
 
 func _on_mouse_down():
+	if typing:
+		skip_typing = true
+		return
+	
 	if cur_dialogue.cur_line < cur_dialogue.lines.size():
 		displayNextLine()
 		return
@@ -66,6 +71,11 @@ func displayText(line: DialogueLine) -> void:
 	$%Text.clear()
 	
 	for c in line.text:
+		if skip_typing:
+			skip_typing = false
+			$%Text.set_text(line.text)
+			break
+		
 		$%Text.add_text(c)
 		for i in range(text_speed):
 			await Engine.get_main_loop().process_frame
