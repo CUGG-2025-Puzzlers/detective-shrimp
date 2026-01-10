@@ -13,8 +13,6 @@ offset_top = -36.0
 offset_right = 216.0
 offset_bottom = 36.0
 script = ExtResource("1_hvmm2")
-speaker_title_node = NodePath("Background/Title Background/Speaker Title")
-dialogue_text_node = NodePath("Background/Dialogue Text")
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -26,7 +24,7 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="Title Background" type="NinePatchRect" parent="Background"]
+[node name="Name Card" type="NinePatchRect" parent="Background"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 4.0
@@ -38,7 +36,8 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="Speaker Title" type="RichTextLabel" parent="Background/Title Background"]
+[node name="Name" type="RichTextLabel" parent="Background/Name Card"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
 offset_right = 120.0
@@ -59,7 +58,8 @@ text = "Cameron
 "
 scroll_active = false
 
-[node name="Dialogue Text" type="RichTextLabel" parent="Background"]
+[node name="Text" type="RichTextLabel" parent="Background"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 72.0
 offset_top = 20.0
@@ -80,6 +80,7 @@ bbcode_enabled = true
 text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
 scroll_active = false
 
-[node name="Speaker Icon" type="Sprite2D" parent="Background"]
+[node name="Portrait" type="Sprite2D" parent="Background"]
+unique_name_in_owner = true
 position = Vector2(36, 36)
 texture = ExtResource("3_p0wdv")

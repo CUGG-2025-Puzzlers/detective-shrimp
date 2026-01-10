@@ -1,11 +1,5 @@
 extends Control
 
-@export var speaker_title_node: NodePath
-@export var dialogue_text_node: NodePath
-
-@onready var speaker = get_node(speaker_title_node)
-@onready var text = get_node(dialogue_text_node)
-
 const FAST_TEXT_SPEED = 30
 const NORMAL_TEXT_SPEED = 45
 const SLOW_TEXT_SPEED = 60
@@ -31,8 +25,8 @@ func displayText(speaker_name: String, dialogue: String) -> void:
 		return
 	
 	typing = true
-	speaker.set_text(speaker_name)
-	text.clear()
+	$%Name.set_text(line.speaker_name)
+	$%Text.clear()
 	
 	GameEvents.dialogue_started.emit()
 	for c in dialogue:
