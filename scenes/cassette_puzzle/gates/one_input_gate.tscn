@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj382mlybyk80"]
+
+[ext_resource type="Texture2D" uid="uid://dv6p74m6mjkvd" path="res://textures/cassette_puzzle/gate_shell.png" id="1_4747o"]
+[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="2_2tx3m"]
+[ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="3_ueb0n"]
+
+[node name="One Input Gate" type="TextureRect"]
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_4747o")
+
+[node name="Gate Input" parent="." instance=ExtResource("2_2tx3m")]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 12.0
+offset_right = 4.0
+offset_bottom = 20.0
+
+[node name="Output" parent="." instance=ExtResource("3_ueb0n")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 12.0
+offset_right = 40.0
+offset_bottom = 20.0
+pivot_offset = Vector2(0, 4)
