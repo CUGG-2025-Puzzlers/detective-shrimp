@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=8 format=3 uid="uid://uyhq67mqiqc0"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_fkt8q"]
+[ext_resource type="Texture2D" uid="uid://cgyimct3i3kis" path="res://assets/characters/Cameron_Icon.png" id="2_qri7n"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="2_w1d6m"]
+
+[sub_resource type="Resource" id="Resource_qri7n"]
+script = ExtResource("1_fkt8q")
+speaker_name = "Weatherperson"
+text = "...reports of clear skies, it's a beautiful day outside."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_fkt8q"]
+script = ExtResource("1_fkt8q")
+speaker_name = "News Anchor"
+text = "But what's not so beautiful is the news. At 9:58 AM today, police discovered two male victims, both dead."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_w1d6m"]
+script = ExtResource("1_fkt8q")
+speaker_name = "News Anchor"
+text = "The victims are still uniden-"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_fvmgg"]
+script = ExtResource("1_fkt8q")
+speaker_name = "Shrimlock Holmes"
+speaker_portrait = ExtResource("2_qri7n")
+text = "That's enough death for today..."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("2_w1d6m")
+name = "Test Dialogue"
+lines = Array[ExtResource("1_fkt8q")]([SubResource("Resource_qri7n"), SubResource("Resource_fkt8q"), SubResource("Resource_w1d6m"), SubResource("Resource_fvmgg")])
+metadata/_custom_type_script = "uid://6av67jfqula5"
