@@ -13,9 +13,6 @@ var index
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameEvents.dialogue_opened.connect(onOpen)
-	GameEvents.dialogue_closed.connect(onClose)
-	GameEvents.dialogue.connect(onDialogue)
 	GameEvents.dialogue_started.connect(onDisplayStart)
 	GameEvents.dialogue_ended.connect(onDisplayEnd)
 		
@@ -63,17 +60,8 @@ func continueDialogue() -> void:
 		GameEvents.dialogue.emit(dialogue[index].speaker_name, dialogue[index].dialogue_text)
 	pass
 
-func onOpen() -> void:
-	print_debug("Opened Dialogue")
-
-func onClose() -> void:
-	print_debug("Closed Dialogue")
-
-func onDialogue(speaker: String, text: String):
-	print_debug("Displayed \"%s\" by %s" % [text, speaker])
 
 func onDisplayStart() -> void:
 	print_debug("Started Dialogue")
 
 func onDisplayEnd() -> void:
-	print_debug("Ended Dialogue")
