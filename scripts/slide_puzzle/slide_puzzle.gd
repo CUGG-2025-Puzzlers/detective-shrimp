@@ -263,9 +263,12 @@ func move(piece: SlidePuzzlePiece, direction: Globals.Direction) -> void:
 
 # Moves a piece up
 func move_up(shape: Array[Array], cur_cell_pos: Vector2i, indicator: Globals.SlidePuzzleValues) -> void:
-	# Go by rows from top to bottom
-	for row in range(shape.size()):
-		for col in range(shape[0].size()):
+	# Go by column from left to right, top to bottom
+	for col in range(shape[0].size()):
+		for row in range(shape.size()):
+			if shape[row][col] == 0:
+				continue
+		
 			var cur_col = cur_cell_pos.x + col
 			var cur_row = cur_cell_pos.y + row
 			
@@ -273,9 +276,12 @@ func move_up(shape: Array[Array], cur_cell_pos: Vector2i, indicator: Globals.Sli
 
 # Moves a piece to the right
 func move_right(shape: Array[Array], cur_cell_pos: Vector2i, indicator: Globals.SlidePuzzleValues) -> void:
-	# Go by columns from right to left
-	for col in range(shape[0].size() - 1, -1, -1):
-		for row in range(shape.size()):
+	# Go by rows from top to bottom, right to left
+	for row in range(shape.size()):
+		for col in range(shape[0].size() - 1, -1, -1):
+			if shape[row][col] == 0:
+				continue
+			
 			var cur_col = cur_cell_pos.x + col
 			var cur_row = cur_cell_pos.y + row
 			
@@ -283,9 +289,12 @@ func move_right(shape: Array[Array], cur_cell_pos: Vector2i, indicator: Globals.
 
 # Moves a piece down
 func move_down(shape: Array[Array], cur_cell_pos: Vector2i, indicator: Globals.SlidePuzzleValues) -> void:
-	# Go by rows from bottom to top
-	for row in range(shape.size() - 1, -1, -1):
-		for col in range(shape[0].size()):
+	# Go by columns from left to right, bottom to top
+	for col in range(shape[0].size()):
+		for row in range(shape.size() - 1, -1, -1):
+			if shape[row][col] == 0:
+				continue
+			
 			var cur_col = cur_cell_pos.x + col
 			var cur_row = cur_cell_pos.y + row
 			
@@ -293,9 +302,12 @@ func move_down(shape: Array[Array], cur_cell_pos: Vector2i, indicator: Globals.S
 
 # Moves a piece to the left
 func move_left(shape: Array[Array], cur_cell_pos: Vector2i, indicator: Globals.SlidePuzzleValues) -> void:
-	# Go by columns from left to right
-	for col in range(shape[0].size()):
-		for row in range(shape.size()):
+	# Go by rows from top to bottom, left to right
+	for row in range(shape.size()):
+		for col in range(shape[0].size()):
+			if shape[row][col] == 0:
+				continue
+			
 			var cur_col = cur_cell_pos.x + col
 			var cur_row = cur_cell_pos.y + row
 			
