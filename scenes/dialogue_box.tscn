@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://df56glnmpcbej"]
 
-[ext_resource type="Script" uid="uid://co0iu57gta684" path="res://scripts/dialogue_box.gd" id="1_hvmm2"]
+[ext_resource type="Script" uid="uid://co0iu57gta684" path="res://scripts/dialogue/dialogue_box.gd" id="1_hvmm2"]
 [ext_resource type="Texture2D" uid="uid://b3txqamkair0f" path="res://assets/ui/dialogue_backgroung.png" id="1_tm68y"]
 [ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://assets/ui/m5x7.ttf" id="2_hvmm2"]
 [ext_resource type="Texture2D" uid="uid://cgyimct3i3kis" path="res://assets/characters/Cameron_Icon.png" id="3_p0wdv"]
