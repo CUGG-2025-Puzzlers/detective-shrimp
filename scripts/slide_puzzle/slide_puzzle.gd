@@ -47,6 +47,10 @@ func set_up_board() -> void:
 		if not child is SlidePuzzlePiece:
 			continue
 		
+		# Skip hidden pieces
+		if not child.visible:
+			continue
+		
 		set_up_piece(child)
 	
 	print_board()
@@ -96,6 +100,7 @@ func _ready() -> void:
 		return
 	
 	start()
+	print_board()
 
 #region Puzzle Events
 
