@@ -1,36 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://brtj6y84xuyc0"]
+[gd_scene load_steps=4 format=3 uid="uid://brtj6y84xuyc0"]
 
 [ext_resource type="Texture2D" uid="uid://dwlgv5kfnnsxx" path="res://textures/cassette_puzzle/gate_shell_inverted.png" id="1_kxx3g"]
+[ext_resource type="PackedScene" uid="uid://dj382mlybyk80" path="res://scenes/cassette_puzzle/gates/one_input_gate.tscn" id="1_yjdj6"]
 [ext_resource type="Script" uid="uid://c050tfee8gml8" path="res://scripts/cassette_puzzle/not_gate.gd" id="2_tr75b"]
-[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="3_h2oe8"]
-[ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="4_4xair"]
 
-[node name="NOT Gate" type="TextureRect" node_paths=PackedStringArray("inputs", "output")]
-offset_right = 64.0
-offset_bottom = 64.0
+[node name="NOT Gate" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+
+[node name="One Input Gate" parent="." instance=ExtResource("1_yjdj6")]
+layout_mode = 0
 texture = ExtResource("1_kxx3g")
 script = ExtResource("2_tr75b")
-inputs = [NodePath("Gate Input")]
-output = NodePath("Output")
-
-[node name="Gate Input" parent="." instance=ExtResource("3_h2oe8")]
-layout_mode = 0
-offset_left = -8.0
-offset_top = 24.0
-offset_right = 8.0
-offset_bottom = 40.0
-
-[node name="Output" parent="." instance=ExtResource("4_4xair")]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-grow_horizontal = 0
-grow_vertical = 2
-pivot_offset = Vector2(8, 8)

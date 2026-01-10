@@ -1,43 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyi8enbwjas5f"]
+[gd_scene load_steps=4 format=3 uid="uid://cyi8enbwjas5f"]
 
 [ext_resource type="Texture2D" uid="uid://bc3rv5a7iw8ad" path="res://textures/cassette_puzzle/gate_shrimp.png" id="1_qg7xs"]
+[ext_resource type="PackedScene" uid="uid://d2o4nxr215ara" path="res://scenes/cassette_puzzle/gates/two_input_gate.tscn" id="1_sy6il"]
 [ext_resource type="Script" uid="uid://drv16e6c6fmws" path="res://scripts/cassette_puzzle/xor_gate.gd" id="2_u1u31"]
-[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="3_1cf5o"]
-[ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="4_jwlv0"]
 
-[node name="XOR Gate" type="TextureRect" node_paths=PackedStringArray("inputs", "output")]
-offset_right = 64.0
-offset_bottom = 64.0
+[node name="XOR Gate" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+
+[node name="Two Input Gate" parent="." instance=ExtResource("1_sy6il")]
+layout_mode = 0
 texture = ExtResource("1_qg7xs")
 script = ExtResource("2_u1u31")
-inputs = [NodePath("Gate Input"), NodePath("Gate Input2")]
-output = NodePath("Output")
-
-[node name="Gate Input" parent="." instance=ExtResource("3_1cf5o")]
-layout_mode = 0
-offset_left = -8.0
-offset_top = 8.0
-offset_right = 8.0
-offset_bottom = 24.0
-
-[node name="Gate Input2" parent="." instance=ExtResource("3_1cf5o")]
-layout_mode = 0
-offset_left = -8.0
-offset_top = 40.0
-offset_right = 8.0
-offset_bottom = 56.0
-
-[node name="Output" parent="." instance=ExtResource("4_jwlv0")]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-grow_horizontal = 0
-grow_vertical = 2
-pivot_offset = Vector2(8, 8)

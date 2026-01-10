@@ -1,43 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdv0ahcvmixa6"]
+[gd_scene load_steps=4 format=3 uid="uid://bdv0ahcvmixa6"]
 
 [ext_resource type="Texture2D" uid="uid://bcmgv5c5easct" path="res://textures/cassette_puzzle/gate_bubble_inverted.png" id="1_brxqj"]
+[ext_resource type="PackedScene" uid="uid://d2o4nxr215ara" path="res://scenes/cassette_puzzle/gates/two_input_gate.tscn" id="1_g2j65"]
 [ext_resource type="Script" uid="uid://ffjiygib7dmm" path="res://scripts/cassette_puzzle/nand_gate.gd" id="2_cnfh0"]
-[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="3_yx4en"]
-[ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="4_k8a2s"]
 
-[node name="NAND Gate" type="TextureRect" node_paths=PackedStringArray("inputs", "output")]
-offset_right = 64.0
-offset_bottom = 64.0
+[node name="NAND Gate" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+
+[node name="Two Input Gate" parent="." instance=ExtResource("1_g2j65")]
+layout_mode = 0
 texture = ExtResource("1_brxqj")
 script = ExtResource("2_cnfh0")
-inputs = [NodePath("Gate Input"), NodePath("Gate Input2")]
-output = NodePath("Output")
-
-[node name="Gate Input" parent="." instance=ExtResource("3_yx4en")]
-layout_mode = 0
-offset_left = -8.0
-offset_top = 8.0
-offset_right = 8.0
-offset_bottom = 24.0
-
-[node name="Gate Input2" parent="." instance=ExtResource("3_yx4en")]
-layout_mode = 0
-offset_left = -8.0
-offset_top = 40.0
-offset_right = 8.0
-offset_bottom = 56.0
-
-[node name="Output" parent="." instance=ExtResource("4_k8a2s")]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-grow_horizontal = 0
-grow_vertical = 2
-pivot_offset = Vector2(8, 8)
