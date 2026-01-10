@@ -1,7 +1,10 @@
 extends Node
 
-signal dialogue(speaker: String, dialogue: String)
-signal dialogue_opened()
-signal dialogue_started()
+signal dialogue_started(dialogue: Dialogue)
 signal dialogue_ended()
-signal dialogue_closed()
+
+func start_dialogue(dialogue: Dialogue):
+	dialogue_started.emit(dialogue)
+
+func end_dialogue():
+	dialogue_ended.emit()
