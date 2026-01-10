@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bx504qsix0es6"]
+[gd_scene load_steps=8 format=3 uid="uid://5mnl1xs61vj8"]
 
 [ext_resource type="PackedScene" uid="uid://bukxbwoax8pwc" path="res://scenes/cassette_puzzle/input_wire.tscn" id="1_nlxpi"]
 [ext_resource type="PackedScene" uid="uid://cyi8enbwjas5f" path="res://scenes/cassette_puzzle/gates/xor_gate.tscn" id="2_ddvrl"]
@@ -13,94 +13,94 @@
 [node name="Inputs" type="Node2D" parent="."]
 
 [node name="InputWire" parent="Inputs" instance=ExtResource("1_nlxpi")]
-position = Vector2(136, 8)
+position = Vector2(68, 4)
 state = true
 
 [node name="InputWire2" parent="Inputs" instance=ExtResource("1_nlxpi")]
-position = Vector2(136, 72)
+position = Vector2(68, 36)
 
 [node name="InputWire3" parent="Inputs" instance=ExtResource("1_nlxpi")]
-position = Vector2(8, 136)
+position = Vector2(4, 68)
 state = true
 
 [node name="InputWire4" parent="Inputs" instance=ExtResource("1_nlxpi")]
-position = Vector2(8, 200)
+position = Vector2(4, 100)
 
 [node name="InputWire5" parent="Inputs" instance=ExtResource("1_nlxpi")]
-position = Vector2(8, 264)
+position = Vector2(4, 132)
 state = true
 
 [node name="InputWire6" parent="Inputs" instance=ExtResource("1_nlxpi")]
-position = Vector2(8, 328)
+position = Vector2(4, 164)
 state = true
 
 [node name="InputWire7" parent="Inputs" instance=ExtResource("1_nlxpi")]
-position = Vector2(136, 392)
+position = Vector2(68, 196)
 state = true
 
 [node name="InputWire8" parent="Inputs" instance=ExtResource("1_nlxpi")]
-position = Vector2(136, 456)
+position = Vector2(68, 228)
 
 [node name="Gates" type="Node2D" parent="."]
 
 [node name="OR Gate" parent="Gates" instance=ExtResource("5_ah7v1")]
-offset_left = 104.0
-offset_top = 144.0
-offset_right = 168.0
-offset_bottom = 208.0
+offset_left = 52.0
+offset_top = 72.0
+offset_right = 84.0
+offset_bottom = 104.0
 
 [node name="XOR Gate" parent="Gates" instance=ExtResource("2_ddvrl")]
-offset_left = 104.0
-offset_top = 272.0
-offset_right = 168.0
-offset_bottom = 336.0
+offset_left = 52.0
+offset_top = 136.0
+offset_right = 84.0
+offset_bottom = 168.0
 
 [node name="NOT Gate" parent="Gates" instance=ExtResource("6_m2i0q")]
-offset_left = 296.0
-offset_top = 16.0
-offset_right = 360.0
-offset_bottom = 80.0
+offset_left = 148.0
+offset_top = 8.0
+offset_right = 180.0
+offset_bottom = 40.0
 
 [node name="XOR Gate2" parent="Gates" instance=ExtResource("2_ddvrl")]
-offset_left = 264.0
-offset_top = 144.0
-offset_right = 328.0
-offset_bottom = 208.0
+offset_left = 132.0
+offset_top = 72.0
+offset_right = 164.0
+offset_bottom = 104.0
 
 [node name="XOR Gate3" parent="Gates" instance=ExtResource("2_ddvrl")]
-offset_left = 264.0
-offset_top = 272.0
-offset_right = 328.0
-offset_bottom = 336.0
+offset_left = 132.0
+offset_top = 136.0
+offset_right = 164.0
+offset_bottom = 168.0
 
 [node name="Relay Gate" parent="Gates" instance=ExtResource("4_io58p")]
-offset_left = 296.0
-offset_top = 385.0
-offset_right = 360.0
-offset_bottom = 449.0
+offset_left = 148.0
+offset_top = 192.5
+offset_right = 180.0
+offset_bottom = 224.5
 
 [node name="AND Gate" parent="Gates" instance=ExtResource("3_nlxpi")]
-offset_left = 424.0
-offset_top = 144.0
-offset_right = 488.0
-offset_bottom = 208.0
+offset_left = 212.0
+offset_top = 72.0
+offset_right = 244.0
+offset_bottom = 104.0
 
 [node name="OR Gate2" parent="Gates" instance=ExtResource("5_ah7v1")]
-offset_left = 424.0
-offset_top = 272.0
-offset_right = 488.0
-offset_bottom = 336.0
+offset_left = 212.0
+offset_top = 136.0
+offset_right = 244.0
+offset_bottom = 168.0
 
 [node name="AND Gate2" parent="Gates" instance=ExtResource("3_nlxpi")]
-offset_left = 552.0
-offset_top = 208.0
-offset_right = 616.0
-offset_bottom = 272.0
+offset_left = 276.0
+offset_top = 104.0
+offset_right = 308.0
+offset_bottom = 136.0
 
 [node name="Output" type="Node2D" parent="."]
 
 [node name="Gate Input" parent="Output" instance=ExtResource("8_goy17")]
-offset_left = 696.0
-offset_top = 232.0
-offset_right = 712.0
-offset_bottom = 248.0
+offset_left = 348.0
+offset_top = 116.0
+offset_right = 356.0
+offset_bottom = 124.0
