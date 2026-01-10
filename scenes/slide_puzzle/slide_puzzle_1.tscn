@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dc4tvs8q0i3hb"]
 
-[ext_resource type="PackedScene" uid="uid://rpc3kkyj58sj" path="res://scenes/slide_puzzle/slide_puzzle_board.tscn" id="1_fw6dy"]
+[ext_resource type="PackedScene" path="res://scenes/slide_puzzle/slide_puzzle_board.tscn" id="1_fw6dy"]
 [ext_resource type="PackedScene" uid="uid://cboumc36hyhwu" path="res://scenes/slide_puzzle/pieces/piece_1x1.tscn" id="3_ljts4"]
 [ext_resource type="PackedScene" uid="uid://xcxstsq1ci2n" path="res://scenes/slide_puzzle/pieces/piece_1x2.tscn" id="4_x5vdi"]
 [ext_resource type="PackedScene" uid="uid://ciayqcy3xcbjm" path="res://scenes/slide_puzzle/pieces/piece_2x1.tscn" id="5_qifi4"]
@@ -13,7 +13,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 board_size = Vector2i(5, 5)
 goal_pos = Vector2i(3, 4)
-board = Array[Array]([[2, 4, 5, 5, 3], [2, 4, 3, 5, 5], [0, 6, 6, 0, 4], [4, 6, 6, 3, 4], [4, 3, 0, 5, 5]])
+board = Array[Array]([[2, 4, 5, 5, 3], [2, 4, 3, 5, 5], [0, 6, 6, 0, 4], [4, 6, 6, 3, 4], [4, 3, 5, 5, 0]])
 pieces = [NodePath("Piece (Key)"), NodePath("Piece (1x1)"), NodePath("Piece (1x1)3"), NodePath("Piece (1x1)4"), NodePath("Piece (1x1)5"), NodePath("Piece (1x2)"), NodePath("Piece (1x2)3"), NodePath("Piece (1x2)2"), NodePath("Piece (2x1)2"), NodePath("Piece (2x1)4"), NodePath("Piece (2x1)3"), NodePath("Piece (2x2)")]
 
 [node name="Piece (1x1)" parent="Slide Puzzle Board" instance=ExtResource("3_ljts4")]
@@ -72,9 +72,9 @@ mouse_filter = 1
 [node name="Piece (2x1)2" parent="Slide Puzzle Board" instance=ExtResource("5_qifi4")]
 layout_mode = 0
 offset_left = 128.0
-offset_top = 96.0
+offset_top = 64.0
 offset_right = 160.0
-offset_bottom = 160.0
+offset_bottom = 128.0
 mouse_filter = 1
 
 [node name="Piece (2x1)4" parent="Slide Puzzle Board" instance=ExtResource("5_qifi4")]
