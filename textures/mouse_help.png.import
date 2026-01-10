@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0pegt1mo1uqt"
-path="res://.godot/imported/mouse_drag.png-66f664c25e8e2233ad85c619fd996d5c.ctex"
+uid="uid://by606s7lguyr0"
+path="res://.godot/imported/mouse_help.png-9baa78ac69c66fa944c246b6a1950291.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/mouse_drag.png"
-dest_files=["res://.godot/imported/mouse_drag.png-66f664c25e8e2233ad85c619fd996d5c.ctex"]
+source_file="res://textures/mouse_help.png"
+dest_files=["res://.godot/imported/mouse_help.png-9baa78ac69c66fa944c246b6a1950291.ctex"]
 
 [params]
 
