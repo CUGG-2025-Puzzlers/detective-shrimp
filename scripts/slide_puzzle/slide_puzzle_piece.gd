@@ -44,6 +44,15 @@ func _on_mouse_down() -> void:
 	var piece_cell = get_piece_cell()
 	var mouse_cell = get_mouse_cell()
 	clicked_cell_offset = mouse_cell - piece_cell
+	
+	if shape[clicked_cell_offset.y][clicked_cell_offset.x] == 0:
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var mouse_pos = get_global_mouse_position()
+		Globals.resend_mouse_click(mouse_pos, true)
+		await get_tree().process_frame
+		mouse_filter = Control.MOUSE_FILTER_STOP
+		return
+	
 	dragging = true
 
 # Stops dragging on release
