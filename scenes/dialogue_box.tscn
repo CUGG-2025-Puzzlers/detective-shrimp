@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://df56glnmpcbej"]
+[gd_scene load_steps=5 format=3 uid="uid://df56glnmpcbej"]
 
 [ext_resource type="Script" uid="uid://co0iu57gta684" path="res://scripts/dialogue/dialogue_box.gd" id="1_hvmm2"]
 [ext_resource type="Texture2D" uid="uid://b3txqamkair0f" path="res://assets/ui/dialogue_backgroung.png" id="1_tm68y"]
@@ -52,7 +52,14 @@ offset_right = 416.0
 offset_bottom = 60.0
 text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
 
-[node name="Portrait" type="Sprite2D" parent="Background"]
+[node name="TextTimer" type="Timer" parent="Background/Text"]
 unique_name_in_owner = true
-position = Vector2(36, 36)
+
+[node name="Portrait" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 68.0
+offset_bottom = 68.0
 texture = ExtResource("3_p0wdv")
