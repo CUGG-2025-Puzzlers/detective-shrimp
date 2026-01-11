@@ -1,0 +1,46 @@
+@tool
+class_name CassettePuzzle
+extends Node
+
+@export var outputs : Array[OutputWire]
+@export_tool_button("Set Up Outputs") var run_output_setup: Callable = set_up_outputs
+
+#region Editor Functions
+
+func set_up_outputs():
+	outputs.clear()
+	
+	for child in get_children():
+		if not child is OutputWire or not child.visible:
+			continue
+		
+		outputs.append(child)
+	
+	print("Set up ", outputs.size(), " outputs from children")
+
+#endregion
+
+# Setup outputs
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	
+	if outputs.size() == 0:
+		print("Cannot start Cassette Puzzle, there are no outputs")
+		return
+	
+	for output in outputs:
+		output.state_changed.connect(_on_outputs_state_changed)
+	
+	CasettePuzzleEvents.start_puzzle()
+
+# Checks for completion condition whenever an output is turned on
+func _on_outputs_state_changed(new_state: bool) -> void:
+	if not new_state:
+		return
+	
+	for output in outputs:
+		if not output.state:
+			return
+	
+	CasettePuzzleEvents.complete_puzzle()

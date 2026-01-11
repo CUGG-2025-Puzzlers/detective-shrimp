@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://5mnl1xs61vj8"]
+[gd_scene load_steps=9 format=3 uid="uid://5mnl1xs61vj8"]
 
 [ext_resource type="PackedScene" uid="uid://bukxbwoax8pwc" path="res://scenes/cassette_puzzle/input_wire.tscn" id="1_nlxpi"]
 [ext_resource type="PackedScene" uid="uid://cyi8enbwjas5f" path="res://scenes/cassette_puzzle/gates/xor_gate.tscn" id="2_ddvrl"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dvwbe6v72jqgb" path="res://scenes/cassette_puzzle/gates/relay_gate.tscn" id="4_io58p"]
 [ext_resource type="PackedScene" uid="uid://u6t6nj04n00i" path="res://scenes/cassette_puzzle/gates/or_gate.tscn" id="5_ah7v1"]
 [ext_resource type="PackedScene" uid="uid://brtj6y84xuyc0" path="res://scenes/cassette_puzzle/gates/not_gate.tscn" id="6_m2i0q"]
-[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="8_goy17"]
+[ext_resource type="PackedScene" uid="uid://iioaquy7h686" path="res://scenes/cassette_puzzle/output_wire.tscn" id="7_ddvrl"]
+[ext_resource type="Script" uid="uid://xo6incmk80r6" path="res://scripts/cassette_puzzle/casette_puzzle.gd" id="7_nlxpi"]
 
 [node name="Casette Puzzle 1" type="Node2D"]
 
@@ -97,10 +98,9 @@ offset_top = 104.0
 offset_right = 308.0
 offset_bottom = 136.0
 
-[node name="Output" type="Node2D" parent="."]
+[node name="Output" type="Node2D" parent="." node_paths=PackedStringArray("outputs")]
+script = ExtResource("7_nlxpi")
+outputs = [NodePath("Output")]
 
-[node name="Gate Input" parent="Output" instance=ExtResource("8_goy17")]
-offset_left = 348.0
-offset_top = 116.0
-offset_right = 356.0
-offset_bottom = 124.0
+[node name="Output" parent="Output" instance=ExtResource("7_ddvrl")]
+position = Vector2(348, 116)
