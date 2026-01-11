@@ -14,7 +14,7 @@ func _ready() -> void:
 		
 		if child is GateInput:
 			inputs.append(child)
-			child.stateChanged.connect(_on_input_state_changed)
+			child.state_changed.connect(_on_input_state_changed)
 			continue
 		
 		if child is Wire:

@@ -5,7 +5,7 @@ extends TextureRect
 @export var game_settings : GameSettings
 @export var max_length: int
 
-signal stateChanged;
+signal state_changed;
 
 var state = null
 var dragging = false
@@ -115,7 +115,7 @@ func change_state(newState):
 	
 	state = newState
 	set_output_texture()
-	stateChanged.emit()
+	state_changed.emit()
 
 # Checks if the wire can reach a specified GateInput
 func can_reach(input: GateInput):
