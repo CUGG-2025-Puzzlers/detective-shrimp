@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3h5vir0t0o3f"]
+[gd_scene load_steps=6 format=3 uid="uid://d3h5vir0t0o3f"]
 
 [ext_resource type="Script" uid="uid://d0b47de8jja0m" path="res://scripts/cassette_puzzle/wire.gd" id="1_210fl"]
 [ext_resource type="Texture2D" uid="uid://dc01gt8su8ytl" path="res://textures/cassette_puzzle/wire_out.png" id="1_cvi87"]
 [ext_resource type="Resource" uid="uid://bssxogysu75bp" path="res://resources/game_settings.tres" id="3_cvi87"]
 [ext_resource type="Script" uid="uid://0i8jyhin82vu" path="res://scripts/cassette_puzzle/wire_line.gd" id="3_o6qwa"]
+[ext_resource type="Texture2D" uid="uid://7b2oin7iqw5b" path="res://textures/cassette_puzzle/wire.png" id="4_enu8g"]
 
 [node name="Wire" type="TextureRect"]
 offset_right = 8.0
@@ -18,6 +19,8 @@ max_length = 100
 unique_name_in_owner = true
 z_index = 1
 width = 4.0
+texture = ExtResource("4_enu8g")
+texture_mode = 2
 joint_mode = 2
 script = ExtResource("3_o6qwa")
 
