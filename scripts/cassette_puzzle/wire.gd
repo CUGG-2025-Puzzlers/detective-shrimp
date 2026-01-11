@@ -12,9 +12,14 @@ var dragging = false
 var hovered_input: GateInput = null
 var connected_input: GateInput = null
 
+static var unconnected_default_texture = preload("res://textures/cassette_puzzle/wire_out.png")
+static var unconnected_on_texture = preload("res://textures/cassette_puzzle/wire_out_on.png")
+static var unconnected_off_txture = preload("res://textures/cassette_puzzle/wire_out_off.png")
+static var connected_texture = preload("res://textures/cassette_puzzle/wire_out_connected.png")
+
 func _ready() -> void:
 	mouse_default_cursor_shape = Control.CURSOR_MOVE
-	set_wire_color()
+	set_output_texture()
 
 func _process(delta: float) -> void:
 	# Wire follows mouse while dragging
@@ -39,6 +44,9 @@ func _on_mouse_down():
 	# Clear any previous connections
 	disconnect_from_input()
 	
+	# Update texture
+	texture = null
+	
 	# Start new wire
 	$%Wire_Line.start()
 	CasettePuzzleEvents.hovered_input.connect(_on_hovered_input)
@@ -54,7 +62,7 @@ func _on_mouse_up():
 	
 	# Clear wire if not hovering over reachable input connection
 	if hovered_input == null:
-		$%Wire_Line.clear()
+		clear()
 		return
 	
 	# Connect wire
@@ -79,20 +87,26 @@ func _on_unhovered_input() -> void:
 
 #endregion
 
-# Sets the wire's color based on the state
-func set_wire_color():
+# Clears the line and resets the texture
+func clear():
+	$%Wire_Line.clear()
+	set_output_texture()
+
+# Sets the wire connection texture and wire color based on the state
+func set_output_texture():
+	var output_texture
+	
 	if state == null:
+		output_texture = unconnected_default_texture 
 		$%Wire_Line.default_color = game_settings.null_color
-		self_modulate = game_settings.null_color
-		return
-	
-	if state:
+	elif state:
+		output_texture = unconnected_on_texture
 		$%Wire_Line.default_color = game_settings.on_color
-		self_modulate = game_settings.on_color
-		return
+	else:
+		output_texture = unconnected_off_txture
+		$%Wire_Line.default_color = game_settings.off_color
 	
-	$%Wire_Line.default_color = game_settings.off_color
-	self_modulate = game_settings.off_color
+	texture = output_texture if connected_input == null else connected_texture
 
 # Changes the state of this wire if the new state is different than the current
 func change_state(newState):
@@ -100,7 +114,7 @@ func change_state(newState):
 		return
 	
 	state = newState
-	set_wire_color()
+	set_output_texture()
 	stateChanged.emit()
 
 # Checks if the wire can reach a specified GateInput
@@ -118,7 +132,7 @@ func connect_to_input():
 	
 	# Hovered input is already connected to another wire
 	if hovered_input.wire != null:
-		$%Wire_Line.clear()
+		clear()
 		return
 	
 	$%Wire_Line.attach(hovered_input)
@@ -131,6 +145,6 @@ func disconnect_from_input():
 	if connected_input == null:
 		return
 	
-	$%Wire_Line.clear()
+	clear()
 	connected_input.disconnect_wire()
 	connected_input = null
