@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://6irm70cy4miu"]
 
 [ext_resource type="PackedScene" uid="uid://d2o4nxr215ara" path="res://scenes/cassette_puzzle/gates/two_input_gate.tscn" id="1_7gj3h"]
-[ext_resource type="Script" uid="uid://bq7tuaov216mr" path="res://scripts/cassette_puzzle/and_gate.gd" id="2_yjl0w"]
+[ext_resource type="Script" uid="uid://bq7tuaov216mr" path="res://scripts/cassette_puzzle/gates/and_gate.gd" id="2_yjl0w"]
 
 [node name="AND Gate" type="Control"]
 layout_mode = 3

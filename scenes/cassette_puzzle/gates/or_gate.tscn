@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d2o4nxr215ara" path="res://scenes/cassette_puzzle/gates/two_input_gate.tscn" id="1_a7nlc"]
 [ext_resource type="Texture2D" uid="uid://cr5uw6q7cmsa8" path="res://textures/cassette_puzzle/gate_seagrass.png" id="1_rhmwp"]
-[ext_resource type="Script" uid="uid://efupcq2eg0ej" path="res://scripts/cassette_puzzle/or_gate.gd" id="2_jk2ci"]
+[ext_resource type="Script" uid="uid://efupcq2eg0ej" path="res://scripts/cassette_puzzle/gates/or_gate.gd" id="2_jk2ci"]
 
 [node name="OR Gate" type="Control"]
 layout_mode = 3

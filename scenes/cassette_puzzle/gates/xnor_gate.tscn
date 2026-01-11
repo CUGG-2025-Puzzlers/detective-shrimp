@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d2o4nxr215ara" path="res://scenes/cassette_puzzle/gates/two_input_gate.tscn" id="1_ao0qq"]
 [ext_resource type="Texture2D" uid="uid://dp1ivelh350kn" path="res://textures/cassette_puzzle/gate_shrimp_inverted.png" id="1_kph0d"]
-[ext_resource type="Script" uid="uid://d0y2658pos88o" path="res://scripts/cassette_puzzle/xnor_gate.gd" id="2_cfkxw"]
+[ext_resource type="Script" uid="uid://d0y2658pos88o" path="res://scripts/cassette_puzzle/gates/xnor_gate.gd" id="2_cfkxw"]
 
 [node name="XNOR Gate" type="Control"]
 layout_mode = 3

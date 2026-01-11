@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dwlgv5kfnnsxx" path="res://textures/cassette_puzzle/gate_shell_inverted.png" id="1_kxx3g"]
 [ext_resource type="PackedScene" uid="uid://dj382mlybyk80" path="res://scenes/cassette_puzzle/gates/one_input_gate.tscn" id="1_yjdj6"]
-[ext_resource type="Script" uid="uid://c050tfee8gml8" path="res://scripts/cassette_puzzle/not_gate.gd" id="2_tr75b"]
+[ext_resource type="Script" uid="uid://c050tfee8gml8" path="res://scripts/cassette_puzzle/gates/not_gate.gd" id="2_tr75b"]
 
 [node name="NOT Gate" type="Control"]
 layout_mode = 3

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bc3rv5a7iw8ad" path="res://textures/cassette_puzzle/gate_shrimp.png" id="1_qg7xs"]
 [ext_resource type="PackedScene" uid="uid://d2o4nxr215ara" path="res://scenes/cassette_puzzle/gates/two_input_gate.tscn" id="1_sy6il"]
-[ext_resource type="Script" uid="uid://drv16e6c6fmws" path="res://scripts/cassette_puzzle/xor_gate.gd" id="2_u1u31"]
+[ext_resource type="Script" uid="uid://drv16e6c6fmws" path="res://scripts/cassette_puzzle/gates/xor_gate.gd" id="2_u1u31"]
 
 [node name="XOR Gate" type="Control"]
 layout_mode = 3
