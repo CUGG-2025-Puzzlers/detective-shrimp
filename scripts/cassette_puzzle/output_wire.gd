@@ -20,4 +20,5 @@ func _on_state_changed():
 	if new_state == state:
 		return
 	
+	state = new_state
 	state_changed.emit(state)
