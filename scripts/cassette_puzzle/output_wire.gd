@@ -1,12 +1,15 @@
+class_name OutputWire
 extends Node
 
 signal state_changed(new_state: bool)
 var state: bool = false
 
-# Called when the node enters the scene tree for the first time.
+# Listen for underlying Gate Input state changes
 func _ready() -> void:
-	$%WireConnection.state_changed.connect()
+	$%WireConnection.state_changed.connect(_on_state_changed())
 
+# Emit a signal whenever the state is toggled between true or false values
+# Null is treated as false
 func _on_state_changed():
 	var new_state: bool
 	if $%WireConnection.wire == null:
