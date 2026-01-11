@@ -6,7 +6,7 @@ var state: bool = false
 
 # Listen for underlying Gate Input state changes
 func _ready() -> void:
-	$%WireConnection.state_changed.connect(_on_state_changed())
+	$%WireConnection.state_changed.connect(_on_state_changed)
 
 # Emit a signal whenever the state is toggled between true or false values
 # Null is treated as false
