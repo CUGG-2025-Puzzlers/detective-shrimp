@@ -65,8 +65,8 @@ func disconnect_wire():
 
 # Relays a state change signal when the connected wire changes state
 func _on_changed_state():
-	state_changed.emit()
 	print("Connected wire is now ", "null" if (wire == null or wire.state == null)
-	 else "on" if wire.state else "off")
+			else "on" if wire.state else "off")
+	state_changed.emit()
 
 #endregion
