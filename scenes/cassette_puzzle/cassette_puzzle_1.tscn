@@ -73,11 +73,11 @@ offset_top = 136.0
 offset_right = 164.0
 offset_bottom = 168.0
 
-[node name="Relay Gate" parent="Gates" instance=ExtResource("4_io58p")]
+[node name="RELAY Gate" parent="Gates" instance=ExtResource("4_io58p")]
 offset_left = 148.0
-offset_top = 192.5
+offset_top = 192.0
 offset_right = 180.0
-offset_bottom = 224.5
+offset_bottom = 224.0
 
 [node name="AND Gate" parent="Gates" instance=ExtResource("3_nlxpi")]
 offset_left = 212.0
