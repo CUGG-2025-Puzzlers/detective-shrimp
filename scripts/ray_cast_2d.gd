@@ -1,6 +1,6 @@
 extends RayCast2D
-@export var max_length: float = 8000.0
-@export var max_bounces: int = 10
+@export var max_length: float = 800000.0
+@export var max_bounces: int = 100
 @onready var beam: Line2D = get_parent().get_node("Line2D")
 
 func _ready() -> void:

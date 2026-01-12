@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cf8xoru5eg3vr"]
+[gd_scene load_steps=12 format=3 uid="uid://mcdlnsiojpgm"]
 
-[ext_resource type="Script" uid="uid://bripj1obpu7od" path="res://scripts/ray_cast_2d.gd" id="1_apstt"]
+[ext_resource type="Script" path="res://scripts/ray_cast_2d.gd" id="1_apstt"]
 [ext_resource type="Texture2D" uid="uid://dqrngw1qgr7kr" path="res://assets/ui/glowing_circle.png" id="2_imgww"]
-[ext_resource type="Script" uid="uid://cjml5ful0bfpx" path="res://scripts/letter.gd" id="3_imgww"]
-[ext_resource type="PackedScene" uid="uid://63lsrxugl7an" path="res://scenes/reflectors.tscn" id="4_vtulw"]
+[ext_resource type="Script" path="res://scripts/letter.gd" id="3_imgww"]
+[ext_resource type="PackedScene" path="res://scenes/reflectors.tscn" id="4_vtulw"]
 [ext_resource type="TileSet" uid="uid://cvprit4qech2u" path="res://assets/wall_tileset.tres" id="6_73fua"]
 [ext_resource type="Texture2D" uid="uid://dykw8k1csla8c" path="res://assets/ui/Letter.png" id="6_imgww"]
 
@@ -31,10 +31,12 @@ size = Vector2(10, 11)
 script = SubResource("GDScript_vtulw")
 
 [node name="LightSource" type="Area2D" parent="." groups=["light_source"]]
+position = Vector2(57, 153)
 disable_mode = 2
 script = SubResource("GDScript_7fncp")
 
 [node name="RayCast2D" type="RayCast2D" parent="LightSource"]
+position = Vector2(10, 0)
 target_position = Vector2(67, 0)
 collide_with_areas = true
 script = ExtResource("1_apstt")
@@ -48,15 +50,15 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="LightSource"]
-modulate = Color(1, 0.8745098, 0.13333334, 1)
+modulate = Color(0.882951, 0.7805772, 0.12788838, 1)
 scale = Vector2(0.4, 0.395)
 texture = ExtResource("2_imgww")
 
 [node name="Button" type="Button" parent="LightSource"]
-offset_left = -50.0
-offset_top = 114.0
-offset_right = 55.0
-offset_bottom = 155.0
+offset_left = -44.0
+offset_top = 111.0
+offset_right = 34.0
+offset_bottom = 152.0
 text = "START"
 script = SubResource("GDScript_imgww")
 
@@ -64,67 +66,121 @@ script = SubResource("GDScript_imgww")
 shape = SubResource("CircleShape2D_nk2lv")
 
 [node name="Letter" type="Area2D" parent="." groups=["reflector", "target"]]
+visible = false
 modulate = Color(0.93415105, 0, 0.2010853, 1)
 scale = Vector2(0.99999994, 0.99999994)
 script = ExtResource("3_imgww")
 
 [node name="Sprite2D" type="Sprite2D" parent="Letter"]
 top_level = true
-position = Vector2(-140, -15)
+position = Vector2(501.6, 56.6)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_imgww")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Letter"]
 self_modulate = Color(1, 1, 1, 0)
-position = Vector2(-140, -15)
+position = Vector2(501.60007, 56.600006)
 scale = Vector2(2.4, 2.4)
 shape = SubResource("RectangleShape2D_nk2lv")
 
 [node name="Reflectors" parent="." instance=ExtResource("4_vtulw")]
-position = Vector2(247, 56)
-rotation = -2.3561945
+position = Vector2(500, 228)
+rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
 [node name="Reflectors2" parent="." instance=ExtResource("4_vtulw")]
-visible = false
-position = Vector2(26.999998, 57.000004)
-rotation = 2.3561945
-scale = Vector2(0.08, 0.08)
-
-[node name="Reflectors6" parent="." instance=ExtResource("4_vtulw")]
-position = Vector2(162.00002, 56.999996)
-rotation = 2.3561945
-scale = Vector2(0.08, 0.08)
-
-[node name="Reflectors7" parent="." instance=ExtResource("4_vtulw")]
-visible = false
-position = Vector2(17, 47.999992)
+position = Vector2(460, 108)
 rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
 [node name="Reflectors3" parent="." instance=ExtResource("4_vtulw")]
-position = Vector2(229, 55.000008)
+position = Vector2(500, 128)
 rotation = -2.3561945
 scale = Vector2(0.08, 0.08)
 
 [node name="Reflectors4" parent="." instance=ExtResource("4_vtulw")]
-position = Vector2(209, 57.000004)
+position = Vector2(500, 148)
 rotation = -2.3561945
 scale = Vector2(0.08, 0.08)
 
 [node name="Reflectors5" parent="." instance=ExtResource("4_vtulw")]
-position = Vector2(187, 55.999996)
-rotation = 1.5707964
+position = Vector2(500, 168)
+rotation = -2.3561945
+scale = Vector2(0.08, 0.08)
+
+[node name="Reflectors6" parent="." instance=ExtResource("4_vtulw")]
+position = Vector2(500, 188)
+rotation = -2.3561945
+scale = Vector2(0.08, 0.08)
+
+[node name="Reflectors7" parent="." instance=ExtResource("4_vtulw")]
+position = Vector2(500, 208)
+rotation = -2.3561945
+scale = Vector2(0.08, 0.08)
+
+[node name="Reflectors8" parent="." instance=ExtResource("4_vtulw")]
+position = Vector2(499.99997, 108.000015)
+rotation = -2.3561945
+scale = Vector2(0.08, 0.08)
+
+[node name="Reflectors9" parent="." instance=ExtResource("4_vtulw")]
+position = Vector2(460, 128)
+rotation = 2.3561945
+scale = Vector2(0.08, 0.08)
+
+[node name="Reflectors10" parent="." instance=ExtResource("4_vtulw")]
+position = Vector2(460, 147.99998)
+rotation = 2.3561945
+scale = Vector2(0.08, 0.08)
+
+[node name="Reflectors11" parent="." instance=ExtResource("4_vtulw")]
+position = Vector2(460, 168)
+rotation = 2.3561945
+scale = Vector2(0.08, 0.08)
+
+[node name="Reflectors12" parent="." instance=ExtResource("4_vtulw")]
+position = Vector2(460, 188)
+rotation = 2.3561945
+scale = Vector2(0.08, 0.08)
+
+[node name="Reflectors13" parent="." instance=ExtResource("4_vtulw")]
+position = Vector2(460, 208)
+rotation = 2.3561945
+scale = Vector2(0.08, 0.08)
+
+[node name="Reflectors14" parent="." instance=ExtResource("4_vtulw")]
+position = Vector2(460, 228)
+rotation = 2.3561945
+scale = Vector2(0.08, 0.08)
+
+[node name="Reflectors15" parent="." instance=ExtResource("4_vtulw")]
+position = Vector2(407.99997, 227.99998)
+rotation = 2.3561945
+scale = Vector2(0.08, 0.08)
+
+[node name="Reflectors16" parent="." instance=ExtResource("4_vtulw")]
+position = Vector2(408, 208)
+rotation = 2.3561945
+scale = Vector2(0.08, 0.08)
+
+[node name="Reflectors17" parent="." instance=ExtResource("4_vtulw")]
+position = Vector2(408, 188)
+rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
 [node name="Node2D" type="Node2D" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(2, 2)
-offset = Vector2(10, -10)
 
 [node name="wallTileMap" type="TileMap" parent="."]
 tile_set = ExtResource("6_73fua")
 collision_animatable = true
 format = 2
-layer_0/tile_data = PackedInt32Array(-589841, 1900544, 23, -524305, 1900544, 23, -458769, 1900544, 23, -393233, 1900544, 23, -589840, 1900544, 23, -589839, 1900544, 23, -589838, 1900544, 23, -589837, 1900544, 23, -589836, 1900544, 23, -589835, 1900544, 23, -589834, 1900544, 23, -589833, 1900544, 23, -589832, 1900544, 23, -589831, 1900544, 23, -589830, 1900544, 23, -589829, 1900544, 23, -589828, 1900544, 23, -589827, 1900544, 23, -589826, 1900544, 23, -589825, 1900544, 23, -655360, 1900544, 23, -655359, 1900544, 23, -655358, 1900544, 23, -655357, 1900544, 23, -655356, 1900544, 23, -655355, 1900544, 23, -655354, 1900544, 23, -655353, 1900544, 23, -655352, 1900544, 23, -655351, 1900544, 23, -131089, 1900544, 23, -65553, 1900544, 23, -17, 1900544, 23, 131055, 1900544, 23, 196591, 1900544, 23, -327697, 1900544, 23, -262161, 1900544, 23, -196625, 1900544, 23, 65519, 1900544, 23, 327668, 1900544, 23, 327669, 1900544, 23, 327670, 1900544, 23, 327671, 1900544, 23, 327672, 1900544, 23, 327673, 1900544, 23, 327674, 1900544, 23, 393211, 1900544, 23, 327675, 1900544, 23, 131058, 1900544, 23, 131059, 1900544, 23, 131060, 1900544, 23, 131061, 1900544, 23, 131062, 1900544, 23, 131063, 1900544, 23, 131064, 1900544, 23, 131065, 1900544, 23, 131066, 1900544, 23)
+layer_0/tile_data = PackedInt32Array(65538, 6, 268435456, 589826, 6, 268435456, 983042, 6, 0, 65539, 6, 268435456, 983043, 6, 0, 65540, 6, 268435456, 983044, 6, 0, 65541, 6, 268435456, 983045, 6, 0, 65545, 6, 268435456, 983049, 6, 0, 65546, 6, 0, 458762, 6, 0, 983050, 6, 0, 65547, 6, 268435456, 458763, 6, 0, 983051, 6, 0, 65548, 6, 268435456, 458764, 6, 0, 983052, 6, 0, 65549, 6, 268435456, 458765, 6, 0, 983053, 6, 0, 65550, 6, 268435456, 458766, 6, 0, 983054, 6, 0, 65551, 6, 268435456, 458767, 6, 0, 983055, 6, 0, 65552, 6, 268435456, 458768, 6, 0, 983056, 6, 0, 65553, 6, 268435456, 458769, 6, 0, 983057, 6, 0, 65554, 6, 268435456, 458770, 6, 0, 983058, 6, 0, 65555, 6, 268435456, 458771, 6, 0, 983059, 6, 0, 65556, 6, 268435456, 458772, 6, 0, 983060, 6, 0, 65557, 6, 268435456, 983061, 6, 0, 65558, 6, 268435456, 655382, 6, 0, 983062, 6, 0, 65559, 6, 268435456, 655383, 6, 0, 983063, 6, 0, 65560, 6, 268435456, 655384, 6, 0, 983064, 6, 0, 65561, 6, 268435456, 983065, 6, 0, 65562, 6, 268435456, 983066, 6, 0, 65563, 6, 268435456, 327707, 6, 0, 983067, 6, 0, 65564, 6, 268435456, 327708, 6, 0, 983068, 6, 0, 65565, 6, 0, 983069, 6, 0, 65566, 6, 0, 983070, 6, 0, 131074, 6, 268435456, 196610, 6, 268435456, 262146, 6, 268435456, 327682, 6, 268435456, 393218, 6, 268435456, 458754, 6, 268435456, 524290, 6, 268435456, 655362, 6, 268435456, 720898, 6, 268435456, 786434, 6, 268435456, 851970, 6, 0, 917506, 6, 0, 65542, 6, 268435456, 983046, 6, 0, 655385, 6, 0, 131099, 6, 0, 196635, 6, 0, 262171, 6, 0, 393243, 6, 0, 458779, 6, 0, 524315, 6, 0, 589851, 6, 0, 655387, 6, 0, 720923, 6, 0, 786459, 6, 0, 851995, 6, 0, 65568, 6, 0, 131104, 6, 0, 196640, 6, 0, 262176, 6, 0, 327712, 6, 0, 393248, 6, 0, 458784, 6, 0, 524320, 6, 0, 589856, 6, 0, 655392, 6, 0, 720928, 6, 0, 786464, 6, 0, 852000, 6, 0, 917536, 6, 0, 983072, 6, 0, 65543, 6, 0, 65544, 6, 0, 983047, 6, 0, 983048, 6, 0, 65567, 6, 0, 983071, 6, 0, 589836, 6, 0, 655372, 6, 0, 720908, 6, 0, 786444, 6, 0, 851980, 6, 0, 917516, 6, 0, 655381, 6, 0, 393236, 6, 0, 327700, 6, 0, 262164, 6, 0, 196628, 6, 0, 131092, 6, 0, 524303, 6, 0, 589839, 6, 0, 655375, 6, 0, 720911, 6, 0, 786447, 6, 0, 851983, 6, 0, 589842, 6, 0, 655378, 6, 0, 720914, 6, 0, 786450, 6, 0, 851986, 6, 0, 655380, 6, 0, 589844, 6, 0, 720918, 6, 0, 786454, 6, 0, 851990, 6, 0, 917526, 6, 0, 720919, 6, 0, 786455, 6, 0, 851991, 6, 0, 917527, 6, 0, 196630, 6, 0, 262166, 6, 0, 262167, 6, 0, 196631, 6, 0, 393238, 6, 0, 393239, 6, 0, 393240, 6, 0, 196632, 6, 0, 262168, 6, 0, 327703, 6, 0, 458775, 6, 0, 524311, 6, 0, 589847, 6, 0, 851977, 6, 0, 851976, 6, 0, 851975, 6, 0, 851974, 6, 0, 917510, 8, 0, 327709, 6, 0, 327710, 6, 0, 262172, 6, 0, 262173, 6, 0, 327711, 8, 0, 327698, 6, 0, 327697, 6, 0, 327696, 6, 0, 327695, 6, 0, 327694, 6, 0, 327693, 6, 0, 327692, 6, 0, 327691, 6, 0, 131087, 6, 0, 196623, 6, 0, 327690, 6, 0, 786441, 6, 0, 720905, 6, 0, 655369, 6, 0, 589833, 6, 0, 524297, 6, 0, 458761, 6, 0, 327689, 6, 0, 131082, 6, 0, 196618, 6, 0, 131078, 6, 0, 196614, 6, 0, 262150, 6, 0, 327686, 6, 0, 524291, 6, 0, 524292, 6, 0, 262175, 11, 0)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+z_index = -4069
+offset_right = 560.0
+offset_bottom = 320.0
+mouse_filter = 2
+color = Color(0.57915133, 0.67307144, 0.62815607, 1)
+metadata/_edit_lock_ = true
