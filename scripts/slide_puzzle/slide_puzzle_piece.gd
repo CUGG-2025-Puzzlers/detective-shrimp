@@ -16,6 +16,8 @@ func _ready() -> void:
 		print("Piece (", name, ") is not part of a puzzle, hiding it")
 		hide()
 		return
+	
+	mouse_default_cursor_shape = Control.CURSOR_MOVE
 
 #endregion
 
@@ -54,10 +56,12 @@ func _on_mouse_down() -> void:
 		return
 	
 	dragging = true
+	mouse_default_cursor_shape = Control.CURSOR_DRAG
 
 # Stops dragging on release
 func _on_mouse_up() -> void:
 	dragging = false
+	mouse_default_cursor_shape = Control.CURSOR_MOVE
 
 # Allows clicking while puzzle is active
 # Listens for puzzle completion

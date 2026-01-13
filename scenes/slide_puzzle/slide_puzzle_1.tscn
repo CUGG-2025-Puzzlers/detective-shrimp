@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dc4tvs8q0i3hb"]
 
-[ext_resource type="PackedScene" path="res://scenes/slide_puzzle/slide_puzzle_board.tscn" id="1_fw6dy"]
+[ext_resource type="PackedScene" uid="uid://rpc3kkyj58sj" path="res://scenes/slide_puzzle/slide_puzzle_board.tscn" id="1_fw6dy"]
 [ext_resource type="PackedScene" uid="uid://cboumc36hyhwu" path="res://scenes/slide_puzzle/pieces/piece_1x1.tscn" id="3_ljts4"]
 [ext_resource type="PackedScene" uid="uid://xcxstsq1ci2n" path="res://scenes/slide_puzzle/pieces/piece_1x2.tscn" id="4_x5vdi"]
 [ext_resource type="PackedScene" uid="uid://ciayqcy3xcbjm" path="res://scenes/slide_puzzle/pieces/piece_2x1.tscn" id="5_qifi4"]
