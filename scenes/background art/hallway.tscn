@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=4 uid="uid://ckoouorrcli7d"]
 
-[ext_resource type="Texture2D" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_u7i40"]
-[ext_resource type="Texture2D" path="res://assets/background/rundown house/Old house/old house.png" id="2_3w3tr"]
-[ext_resource type="Texture2D" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="3_1k2v8"]
-[ext_resource type="Texture2D" path="res://assets/pixelinterior_BR_v1.1/decorations_BR.png" id="4_3w3tr"]
-[ext_resource type="Texture2D" path="res://assets/background/pixelinterior_LRK/doorswindowsstairs_LRK.png" id="5_1k2v8"]
+[ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_u7i40"]
+[ext_resource type="Texture2D" uid="uid://boihvu1nshova" path="res://assets/background/rundown house/Old house/old house.png" id="2_3w3tr"]
+[ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="3_1k2v8"]
+[ext_resource type="Texture2D" uid="uid://be1jsnikwp2qk" path="res://assets/pixelinterior_BR_v1.1/decorations_BR.png" id="4_3w3tr"]
+[ext_resource type="Texture2D" uid="uid://dr4feske7gj10" path="res://assets/background/pixelinterior_LRK/doorswindowsstairs_LRK.png" id="5_1k2v8"]
 [ext_resource type="PackedScene" uid="uid://dknb10beku6mq" path="res://scenes/characters/player.tscn" id="6_txc3n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txc3n"]
