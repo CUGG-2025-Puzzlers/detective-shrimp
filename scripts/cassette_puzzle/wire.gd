@@ -49,16 +49,16 @@ func _on_mouse_down():
 	
 	# Start new wire
 	$%Wire_Line.start()
-	CasettePuzzleEvents.hovered_input.connect(_on_hovered_input)
-	CasettePuzzleEvents.unhovered_input.connect(_on_unhovered_input)
+	CassettePuzzleEvents.hovered_input.connect(_on_hovered_input)
+	CassettePuzzleEvents.unhovered_input.connect(_on_unhovered_input)
 	dragging = true
 
 # Mouse Button Left let go: Stop the wire dragging and connect if possible
 func _on_mouse_up():
 	dragging = false
 	mouse_default_cursor_shape = Control.CURSOR_MOVE
-	CasettePuzzleEvents.hovered_input.disconnect(_on_hovered_input)
-	CasettePuzzleEvents.unhovered_input.disconnect(_on_unhovered_input)
+	CassettePuzzleEvents.hovered_input.disconnect(_on_hovered_input)
+	CassettePuzzleEvents.unhovered_input.disconnect(_on_unhovered_input)
 	
 	# Clear wire if not hovering over reachable input connection
 	if hovered_input == null:

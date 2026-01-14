@@ -58,7 +58,7 @@ func _ready() -> void:
 	for output in outputs:
 		output.state_changed.connect(_on_outputs_state_changed)
 	
-	CasettePuzzleEvents.start_puzzle()
+	CassettePuzzleEvents.start_puzzle()
 
 # Checks for completion condition whenever an output is turned on
 func _on_outputs_state_changed(new_state: bool) -> void:
@@ -69,4 +69,4 @@ func _on_outputs_state_changed(new_state: bool) -> void:
 		if not output.state:
 			return
 	
-	CasettePuzzleEvents.complete_puzzle()
+	CassettePuzzleEvents.complete_puzzle()

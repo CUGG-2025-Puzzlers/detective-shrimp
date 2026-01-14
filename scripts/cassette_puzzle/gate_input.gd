@@ -43,11 +43,11 @@ func _on_mouse_up(event: InputEvent):
 
 # Emits an puzzle event signal when hovering starts
 func _on_mouse_entered() -> void:
-	CasettePuzzleEvents.hover_input(self)
+	CassettePuzzleEvents.hover_input(self)
 
 # Emits an puzzle event signal when hovering stops
 func _on_mouse_exited() -> void:
-	CasettePuzzleEvents.unhover_input()
+	CassettePuzzleEvents.unhover_input()
 
 # Sets the connedted wire and listens for the wire's state change
 func connect_wire(new_wire: Wire):
