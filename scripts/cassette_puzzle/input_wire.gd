@@ -1,4 +1,5 @@
 @tool
+class_name InputWire
 extends Node2D
 
 @export var state: bool : set = set_state

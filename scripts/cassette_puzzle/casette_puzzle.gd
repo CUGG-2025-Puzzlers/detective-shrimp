@@ -2,15 +2,41 @@
 class_name CassettePuzzle
 extends Node
 
+@export var inputs : Array[InputWire]
+@export var gates : Array[Control]
 @export var outputs : Array[OutputWire]
+@export_tool_button("Set Up Inputs") var run_input_setup: Callable = set_up_inputs
+@export_tool_button("Set Up Gates") var run_gate_setup: Callable = set_up_gates
 @export_tool_button("Set Up Outputs") var run_output_setup: Callable = set_up_outputs
 
 #region Editor Functions
 
+func set_up_inputs():
+	inputs.clear()
+	
+	for child in $%Inputs.get_children():
+		if not child is InputWire or not child.visible:
+			continue
+		
+		inputs.append(child)
+	
+	print("Set up ", inputs.size(), " inputs from children")
+
+func set_up_gates():
+	gates.clear()
+	
+	for child in $%Gates.get_children():
+		if not child.visible:
+			continue
+		
+		gates.append(child)
+	
+	print("Set up ", gates.size(), " gates from children")
+
 func set_up_outputs():
 	outputs.clear()
 	
-	for child in get_children():
+	for child in $%Outputs.get_children():
 		if not child is OutputWire or not child.visible:
 			continue
 		
