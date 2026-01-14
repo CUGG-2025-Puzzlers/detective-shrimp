@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://vss4dx8y6io5"]
 
-[ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://assets/ui/m5x7.ttf" id="1_0chme"]
+[ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://fonts/m5x7.ttf" id="1_0chme"]
+
 
 [sub_resource type="FontVariation" id="FontVariation_0chme"]
 base_font = ExtResource("1_0chme")
