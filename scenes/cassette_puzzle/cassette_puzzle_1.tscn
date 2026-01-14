@@ -100,10 +100,11 @@ offset_top = 104.0
 offset_right = 308.0
 offset_bottom = 136.0
 
-[node name="Outputs" type="Node2D" parent="." node_paths=PackedStringArray("inputs", "outputs")]
+[node name="Outputs" type="Node2D" parent="." node_paths=PackedStringArray("inputs", "gates", "outputs")]
 unique_name_in_owner = true
 script = ExtResource("7_nlxpi")
 inputs = [NodePath("../Inputs/InputWire"), NodePath("../Inputs/InputWire2"), NodePath("../Inputs/InputWire3"), NodePath("../Inputs/InputWire4"), NodePath("../Inputs/InputWire5"), NodePath("../Inputs/InputWire6"), NodePath("../Inputs/InputWire7"), NodePath("../Inputs/InputWire8")]
+gates = [NodePath("../Gates/OR Gate"), NodePath("../Gates/XOR Gate"), NodePath("../Gates/NOT Gate"), NodePath("../Gates/XOR Gate2"), NodePath("../Gates/XOR Gate3"), NodePath("../Gates/RELAY Gate"), NodePath("../Gates/AND Gate"), NodePath("../Gates/OR Gate2"), NodePath("../Gates/AND Gate2")]
 outputs = [NodePath("Output")]
 
 [node name="Output" parent="Outputs" instance=ExtResource("7_ddvrl")]

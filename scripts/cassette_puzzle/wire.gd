@@ -8,9 +8,10 @@ extends TextureRect
 signal state_changed;
 
 var state = null
-var dragging = false
+var dragging: bool = false
 var hovered_input: GateInput = null
 var connected_input: GateInput = null
+var enabled: bool = true
 
 static var unconnected_default_texture = preload("res://textures/cassette_puzzle/wire_out.png")
 static var unconnected_on_texture = preload("res://textures/cassette_puzzle/wire_out_on.png")
@@ -18,6 +19,9 @@ static var unconnected_off_txture = preload("res://textures/cassette_puzzle/wire
 static var connected_texture = preload("res://textures/cassette_puzzle/wire_out_connected.png")
 
 func _ready() -> void:
+	enabled = true
+	CassettePuzzleEvents.puzzle_completed.connect(_on_puzzle_complete)
+	
 	mouse_default_cursor_shape = Control.CURSOR_MOVE
 	set_output_texture()
 
@@ -30,6 +34,9 @@ func _process(delta: float) -> void:
 
 # Check for GUI Input events
 func _gui_input(event: InputEvent) -> void:
+	if not enabled:
+		return
+	
 	# Checking for Mouse Button Left events
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
@@ -84,6 +91,10 @@ func _on_hovered_input(input: GateInput) -> void:
 # Clear the hovered input connection reference
 func _on_unhovered_input() -> void:
 	hovered_input = null
+
+func _on_puzzle_complete() -> void:
+	mouse_default_cursor_shape = Control.CURSOR_ARROW
+	enabled = false
 
 #endregion
 
