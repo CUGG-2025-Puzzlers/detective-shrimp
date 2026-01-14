@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="Detective Shrimp"
-run/main_scene="uid://378jmngcigte"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,14 +19,14 @@ config/icon="res://icon.svg"
 GameEvents="*res://scripts/game_events.gd"
 Globals="*res://scripts/globals.gd"
 SlidePuzzleEvents="*res://scripts/slide_puzzle/slide_puzzle_events.gd"
-CasettePuzzleEvents="*res://scripts/cassette_puzzle/casette_puzzle_events.gd"
+CassettePuzzleEvents="*res://scripts/cassette_puzzle/cassette_puzzle_events.gd"
 
 [display]
 
-window/size/viewport_width=560
-window/size/viewport_height=320
-window/size/window_width_override=960
-window/size/window_height_override=600
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
