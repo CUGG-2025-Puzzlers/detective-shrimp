@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq5pmfsh7jx60"]
+[gd_scene load_steps=5 format=3 uid="uid://rpc3kkyj58sj"]
 
 [ext_resource type="Script" uid="uid://b18mg5dobt73m" path="res://scripts/slide_puzzle/slide_puzzle.gd" id="1_n0r4p"]
-[ext_resource type="Texture2D" path="res://textures/slide_puzzle/slide_puzzle_grid.png" id="2_5dtns"]
-[ext_resource type="Texture2D" path="res://textures/slide_puzzle/goal.png" id="3_u5w6l"]
+[ext_resource type="Texture2D" uid="uid://b1mvtso1nw5pp" path="res://textures/slide_puzzle/slide_puzzle_grid.png" id="2_5dtns"]
+[ext_resource type="Texture2D" uid="uid://bwv51u73b30tm" path="res://textures/slide_puzzle/goal.png" id="3_u5w6l"]
 [ext_resource type="PackedScene" uid="uid://dmf136m2lw3jo" path="res://scenes/slide_puzzle/pieces/piece_key.tscn" id="4_u5w6l"]
 
 [node name="Slide Puzzle Board" type="Control"]
@@ -15,8 +15,6 @@ offset_bottom = -320.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n0r4p")
-board_size = Vector2i(2, 1)
-tile_size = null
 
 [node name="Grid" type="TextureRect" parent="."]
 unique_name_in_owner = true
