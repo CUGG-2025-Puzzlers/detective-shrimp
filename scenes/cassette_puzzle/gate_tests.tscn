@@ -1,0 +1,355 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmqincd4yvheb"]
+
+[ext_resource type="PackedScene" uid="uid://6irm70cy4miu" path="res://scenes/cassette_puzzle/and_gate.tscn" id="1_icp3b"]
+[ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="2_x2hrl"]
+[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="3_3hsje"]
+[ext_resource type="PackedScene" uid="uid://bdv0ahcvmixa6" path="res://scenes/cassette_puzzle/nand_gate.tscn" id="4_3hsje"]
+[ext_resource type="PackedScene" uid="uid://u6t6nj04n00i" path="res://scenes/cassette_puzzle/or_gate.tscn" id="4_x2hrl"]
+[ext_resource type="PackedScene" uid="uid://cb8ou2h3t2tol" path="res://scenes/cassette_puzzle/nor_gate.tscn" id="6_5r0jm"]
+[ext_resource type="PackedScene" uid="uid://cyi8enbwjas5f" path="res://scenes/cassette_puzzle/xor_gate.tscn" id="7_nv61p"]
+[ext_resource type="PackedScene" uid="uid://bt327g5yqnw88" path="res://scenes/cassette_puzzle/xnor_gate.tscn" id="8_uec5i"]
+[ext_resource type="PackedScene" uid="uid://brtj6y84xuyc0" path="res://scenes/cassette_puzzle/not_gate.tscn" id="9_m6fgy"]
+[ext_resource type="PackedScene" uid="uid://dvwbe6v72jqgb" path="res://scenes/cassette_puzzle/relay_gate.tscn" id="10_13hfl"]
+[ext_resource type="PackedScene" uid="uid://cu3elfl8n7fub" path="res://scenes/cassette_puzzle/splitter_gate.tscn" id="11_xl8bn"]
+
+
+[node name="Gate Tests" type="Node2D"]
+
+[node name="AND Test" type="Node2D" parent="."]
+position = Vector2(50, 50)
+
+[node name="AND Gate" parent="AND Test" instance=ExtResource("1_icp3b")]
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="AND Test/AND Gate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wire" parent="AND Test" instance=ExtResource("2_x2hrl")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire2" parent="AND Test" instance=ExtResource("2_x2hrl")]
+offset_top = 73.0
+offset_bottom = 89.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate Input" parent="AND Test" instance=ExtResource("3_3hsje")]
+offset_left = 257.0
+offset_top = 35.0
+offset_right = 273.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="NAND Test" type="Node2D" parent="."]
+position = Vector2(50, 350)
+
+[node name="NAND Gate" parent="NAND Test" instance=ExtResource("4_3hsje")]
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
+
+[node name="Label3" type="Label" parent="NAND Test/NAND Gate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wire" parent="NAND Test" instance=ExtResource("2_x2hrl")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire2" parent="NAND Test" instance=ExtResource("2_x2hrl")]
+offset_top = 73.0
+offset_bottom = 89.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate Input" parent="NAND Test" instance=ExtResource("3_3hsje")]
+offset_left = 257.0
+offset_top = 35.0
+offset_right = 273.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="OR Test" type="Node2D" parent="."]
+position = Vector2(50, 200)
+
+[node name="OR Gate" parent="OR Test" instance=ExtResource("4_x2hrl")]
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
+
+[node name="Label2" type="Label" parent="OR Test/OR Gate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wire" parent="OR Test" instance=ExtResource("2_x2hrl")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire2" parent="OR Test" instance=ExtResource("2_x2hrl")]
+offset_top = 73.0
+offset_bottom = 89.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate Input" parent="OR Test" instance=ExtResource("3_3hsje")]
+offset_left = 257.0
+offset_top = 35.0
+offset_right = 273.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="NOR Test" type="Node2D" parent="."]
+position = Vector2(450, 50)
+
+[node name="NOR Gate" parent="NOR Test" instance=ExtResource("6_5r0jm")]
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="NOR Test/NOR Gate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire" parent="NOR Test" instance=ExtResource("2_x2hrl")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire2" parent="NOR Test" instance=ExtResource("2_x2hrl")]
+offset_top = 73.0
+offset_bottom = 89.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate Input" parent="NOR Test" instance=ExtResource("3_3hsje")]
+offset_left = 257.0
+offset_top = 35.0
+offset_right = 273.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="XOR Test" type="Node2D" parent="."]
+position = Vector2(450, 200)
+
+[node name="XOR Gate" parent="XOR Test" instance=ExtResource("7_nv61p")]
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label5" type="Label" parent="XOR Test/XOR Gate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire" parent="XOR Test" instance=ExtResource("2_x2hrl")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire2" parent="XOR Test" instance=ExtResource("2_x2hrl")]
+offset_top = 73.0
+offset_bottom = 89.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate Input" parent="XOR Test" instance=ExtResource("3_3hsje")]
+offset_left = 257.0
+offset_top = 35.0
+offset_right = 273.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="XNOR Test" type="Node2D" parent="."]
+position = Vector2(450, 350)
+
+[node name="XNOR Gate" parent="XNOR Test" instance=ExtResource("8_uec5i")]
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label6" type="Label" parent="XNOR Test/XNOR Gate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire" parent="XNOR Test" instance=ExtResource("2_x2hrl")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire2" parent="XNOR Test" instance=ExtResource("2_x2hrl")]
+offset_top = 73.0
+offset_bottom = 89.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate Input" parent="XNOR Test" instance=ExtResource("3_3hsje")]
+offset_left = 257.0
+offset_top = 35.0
+offset_right = 273.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="NOT Test" type="Node2D" parent="."]
+position = Vector2(850, 50)
+
+[node name="NOT Gate" parent="NOT Test" instance=ExtResource("9_m6fgy")]
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
+
+[node name="Label7" type="Label" parent="NOT Test/NOT Gate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire" parent="NOT Test" instance=ExtResource("2_x2hrl")]
+offset_top = 35.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate Input" parent="NOT Test" instance=ExtResource("3_3hsje")]
+offset_left = 257.0
+offset_top = 35.0
+offset_right = 273.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Relay Test" type="Node2D" parent="."]
+position = Vector2(850, 200)
+
+[node name="Relay Gate" parent="Relay Test" instance=ExtResource("10_13hfl")]
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
+
+[node name="Label8" type="Label" parent="Relay Test/Relay Gate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire" parent="Relay Test" instance=ExtResource("2_x2hrl")]
+offset_top = 35.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate Input" parent="Relay Test" instance=ExtResource("3_3hsje")]
+offset_left = 257.0
+offset_top = 35.0
+offset_right = 273.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Splitter Test" type="Node2D" parent="."]
+position = Vector2(850, 350)
+
+[node name="Splitter Gate" parent="Splitter Test" instance=ExtResource("11_xl8bn")]
+offset_left = 98.0
+offset_top = 11.0
+offset_right = 162.0
+offset_bottom = 75.0
+
+[node name="Label9" type="Label" parent="Splitter Test/Splitter Gate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Wire" parent="Splitter Test" instance=ExtResource("2_x2hrl")]
+offset_top = 35.0
+offset_bottom = 51.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate Input" parent="Splitter Test" instance=ExtResource("3_3hsje")]
+offset_left = 257.0
+offset_right = 273.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gate Input2" parent="Splitter Test" instance=ExtResource("3_3hsje")]
+offset_left = 257.0
+offset_top = 73.0
+offset_right = 273.0
+offset_bottom = 89.0
+metadata/_edit_use_anchors_ = true
