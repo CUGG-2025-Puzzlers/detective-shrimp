@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dvwbe6v72jqgb" path="res://scenes/cassette_puzzle/gates/relay_gate.tscn" id="4_io58p"]
 [ext_resource type="PackedScene" uid="uid://u6t6nj04n00i" path="res://scenes/cassette_puzzle/gates/or_gate.tscn" id="5_ah7v1"]
 [ext_resource type="PackedScene" uid="uid://brtj6y84xuyc0" path="res://scenes/cassette_puzzle/gates/not_gate.tscn" id="6_m2i0q"]
-[ext_resource type="PackedScene" path="res://scenes/cassette_puzzle/output_wire.tscn" id="7_ddvrl"]
-[ext_resource type="Script" uid="uid://xo6incmk80r6" path="res://scripts/cassette_puzzle/casette_puzzle.gd" id="7_nlxpi"]
+[ext_resource type="PackedScene" uid="uid://iioaquy7h686" path="res://scenes/cassette_puzzle/output_wire.tscn" id="7_ddvrl"]
+[ext_resource type="Script" uid="uid://xo6incmk80r6" path="res://scripts/cassette_puzzle/cassette_puzzle.gd" id="7_nlxpi"]
 
 [node name="Casette Puzzle 1" type="Node2D"]
 
