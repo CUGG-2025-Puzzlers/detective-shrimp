@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://co0iu57gta684" path="res://scripts/dialogue/dialogue_box.gd" id="1_hvmm2"]
 [ext_resource type="Texture2D" uid="uid://b3txqamkair0f" path="res://assets/ui/dialogue_backgroung.png" id="1_tm68y"]
-[ext_resource type="PackedScene" uid="uid://5gvulpkdx1y2" path="res://scenes/configured_text_label.tscn" id="3_hvmm2"]
-[ext_resource type="Texture2D" uid="uid://cgyimct3i3kis" path="res://assets/characters/Cameron_Icon.png" id="3_p0wdv"]
+[ext_resource type="PackedScene" uid="uid://vss4dx8y6io5" path="res://scenes/configured_text_label.tscn" id="3_hvmm2"]
+[ext_resource type="Texture2D" uid="uid://dnj7wnnwrgas6" path="res://textures/cameron/cameron_normal.png" id="4_hvmm2"]
 
 [node name="Dialogue Box" type="Control"]
 layout_mode = 3
@@ -62,4 +62,4 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 68.0
 offset_bottom = 68.0
-texture = ExtResource("3_p0wdv")
+texture = ExtResource("4_hvmm2")
