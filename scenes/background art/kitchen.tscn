@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://stupsk6vmjcq"]
+[gd_scene load_steps=35 format=4 uid="uid://stupsk6vmjcq"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_mwmjw"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_cwf2y"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cf3wa3i4r4hdu" path="res://assets/background/pixelinterior_LRK/decorations_LRK.png" id="5_umms5"]
 [ext_resource type="Texture2D" uid="uid://b3xxbeq57jj32" path="res://assets/background/rundown house/clock/clock_15x32.png" id="6_ktc20"]
 [ext_resource type="Texture2D" uid="uid://boihvu1nshova" path="res://assets/background/rundown house/Old house/old house.png" id="7_bs8bs"]
-[ext_resource type="PackedScene" uid="uid://dknb10beku6mq" path="res://scenes/characters/player.tscn" id="8_88wuv"]
 [ext_resource type="Texture2D" uid="uid://mtix0wiy1xr1" path="res://assets/background/pixelinterior_LRK/cabinets_LRK.png" id="9_acu1m"]
 [ext_resource type="Texture2D" uid="uid://bra3ltw1ewrun" path="res://assets/background/Moon window.png" id="10_1r0rb"]
 
@@ -2085,15 +2084,15 @@ texture = ExtResource("4_k1jr4")
 22:19/0 = 0
 23:19/0 = 0
 1:20/0 = 0
-1:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.78557205, -8, 8, -8, 8, 3.851509, -1.0204201, 4.321207, -0.96170807, -7.479914)
+1:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.44515038, -8, 8, -8, 8, 8, 8, -3.561203, 0.1483841, -3.6601257)
 2:20/0 = 0
-2:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 3.851509, -8, 3.851509)
+2:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(6.886716, -8, 6.983863, -3.2349782, -8, -3.2644367, -8, -8)
 3:20/0 = 0
 4:20/0 = 0
 9:20/0 = 0
-9:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 3.792797, -8, 4.086359)
+9:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, -2.960291, -8, -3.2644367, -8, -8)
 10:20/0 = 0
-10:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0.271245, -8, -0.059890747, 3.795147, -8, 3.853859)
+10:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.10879135, -8, 0.03217888, -3.266739, -8, -3.2644367, -8, -8)
 1:21/0 = 0
 2:21/0 = 0
 3:21/0 = 0
@@ -5880,14 +5879,10 @@ scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAAPAAAAAQAHAAYAAAAPAAEAAQAHAAcAAAAPAAIAAQAHAAgAAAAQAAAAAQAIAAYAAAAQAAEAAQAIAAcAAAAQAAIAAQAIAAgAAAA=")
 tile_set = SubResource("TileSet_scder")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("8_88wuv")]
-position = Vector2(-16.999998, 29)
-scale = Vector2(1.05, 1.05)
-
 [node name="furnitures" type="TileMapLayer" parent="."]
-position = Vector2(-145, 97.00001)
-scale = Vector2(1.2, 1.2)
-tile_map_data = PackedByteArray("AAACAPv/AAAIAAkAAAACAPz/AAAIAAoAAAD7/wAAAAAQAAkAAAD7/wEAAAAQAAoAAAD9////AAAIAAkAAAD9/wAAAAABAAoAAAD9/wEAAAABAAsAAAD+/wAAAAACAAoAAAD+/wEAAAACAAsAAAD//wAAAAADAAoAAAD//wEAAAADAAsAAAACAAAAAAAOAAkAAAACAAEAAAAOAAoAAAAVAP//AAAOAAkAAAAVAAAAAAAOAAoAAAARAAAAAQARAAUAAAARAAEAAQARAAYAAAARAAIAAQARAAcAAAASAAAAAQASAAUAAAASAAEAAQASAAYAAAASAAIAAQASAAcAAAATAAAAAQATAAUAAAATAAEAAQATAAYAAAATAAIAAQATAAcAAAA=")
+position = Vector2(-151.00002, 90)
+scale = Vector2(1.3, 1.3)
+tile_map_data = PackedByteArray("AAACAPv/AAAIAAkAAAACAPz/AAAIAAoAAAD7/wAAAAAQAAkAAAD7/wEAAAAQAAoAAAD9////AAAIAAkAAAD9/wAAAAABAAoAAAD9/wEAAAABAAsAAAD+/wAAAAACAAoAAAD+/wEAAAACAAsAAAD//wAAAAADAAoAAAD//wEAAAADAAsAAAACAAAAAAAOAAkAAAACAAEAAAAOAAoAAAAQAAAAAQARAAUAAAAQAAEAAQARAAYAAAAQAAIAAQARAAcAAAARAAAAAQASAAUAAAARAAEAAQASAAYAAAARAAIAAQASAAcAAAASAAAAAQATAAUAAAASAAEAAQATAAYAAAASAAIAAQATAAcAAAAUAP//AAAOAAkAAAAUAAAAAAAOAAoAAAA=")
 tile_set = SubResource("TileSet_06717")
 
 [node name="candle plate" type="TileMapLayer" parent="."]
