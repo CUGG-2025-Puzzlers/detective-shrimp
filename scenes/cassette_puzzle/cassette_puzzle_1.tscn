@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://5mnl1xs61vj8"]
+[gd_scene load_steps=9 format=3 uid="uid://ch13qt1fo7jef"]
 
 [ext_resource type="PackedScene" uid="uid://bukxbwoax8pwc" path="res://scenes/cassette_puzzle/input_wire.tscn" id="1_nlxpi"]
 [ext_resource type="PackedScene" uid="uid://cyi8enbwjas5f" path="res://scenes/cassette_puzzle/gates/xor_gate.tscn" id="2_ddvrl"]
@@ -6,12 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://dvwbe6v72jqgb" path="res://scenes/cassette_puzzle/gates/relay_gate.tscn" id="4_io58p"]
 [ext_resource type="PackedScene" uid="uid://u6t6nj04n00i" path="res://scenes/cassette_puzzle/gates/or_gate.tscn" id="5_ah7v1"]
 [ext_resource type="PackedScene" uid="uid://brtj6y84xuyc0" path="res://scenes/cassette_puzzle/gates/not_gate.tscn" id="6_m2i0q"]
-[ext_resource type="PackedScene" uid="uid://iioaquy7h686" path="res://scenes/cassette_puzzle/output_wire.tscn" id="7_ddvrl"]
+[ext_resource type="PackedScene" path="res://scenes/cassette_puzzle/output_wire.tscn" id="7_ddvrl"]
 [ext_resource type="Script" uid="uid://xo6incmk80r6" path="res://scripts/cassette_puzzle/casette_puzzle.gd" id="7_nlxpi"]
 
 [node name="Casette Puzzle 1" type="Node2D"]
 
 [node name="Inputs" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="InputWire" parent="Inputs" instance=ExtResource("1_nlxpi")]
 position = Vector2(68, 4)
@@ -43,6 +44,7 @@ state = true
 position = Vector2(68, 228)
 
 [node name="Gates" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="OR Gate" parent="Gates" instance=ExtResource("5_ah7v1")]
 offset_left = 52.0
@@ -98,9 +100,11 @@ offset_top = 104.0
 offset_right = 308.0
 offset_bottom = 136.0
 
-[node name="Output" type="Node2D" parent="." node_paths=PackedStringArray("outputs")]
+[node name="Outputs" type="Node2D" parent="." node_paths=PackedStringArray("inputs", "outputs")]
+unique_name_in_owner = true
 script = ExtResource("7_nlxpi")
+inputs = [NodePath("../Inputs/InputWire"), NodePath("../Inputs/InputWire2"), NodePath("../Inputs/InputWire3"), NodePath("../Inputs/InputWire4"), NodePath("../Inputs/InputWire5"), NodePath("../Inputs/InputWire6"), NodePath("../Inputs/InputWire7"), NodePath("../Inputs/InputWire8")]
 outputs = [NodePath("Output")]
 
-[node name="Output" parent="Output" instance=ExtResource("7_ddvrl")]
+[node name="Output" parent="Outputs" instance=ExtResource("7_ddvrl")]
 position = Vector2(348, 116)
