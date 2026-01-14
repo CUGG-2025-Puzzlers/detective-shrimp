@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://iioaquy7h686"]
+
+[ext_resource type="Script" uid="uid://bf8l1x3v1t5bq" path="res://scripts/cassette_puzzle/output_wire.gd" id="1_u32xm"]
+[ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="2_i5ea0"]
+
+[node name="Output" type="Node2D"]
+script = ExtResource("1_u32xm")
+
+[node name="WireConnection" parent="." instance=ExtResource("2_i5ea0")]
+unique_name_in_owner = true

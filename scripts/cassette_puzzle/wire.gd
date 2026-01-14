@@ -1,33 +1,42 @@
+@tool
 class_name Wire
 extends TextureRect
 
+@export var game_settings : GameSettings
 @export var max_length: int
 
-@onready var wire : WireLine
-
-signal stateChanged;
+signal state_changed;
 
 var state = null
-var dragging = false
+var dragging: bool = false
 var hovered_input: GateInput = null
 var connected_input: GateInput = null
-var on_color: Color = Color(0, 0.2, 1)
-var off_color: Color = Color(1, 0, 0.2)
+var enabled: bool = true
+
+static var unconnected_default_texture = preload("res://textures/cassette_puzzle/wire_out.png")
+static var unconnected_on_texture = preload("res://textures/cassette_puzzle/wire_out_on.png")
+static var unconnected_off_txture = preload("res://textures/cassette_puzzle/wire_out_off.png")
+static var connected_texture = preload("res://textures/cassette_puzzle/wire_out_connected.png")
 
 func _ready() -> void:
-	# Set WireLine reference to child
-	wire = $Wire_Line
-	set_wire_color()
+	enabled = true
+	CassettePuzzleEvents.puzzle_completed.connect(_on_puzzle_complete)
+	
+	mouse_default_cursor_shape = Control.CURSOR_MOVE
+	set_output_texture()
 
 func _process(delta: float) -> void:
 	# Wire follows mouse while dragging
 	if dragging:
-		wire.adjust()
+		$%Wire_Line.adjust()
 
 #region Event Handlers
 
 # Check for GUI Input events
 func _gui_input(event: InputEvent) -> void:
+	if not enabled:
+		return
+	
 	# Checking for Mouse Button Left events
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
@@ -42,39 +51,37 @@ func _on_mouse_down():
 	# Clear any previous connections
 	disconnect_from_input()
 	
+	# Update texture
+	texture = null
+	
 	# Start new wire
-	wire.start()
-	CasettePuzzleEvents.hovered_input.connect(_on_hovered_input)
-	CasettePuzzleEvents.unhovered_input.connect(_on_unhovered_input)
+	$%Wire_Line.start()
+	CassettePuzzleEvents.hovered_input.connect(_on_hovered_input)
+	CassettePuzzleEvents.unhovered_input.connect(_on_unhovered_input)
 	dragging = true
 
 # Mouse Button Left let go: Stop the wire dragging and connect if possible
 func _on_mouse_up():
 	dragging = false
-	CasettePuzzleEvents.hovered_input.disconnect(_on_hovered_input)
-	CasettePuzzleEvents.unhovered_input.disconnect(_on_unhovered_input)
+	mouse_default_cursor_shape = Control.CURSOR_MOVE
+	CassettePuzzleEvents.hovered_input.disconnect(_on_hovered_input)
+	CassettePuzzleEvents.unhovered_input.disconnect(_on_unhovered_input)
 	
 	# Clear wire if not hovering over reachable input connection
 	if hovered_input == null:
-		mouse_default_cursor_shape = Control.CURSOR_ARROW
-		wire.clear()
+		clear()
 		return
 	
 	# Connect wire
-	mouse_default_cursor_shape = Control.CURSOR_MOVE
 	connect_to_input()
 
 func _on_mouse_entered():
 	if dragging:
 		return
-	
-	mouse_default_cursor_shape = Control.CURSOR_MOVE
 
 func _on_mouse_exited():
 	if dragging:
 		return
-	
-	mouse_default_cursor_shape = Control.CURSOR_ARROW
 
 # Set the hovered input connection reference if in reach
 func _on_hovered_input(input: GateInput) -> void:
@@ -85,17 +92,32 @@ func _on_hovered_input(input: GateInput) -> void:
 func _on_unhovered_input() -> void:
 	hovered_input = null
 
+func _on_puzzle_complete() -> void:
+	mouse_default_cursor_shape = Control.CURSOR_ARROW
+	enabled = false
+
 #endregion
 
-# Sets the wire's color based on the state
-func set_wire_color():
-	if state == null:
-		wire.default_color = Color.WHITE
-		self_modulate = Color.WHITE
-		return
+# Clears the line and resets the texture
+func clear():
+	$%Wire_Line.clear()
+	set_output_texture()
+
+# Sets the wire connection texture and wire color based on the state
+func set_output_texture():
+	var output_texture
 	
-	wire.default_color = on_color if state else off_color
-	self_modulate = on_color if state else off_color
+	if state == null:
+		output_texture = unconnected_default_texture 
+		$%Wire_Line.default_color = game_settings.null_color
+	elif state:
+		output_texture = unconnected_on_texture
+		$%Wire_Line.default_color = game_settings.on_color
+	else:
+		output_texture = unconnected_off_txture
+		$%Wire_Line.default_color = game_settings.off_color
+	
+	texture = output_texture if connected_input == null else connected_texture
 
 # Changes the state of this wire if the new state is different than the current
 func change_state(newState):
@@ -103,12 +125,12 @@ func change_state(newState):
 		return
 	
 	state = newState
-	set_wire_color()
-	stateChanged.emit()
+	set_output_texture()
+	state_changed.emit()
 
 # Checks if the wire can reach a specified GateInput
 func can_reach(input: GateInput):
-	var wire_start = wire.global_position
+	var wire_start = $%Wire_Line.global_position
 	var input_edge = input.global_position
 	input_edge.y += input.size.y / 2
 	
@@ -121,10 +143,10 @@ func connect_to_input():
 	
 	# Hovered input is already connected to another wire
 	if hovered_input.wire != null:
-		wire.clear()
+		clear()
 		return
 	
-	wire.attach(hovered_input)
+	$%Wire_Line.attach(hovered_input)
 	hovered_input.connect_wire(self)
 	connected_input = hovered_input
 	hovered_input = null
@@ -134,6 +156,6 @@ func disconnect_from_input():
 	if connected_input == null:
 		return
 	
-	wire.clear()
+	clear()
 	connected_input.disconnect_wire()
 	connected_input = null

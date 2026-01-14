@@ -1,16 +1,17 @@
 [gd_scene load_steps=12 format=3 uid="uid://dmqincd4yvheb"]
 
-[ext_resource type="PackedScene" uid="uid://6irm70cy4miu" path="res://scenes/cassette_puzzle/and_gate.tscn" id="1_icp3b"]
+[ext_resource type="PackedScene" uid="uid://6irm70cy4miu" path="res://scenes/cassette_puzzle/gates/and_gate.tscn" id="1_icp3b"]
 [ext_resource type="PackedScene" uid="uid://d3h5vir0t0o3f" path="res://scenes/cassette_puzzle/wire.tscn" id="2_x2hrl"]
 [ext_resource type="PackedScene" uid="uid://d1r8sisc3ep03" path="res://scenes/cassette_puzzle/gate_input.tscn" id="3_3hsje"]
-[ext_resource type="PackedScene" uid="uid://bdv0ahcvmixa6" path="res://scenes/cassette_puzzle/nand_gate.tscn" id="4_3hsje"]
-[ext_resource type="PackedScene" uid="uid://u6t6nj04n00i" path="res://scenes/cassette_puzzle/or_gate.tscn" id="4_x2hrl"]
-[ext_resource type="PackedScene" uid="uid://cb8ou2h3t2tol" path="res://scenes/cassette_puzzle/nor_gate.tscn" id="6_5r0jm"]
-[ext_resource type="PackedScene" uid="uid://cyi8enbwjas5f" path="res://scenes/cassette_puzzle/xor_gate.tscn" id="7_nv61p"]
-[ext_resource type="PackedScene" uid="uid://bt327g5yqnw88" path="res://scenes/cassette_puzzle/xnor_gate.tscn" id="8_uec5i"]
-[ext_resource type="PackedScene" uid="uid://brtj6y84xuyc0" path="res://scenes/cassette_puzzle/not_gate.tscn" id="9_m6fgy"]
-[ext_resource type="PackedScene" uid="uid://dvwbe6v72jqgb" path="res://scenes/cassette_puzzle/relay_gate.tscn" id="10_13hfl"]
-[ext_resource type="PackedScene" uid="uid://cu3elfl8n7fub" path="res://scenes/cassette_puzzle/splitter_gate.tscn" id="11_xl8bn"]
+[ext_resource type="PackedScene" uid="uid://bdv0ahcvmixa6" path="res://scenes/cassette_puzzle/gates/nand_gate.tscn" id="4_3hsje"]
+[ext_resource type="PackedScene" uid="uid://u6t6nj04n00i" path="res://scenes/cassette_puzzle/gates/or_gate.tscn" id="4_x2hrl"]
+[ext_resource type="PackedScene" uid="uid://cb8ou2h3t2tol" path="res://scenes/cassette_puzzle/gates/nor_gate.tscn" id="6_5r0jm"]
+[ext_resource type="PackedScene" uid="uid://cyi8enbwjas5f" path="res://scenes/cassette_puzzle/gates/xor_gate.tscn" id="7_nv61p"]
+[ext_resource type="PackedScene" uid="uid://bt327g5yqnw88" path="res://scenes/cassette_puzzle/gates/xnor_gate.tscn" id="8_uec5i"]
+[ext_resource type="PackedScene" uid="uid://brtj6y84xuyc0" path="res://scenes/cassette_puzzle/gates/not_gate.tscn" id="9_m6fgy"]
+[ext_resource type="PackedScene" uid="uid://dvwbe6v72jqgb" path="res://scenes/cassette_puzzle/gates/relay_gate.tscn" id="10_13hfl"]
+[ext_resource type="PackedScene" uid="uid://cu3elfl8n7fub" path="res://scenes/cassette_puzzle/gates/splitter_gate.tscn" id="11_xl8bn"]
+
 
 
 [node name="Gate Tests" type="Node2D"]

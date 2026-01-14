@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0pegt1mo1uqt"
-path="res://.godot/imported/mouse_drag.png-66f664c25e8e2233ad85c619fd996d5c.ctex"
+uid="uid://jkl774b7xrnu"
+path="res://.godot/imported/wire_out_off.png-863e61dbc2e82bc2d0c51a8e189877c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/mouse_drag.png"
-dest_files=["res://.godot/imported/mouse_drag.png-66f664c25e8e2233ad85c619fd996d5c.ctex"]
+source_file="res://textures/cassette_puzzle/wire_out_off.png"
+dest_files=["res://.godot/imported/wire_out_off.png-863e61dbc2e82bc2d0c51a8e189877c7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0pegt1mo1uqt"
-path="res://.godot/imported/mouse_drag.png-66f664c25e8e2233ad85c619fd996d5c.ctex"
+uid="uid://uav2tkpruup6"
+path="res://.godot/imported/gate_seagrass_inverted.png-6c006f680c19dfb50405151ea3cd2748.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/mouse_drag.png"
-dest_files=["res://.godot/imported/mouse_drag.png-66f664c25e8e2233ad85c619fd996d5c.ctex"]
+source_file="res://textures/cassette_puzzle/gate_seagrass_inverted.png"
+dest_files=["res://.godot/imported/gate_seagrass_inverted.png-6c006f680c19dfb50405151ea3cd2748.ctex"]
 
 [params]
 
