@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0pegt1mo1uqt"
-path="res://.godot/imported/mouse_drag.png-66f664c25e8e2233ad85c619fd996d5c.ctex"
+uid="uid://dp1ivelh350kn"
+path="res://.godot/imported/gate_shrimp_inverted.png-ae5e3606efd75928f4a29cbb234d98a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/mouse_drag.png"
-dest_files=["res://.godot/imported/mouse_drag.png-66f664c25e8e2233ad85c619fd996d5c.ctex"]
+source_file="res://textures/cassette_puzzle/gate_shrimp_inverted.png"
+dest_files=["res://.godot/imported/gate_shrimp_inverted.png-ae5e3606efd75928f4a29cbb234d98a7.ctex"]
 
 [params]
 

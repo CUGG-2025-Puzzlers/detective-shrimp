@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0pegt1mo1uqt"
-path="res://.godot/imported/mouse_drag.png-66f664c25e8e2233ad85c619fd996d5c.ctex"
+uid="uid://dv6p74m6mjkvd"
+path="res://.godot/imported/gate_shell.png-5361022bb92687c5fefb2e66c96fac1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/mouse_drag.png"
-dest_files=["res://.godot/imported/mouse_drag.png-66f664c25e8e2233ad85c619fd996d5c.ctex"]
+source_file="res://textures/cassette_puzzle/gate_shell.png"
+dest_files=["res://.godot/imported/gate_shell.png-5361022bb92687c5fefb2e66c96fac1d.ctex"]
 
 [params]
 
