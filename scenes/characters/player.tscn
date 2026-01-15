@@ -236,7 +236,7 @@ graph_offset = Vector2(60.05997, -3.8624902)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_76oj4"]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree") groups=["Player"]]
 script = ExtResource("1_76oj4")
 animation_tree = NodePath("AnimationTree")
 
