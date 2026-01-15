@@ -45,6 +45,21 @@ func resend_mouse_click(pos: Vector2, pressed: bool) -> void:
 	press_event.position = pos * get_viewport().get_final_transform()[0][0]
 	get_viewport().push_input(press_event)
 
+func trigger_event(event: EventTrigger):
+	match event:
+		EventTrigger.PuzzleSlide:
+			SlidePuzzleEvents.start_puzzle()
+		EventTrigger.PuzzleCassette:
+			CassettePuzzleEvents.start_puzzle()
+
+enum EventTrigger {
+	None,
+	PuzzleSlide,
+	PuzzleCassette,
+	PuzzleLight,
+	PuzzleDecryption,
+}
+
 enum SlidePuzzleValues {
 	Empty,
 	Wall,
