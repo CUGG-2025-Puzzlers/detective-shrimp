@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://mcdlnsiojpgm"]
+[gd_scene load_steps=10 format=4 uid="uid://mcdlnsiojpgm"]
 
-[ext_resource type="Script" path="res://scripts/ray_cast_2d.gd" id="1_apstt"]
+[ext_resource type="Script" uid="uid://bripj1obpu7od" path="res://scripts/ray_cast_2d.gd" id="1_apstt"]
 [ext_resource type="Texture2D" uid="uid://dqrngw1qgr7kr" path="res://assets/ui/glowing_circle.png" id="2_imgww"]
 [ext_resource type="Script" path="res://scripts/letter.gd" id="3_imgww"]
-[ext_resource type="PackedScene" path="res://scenes/reflectors.tscn" id="4_vtulw"]
+[ext_resource type="PackedScene" uid="uid://63lsrxugl7an" path="res://scenes/reflectors.tscn" id="4_vtulw"]
 [ext_resource type="TileSet" uid="uid://cvprit4qech2u" path="res://assets/wall_tileset.tres" id="6_73fua"]
-[ext_resource type="Texture2D" uid="uid://dykw8k1csla8c" path="res://assets/ui/Letter.png" id="6_imgww"]
 
 [sub_resource type="GDScript" id="GDScript_vtulw"]
 script/source = "extends Node2D
@@ -17,12 +16,10 @@ func _on_start_pressed() -> void:
 	$LightSource/RayCast2D.shoot()
 "
 
-[sub_resource type="GDScript" id="GDScript_7fncp"]
-
-[sub_resource type="GDScript" id="GDScript_imgww"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_nk2lv"]
 radius = 3.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7fncp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nk2lv"]
 size = Vector2(10, 11)
@@ -33,7 +30,6 @@ script = SubResource("GDScript_vtulw")
 [node name="LightSource" type="Area2D" parent="." groups=["light_source"]]
 position = Vector2(57, 153)
 disable_mode = 2
-script = SubResource("GDScript_7fncp")
 
 [node name="RayCast2D" type="RayCast2D" parent="LightSource"]
 position = Vector2(10, 0)
@@ -60,7 +56,6 @@ offset_top = 111.0
 offset_right = 34.0
 offset_bottom = 152.0
 text = "START"
-script = SubResource("GDScript_imgww")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightSource"]
 shape = SubResource("CircleShape2D_nk2lv")
@@ -75,7 +70,7 @@ script = ExtResource("3_imgww")
 top_level = true
 position = Vector2(501.6, 56.6)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("6_imgww")
+texture = SubResource("CompressedTexture2D_7fncp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Letter"]
 self_modulate = Color(1, 1, 1, 0)
@@ -83,87 +78,87 @@ position = Vector2(501.60007, 56.600006)
 scale = Vector2(2.4, 2.4)
 shape = SubResource("RectangleShape2D_nk2lv")
 
-[node name="Reflectors" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(500, 228)
 rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors2" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors2" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 108)
 rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors3" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors3" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(500, 128)
 rotation = -2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors4" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors4" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(500, 148)
 rotation = -2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors5" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors5" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(500, 168)
 rotation = -2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors6" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors6" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(500, 188)
 rotation = -2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors7" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors7" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(500, 208)
 rotation = -2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors8" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors8" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(499.99997, 108.000015)
 rotation = -2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors9" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors9" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 128)
 rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors10" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors10" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 147.99998)
 rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors11" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors11" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 168)
 rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors12" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors12" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 188)
 rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors13" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors13" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 208)
 rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors14" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors14" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 228)
 rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors15" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors15" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(407.99997, 227.99998)
 rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors16" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors16" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(408, 208)
 rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
 
-[node name="Reflectors17" parent="." instance=ExtResource("4_vtulw")]
+[node name="Reflectors17" parent="." groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(408, 188)
 rotation = 2.3561945
 scale = Vector2(0.08, 0.08)
@@ -174,7 +169,12 @@ scale = Vector2(0.08, 0.08)
 tile_set = ExtResource("6_73fua")
 collision_animatable = true
 format = 2
-layer_0/tile_data = PackedInt32Array(65538, 6, 268435456, 589826, 6, 268435456, 983042, 6, 0, 65539, 6, 268435456, 983043, 6, 0, 65540, 6, 268435456, 983044, 6, 0, 65541, 6, 268435456, 983045, 6, 0, 65545, 6, 268435456, 983049, 6, 0, 65546, 6, 0, 458762, 6, 0, 983050, 6, 0, 65547, 6, 268435456, 458763, 6, 0, 983051, 6, 0, 65548, 6, 268435456, 458764, 6, 0, 983052, 6, 0, 65549, 6, 268435456, 458765, 6, 0, 983053, 6, 0, 65550, 6, 268435456, 458766, 6, 0, 983054, 6, 0, 65551, 6, 268435456, 458767, 6, 0, 983055, 6, 0, 65552, 6, 268435456, 458768, 6, 0, 983056, 6, 0, 65553, 6, 268435456, 458769, 6, 0, 983057, 6, 0, 65554, 6, 268435456, 458770, 6, 0, 983058, 6, 0, 65555, 6, 268435456, 458771, 6, 0, 983059, 6, 0, 65556, 6, 268435456, 458772, 6, 0, 983060, 6, 0, 65557, 6, 268435456, 983061, 6, 0, 65558, 6, 268435456, 655382, 6, 0, 983062, 6, 0, 65559, 6, 268435456, 655383, 6, 0, 983063, 6, 0, 65560, 6, 268435456, 655384, 6, 0, 983064, 6, 0, 65561, 6, 268435456, 983065, 6, 0, 65562, 6, 268435456, 983066, 6, 0, 65563, 6, 268435456, 327707, 6, 0, 983067, 6, 0, 65564, 6, 268435456, 327708, 6, 0, 983068, 6, 0, 65565, 6, 0, 983069, 6, 0, 65566, 6, 0, 983070, 6, 0, 131074, 6, 268435456, 196610, 6, 268435456, 262146, 6, 268435456, 327682, 6, 268435456, 393218, 6, 268435456, 458754, 6, 268435456, 524290, 6, 268435456, 655362, 6, 268435456, 720898, 6, 268435456, 786434, 6, 268435456, 851970, 6, 0, 917506, 6, 0, 65542, 6, 268435456, 983046, 6, 0, 655385, 6, 0, 131099, 6, 0, 196635, 6, 0, 262171, 6, 0, 393243, 6, 0, 458779, 6, 0, 524315, 6, 0, 589851, 6, 0, 655387, 6, 0, 720923, 6, 0, 786459, 6, 0, 851995, 6, 0, 65568, 6, 0, 131104, 6, 0, 196640, 6, 0, 262176, 6, 0, 327712, 6, 0, 393248, 6, 0, 458784, 6, 0, 524320, 6, 0, 589856, 6, 0, 655392, 6, 0, 720928, 6, 0, 786464, 6, 0, 852000, 6, 0, 917536, 6, 0, 983072, 6, 0, 65543, 6, 0, 65544, 6, 0, 983047, 6, 0, 983048, 6, 0, 65567, 6, 0, 983071, 6, 0, 589836, 6, 0, 655372, 6, 0, 720908, 6, 0, 786444, 6, 0, 851980, 6, 0, 917516, 6, 0, 655381, 6, 0, 393236, 6, 0, 327700, 6, 0, 262164, 6, 0, 196628, 6, 0, 131092, 6, 0, 524303, 6, 0, 589839, 6, 0, 655375, 6, 0, 720911, 6, 0, 786447, 6, 0, 851983, 6, 0, 589842, 6, 0, 655378, 6, 0, 720914, 6, 0, 786450, 6, 0, 851986, 6, 0, 655380, 6, 0, 589844, 6, 0, 720918, 6, 0, 786454, 6, 0, 851990, 6, 0, 917526, 6, 0, 720919, 6, 0, 786455, 6, 0, 851991, 6, 0, 917527, 6, 0, 196630, 6, 0, 262166, 6, 0, 262167, 6, 0, 196631, 6, 0, 393238, 6, 0, 393239, 6, 0, 393240, 6, 0, 196632, 6, 0, 262168, 6, 0, 327703, 6, 0, 458775, 6, 0, 524311, 6, 0, 589847, 6, 0, 851977, 6, 0, 851976, 6, 0, 851975, 6, 0, 851974, 6, 0, 917510, 8, 0, 327709, 6, 0, 327710, 6, 0, 262172, 6, 0, 262173, 6, 0, 327711, 8, 0, 327698, 6, 0, 327697, 6, 0, 327696, 6, 0, 327695, 6, 0, 327694, 6, 0, 327693, 6, 0, 327692, 6, 0, 327691, 6, 0, 131087, 6, 0, 196623, 6, 0, 327690, 6, 0, 786441, 6, 0, 720905, 6, 0, 655369, 6, 0, 589833, 6, 0, 524297, 6, 0, 458761, 6, 0, 327689, 6, 0, 131082, 6, 0, 196618, 6, 0, 131078, 6, 0, 196614, 6, 0, 262150, 6, 0, 327686, 6, 0, 524291, 6, 0, 524292, 6, 0, 262175, 11, 0)
+
+[node name="Layer0" type="TileMapLayer" parent="wallTileMap" groups=["wall"]]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAACAAEABgAAAAAAABACAAkABgAAAAAAABACAA8ABgAAAAAAAAADAAEABgAAAAAAABADAA8ABgAAAAAAAAAEAAEABgAAAAAAABAEAA8ABgAAAAAAAAAFAAEABgAAAAAAABAFAA8ABgAAAAAAAAAJAAEABgAAAAAAABAJAA8ABgAAAAAAAAAKAAEABgAAAAAAAAAKAAcABgAAAAAAAAAKAA8ABgAAAAAAAAALAAEABgAAAAAAABALAAcABgAAAAAAAAALAA8ABgAAAAAAAAAMAAEABgAAAAAAABAMAAcABgAAAAAAAAAMAA8ABgAAAAAAAAANAAEABgAAAAAAABANAAcABgAAAAAAAAANAA8ABgAAAAAAAAAOAAEABgAAAAAAABAOAAcABgAAAAAAAAAOAA8ABgAAAAAAAAAPAAEABgAAAAAAABAPAAcABgAAAAAAAAAPAA8ABgAAAAAAAAAQAAEABgAAAAAAABAQAAcABgAAAAAAAAAQAA8ABgAAAAAAAAARAAEABgAAAAAAABARAAcABgAAAAAAAAARAA8ABgAAAAAAAAASAAEABgAAAAAAABASAAcABgAAAAAAAAASAA8ABgAAAAAAAAATAAEABgAAAAAAABATAAcABgAAAAAAAAATAA8ABgAAAAAAAAAUAAEABgAAAAAAABAUAAcABgAAAAAAAAAUAA8ABgAAAAAAAAAVAAEABgAAAAAAABAVAA8ABgAAAAAAAAAWAAEABgAAAAAAABAWAAoABgAAAAAAAAAWAA8ABgAAAAAAAAAXAAEABgAAAAAAABAXAAoABgAAAAAAAAAXAA8ABgAAAAAAAAAYAAEABgAAAAAAABAYAAoABgAAAAAAAAAYAA8ABgAAAAAAAAAZAAEABgAAAAAAABAZAA8ABgAAAAAAAAAaAAEABgAAAAAAABAaAA8ABgAAAAAAAAAbAAEABgAAAAAAABAbAAUABgAAAAAAAAAbAA8ABgAAAAAAAAAcAAEABgAAAAAAABAcAAUABgAAAAAAAAAcAA8ABgAAAAAAAAAdAAEABgAAAAAAAAAdAA8ABgAAAAAAAAAeAAEABgAAAAAAAAAeAA8ABgAAAAAAAAACAAIABgAAAAAAABACAAMABgAAAAAAABACAAQABgAAAAAAABACAAUABgAAAAAAABACAAYABgAAAAAAABACAAcABgAAAAAAABACAAgABgAAAAAAABACAAoABgAAAAAAABACAAsABgAAAAAAABACAAwABgAAAAAAABACAA0ABgAAAAAAAAACAA4ABgAAAAAAAAAGAAEABgAAAAAAABAGAA8ABgAAAAAAAAAZAAoABgAAAAAAAAAbAAIABgAAAAAAAAAbAAMABgAAAAAAAAAbAAQABgAAAAAAAAAbAAYABgAAAAAAAAAbAAcABgAAAAAAAAAbAAgABgAAAAAAAAAbAAkABgAAAAAAAAAbAAoABgAAAAAAAAAbAAsABgAAAAAAAAAbAAwABgAAAAAAAAAbAA0ABgAAAAAAAAAgAAEABgAAAAAAAAAgAAIABgAAAAAAAAAgAAMABgAAAAAAAAAgAAQABgAAAAAAAAAgAAUABgAAAAAAAAAgAAYABgAAAAAAAAAgAAcABgAAAAAAAAAgAAgABgAAAAAAAAAgAAkABgAAAAAAAAAgAAoABgAAAAAAAAAgAAsABgAAAAAAAAAgAAwABgAAAAAAAAAgAA0ABgAAAAAAAAAgAA4ABgAAAAAAAAAgAA8ABgAAAAAAAAAHAAEABgAAAAAAAAAIAAEABgAAAAAAAAAHAA8ABgAAAAAAAAAIAA8ABgAAAAAAAAAfAAEABgAAAAAAAAAfAA8ABgAAAAAAAAAMAAkABgAAAAAAAAAMAAoABgAAAAAAAAAMAAsABgAAAAAAAAAMAAwABgAAAAAAAAAMAA0ABgAAAAAAAAAMAA4ABgAAAAAAAAAVAAoABgAAAAAAAAAUAAYABgAAAAAAAAAUAAUABgAAAAAAAAAUAAQABgAAAAAAAAAUAAMABgAAAAAAAAAUAAIABgAAAAAAAAAPAAgABgAAAAAAAAAPAAkABgAAAAAAAAAPAAoABgAAAAAAAAAPAAsABgAAAAAAAAAPAAwABgAAAAAAAAAPAA0ABgAAAAAAAAASAAkABgAAAAAAAAASAAoABgAAAAAAAAASAAsABgAAAAAAAAASAAwABgAAAAAAAAASAA0ABgAAAAAAAAAUAAoABgAAAAAAAAAUAAkABgAAAAAAAAAWAAsABgAAAAAAAAAWAAwABgAAAAAAAAAWAA0ABgAAAAAAAAAWAA4ABgAAAAAAAAAXAAsABgAAAAAAAAAXAAwABgAAAAAAAAAXAA0ABgAAAAAAAAAXAA4ABgAAAAAAAAAWAAMABgAAAAAAAAAWAAQABgAAAAAAAAAXAAQABgAAAAAAAAAXAAMABgAAAAAAAAAWAAYABgAAAAAAAAAXAAYABgAAAAAAAAAYAAYABgAAAAAAAAAYAAMABgAAAAAAAAAYAAQABgAAAAAAAAAXAAUABgAAAAAAAAAXAAcABgAAAAAAAAAXAAgABgAAAAAAAAAXAAkABgAAAAAAAAAJAA0ABgAAAAAAAAAIAA0ABgAAAAAAAAAHAA0ABgAAAAAAAAAGAA0ABgAAAAAAAAAGAA4ACAAAAAAAAAAdAAUABgAAAAAAAAAeAAUABgAAAAAAAAAcAAQABgAAAAAAAAAdAAQABgAAAAAAAAAfAAUACAAAAAAAAAASAAUABgAAAAAAAAARAAUABgAAAAAAAAAQAAUABgAAAAAAAAAPAAUABgAAAAAAAAAOAAUABgAAAAAAAAANAAUABgAAAAAAAAAMAAUABgAAAAAAAAALAAUABgAAAAAAAAAPAAIABgAAAAAAAAAPAAMABgAAAAAAAAAKAAUABgAAAAAAAAAJAAwABgAAAAAAAAAJAAsABgAAAAAAAAAJAAoABgAAAAAAAAAJAAkABgAAAAAAAAAJAAgABgAAAAAAAAAJAAcABgAAAAAAAAAJAAUABgAAAAAAAAAKAAIABgAAAAAAAAAKAAMABgAAAAAAAAAGAAIABgAAAAAAAAAGAAMABgAAAAAAAAAGAAQABgAAAAAAAAAGAAUABgAAAAAAAAADAAgABgAAAAAAAAAEAAgABgAAAAAAAAAfAAQACwAAAAAAAAA=")
+tile_set = ExtResource("6_73fua")
+use_kinematic_bodies = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true
