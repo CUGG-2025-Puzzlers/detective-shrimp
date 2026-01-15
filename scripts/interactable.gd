@@ -35,4 +35,9 @@ func _on_mouse_up():
 	pass
 
 func is_player_in_range() -> bool:
-	return false
+	var player = get_tree().get_first_node_in_group("Player")
+	if player == null:
+		return false
+	
+	var distance = global_position.distance_to(player.global_position)
+	return distance < interaction_range
