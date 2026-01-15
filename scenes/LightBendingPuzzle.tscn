@@ -165,7 +165,7 @@ scale = Vector2(0.08, 0.08)
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="wallTileMap" type="TileMap" parent="."]
+[node name="wallTileMap" type="TileMap" parent="." groups=["wall_tilemap"]]
 tile_set = ExtResource("6_73fua")
 collision_animatable = true
 format = 2
