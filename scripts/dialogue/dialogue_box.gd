@@ -82,6 +82,8 @@ func close():
 	
 	cur_dialogue.cur_line = 0
 	cur_dialogue = null
+	
+	GameEvents.end_dialogue()
 
 func displayNextLine():
 	if !visible:
