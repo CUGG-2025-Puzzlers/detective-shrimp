@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=6 format=3 uid="uid://djmtpqfy3axl"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_tdgsy"]
+[ext_resource type="Texture2D" uid="uid://cycrol8exbgwh" path="res://textures/cameron/cameron_annoyed.png" id="2_ieo8u"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="3_illmw"]
+
+[sub_resource type="Resource" id="Resource_qri7n"]
+script = ExtResource("1_tdgsy")
+text = "There’s a letter on the fridge, but it’s too dark to read what it says."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_tfbqv"]
+script = ExtResource("1_tdgsy")
+speaker_portrait = ExtResource("2_ieo8u")
+text = "I wonder if there’s some way to light up the letter…"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("3_illmw")
+name = "car"
+lines = Array[ExtResource("1_tdgsy")]([SubResource("Resource_qri7n"), SubResource("Resource_tfbqv")])
+metadata/_custom_type_script = "uid://6av67jfqula5"

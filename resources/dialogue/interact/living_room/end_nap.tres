@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=25 format=3 uid="uid://cm00bhxk17heo"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=27 format=3 uid="uid://cm00bhxk17heo"]
 
 [ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_gqfwq"]
 [ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="2_7ltdd"]
@@ -111,19 +111,33 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 [sub_resource type="Resource" id="Resource_6q432"]
 script = ExtResource("1_gqfwq")
 speaker_name = "Shrimplock Holmes"
-speaker_portrait = ExtResource("3_ejmy5")
+speaker_portrait = ExtResource("6_hx8qn")
 text = "Mysterious!"
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_7xgqv"]
 script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes!"
+speaker_portrait = ExtResource("6_hx8qn")
+text = "Shrimplock Holmes!!!!"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_jft4x"]
+script = ExtResource("1_gqfwq")
 speaker_name = "Shrimplock Holmes"
 speaker_portrait = ExtResource("3_ejmy5")
-text = "Shrimplock Holmes!!!!"
+text = "…"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_ejmy5"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_ejmy5")
+text = "Let’s start by looking around the house for clues."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]
 script = ExtResource("2_7ltdd")
 name = "car"
-lines = Array[ExtResource("1_gqfwq")]([SubResource("Resource_qri7n"), SubResource("Resource_gqfwq"), SubResource("Resource_7ltdd"), SubResource("Resource_05o1e"), SubResource("Resource_mes3j"), SubResource("Resource_u3qk7"), SubResource("Resource_5xa6i"), SubResource("Resource_idoot"), SubResource("Resource_6t4kg"), SubResource("Resource_lviij"), SubResource("Resource_u242h"), SubResource("Resource_n0ntu"), SubResource("Resource_csq0b"), SubResource("Resource_42exv"), SubResource("Resource_6q432"), SubResource("Resource_7xgqv")])
+lines = Array[ExtResource("1_gqfwq")]([SubResource("Resource_qri7n"), SubResource("Resource_gqfwq"), SubResource("Resource_7ltdd"), SubResource("Resource_05o1e"), SubResource("Resource_mes3j"), SubResource("Resource_u3qk7"), SubResource("Resource_5xa6i"), SubResource("Resource_idoot"), SubResource("Resource_6t4kg"), SubResource("Resource_lviij"), SubResource("Resource_u242h"), SubResource("Resource_n0ntu"), SubResource("Resource_csq0b"), SubResource("Resource_42exv"), SubResource("Resource_6q432"), SubResource("Resource_7xgqv"), SubResource("Resource_jft4x"), SubResource("Resource_ejmy5")])
 metadata/_custom_type_script = "uid://6av67jfqula5"
