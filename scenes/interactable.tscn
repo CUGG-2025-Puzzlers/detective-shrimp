@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://di44t0wja2ndt"]
+[gd_scene load_steps=2 format=3 uid="uid://di44t0wja2ndt"]
 
 [ext_resource type="Script" uid="uid://cdlblr6cyo7tp" path="res://scripts/interactable.gd" id="1_56v82"]
-[ext_resource type="Texture2D" uid="uid://c0x4p2j8v550h" path="res://icon.svg" id="1_ij5l6"]
 
 [node name="Interactable" type="TextureRect"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_ij5l6")
+offset_right = 16.0
+offset_bottom = 16.0
 script = ExtResource("1_56v82")
