@@ -27,8 +27,15 @@ func _gui_input(event: InputEvent) -> void:
 		if event.is_pressed():
 			_on_mouse_down()
 
-func _on_mouse_down():
-	pass
+func _on_mouse_down() -> void:
+	interact()
+
+func interact() -> void:
+	if not enabled or not interactable:
+		return
+	
+	GameEvents.start_dialogue(dialogue)
+
 func enable() -> void:
 	enabled = true
 
