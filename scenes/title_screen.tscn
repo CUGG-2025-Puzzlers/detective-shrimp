@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk2lkyxm55tc0"]
+
+[ext_resource type="Script" uid="uid://cawj4rf3u78w5" path="res://scenes/title_screen.gd" id="1_fgkus"]
+[ext_resource type="Texture2D" uid="uid://rdvk7k2rutev" path="res://assets/ui/Title logo.png" id="2_sa3yf"]
+
+[sub_resource type="Animation" id="Animation_sa3yf"]
+resource_name = "new_animation"
+length = 1.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, -20), Vector2(-1, -15)]
+}
+
+[sub_resource type="Animation" id="Animation_s4lrb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mgrm8"]
+_data = {
+&"RESET": SubResource("Animation_s4lrb"),
+&"new_animation": SubResource("Animation_sa3yf")
+}
+
+[node name="title screen" type="Node2D"]
+script = ExtResource("1_fgkus")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -325.0
+offset_top = -186.0
+offset_right = -285.0
+offset_bottom = -146.0
+scale = Vector2(16.326023, 9.353123)
+color = Color(0, 0, 0, 1)
+
+[node name="button manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="start" type="Button" parent="button manager"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = 27.0
+offset_right = 81.0
+offset_bottom = 52.0
+text = "START
+"
+
+[node name="options" type="Button" parent="button manager"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = 61.0
+offset_right = 81.0
+offset_bottom = 92.0
+text = "OPTIONS
+"
+
+[node name="quit" type="Button" parent="button manager"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.648
+offset_left = -61.0
+offset_top = 94.0
+offset_right = 80.0
+offset_bottom = 99.08
+text = "QUIT
+"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(-1, -25)
+texture = ExtResource("2_sa3yf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_mgrm8")
+}
+autoplay = "new_animation"
+
+[connection signal="pressed" from="button manager/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="button manager/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="button manager/quit" to="." method="_on_quit_pressed"]
