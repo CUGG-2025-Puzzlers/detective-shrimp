@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dk2lkyxm55tc0"]
+[gd_scene load_steps=10 format=3 uid="uid://dk2lkyxm55tc0"]
 
 [ext_resource type="Script" uid="uid://cawj4rf3u78w5" path="res://scripts/title_screen.gd" id="1_fgkus"]
+[ext_resource type="AudioStream" uid="uid://diq6d6ijbtiin" path="res://assets/sound&music/Shrimptective_theme.mp3" id="2_dc4i4"]
 [ext_resource type="Texture2D" uid="uid://cnox8etfus617" path="res://assets/sprites/bg.png" id="2_s4lrb"]
 [ext_resource type="Texture2D" uid="uid://d3g4hpohtv88y" path="res://assets/sprites/Title logo 2.png" id="2_sa3yf"]
 [ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://assets/ui/m5x7.ttf" id="3_mgrm8"]
@@ -48,6 +49,12 @@ _data = {
 
 [node name="title screen" type="Node2D"]
 script = ExtResource("1_fgkus")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dc4i4")
+volume_db = -15.0
+autoplay = true
+mix_target = 1
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(4.7683716e-07, -7)
@@ -121,6 +128,7 @@ text = "created by Dominic, Mouad, Joseph, and Huajin"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="pressed" from="button manager/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="button manager/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="button manager/quit" to="." method="_on_quit_pressed"]

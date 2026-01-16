@@ -14,3 +14,9 @@ func _on_options_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+
+func _on_audio_stream_player_finished() -> void:
+	await get_tree().create_timer(5.0).timeout
+	$AudioStreamPlayer.play()
