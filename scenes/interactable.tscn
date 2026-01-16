@@ -6,3 +6,4 @@
 offset_right = 16.0
 offset_bottom = 16.0
 script = ExtResource("1_56v82")
+interaction_range = 100
