@@ -54,6 +54,10 @@ func enable() -> void:
 	if not interacting:
 		return
 	
+	# Waiting a frame prevents the user from immediately interacting again when
+	# clicking on this object while clicking to end the interaction dialogue
+	# Maybe use a short cooldown timer instead?
+	await get_tree().process_frame
 	enabled = true
 	interacting = false
 
