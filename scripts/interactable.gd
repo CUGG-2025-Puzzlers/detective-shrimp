@@ -60,6 +60,7 @@ func enable() -> void:
 	await get_tree().process_frame
 	enabled = true
 	interacting = false
+	GameEvents.trigger_event(event)
 
 func disable() -> void:
 	enabled = false
