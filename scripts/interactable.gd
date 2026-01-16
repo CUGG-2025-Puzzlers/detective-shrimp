@@ -2,7 +2,7 @@ extends TextureRect
 
 @export var interaction_range: int
 @export var dialogue: Dialogue
-@export var event: Globals.EventTrigger
+@export var event: GameEvents.EventTrigger
 
 var interactable = false
 var enabled = true
