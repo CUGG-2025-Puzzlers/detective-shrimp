@@ -4,8 +4,9 @@ extends TextureRect
 @export var dialogue: Dialogue
 @export var event: GameEvents.EventTrigger
 
-var interactable = false
 var enabled = true
+var interactable = false
+var interacting = false
 
 func _ready() -> void:
 	mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN
@@ -46,10 +47,15 @@ func interact() -> void:
 	if not enabled or not interactable:
 		return
 	
+	interacting = true
 	GameEvents.start_dialogue(dialogue)
 
 func enable() -> void:
+	if not interacting:
+		return
+	
 	enabled = true
+	interacting = false
 
 func disable() -> void:
 	enabled = false
