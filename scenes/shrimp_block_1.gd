@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 class_name WallBlock
 
 # Color of this wall block (should match its controlling shrimp)
