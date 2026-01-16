@@ -80,7 +80,7 @@ func close():
 	if cur_dialogue == null:
 		return
 	
-	cur_dialogue.cur_line = 0
+	cur_line = 0
 	cur_dialogue = null
 	
 	GameEvents.end_dialogue()
