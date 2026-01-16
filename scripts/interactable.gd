@@ -5,6 +5,7 @@ extends TextureRect
 @export var event: Globals.EventTrigger
 
 var interactable = false
+var enabled = true
 
 func _ready() -> void:
 	mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN
@@ -25,14 +26,14 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
 			_on_mouse_down()
-		elif event.is_released():
-			_on_mouse_up()
 
 func _on_mouse_down():
 	pass
+func enable() -> void:
+	enabled = true
 
-func _on_mouse_up():
-	pass
+func disable() -> void:
+	enabled = false
 
 func is_player_in_range() -> bool:
 	var player = get_tree().get_first_node_in_group("Player")
