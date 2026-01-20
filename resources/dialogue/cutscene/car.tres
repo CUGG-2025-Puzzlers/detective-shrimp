@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="Dialogue" load_steps=10 format=3 uid="uid://ciqc76uvsumrh"]
 
 [ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_eoe5y"]
-[ext_resource type="Texture2D" uid="uid://cgyimct3i3kis" path="res://assets/characters/Cameron_Icon.png" id="2_qwx68"]
 [ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="3_2ks5y"]
 
 [sub_resource type="Resource" id="Resource_qri7n"]
@@ -22,10 +21,13 @@ speaker_name = "Shrimplock Holmes"
 text = "But we’ll have to see whether he’s home. I haven’t told him that I’m coming over."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
+[sub_resource type="Resource" id="Resource_l6owq"]
+metadata/__load_path__ = "res://assets/characters/Cameron_Icon.png"
+
 [sub_resource type="Resource" id="Resource_fvmgg"]
 script = ExtResource("1_eoe5y")
 speaker_name = "Shrimlock Holmes"
-speaker_portrait = ExtResource("2_qwx68")
+speaker_portrait = SubResource("Resource_l6owq")
 text = "I wanted to surprise him! I even made his favorite salad. He eats healthy, unlike me. 
 "
 metadata/_custom_type_script = "uid://drvyi1grf150r"
