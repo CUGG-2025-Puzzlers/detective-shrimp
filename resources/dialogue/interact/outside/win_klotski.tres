@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://dvptfnfafftox"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=7 format=3 uid="uid://dvptfnfafftox"]
 
 [ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_nbg3w"]
+[ext_resource type="Texture2D" uid="uid://d318cbfa5mpko" path="res://textures/cameron/cameron_shocked.png" id="2_ckxjg"]
 [ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="2_ilbf8"]
+[ext_resource type="Texture2D" uid="uid://box8oppoxrodb" path="res://textures/cameron/cameron_happy.png" id="3_nmv2l"]
 
 [sub_resource type="Resource" id="Resource_qri7n"]
 script = ExtResource("1_nbg3w")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_ckxjg")
 text = "Phew, that was tough."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
