@@ -21,6 +21,6 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]
 script = ExtResource("3_wvglf")
-name = "car"
+name = "Arrive At House"
 lines = Array[ExtResource("1_e7cdk")]([SubResource("Resource_qri7n"), SubResource("Resource_nanmv")])
 metadata/_custom_type_script = "uid://6av67jfqula5"

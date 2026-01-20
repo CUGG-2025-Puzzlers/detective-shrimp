@@ -10,6 +10,6 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]
 script = ExtResource("2_smwvj")
-name = "car"
+name = "Couch Interact - Nap Middle"
 lines = Array[ExtResource("1_ueptu")]([SubResource("Resource_qri7n")])
 metadata/_custom_type_script = "uid://6av67jfqula5"

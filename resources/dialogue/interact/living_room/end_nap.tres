@@ -138,6 +138,6 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]
 script = ExtResource("2_7ltdd")
-name = "car"
+name = "Couch Interact - Nap End"
 lines = Array[ExtResource("1_gqfwq")]([SubResource("Resource_qri7n"), SubResource("Resource_gqfwq"), SubResource("Resource_7ltdd"), SubResource("Resource_05o1e"), SubResource("Resource_mes3j"), SubResource("Resource_u3qk7"), SubResource("Resource_5xa6i"), SubResource("Resource_idoot"), SubResource("Resource_6t4kg"), SubResource("Resource_lviij"), SubResource("Resource_u242h"), SubResource("Resource_n0ntu"), SubResource("Resource_csq0b"), SubResource("Resource_42exv"), SubResource("Resource_6q432"), SubResource("Resource_7xgqv"), SubResource("Resource_jft4x"), SubResource("Resource_ejmy5")])
 metadata/_custom_type_script = "uid://6av67jfqula5"

@@ -31,6 +31,6 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]
 script = ExtResource("2_w1d6m")
-name = "Test Dialogue"
+name = "TV Interact"
 lines = Array[ExtResource("1_fkt8q")]([SubResource("Resource_qri7n"), SubResource("Resource_fkt8q"), SubResource("Resource_w1d6m"), SubResource("Resource_fvmgg")])
 metadata/_custom_type_script = "uid://6av67jfqula5"

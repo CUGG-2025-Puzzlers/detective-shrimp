@@ -28,6 +28,6 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]
 script = ExtResource("3_r2u6r")
-name = "car"
+name = "Reflection Puzzle Complete"
 lines = Array[ExtResource("1_86d37")]([SubResource("Resource_tfbqv"), SubResource("Resource_86d37"), SubResource("Resource_r2u6r")])
 metadata/_custom_type_script = "uid://6av67jfqula5"

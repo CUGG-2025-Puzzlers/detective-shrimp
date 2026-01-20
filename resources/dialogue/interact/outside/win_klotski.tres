@@ -21,7 +21,6 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]
 script = ExtResource("2_ilbf8")
-name = "car"
-lines = Array[ExtResource("1_nbg3w")]([SubResource("Resource_qri7n")])
+name = "Slide Puzzle Complete"
 lines = Array[ExtResource("1_nbg3w")]([SubResource("Resource_qri7n"), SubResource("Resource_j708h")])
 metadata/_custom_type_script = "uid://6av67jfqula5"
