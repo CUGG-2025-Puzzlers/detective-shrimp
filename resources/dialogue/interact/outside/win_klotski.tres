@@ -12,8 +12,16 @@ speaker_portrait = ExtResource("2_ckxjg")
 text = "Phew, that was tough."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
+[sub_resource type="Resource" id="Resource_j708h"]
+script = ExtResource("1_nbg3w")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_nmv2l")
+text = "Now I can wait for him inside."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
 [resource]
 script = ExtResource("2_ilbf8")
 name = "car"
 lines = Array[ExtResource("1_nbg3w")]([SubResource("Resource_qri7n")])
+lines = Array[ExtResource("1_nbg3w")]([SubResource("Resource_qri7n"), SubResource("Resource_j708h")])
 metadata/_custom_type_script = "uid://6av67jfqula5"
