@@ -236,7 +236,7 @@ graph_offset = Vector2(60.05997, -3.8624902)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yewv4"]
 radius = 1.5
-height = 15.0
+height = 14.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
 scale = Vector2(1.2, 1.2)
@@ -262,6 +262,6 @@ parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0.0029041767, -0.9508928)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.3333333, 26.666664)
+position = Vector2(2.5, 26.666664)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_yewv4")
