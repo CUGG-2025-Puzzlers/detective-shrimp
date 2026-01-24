@@ -1,53 +1,61 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=10 format=3 uid="uid://ciqc76uvsumrh"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=12 format=3 uid="uid://yuhude7h1a3y"]
 
 [ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_eoe5y"]
+[ext_resource type="Texture2D" uid="uid://box8oppoxrodb" path="res://textures/cameron/cameron_happy.png" id="2_nanmv"]
+[ext_resource type="Texture2D" uid="uid://dnj7wnnwrgas6" path="res://textures/cameron/cameron_normal.png" id="3_0a1x6"]
 [ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="3_2ks5y"]
 
 [sub_resource type="Resource" id="Resource_qri7n"]
 script = ExtResource("1_eoe5y")
 speaker_name = "???"
+speaker_portrait = ExtResource("2_nanmv")
 text = "I can’t wait to see Henry! "
-metadata/_custom_type_script = "uid://drvyi1grf150r"
-
-[sub_resource type="Resource" id="Resource_fkt8q"]
-script = ExtResource("1_eoe5y")
-speaker_name = "???"
-text = "I’ll tell him about my new job. The library was so boring. I’m basically Shrimplock Holmes now."
-metadata/_custom_type_script = "uid://drvyi1grf150r"
-
-[sub_resource type="Resource" id="Resource_w1d6m"]
-script = ExtResource("1_eoe5y")
-speaker_name = "Shrimplock Holmes"
-text = "But we’ll have to see whether he’s home. I haven’t told him that I’m coming over."
-metadata/_custom_type_script = "uid://drvyi1grf150r"
-
-[sub_resource type="Resource" id="Resource_l6owq"]
-metadata/__load_path__ = "res://assets/characters/Cameron_Icon.png"
-
-[sub_resource type="Resource" id="Resource_fvmgg"]
-script = ExtResource("1_eoe5y")
-speaker_name = "Shrimlock Holmes"
-speaker_portrait = SubResource("Resource_l6owq")
-text = "I wanted to surprise him! I even made his favorite salad. He eats healthy, unlike me. 
-"
-metadata/_custom_type_script = "uid://drvyi1grf150r"
-
-[sub_resource type="Resource" id="Resource_6g26k"]
-script = ExtResource("1_eoe5y")
-speaker_name = "Shrimlock Holmes"
-text = "We’ll play games, read comics, all day, all summer. And now that we’re all grown up, we don’t have anyone nagging us!
-"
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_nanmv"]
 script = ExtResource("1_eoe5y")
-speaker_name = "Shrimlock Holmes"
-text = "Oh, there’s the house! It looks just like I remember. 
-"
+speaker_name = "???"
+speaker_portrait = ExtResource("3_0a1x6")
+text = "I’ll tell him about my new job. The library was so boring. I’m basically Shrimplock Holmes now."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_ad5bv"]
+script = ExtResource("1_eoe5y")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_0a1x6")
+text = "But we’ll have to see if he’s home. I haven’t told him that I’m coming over."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_tnlbc"]
+script = ExtResource("1_eoe5y")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_nanmv")
+text = "I wanted to surprise him! I even made his favorite salad. "
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_wjgfu"]
+script = ExtResource("1_eoe5y")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_0a1x6")
+text = "He eats healthy, unlike me."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_23by0"]
+script = ExtResource("1_eoe5y")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_nanmv")
+text = "We’ll play games, read comics, all day. Now that we’re older, we can stay up all night!"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_tg7ff"]
+script = ExtResource("1_eoe5y")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_nanmv")
+text = "Oh, there’s the house! It looks just like I remember."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]
 script = ExtResource("3_2ks5y")
-name = "car"
-lines = Array[ExtResource("1_eoe5y")]([SubResource("Resource_qri7n"), SubResource("Resource_fkt8q"), SubResource("Resource_w1d6m"), SubResource("Resource_fvmgg"), SubResource("Resource_6g26k"), SubResource("Resource_nanmv")])
+name = "Car"
+lines = Array[ExtResource("1_eoe5y")]([SubResource("Resource_qri7n"), SubResource("Resource_nanmv"), SubResource("Resource_ad5bv"), SubResource("Resource_tnlbc"), SubResource("Resource_wjgfu"), SubResource("Resource_23by0"), SubResource("Resource_tg7ff")])
 metadata/_custom_type_script = "uid://6av67jfqula5"
