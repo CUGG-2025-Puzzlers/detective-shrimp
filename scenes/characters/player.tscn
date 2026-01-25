@@ -234,7 +234,9 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_2l4js")
 states/Walk/position = Vector2(491, 86.96875)
 graph_offset = Vector2(60.05997, -3.8624902)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_76oj4"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yewv4"]
+radius = 8.0
+height = 21.666664
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree") groups=["Player"]]
 script = ExtResource("1_76oj4")
@@ -259,4 +261,5 @@ parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0.0029041767, -0.9508928)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_76oj4")
+position = Vector2(3.3333333, 15.833333)
+shape = SubResource("CapsuleShape2D_yewv4")

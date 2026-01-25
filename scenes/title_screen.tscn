@@ -1,0 +1,134 @@
+[gd_scene load_steps=10 format=3 uid="uid://dk2lkyxm55tc0"]
+
+[ext_resource type="Script" uid="uid://cawj4rf3u78w5" path="res://scripts/title_screen.gd" id="1_fgkus"]
+[ext_resource type="AudioStream" uid="uid://diq6d6ijbtiin" path="res://assets/sound&music/Shrimptective_theme.mp3" id="2_dc4i4"]
+[ext_resource type="Texture2D" uid="uid://cnox8etfus617" path="res://assets/sprites/bg.png" id="2_s4lrb"]
+[ext_resource type="Texture2D" uid="uid://d3g4hpohtv88y" path="res://assets/sprites/Title logo 2.png" id="2_sa3yf"]
+[ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://assets/ui/m5x7.ttf" id="3_mgrm8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgrm8"]
+
+[sub_resource type="Animation" id="Animation_s4lrb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -25)]
+}
+
+[sub_resource type="Animation" id="Animation_sa3yf"]
+resource_name = "new_animation"
+length = 1.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, -20), Vector2(-1, -15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mgrm8"]
+_data = {
+&"RESET": SubResource("Animation_s4lrb"),
+&"new_animation": SubResource("Animation_sa3yf")
+}
+
+[node name="title screen" type="Node2D"]
+script = ExtResource("1_fgkus")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dc4i4")
+volume_db = -15.0
+autoplay = true
+mix_target = 1
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(4.7683716e-07, -7)
+scale = Vector2(1.3828125, 1.165207)
+texture = ExtResource("2_s4lrb")
+
+[node name="button manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -30.0
+offset_right = 356.0
+offset_bottom = 143.0
+
+[node name="start" type="Button" parent="button manager"]
+layout_mode = 0
+offset_left = -353.0
+offset_top = 45.0
+offset_right = 357.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("3_mgrm8")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mgrm8")
+text = "START
+"
+icon_alignment = 1
+
+[node name="options" type="Button" parent="button manager"]
+layout_mode = 0
+offset_left = -353.0
+offset_top = 85.0
+offset_right = 357.0
+offset_bottom = 125.0
+theme_override_fonts/font = ExtResource("3_mgrm8")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mgrm8")
+text = "OPTIONS
+"
+
+[node name="quit" type="Button" parent="button manager"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -353.0
+offset_top = 125.0
+offset_right = 357.0
+offset_bottom = 165.0
+theme_override_fonts/font = ExtResource("3_mgrm8")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mgrm8")
+text = "QUIT
+"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(-1, -25)
+texture = ExtResource("2_sa3yf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_mgrm8")
+}
+autoplay = "new_animation"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -119.0
+offset_top = 150.0
+offset_right = 125.0
+offset_bottom = 173.0
+theme_override_fonts/font = ExtResource("3_mgrm8")
+text = "created by Dominic, Mouad, Joseph, and Huajin"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="pressed" from="button manager/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="button manager/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="button manager/quit" to="." method="_on_quit_pressed"]
