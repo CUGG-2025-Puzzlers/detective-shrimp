@@ -9,6 +9,7 @@ var beam_points: Array = []
 var current_point_index: int = 0
 var animation_progress: float = 0.0
 var hit_target: Node = null  # Store target to trigger when animation completes
+var pending_shrimp_activations: Array = []  # Array of {point_index, shrimp}
 
 func _ready() -> void:
 	enabled = true
@@ -26,13 +27,14 @@ func shoot() -> void:
 	current_point_index = 0
 	animation_progress = 0.0
 	hit_target = null  # Reset target
+	pending_shrimp_activations.clear()
 
 	# Reset all shrimps before recalculating (so blocks reactivate if light moves away)
 	for shrimp in get_tree().get_nodes_in_group("color_shrimp"):
 		if shrimp.has_method("deactivate"):
 			shrimp.deactivate()
 
-	# Track which shrimps get activated during this calculation
+	# Track which shrimps will be activated (for block passthrough logic)
 	var activated_shrimps: Array = []
 
 	beam_points.append(beam.to_local(global_position))
@@ -80,9 +82,10 @@ func shoot() -> void:
 
 			# Shrimps get activated when light hits them, but light passes through
 			if collider.is_in_group("color_shrimp"):
-				if collider.has_method("on_light_hit"):
-					collider.on_light_hit()
-					activated_shrimps.append(collider)
+				# Store for animation - will activate when light visually reaches it
+				var point_index = beam_points.size() - 1  # Current point index
+				pending_shrimp_activations.append({"point_index": point_index, "shrimp": collider})
+				activated_shrimps.append(collider)  # Track for block passthrough logic
 				# Continue through the shrimp
 				var traveled := current_position.distance_to(hit_point)
 				remaining_length -= traveled
@@ -157,6 +160,14 @@ func animate_beam(delta: float) -> void:
 	if animation_progress >= distance:
 		# Ensure the point is exactly at the target
 		beam.set_point_position(current_point_index, end_point)
+
+		# Check if any shrimps should be activated at this point
+		for activation in pending_shrimp_activations:
+			if activation["point_index"] == current_point_index:
+				var shrimp = activation["shrimp"]
+				if shrimp.has_method("on_light_hit"):
+					shrimp.on_light_hit()
+
 		current_point_index += 1
 		animation_progress -= distance  # Carry over excess progress
 

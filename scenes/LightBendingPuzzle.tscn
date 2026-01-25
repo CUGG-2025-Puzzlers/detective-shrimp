@@ -30,7 +30,7 @@ radius = 3.0
 size = Vector2(6.25, 5.8333397)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73fua"]
-size = Vector2(14, 14.000004)
+size = Vector2(14, 14.000002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftacu"]
 size = Vector2(16, 16)
@@ -49,12 +49,11 @@ collide_with_areas = true
 script = ExtResource("1_apstt")
 
 [node name="Line2D" type="Line2D" parent="LightSource"]
-points = PackedVector2Array()
 width = 2.0
 default_color = Color(1, 0.8745098, 0.13333334, 1)
+joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
-joint_mode = 2
 antialiased = true
 
 [node name="Sprite2D" type="Sprite2D" parent="LightSource"]
@@ -114,7 +113,7 @@ wall_to_control = NodePath("../Shrimp_Block_2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shrimp2"]
 position = Vector2(0, 1)
-scale = Vector2(0.99999976, 0.99999976)
+scale = Vector2(0.9999997, 0.9999997)
 shape = SubResource("RectangleShape2D_73fua")
 
 [node name="Sprite2D" type="Sprite2D" parent="Shrimp2"]
