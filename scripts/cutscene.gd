@@ -20,6 +20,7 @@ func _on_dialogue_ended():
 		GameEvents.dialogue_ended.disconnect(_on_dialogue_ended)
 		return
 	
+	await get_tree().create_timer(dialogue_delay).timeout
 	_play_dialogue()
 
 func _play_dialogue():
