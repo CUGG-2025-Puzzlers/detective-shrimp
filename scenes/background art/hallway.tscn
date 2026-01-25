@@ -1560,7 +1560,7 @@ tile_set = SubResource("TileSet_drbwl")
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 position = Vector2(0, 0.99999994)
 scale = Vector2(1.3773108, 1.3773108)
-tile_map_data = PackedByteArray("AAD5//3/AAAHAAYAAAD5//7/AAAHAAcAAAD5////AAAHAAgAAAD6//3/AAAIAAYAAAD6//7/AAAIAAcAAAD6////AAAIAAgAAAAFAP3/AAAHAAYAAAAFAP7/AAAHAAcAAAAFAP//AAAHAAgAAAAGAP3/AAAIAAYAAAAGAP7/AAAIAAcAAAAGAP//AAAIAAgAAAA=")
+tile_map_data = PackedByteArray("AAD5//3/AAAHAAYAAAD5//7/AAAHAAcAAAD5////AAAHAAgAAAD6//3/AAAIAAYAAAD6//7/AAAIAAcAAAD6////AAAIAAgAAAA=")
 tile_set = SubResource("TileSet_nlnob")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_txc3n")]
