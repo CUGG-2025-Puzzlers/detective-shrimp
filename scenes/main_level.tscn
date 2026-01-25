@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://exbhytrnwoop" path="res://scripts/tests/dialogue_test.gd" id="1_6we3w"]
 [ext_resource type="PackedScene" uid="uid://dknb10beku6mq" path="res://scenes/characters/player.tscn" id="1_v3uhd"]
-[ext_resource type="PackedScene" uid="uid://7jgwmr3e8qj8" path="res://scenes/background art/livingroom.tscn" id="2_qmak7"]
-[ext_resource type="PackedScene" path="res://scenes/dialogue_box.tscn" id="2_ufxs0"]
+
+[ext_resource type="Resource" uid="uid://yuhude7h1a3y" path="res://resources/dialogue/cutscene/car.tres" id="2_qmak7"]
+[ext_resource type="PackedScene" uid="uid://df56glnmpcbej" path="res://scenes/dialogue_box.tscn" id="2_ufxs0"]
 
 [node name="Main Level" type="Node2D"]
 script = ExtResource("1_6we3w")
+test_dialogue = ExtResource("2_qmak7")
 
 [node name="livingRoom" parent="." instance=ExtResource("2_qmak7")]
 scale = Vector2(1.2, 1.2)

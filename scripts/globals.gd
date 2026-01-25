@@ -6,6 +6,7 @@ var mouse_default = preload("res://textures/mouse_default.png")
 var mouse_move = preload("res://textures/mouse_move.png")
 var mouse_drag = preload("res://textures/mouse_drag.png")
 var mouse_help = preload("res://textures/mouse_help.png")
+var mouse_help_transparent = preload("res://textures/mouse_help_transparent.png")
 
 var scale_factor
 
@@ -23,6 +24,7 @@ func _resize_cursors():
 	_resize_cursor(mouse_move, Input.CURSOR_MOVE)
 	_resize_cursor(mouse_drag, Input.CURSOR_DRAG)
 	_resize_cursor(mouse_help, Input.CURSOR_HELP)
+	_resize_cursor(mouse_help_transparent, Input.CURSOR_FORBIDDEN)
 
 func _resize_cursor(base_texture: Resource, cursor_shape):
 	var image = base_texture.get_image()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgyimct3i3kis"
-path="res://.godot/imported/Cameron_Icon.png-2ed5b92d8c065a957a037aa257878e95.ctex"
+uid="uid://b2r8sbjjl8kyu"
+path="res://.godot/imported/cameron_angry.png-15ed1d5cb90b0720030985eb27eeac76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Cameron_Icon.png"
-dest_files=["res://.godot/imported/Cameron_Icon.png-2ed5b92d8c065a957a037aa257878e95.ctex"]
+source_file="res://textures/cameron/cameron_angry.png"
+dest_files=["res://.godot/imported/cameron_angry.png-15ed1d5cb90b0720030985eb27eeac76.ctex"]
 
 [params]
 
