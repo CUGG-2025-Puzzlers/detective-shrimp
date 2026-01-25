@@ -146,11 +146,11 @@ func animate_beam(delta: float) -> void:
 
 	animation_progress += animation_speed * delta
 
-	# Calculate current position along segment
+	# Calculate current position
 	var t = clamp(animation_progress / distance, 0.0, 1.0)
 	var current_pos = start_point.lerp(end_point, t)
 
-	# Update or add the animated tip point
+	# Update the animated tip point
 	if beam.get_point_count() <= current_point_index:
 		beam.add_point(current_pos)
 	else:
@@ -178,5 +178,3 @@ func stop_beam() -> void:
 
 func restart() -> void:
 	stop_beam()
-	# Reset reflector positions would go here
-	# You'd need to store initial positions of reflectors
