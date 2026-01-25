@@ -97,16 +97,8 @@ func shoot() -> void:
 				remaining_length -= traveled
 				if remaining_length <= 0.0:
 					break
-				# Calculate mirror normal from reflector's rotation instead of collision normal
-				# The reflector is a horizontal bar, so its surface normal points "up" (perpendicular)
-				# When rotated, we need to rotate that normal by the same amount
-				var mirror_rotation = collider.global_rotation
-				var mirror_normal = Vector2(0, -1).rotated(mirror_rotation)
-				# Make sure normal faces toward the incoming ray
-				if current_direction.dot(mirror_normal) > 0:
-					mirror_normal = -mirror_normal
-				current_direction = current_direction.bounce(mirror_normal)
-				current_position = hit_point + mirror_normal * 2.0
+				current_direction = current_direction.bounce(hit_normal)
+				current_position = hit_point + current_direction * 2.0
 				continue
 
 			break

@@ -39,7 +39,7 @@ size = Vector2(16, 16)
 script = SubResource("GDScript_vtulw")
 
 [node name="LightSource" type="Area2D" parent="." groups=["light_source"]]
-position = Vector2(87, 168)
+position = Vector2(87.5, 168)
 disable_mode = 2
 
 [node name="RayCast2D" type="RayCast2D" parent="LightSource"]
