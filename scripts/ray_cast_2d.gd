@@ -8,6 +8,7 @@ var is_shooting: bool = false
 var beam_points: Array = []
 var current_point_index: int = 0
 var animation_progress: float = 0.0
+var hit_target: Node = null  # Store target to trigger when animation completes
 
 func _ready() -> void:
 	enabled = true
@@ -24,6 +25,7 @@ func shoot() -> void:
 	beam_points.clear()
 	current_point_index = 0
 	animation_progress = 0.0
+	hit_target = null  # Reset target
 
 	# Reset all shrimps before recalculating (so blocks reactivate if light moves away)
 	for shrimp in get_tree().get_nodes_in_group("color_shrimp"):
@@ -52,8 +54,8 @@ func shoot() -> void:
 			beam_points.append(beam.to_local(hit_point))
 
 			if collider.is_in_group("target"):
-				if collider.has_method("on_light_hit"):
-					collider.on_light_hit()
+				# Store target - will trigger when animation reaches it
+				hit_target = collider
 				break
 
 			# Shrimp blocks - check if their shrimp was activated this frame
@@ -113,36 +115,50 @@ func shoot() -> void:
 func animate_beam(delta: float) -> void:
 	if current_point_index >= beam_points.size():
 		is_shooting = false
+		# Animation complete - trigger target if we hit one
+		if hit_target and hit_target.has_method("on_light_hit"):
+			hit_target.on_light_hit()
+			hit_target = null
 		return
-	
+
 	# Add first point if empty
 	if beam.get_point_count() == 0:
 		beam.add_point(beam_points[0])
 		current_point_index = 1
+		if current_point_index >= beam_points.size():
+			is_shooting = false
+			if hit_target and hit_target.has_method("on_light_hit"):
+				hit_target.on_light_hit()
+				hit_target = null
+			return
+
+	var start_point = beam_points[current_point_index - 1]
+	var end_point = beam_points[current_point_index]
+	var distance = start_point.distance_to(end_point)
+
+	# Handle zero-distance segments
+	if distance < 0.1:
+		current_point_index += 1
 		return
-	
-	if current_point_index < beam_points.size():
-		var start_point = beam_points[current_point_index - 1]
-		var end_point = beam_points[current_point_index]
-		var distance = start_point.distance_to(end_point)
-		
-		animation_progress += animation_speed * delta
-		
-		if animation_progress >= distance:
-			# Reached the point, move to next segment
-			beam.add_point(end_point)
-			current_point_index += 1
-			animation_progress = 0.0
-		else:
-			# Insert along the segment
-			var t = animation_progress / distance
-			var current_pos = start_point.lerp(end_point, t)
-			
-			# Update last point
-			if beam.get_point_count() > current_point_index:
-				beam.set_point_position(beam.get_point_count() - 1, current_pos)
-			else:
-				beam.add_point(current_pos)
+
+	animation_progress += animation_speed * delta
+
+	# Calculate current position along segment
+	var t = clamp(animation_progress / distance, 0.0, 1.0)
+	var current_pos = start_point.lerp(end_point, t)
+
+	# Update or add the animated tip point
+	if beam.get_point_count() <= current_point_index:
+		beam.add_point(current_pos)
+	else:
+		beam.set_point_position(current_point_index, current_pos)
+
+	# Check if we reached the end of this segment
+	if animation_progress >= distance:
+		# Ensure the point is exactly at the target
+		beam.set_point_position(current_point_index, end_point)
+		current_point_index += 1
+		animation_progress -= distance  # Carry over excess progress
 
 func stop_beam() -> void:
 	is_shooting = false

@@ -49,12 +49,13 @@ collide_with_areas = true
 script = ExtResource("1_apstt")
 
 [node name="Line2D" type="Line2D" parent="LightSource"]
-scale = Vector2(0.88461536, 1)
-points = PackedVector2Array(0, 0, 22, 0)
-width = 1.0
+points = PackedVector2Array()
+width = 2.0
 default_color = Color(1, 0.8745098, 0.13333334, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
+joint_mode = 2
+antialiased = true
 
 [node name="Sprite2D" type="Sprite2D" parent="LightSource"]
 modulate = Color(0.882951, 0.7805772, 0.12788838, 1)
