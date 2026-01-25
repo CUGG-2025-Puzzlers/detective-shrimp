@@ -30,43 +30,63 @@ func shoot() -> void:
 		if shrimp.has_method("deactivate"):
 			shrimp.deactivate()
 
+	# Track which shrimps get activated during this calculation
+	var activated_shrimps: Array = []
+
 	beam_points.append(beam.to_local(global_position))
-	
+
 	var current_position: Vector2 = global_position
 	var current_direction: Vector2 = Vector2.RIGHT
 	var remaining_length: float = max_length
-	
-	for i in range(max_bounces): #not supposed to have max_bounces
+
+	for i in range(max_bounces):
 		global_position = current_position
 		target_position = current_direction * remaining_length
 		force_raycast_update()
-		
+
 		if is_colliding():
 			var hit_point: Vector2 = get_collision_point()
 			var hit_normal: Vector2 = get_collision_normal()
 			var collider = get_collider()
-			
+
 			beam_points.append(beam.to_local(hit_point))
-			
+
 			if collider.is_in_group("target"):
 				if collider.has_method("on_light_hit"):
 					collider.on_light_hit()
 				break
 
-			# Shrimp blocks stop light (until their shrimp is activated)
+			# Shrimp blocks - check if their shrimp was activated this frame
 			if collider.is_in_group("shrimp_block"):
-				break
+				var block_is_open = false
+				for shrimp in activated_shrimps:
+					if shrimp.controlled_wall == collider:
+						block_is_open = true
+						break
+
+				if block_is_open:
+					# Pass through the now-transparent block
+					var traveled := current_position.distance_to(hit_point)
+					remaining_length -= traveled
+					if remaining_length <= 0.0:
+						break
+					current_position = hit_point + current_direction * 1.0
+					continue
+				else:
+					# Block is solid, stop here
+					break
 
 			# Shrimps get activated when light hits them, but light passes through
 			if collider.is_in_group("color_shrimp"):
 				if collider.has_method("on_light_hit"):
 					collider.on_light_hit()
-				# Continue through the shrimp (don't stop or bounce)
+					activated_shrimps.append(collider)
+				# Continue through the shrimp
 				var traveled := current_position.distance_to(hit_point)
 				remaining_length -= traveled
 				if remaining_length <= 0.0:
 					break
-				current_position = hit_point + current_direction * 0.1
+				current_position = hit_point + current_direction * 1.0
 				continue
 
 			if collider is StaticBody2D or collider is TileMap:
@@ -75,17 +95,25 @@ func shoot() -> void:
 			if collider.is_in_group("reflector"):
 				var traveled := current_position.distance_to(hit_point)
 				remaining_length -= traveled
-				if remaining_length <= 0.0: #why does this have length?
+				if remaining_length <= 0.0:
 					break
-				current_direction = current_direction.bounce(hit_normal)
-				current_position = hit_point + hit_normal * 0.1
+				# Calculate mirror normal from reflector's rotation instead of collision normal
+				# The reflector is a horizontal bar, so its surface normal points "up" (perpendicular)
+				# When rotated, we need to rotate that normal by the same amount
+				var mirror_rotation = collider.global_rotation
+				var mirror_normal = Vector2(0, -1).rotated(mirror_rotation)
+				# Make sure normal faces toward the incoming ray
+				if current_direction.dot(mirror_normal) > 0:
+					mirror_normal = -mirror_normal
+				current_direction = current_direction.bounce(mirror_normal)
+				current_position = hit_point + mirror_normal * 2.0
 				continue
-			
+
 			break
 		else:
 			beam_points.append(beam.to_local(current_position + current_direction * remaining_length))
 			break
-	
+
 	global_position = get_parent().global_position
 	is_shooting = true
 	beam.clear_points()

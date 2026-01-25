@@ -39,7 +39,7 @@ size = Vector2(16, 16)
 script = SubResource("GDScript_vtulw")
 
 [node name="LightSource" type="Area2D" parent="." groups=["light_source"]]
-position = Vector2(90, 168)
+position = Vector2(87, 168)
 disable_mode = 2
 
 [node name="RayCast2D" type="RayCast2D" parent="LightSource"]
@@ -127,10 +127,12 @@ position = Vector2(32, 15)
 
 [node name="Reflectors" parent="Reflectors_grp" groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(500, 228)
+rotation = -0.7853982
 scale = Vector2(0.06, 0.06)
 
 [node name="Reflectors2" parent="Reflectors_grp" groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 108)
+rotation = 2.3561945
 scale = Vector2(0.06, 0.06)
 
 [node name="Reflectors3" parent="Reflectors_grp" groups=["reflector"] instance=ExtResource("4_vtulw")]
@@ -165,38 +167,47 @@ scale = Vector2(0.06, 0.06)
 
 [node name="Reflectors9" parent="Reflectors_grp" groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 128)
+rotation = -0.7853982
 scale = Vector2(0.06, 0.06)
 
 [node name="Reflectors10" parent="Reflectors_grp" groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 147.99998)
+rotation = -0.7853982
 scale = Vector2(0.06, 0.06)
 
 [node name="Reflectors11" parent="Reflectors_grp" groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 168)
+rotation = -0.7853982
 scale = Vector2(0.06, 0.06)
 
 [node name="Reflectors12" parent="Reflectors_grp" groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 188)
+rotation = -0.7853982
 scale = Vector2(0.06, 0.06)
 
 [node name="Reflectors13" parent="Reflectors_grp" groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 208)
+rotation = -0.7853982
 scale = Vector2(0.06, 0.06)
 
 [node name="Reflectors14" parent="Reflectors_grp" groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(460, 228)
+rotation = -0.7853982
 scale = Vector2(0.06, 0.06)
 
 [node name="Reflectors15" parent="Reflectors_grp" groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(407.99997, 227.99998)
+rotation = -0.7853982
 scale = Vector2(0.06, 0.06)
 
 [node name="Reflectors16" parent="Reflectors_grp" groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(408, 208)
+rotation = -0.7853982
 scale = Vector2(0.06, 0.06)
 
 [node name="Reflectors17" parent="Reflectors_grp" groups=["reflector"] instance=ExtResource("4_vtulw")]
 position = Vector2(408, 188)
+rotation = -0.7853982
 scale = Vector2(0.06, 0.06)
 
 [node name="Node2D" type="Node2D" parent="."]
