@@ -1,0 +1,195 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=34 format=3 uid="uid://egbyseh68n50"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_fwdl7"]
+[ext_resource type="Texture2D" uid="uid://dnj7wnnwrgas6" path="res://textures/cameron/cameron_normal.png" id="2_kjs5m"]
+[ext_resource type="Texture2D" uid="uid://ovdothn0jexs" path="res://textures/cameron/cameron_real.png" id="3_fwdl7"]
+[ext_resource type="Texture2D" uid="uid://dxoxn0mu360vj" path="res://textures/cameron/henry.png" id="4_kjs5m"]
+[ext_resource type="Texture2D" uid="uid://dk8k5kb8tphqx" path="res://textures/cameron/cameron_sus.png" id="5_kjs5m"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="5_tdb8c"]
+[ext_resource type="Texture2D" uid="uid://b2r8sbjjl8kyu" path="res://textures/cameron/cameron_angry.png" id="6_4k1dc"]
+
+[sub_resource type="Resource" id="Resource_qri7n"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_kjs5m")
+text = "Phew! All in a day’s work. "
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_tii3y"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Casette Player"
+text = "*click*"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_4k1dc"]
+script = ExtResource("1_fwdl7")
+speaker_name = "???"
+speaker_portrait = ExtResource("3_fwdl7")
+text = "We just made our first million Henry! How about that?"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_xu4ns"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Henry"
+speaker_portrait = ExtResource("4_kjs5m")
+text = "..."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_fwdl7"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Henry"
+speaker_portrait = ExtResource("4_kjs5m")
+text = "I don't think we should be recording this..."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_kjs5m"]
+script = ExtResource("1_fwdl7")
+speaker_name = "???"
+speaker_portrait = ExtResource("3_fwdl7")
+text = "Why not? It's a momentous occasion!"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_tdb8c"]
+script = ExtResource("1_fwdl7")
+speaker_name = "???"
+speaker_portrait = ExtResource("3_fwdl7")
+text = "Imagine how broke you'd be if it weren't for me."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_xe4qa"]
+script = ExtResource("1_fwdl7")
+speaker_name = "???"
+speaker_portrait = ExtResource("3_fwdl7")
+text = "You'd probably still be working as a lab assistant."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_ouor6"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Henry"
+speaker_portrait = ExtResource("4_kjs5m")
+text = "I didn't hate it there."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_um6tm"]
+script = ExtResource("1_fwdl7")
+speaker_name = "???"
+speaker_portrait = ExtResource("3_fwdl7")
+text = "What are you talking about? You HATED that place. "
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_kj7rh"]
+script = ExtResource("1_fwdl7")
+speaker_name = "???"
+speaker_portrait = ExtResource("3_fwdl7")
+text = "Here, your talents get put to good use."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_wksmt"]
+script = ExtResource("1_fwdl7")
+speaker_name = "???"
+speaker_portrait = ExtResource("3_fwdl7")
+text = "To celebrate, I'll open my own pack."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_2e1x3"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Henry"
+speaker_portrait = ExtResource("4_kjs5m")
+text = "No! Please don't take it."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_5xxe4"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Henry"
+speaker_portrait = ExtResource("4_kjs5m")
+text = "When did you even get that anyway??"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_81xcp"]
+script = ExtResource("1_fwdl7")
+speaker_name = "???"
+speaker_portrait = ExtResource("3_fwdl7")
+text = "I fudged some numbers. We’re actually at $999,800."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_deotb"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Henry"
+speaker_portrait = ExtResource("4_kjs5m")
+text = "..."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_6vm4p"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Henry"
+speaker_portrait = ExtResource("4_kjs5m")
+text = "You know I don’t like when you take it."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_xo24k"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Henry"
+speaker_portrait = ExtResource("4_kjs5m")
+text = "Please stop."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_1x182"]
+script = ExtResource("1_fwdl7")
+speaker_name = "???"
+speaker_portrait = ExtResource("3_fwdl7")
+text = "Don’t worry, I’ll be fine-"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_itkqb"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Henry"
+speaker_portrait = ExtResource("4_kjs5m")
+text = "PLEASE STOP."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_bjfmi"]
+script = ExtResource("1_fwdl7")
+speaker_name = "???"
+speaker_portrait = ExtResource("3_fwdl7")
+text = "..."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_hxiy5"]
+script = ExtResource("1_fwdl7")
+speaker_name = "???"
+speaker_portrait = ExtResource("3_fwdl7")
+text = "..."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_wson5"]
+script = ExtResource("1_fwdl7")
+speaker_name = "???"
+speaker_portrait = ExtResource("3_fwdl7")
+text = "... Fine. Sorry to make you worry. I'll take it later."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_dslt0"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Casette Player"
+text = "*click*"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_1kmdn"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("5_kjs5m")
+text = "Sounds pretty fishy…"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_vamuv"]
+script = ExtResource("1_fwdl7")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("6_4k1dc")
+text = "Was someone taking advantage of Henry? "
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("5_tdb8c")
+name = "End Casette Puzzle"
+lines = Array[ExtResource("1_fwdl7")]([SubResource("Resource_qri7n"), SubResource("Resource_tii3y"), SubResource("Resource_4k1dc"), SubResource("Resource_xu4ns"), SubResource("Resource_fwdl7"), SubResource("Resource_kjs5m"), SubResource("Resource_tdb8c"), SubResource("Resource_xe4qa"), SubResource("Resource_ouor6"), SubResource("Resource_um6tm"), SubResource("Resource_kj7rh"), SubResource("Resource_wksmt"), SubResource("Resource_2e1x3"), SubResource("Resource_5xxe4"), SubResource("Resource_81xcp"), SubResource("Resource_deotb"), SubResource("Resource_6vm4p"), SubResource("Resource_xo24k"), SubResource("Resource_1x182"), SubResource("Resource_itkqb"), SubResource("Resource_bjfmi"), SubResource("Resource_hxiy5"), SubResource("Resource_wson5"), SubResource("Resource_dslt0"), SubResource("Resource_1kmdn"), SubResource("Resource_vamuv")])
+metadata/_custom_type_script = "uid://6av67jfqula5"
