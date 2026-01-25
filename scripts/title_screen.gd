@@ -6,8 +6,7 @@ func _ready() -> void:
 	AudioManager.play_background_music(background_music)
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_level.tscn")
-
+	Globals.start_game()
 
 func _on_options_pressed() -> void:
 	pass # Replace with function body.

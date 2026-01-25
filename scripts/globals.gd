@@ -1,6 +1,7 @@
 extends Node
 
 var game_settings: GameSettings = preload("res://resources/game_settings.tres")
+var car_scene: PackedScene = preload("res://scenes/cutscenes/car.tscn")
 
 var mouse_default = preload("res://textures/mouse_default.png")
 var mouse_move = preload("res://textures/mouse_move.png")
@@ -12,6 +13,8 @@ var scale_factor
 
 func _ready() -> void:
 	_resize_cursors()
+
+#region Cursor
 
 func _resize_cursors():
 	var viewport_size = get_viewport().size
@@ -44,6 +47,15 @@ func resend_mouse_click(pos: Vector2, pressed: bool) -> void:
 	# Scale position by viewport scale for proper positioning
 	press_event.position = pos * get_viewport().get_final_transform()[0][0]
 	get_viewport().push_input(press_event)
+
+#endregion
+
+#region Game Flow
+
+func start_game():
+	get_tree().change_scene_to_packed(car_scene)
+
+#endregion
 
 enum SlidePuzzleValues {
 	Empty,
