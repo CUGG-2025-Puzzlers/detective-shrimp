@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Detective Shrimp"
-run/main_scene="uid://dk2lkyxm55tc0"
+run/main_scene="uid://dkrxhuquv6u7e"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
