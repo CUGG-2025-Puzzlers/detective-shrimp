@@ -24,14 +24,19 @@ func shoot() -> void:
 	beam_points.clear()
 	current_point_index = 0
 	animation_progress = 0.0
-	
+
+	# Reset all shrimps before recalculating (so blocks reactivate if light moves away)
+	for shrimp in get_tree().get_nodes_in_group("color_shrimp"):
+		if shrimp.has_method("deactivate"):
+			shrimp.deactivate()
+
 	beam_points.append(beam.to_local(global_position))
 	
 	var current_position: Vector2 = global_position
 	var current_direction: Vector2 = Vector2.RIGHT
 	var remaining_length: float = max_length
 	
-	for i in range(max_bounces):
+	for i in range(max_bounces): #not supposed to have max_bounces
 		global_position = current_position
 		target_position = current_direction * remaining_length
 		force_raycast_update()
@@ -47,14 +52,30 @@ func shoot() -> void:
 				if collider.has_method("on_light_hit"):
 					collider.on_light_hit()
 				break
-			
-			if collider is StaticBody2D or collider is TileMap:
+
+			# Shrimp blocks stop light (until their shrimp is activated)
+			if collider.is_in_group("shrimp_block"):
 				break
-			
-			if collider.is_in_group("reflector"):
+
+			# Shrimps get activated when light hits them, but light passes through
+			if collider.is_in_group("color_shrimp"):
+				if collider.has_method("on_light_hit"):
+					collider.on_light_hit()
+				# Continue through the shrimp (don't stop or bounce)
 				var traveled := current_position.distance_to(hit_point)
 				remaining_length -= traveled
 				if remaining_length <= 0.0:
+					break
+				current_position = hit_point + current_direction * 0.1
+				continue
+
+			if collider is StaticBody2D or collider is TileMap:
+				break
+
+			if collider.is_in_group("reflector"):
+				var traveled := current_position.distance_to(hit_point)
+				remaining_length -= traveled
+				if remaining_length <= 0.0: #why does this have length?
 					break
 				current_direction = current_direction.bounce(hit_normal)
 				current_position = hit_point + hit_normal * 0.1
@@ -93,7 +114,7 @@ func animate_beam(delta: float) -> void:
 			current_point_index += 1
 			animation_progress = 0.0
 		else:
-			# Interpolate along the segment
+			# Insert along the segment
 			var t = animation_progress / distance
 			var current_pos = start_point.lerp(end_point, t)
 			
