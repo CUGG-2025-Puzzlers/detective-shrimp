@@ -8,7 +8,9 @@ size = Vector2(560, 40)
 
 [node name="Reflectors" type="Area2D"]
 position = Vector2(280, 150)
+rotation = 2.3561945
 script = ExtResource("1_nljv1")
+metadata/_edit_lock_ = true
 
 [node name="reflector" type="Sprite2D" parent="."]
 position = Vector2(1, 1)
