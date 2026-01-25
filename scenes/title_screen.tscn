@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkrxhuquv6u7e"]
+[gd_scene load_steps=10 format=3 uid="uid://dkrxhuquv6u7e"]
 
 [ext_resource type="Script" uid="uid://cawj4rf3u78w5" path="res://scripts/title_screen.gd" id="1_fgkus"]
 [ext_resource type="AudioStream" uid="uid://diq6d6ijbtiin" path="res://assets/sound&music/Shrimptective_theme.mp3" id="2_dc4i4"]
 [ext_resource type="Texture2D" uid="uid://cnox8etfus617" path="res://assets/sprites/bg.png" id="2_s4lrb"]
 [ext_resource type="Texture2D" uid="uid://d3g4hpohtv88y" path="res://assets/sprites/Title logo 2.png" id="2_sa3yf"]
-[ext_resource type="PackedScene" uid="uid://7ivr7mc4jp21" path="res://scenes/cutscenes/car.tscn" id="3_e54dn"]
 [ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://fonts/m5x7.ttf" id="3_mgrm8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgrm8"]
