@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqrngw1qgr7kr"
-path="res://.godot/imported/glowing_circle.png-632a4c20fa7b0e78cb07d6e850d31267.ctex"
+uid="uid://cegc6eogkm7jl"
+path="res://.godot/imported/tileset_3_16x16.png-0391b1aad350637c7ae191b9618dc582.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/glowing_circle.png"
-dest_files=["res://.godot/imported/glowing_circle.png-632a4c20fa7b0e78cb07d6e850d31267.ctex"]
+source_file="res://textures/light_puzzle/tileset_3_16x16.png"
+dest_files=["res://.godot/imported/tileset_3_16x16.png-0391b1aad350637c7ae191b9618dc582.ctex"]
 
 [params]
 

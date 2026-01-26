@@ -1,15 +1,16 @@
 [gd_scene load_steps=17 format=4 uid="uid://mcdlnsiojpgm"]
 
-[ext_resource type="Script" uid="uid://bripj1obpu7od" path="res://scripts/ray_cast_2d.gd" id="1_apstt"]
-[ext_resource type="Script" uid="uid://dj6xonet3io12" path="res://scripts/grid_overlay.gd" id="1_grid"]
-[ext_resource type="Texture2D" uid="uid://dqrngw1qgr7kr" path="res://assets/ui/glowing_circle.png" id="2_imgww"]
-[ext_resource type="Script" path="res://scripts/letter.gd" id="3_imgww"]
-[ext_resource type="Script" uid="uid://bwu3ulm4s8aq5" path="res://scenes/shrimp.gd" id="4_73fua"]
-[ext_resource type="PackedScene" uid="uid://63lsrxugl7an" path="res://scenes/reflectors.tscn" id="4_vtulw"]
-[ext_resource type="Texture2D" uid="uid://b5mmh0ef7be7s" path="res://assets/ui/shrimp.png" id="5_73fua"]
-[ext_resource type="TileSet" uid="uid://cvprit4qech2u" path="res://assets/wall_tileset.tres" id="6_73fua"]
-[ext_resource type="Script" uid="uid://cwbdtcw6r0ang" path="res://scenes/shrimp_block_1.gd" id="8_fpgth"]
-[ext_resource type="Texture2D" uid="uid://rndify5hthyy" path="res://assets/ui/shrimp_block.png" id="9_uxdb3"]
+[ext_resource type="Script" uid="uid://bripj1obpu7od" path="res://scripts/light_puzzle/ray_cast_2d.gd" id="1_apstt"]
+[ext_resource type="Script" uid="uid://dj6xonet3io12" path="res://scripts/light_puzzle/grid_overlay.gd" id="1_grid"]
+[ext_resource type="Texture2D" uid="uid://dqrngw1qgr7kr" path="res://textures/light_puzzle/glowing_circle.png" id="2_imgww"]
+[ext_resource type="Script" uid="uid://cjml5ful0bfpx" path="res://scripts/light_puzzle/letter.gd" id="3_imgww"]
+[ext_resource type="Script" uid="uid://bwu3ulm4s8aq5" path="res://scripts/light_puzzle/shrimp.gd" id="4_73fua"]
+[ext_resource type="PackedScene" uid="uid://63lsrxugl7an" path="res://scenes/light_puzzle/reflectors.tscn" id="4_vtulw"]
+[ext_resource type="Texture2D" uid="uid://b5mmh0ef7be7s" path="res://textures/light_puzzle/shrimp.png" id="5_73fua"]
+[ext_resource type="TileSet" uid="uid://cvprit4qech2u" path="res://resources/wall_tileset.tres" id="6_73fua"]
+[ext_resource type="Script" uid="uid://cwbdtcw6r0ang" path="res://scripts/light_puzzle/shrimp_block_1.gd" id="8_fpgth"]
+[ext_resource type="Texture2D" uid="uid://rndify5hthyy" path="res://textures/light_puzzle/shrimp_block.png" id="9_uxdb3"]
+
 
 [sub_resource type="GDScript" id="GDScript_vtulw"]
 script/source = "extends Node2D

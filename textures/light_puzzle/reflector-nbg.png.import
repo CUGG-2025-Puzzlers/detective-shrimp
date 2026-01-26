@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cebkn7vh4w2p4"
-path="res://.godot/imported/glowing_circle.png-2826c6fc7345d513ea25a5b31a17e0b0.ctex"
+uid="uid://deyw2wnbykfwf"
+path="res://.godot/imported/reflector-nbg.png-dc6620da43e649705bd41b6459d3cd19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/characters/glowing_circle.png"
-dest_files=["res://.godot/imported/glowing_circle.png-2826c6fc7345d513ea25a5b31a17e0b0.ctex"]
+source_file="res://textures/light_puzzle/reflector-nbg.png"
+dest_files=["res://.godot/imported/reflector-nbg.png-dc6620da43e649705bd41b6459d3cd19.ctex"]
 
 [params]
 

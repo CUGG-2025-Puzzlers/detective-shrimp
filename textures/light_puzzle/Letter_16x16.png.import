@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clq4fc0lsd44g"
-path="res://.godot/imported/tileset_2_16x16.png-ef9e804b282ca2d1f44edae17440588b.ctex"
+uid="uid://j8y7633cp7pm"
+path="res://.godot/imported/Letter_16x16.png-8037bc3a3c3959a29b1a7419e03626b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/tileset_2_16x16.png"
-dest_files=["res://.godot/imported/tileset_2_16x16.png-ef9e804b282ca2d1f44edae17440588b.ctex"]
+source_file="res://textures/light_puzzle/Letter_16x16.png"
+dest_files=["res://.godot/imported/Letter_16x16.png-8037bc3a3c3959a29b1a7419e03626b9.ctex"]
 
 [params]
 

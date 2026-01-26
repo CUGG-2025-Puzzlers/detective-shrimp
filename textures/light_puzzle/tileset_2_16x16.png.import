@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rndify5hthyy"
-path="res://.godot/imported/shrimp_block.png-6c7e2859cafd3886a93603217cbdfc1f.ctex"
+uid="uid://clq4fc0lsd44g"
+path="res://.godot/imported/tileset_2_16x16.png-5b895f279c68b0eb939a3431c04990a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/shrimp_block.png"
-dest_files=["res://.godot/imported/shrimp_block.png-6c7e2859cafd3886a93603217cbdfc1f.ctex"]
+source_file="res://textures/light_puzzle/tileset_2_16x16.png"
+dest_files=["res://.godot/imported/tileset_2_16x16.png-5b895f279c68b0eb939a3431c04990a7.ctex"]
 
 [params]
 

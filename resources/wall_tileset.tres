@@ -1,11 +1,12 @@
 [gd_resource type="TileSet" load_steps=13 format=3 uid="uid://cvprit4qech2u"]
 
-[ext_resource type="Texture2D" uid="uid://j8y7633cp7pm" path="res://assets/ui/Letter_16x16.png" id="1_ggnq1"]
-[ext_resource type="Texture2D" uid="uid://bcv0k2rnepmfv" path="res://assets/ui/tileset_1_16x16.png" id="1_jjm5f"]
-[ext_resource type="Texture2D" uid="uid://rndify5hthyy" path="res://assets/ui/shrimp_block.png" id="1_tjxaw"]
-[ext_resource type="Texture2D" uid="uid://b5mmh0ef7be7s" path="res://assets/ui/shrimp.png" id="2_186f8"]
-[ext_resource type="Texture2D" uid="uid://clq4fc0lsd44g" path="res://assets/ui/tileset_2_16x16.png" id="2_ggnq1"]
-[ext_resource type="Texture2D" uid="uid://cegc6eogkm7jl" path="res://assets/ui/tileset_3_16x16.png" id="3_y34mc"]
+[ext_resource type="Texture2D" uid="uid://j8y7633cp7pm" path="res://textures/light_puzzle/Letter_16x16.png" id="1_ggnq1"]
+[ext_resource type="Texture2D" uid="uid://bcv0k2rnepmfv" path="res://textures/light_puzzle/tileset_1_16x16.png" id="1_jjm5f"]
+[ext_resource type="Texture2D" uid="uid://rndify5hthyy" path="res://textures/light_puzzle/shrimp_block.png" id="1_tjxaw"]
+[ext_resource type="Texture2D" uid="uid://b5mmh0ef7be7s" path="res://textures/light_puzzle/shrimp.png" id="2_186f8"]
+[ext_resource type="Texture2D" uid="uid://clq4fc0lsd44g" path="res://textures/light_puzzle/tileset_2_16x16.png" id="2_ggnq1"]
+[ext_resource type="Texture2D" uid="uid://cegc6eogkm7jl" path="res://textures/light_puzzle/tileset_3_16x16.png" id="3_y34mc"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0w30i"]
 texture = ExtResource("1_tjxaw")
