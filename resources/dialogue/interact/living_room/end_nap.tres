@@ -1,0 +1,143 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=27 format=3 uid="uid://cm00bhxk17heo"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_gqfwq"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="2_7ltdd"]
+[ext_resource type="Texture2D" uid="uid://dk8k5kb8tphqx" path="res://textures/cameron/cameron_sus.png" id="2_jft4x"]
+[ext_resource type="Texture2D" uid="uid://dnj7wnnwrgas6" path="res://textures/cameron/cameron_normal.png" id="3_ejmy5"]
+[ext_resource type="Texture2D" uid="uid://d318cbfa5mpko" path="res://textures/cameron/cameron_shocked.png" id="4_mw0bk"]
+[ext_resource type="Texture2D" uid="uid://cycrol8exbgwh" path="res://textures/cameron/cameron_annoyed.png" id="5_0n7br"]
+[ext_resource type="Texture2D" uid="uid://box8oppoxrodb" path="res://textures/cameron/cameron_happy.png" id="6_hx8qn"]
+[ext_resource type="Texture2D" uid="uid://chb5lhuc672ys" path="res://textures/cameron/cameron_blushing.png" id="7_gftv2"]
+
+[sub_resource type="Resource" id="Resource_qri7n"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_jft4x")
+text = "It’s getting late, I’ll call to check on him. "
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_gqfwq"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Phone"
+text = "*ring ring* … *ring ring*"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_7ltdd"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Phone"
+text = "*click*"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_05o1e"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_ejmy5")
+text = "Oh no. "
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_mes3j"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_ejmy5")
+text = "Oh no. "
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_u3qk7"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_ejmy5")
+text = "Oh no, oh no, oh no~ "
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_5xa6i"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("4_mw0bk")
+text = "[i]OH NO![/i]"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_idoot"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("4_mw0bk")
+text = "WHERE IS HENRY??
+"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_6t4kg"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("5_0n7br")
+text = "Something must have happened to him… and no better person to look for him than me!
+"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_lviij"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_ejmy5")
+text = "The amazing!"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_u242h"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_ejmy5")
+text = "Magnificent!
+"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_n0ntu"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("6_hx8qn")
+text = "Talented!"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_csq0b"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("6_hx8qn")
+text = "Handsome!"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_42exv"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes?"
+speaker_portrait = ExtResource("7_gftv2")
+text = "Chivalrous…?"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_6q432"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("6_hx8qn")
+text = "Mysterious!"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_7xgqv"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes!"
+speaker_portrait = ExtResource("6_hx8qn")
+text = "Shrimplock Holmes!!!!"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_jft4x"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_ejmy5")
+text = "…"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_ejmy5"]
+script = ExtResource("1_gqfwq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_ejmy5")
+text = "Let’s start by looking around the house for clues."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("2_7ltdd")
+name = "Couch Interact - Nap End"
+lines = Array[ExtResource("1_gqfwq")]([SubResource("Resource_qri7n"), SubResource("Resource_gqfwq"), SubResource("Resource_7ltdd"), SubResource("Resource_05o1e"), SubResource("Resource_mes3j"), SubResource("Resource_u3qk7"), SubResource("Resource_5xa6i"), SubResource("Resource_idoot"), SubResource("Resource_6t4kg"), SubResource("Resource_lviij"), SubResource("Resource_u242h"), SubResource("Resource_n0ntu"), SubResource("Resource_csq0b"), SubResource("Resource_42exv"), SubResource("Resource_6q432"), SubResource("Resource_7xgqv"), SubResource("Resource_jft4x"), SubResource("Resource_ejmy5")])
+metadata/_custom_type_script = "uid://6av67jfqula5"
