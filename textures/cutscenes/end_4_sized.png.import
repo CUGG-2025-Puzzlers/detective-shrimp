@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bamvv12goc44m"
-path="res://.godot/imported/car_scene.jpg-fbdffe0241592970c4345610a5e33c43.ctex"
+uid="uid://c0s45muom7thi"
+path="res://.godot/imported/end_4_sized.png-8021231bb4221cbf666990874f0cd300.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/cameron/car_scene.jpg"
-dest_files=["res://.godot/imported/car_scene.jpg-fbdffe0241592970c4345610a5e33c43.ctex"]
+source_file="res://textures/cutscenes/end_4_sized.png"
+dest_files=["res://.godot/imported/end_4_sized.png-8021231bb4221cbf666990874f0cd300.ctex"]
 
 [params]
 

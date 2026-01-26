@@ -57,14 +57,14 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "Why can’t life just be like Shrimptective? Why can’t i just solve the mystery, and teach the bad guys a lesson?"
+text = "Why can’t life just be like Shrimptective? Why can’t I just solve the mystery, and teach the bad guys a lesson?"
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_0d7bg"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "Why do I have to ruin everything?"
+text = "Why do I always ruin everything?"
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_pbr2v"]

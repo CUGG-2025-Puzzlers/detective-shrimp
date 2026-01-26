@@ -98,3 +98,5 @@ func displayNextLine():
 	cur_char_index = 0
 	$%TextTimer.wait_time = text_speed
 	$%TextTimer.start()
+	
+	GameEvents.end_dialogue_line(cur_line)
