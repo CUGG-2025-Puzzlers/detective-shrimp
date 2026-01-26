@@ -13,6 +13,7 @@ position = Vector2(280, 150)
 script = ExtResource("1_nljv1")
 
 [node name="reflector" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(1, 1)
 scale = Vector2(0.876, 1)
 texture = ExtResource("2_nljv1")
