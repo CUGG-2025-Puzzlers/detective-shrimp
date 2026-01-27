@@ -22,6 +22,7 @@ GameEvents="*res://scripts/game_events.gd"
 Globals="*res://scripts/globals.gd"
 SlidePuzzleEvents="*res://scripts/slide_puzzle/slide_puzzle_events.gd"
 CassettePuzzleEvents="*res://scripts/cassette_puzzle/cassette_puzzle_events.gd"
+Transition="*res://scenes/cutscenes/transition.tscn"
 
 [display]
 
