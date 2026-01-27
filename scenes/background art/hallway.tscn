@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://ckoouorrcli7d"]
+[gd_scene load_steps=14 format=4 uid="uid://ckoouorrcli7d"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_u7i40"]
 [ext_resource type="Texture2D" uid="uid://boihvu1nshova" path="res://assets/background/rundown house/Old house/old house.png" id="2_3w3tr"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="3_1k2v8"]
 [ext_resource type="Texture2D" uid="uid://be1jsnikwp2qk" path="res://assets/pixelinterior_BR_v1.1/decorations_BR.png" id="4_3w3tr"]
 [ext_resource type="Texture2D" uid="uid://dr4feske7gj10" path="res://assets/background/pixelinterior_LRK/doorswindowsstairs_LRK.png" id="5_1k2v8"]
-[ext_resource type="PackedScene" uid="uid://dknb10beku6mq" path="res://scenes/characters/player.tscn" id="6_txc3n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txc3n"]
 texture = ExtResource("1_u7i40")
@@ -57,9 +56,13 @@ texture = ExtResource("1_u7i40")
 3:3/0 = 0
 4:3/0 = 0
 5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:3/0 = 0
 10:3/0 = 0
 11:3/0 = 0
@@ -235,6 +238,7 @@ texture = ExtResource("1_u7i40")
 13:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_yjeik"]
+physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_txc3n")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlnob"]
@@ -1261,7 +1265,9 @@ texture = ExtResource("5_1k2v8")
 4:6/0 = 0
 5:6/0 = 0
 7:6/0 = 0
+7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:6/0 = 0
+8:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:6/0 = 0
 11:6/0 = 0
 13:6/0 = 0
@@ -1292,7 +1298,9 @@ texture = ExtResource("5_1k2v8")
 4:7/0 = 0
 5:7/0 = 0
 7:7/0 = 0
+7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:7/0 = 0
+8:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:7/0 = 0
 11:7/0 = 0
 13:7/0 = 0
@@ -1542,6 +1550,7 @@ texture = ExtResource("5_1k2v8")
 25:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_nlnob"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yjeik")
 
 [node name="hallway" type="Node2D"]
@@ -1562,7 +1571,3 @@ position = Vector2(0, 0.99999994)
 scale = Vector2(1.3773108, 1.3773108)
 tile_map_data = PackedByteArray("AAD5//3/AAAHAAYAAAD5//7/AAAHAAcAAAD5////AAAHAAgAAAD6//3/AAAIAAYAAAD6//7/AAAIAAcAAAD6////AAAIAAgAAAA=")
 tile_set = SubResource("TileSet_nlnob")
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("6_txc3n")]
-position = Vector2(-109.99999, -27.999998)
-scale = Vector2(1.05, 1.05)

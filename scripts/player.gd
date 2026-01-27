@@ -4,7 +4,6 @@ const SPEED = 110.0
 
 @export var animation_tree : AnimationTree
 @export var animation_player : AnimationPlayer
-@export var stairs_tilemap : TileMapLayer
 
 var input : Vector2
 var playback : AnimationNodeStateMachinePlayback
