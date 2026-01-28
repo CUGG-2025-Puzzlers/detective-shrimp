@@ -239,6 +239,7 @@ radius = 1.5
 height = 14.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree") groups=["Player"]]
+z_index = 2
 script = ExtResource("1_76oj4")
 animation_tree = NodePath("AnimationTree")
 

@@ -1,7 +1,11 @@
 extends Node
 
+signal requested_player_hide()
+signal requested_player_show()
+
 var game_settings: GameSettings = preload("res://resources/game_settings.tres")
 var car_scene: PackedScene = preload("res://scenes/cutscenes/car.tscn")
+var outside_scene: PackedScene = preload("res://scenes/mock_outside.tscn")
 
 var mouse_default = preload("res://textures/mouse_default.png")
 var mouse_move = preload("res://textures/mouse_move.png")
@@ -53,7 +57,32 @@ func resend_mouse_click(pos: Vector2, pressed: bool) -> void:
 #region Game Flow
 
 func start_game():
-	get_tree().change_scene_to_packed(car_scene)
+	transition_to_scene(car_scene, false)
+
+func end_cutscene(cutscene: Cutscene):
+	match cutscene:
+		Cutscene.Car:
+			transition_to_scene(outside_scene)
+			
+
+func transition_to_scene(scene: PackedScene, showPlayer: bool = true):
+	get_tree().change_scene_to_packed(scene)
+	if showPlayer:
+		show_player()
+	else:
+		hide_player()
+
+func hide_player():
+	requested_player_hide.emit()
+
+func show_player():
+	requested_player_show.emit()
+
+enum Cutscene {
+	None,
+	Car,
+	End,
+}
 
 #endregion
 

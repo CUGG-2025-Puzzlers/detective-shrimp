@@ -2,7 +2,7 @@ extends TextureRect
 
 @export var interaction_range: int
 @export var dialogue: Dialogue
-@export var event: GameEvents.EventTrigger
+@export var post_dialogue_event: GameEvents.EventTrigger
 
 var enabled = true
 var interactable = false
@@ -60,7 +60,7 @@ func enable() -> void:
 	await get_tree().process_frame
 	enabled = true
 	interacting = false
-	GameEvents.trigger_event(event)
+	GameEvents.trigger_event(post_dialogue_event)
 
 func disable() -> void:
 	enabled = false
