@@ -24,3 +24,7 @@ func transition():
 func fade_out():
 	color_rect.visible = true
 	animation_player.play("fade_to_black")
+	
+func fade_in():
+	color_rect.visible = true
+	animation_player.play("fade_to_scene")

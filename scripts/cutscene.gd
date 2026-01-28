@@ -18,6 +18,7 @@ func _ready() -> void:
 func _on_dialogue_ended():
 	if (cur_dialogue >= dialogue.size()):
 		GameEvents.dialogue_ended.disconnect(_on_dialogue_ended)
+		Transition.fade_out()
 		return
 	
 	await get_tree().create_timer(dialogue_delay).timeout
