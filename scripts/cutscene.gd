@@ -1,5 +1,6 @@
 extends Node
 
+@export var cutscene: Globals.Cutscene
 @export var background_music: AudioStream
 @export var dialogue: Array[Dialogue]
 @export var dialogue_delay: float = 2.0
@@ -18,6 +19,7 @@ func _ready() -> void:
 func _on_dialogue_ended():
 	if (cur_dialogue >= dialogue.size()):
 		GameEvents.dialogue_ended.disconnect(_on_dialogue_ended)
+		Globals.end_cutscene(cutscene)
 		return
 	
 	await get_tree().create_timer(dialogue_delay).timeout
