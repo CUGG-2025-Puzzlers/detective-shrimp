@@ -1,5 +1,18 @@
 extends Node
 
+#region Flags
+
+#Puzzle completion flags
+var mailbox_complete = false
+var reflection_complete = false
+var casette_complete = false
+var letter_complete = false
+
+#Interact flag
+var grocery_list = false
+
+#endregion
+
 #region Dialogue
 
 signal dialogue_started(dialogue: Dialogue)
