@@ -24,6 +24,7 @@ CassettePuzzleEvents="*res://scripts/cassette_puzzle/cassette_puzzle_events.gd"
 AudioManager="*res://scenes/audio_manager.tscn"
 DialogueBox="*res://scenes/dialogue_box.tscn"
 Player="*res://scenes/characters/player.tscn"
+Transition="*res://scenes/cutscenes/transition.tscn"
 
 [display]
 
