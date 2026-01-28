@@ -8,6 +8,8 @@ func _ready() -> void:
 	GameEvents.dialogue_line_ended.connect(_on_dialogue_line_ended)
 
 func _on_dialogue_ended():
+	if cur_texture == 4:
+		Transition.fade_out()
 	await get_tree().create_timer(2.5).timeout
 	return
 
