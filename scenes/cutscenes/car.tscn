@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://7ivr7mc4jp21"]
 
-[ext_resource type="Script" path="res://scripts/cutscene.gd" id="1_k8fe6"]
+[ext_resource type="Script" uid="uid://dcjo13kfwmu1c" path="res://scripts/cutscene.gd" id="1_k8fe6"]
 [ext_resource type="Texture2D" uid="uid://bamvv12goc44m" path="res://textures/cutscenes/car_scene.jpg" id="1_pqcxc"]
 [ext_resource type="AudioStream" uid="uid://bu31awnup6e7v" path="res://assets/sound&music/Shrimpin_Around.mp3" id="2_2jlca"]
 [ext_resource type="PackedScene" uid="uid://df56glnmpcbej" path="res://scenes/dialogue_box.tscn" id="2_x3amq"]
@@ -9,6 +9,7 @@
 
 [node name="Car" type="Node2D"]
 script = ExtResource("1_k8fe6")
+cutscene = 1
 background_music = ExtResource("2_2jlca")
 dialogue = Array[ExtResource("3_fyarp")]([ExtResource("4_vsxcy")])
 
