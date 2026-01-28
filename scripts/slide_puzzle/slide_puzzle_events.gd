@@ -9,4 +9,5 @@ func start_puzzle() -> void:
 
 func complete_puzzle() -> void:
 	print("Completed Slide Puzzle")
+	GameEvents.mailbox_complete
 	puzzle_completed.emit()
