@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm67cgcrnoipj"]
+
+[ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="1_j1oyf"]
+[ext_resource type="Texture2D" uid="uid://70881sv3vhhg" path="res://textures/slide_puzzle/block_2x1.png" id="2_cw1ux"]
+[ext_resource type="Resource" uid="uid://bj8cd0ekfafes" path="res://resources/dialogue/interact/outside/mailbox.tres" id="3_waf1h"]
+
+[node name="MockOutside" type="Node2D"]
+
+[node name="Interactable" parent="." instance=ExtResource("1_j1oyf")]
+texture = ExtResource("2_cw1ux")
+dialogue = ExtResource("3_waf1h")
