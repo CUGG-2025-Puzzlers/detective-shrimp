@@ -8,10 +8,10 @@
 [node name="Dialogue Box" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -216.0
-offset_top = -36.0
-offset_right = 216.0
-offset_bottom = 36.0
+offset_left = 104.0
+offset_top = 272.0
+offset_right = 536.0
+offset_bottom = 344.0
 script = ExtResource("1_hvmm2")
 
 [node name="Background" type="NinePatchRect" parent="."]
