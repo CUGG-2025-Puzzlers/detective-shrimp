@@ -5,7 +5,7 @@ signal on_transition_finished
 @onready var color_rect = $ColorRect
 @onready var animation_player = $AnimationPlayer
 
-func ready():
+func _ready():
 	color_rect.visible = false
 	
 func _on_animation_finished(anim_name):
