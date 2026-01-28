@@ -7,6 +7,7 @@ const SPEED = 110.0
 @export var stairs_tilemap : TileMapLayer
 
 var input : Vector2
+var canMove : bool
 var playback : AnimationNodeStateMachinePlayback
 
 func _ready():
@@ -14,9 +15,11 @@ func _ready():
 	playback = animation_tree["parameters/playback"]
 	Globals.requested_player_hide.connect(_on_requested_player_hide)
 	Globals.requested_player_show.connect(_on_requested_player_show)
+	GameEvents.dialogue_started.connect(_on_dialogue_started)
+	GameEvents.dialogue_ended.connect(_on_dialogue_ended)
 
 func _physics_process(delta: float) -> void:
-	if not visible:
+	if not visible or not canMove:
 		return
 	
 	input = Input.get_vector("left", "right", "up", "down")
@@ -45,3 +48,9 @@ func _on_requested_player_hide():
 
 func _on_requested_player_show():
 	visible = true
+
+func _on_dialogue_started(dialogue: Dialogue):
+	canMove = false
+
+func _on_dialogue_ended():
+	canMove = true
