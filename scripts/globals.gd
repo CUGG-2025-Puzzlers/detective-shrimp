@@ -1,5 +1,8 @@
 extends Node
 
+signal requested_player_hide()
+signal requested_player_show()
+
 var game_settings: GameSettings = preload("res://resources/game_settings.tres")
 var car_scene: PackedScene = preload("res://scenes/cutscenes/car.tscn")
 
@@ -54,6 +57,12 @@ func resend_mouse_click(pos: Vector2, pressed: bool) -> void:
 
 func start_game():
 	get_tree().change_scene_to_packed(car_scene)
+
+func hide_player():
+	requested_player_hide.emit()
+
+func show_player():
+	requested_player_show.emit()
 
 #endregion
 

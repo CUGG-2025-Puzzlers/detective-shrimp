@@ -10,9 +10,15 @@ var input : Vector2
 var playback : AnimationNodeStateMachinePlayback
 
 func _ready():
+	visible = false
 	playback = animation_tree["parameters/playback"]
+	Globals.requested_player_hide.connect(_on_requested_player_hide)
+	Globals.requested_player_show.connect(_on_requested_player_show)
 
 func _physics_process(delta: float) -> void:
+	if not visible:
+		return
+	
 	input = Input.get_vector("left", "right", "up", "down")
 	
 	velocity = input.normalized() * SPEED * delta
@@ -33,3 +39,9 @@ func update_animation_parameters():
 		
 	animation_tree["parameters/Walk/blend_position"] = input
 	animation_tree["parameters/Idle/blend_position"] = input
+
+func _on_requested_player_hide():
+	visible = false
+
+func _on_requested_player_show():
+	visible = true
