@@ -41,6 +41,7 @@ func start_puzzle(trigger: PuzzleTrigger):
 	
 	print("Starting Puzzle...")
 	puzzle_started.emit(trigger)
+	Globals.hide_player()
 
 func finish_puzzle(trigger: PuzzleTrigger):
 	if puzzle_already_completed(trigger):
@@ -48,6 +49,7 @@ func finish_puzzle(trigger: PuzzleTrigger):
 	
 	print("Finishing Puzzle...")
 	puzzle_finished.emit(trigger)
+	Globals.show_player()
 
 func puzzle_already_completed(trigger: PuzzleTrigger) -> bool:
 	match trigger:
