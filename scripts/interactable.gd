@@ -1,8 +1,8 @@
+class_name Interactable
 extends TextureRect
 
 @export var interaction_range: int
 @export var dialogue: Dialogue
-@export var post_dialogue_event: GameEvents.PuzzleTrigger
 
 var enabled = true
 var interactable = false
@@ -60,9 +60,6 @@ func enable() -> void:
 	await get_tree().process_frame
 	enabled = true
 	interacting = false
-	
-	if post_dialogue_event != GameEvents.PuzzleTrigger.None:
-		GameEvents.start_puzzle(post_dialogue_event)
 
 func disable() -> void:
 	enabled = false
