@@ -36,10 +36,31 @@ signal puzzle_started(trigger: PuzzleTrigger)
 signal puzzle_finished(trigger: PuzzleTrigger)
 
 func start_puzzle(trigger: PuzzleTrigger):
+	if puzzle_already_completed(trigger):
+		return
+	
+	print("Starting Puzzle...")
 	puzzle_started.emit(trigger)
 
-	puzzle_finished.emit()
 func finish_puzzle(trigger: PuzzleTrigger):
+	if puzzle_already_completed(trigger):
+		return
+	
+	print("Finishing Puzzle...")
+	puzzle_finished.emit(trigger)
+
+func puzzle_already_completed(trigger: PuzzleTrigger) -> bool:
+	match trigger:
+		PuzzleTrigger.PuzzleSlide:
+			return mailbox_complete
+		PuzzleTrigger.PuzzleCassette:
+			return cassette_complete
+		PuzzleTrigger.PuzzleLight:
+			return reflection_complete
+		PuzzleTrigger.PuzzleDecryption:
+			return letter_complete
+	
+	return false
 
 enum PuzzleTrigger {
 	None,
