@@ -32,14 +32,16 @@ func end_dialogue():
 
 #region Puzzle Events
 
-func trigger_event(event: EventTrigger):
-	match event:
-		EventTrigger.PuzzleSlide:
-			SlidePuzzleEvents.start_puzzle()
-		EventTrigger.PuzzleCassette:
-			CassettePuzzleEvents.start_puzzle()
+signal puzzle_started(trigger: PuzzleTrigger)
+signal puzzle_finished()
 
-enum EventTrigger {
+func start_puzzle(trigger: PuzzleTrigger):
+	puzzle_started.emit(trigger)
+
+func finish_puzzle():
+	puzzle_finished.emit()
+
+enum PuzzleTrigger {
 	None,
 	PuzzleSlide,
 	PuzzleCassette,
