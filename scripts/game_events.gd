@@ -33,13 +33,13 @@ func end_dialogue():
 #region Puzzle Events
 
 signal puzzle_started(trigger: PuzzleTrigger)
-signal puzzle_finished()
+signal puzzle_finished(trigger: PuzzleTrigger)
 
 func start_puzzle(trigger: PuzzleTrigger):
 	puzzle_started.emit(trigger)
 
-func finish_puzzle():
 	puzzle_finished.emit()
+func finish_puzzle(trigger: PuzzleTrigger):
 
 enum PuzzleTrigger {
 	None,
