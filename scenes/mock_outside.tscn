@@ -1,11 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm67cgcrnoipj"]
+[gd_scene load_steps=9 format=3 uid="uid://dm67cgcrnoipj"]
 
 [ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="1_j1oyf"]
 [ext_resource type="Texture2D" uid="uid://70881sv3vhhg" path="res://textures/slide_puzzle/block_2x1.png" id="2_cw1ux"]
+[ext_resource type="Script" uid="uid://0n23roro5u0u" path="res://scripts/puzzle_interactable.gd" id="3_5tvyg"]
 [ext_resource type="Resource" uid="uid://bj8cd0ekfafes" path="res://resources/dialogue/interact/outside/mailbox.tres" id="3_waf1h"]
+[ext_resource type="Resource" uid="uid://bett2pocdc5qm" path="res://resources/dialogue/interact/outside/mailbox_post.tres" id="4_1mut8"]
+[ext_resource type="Script" uid="uid://cusuwmhelbyur" path="res://scripts/puzzle_popup.gd" id="4_5tvyg"]
+[ext_resource type="PackedScene" uid="uid://dc4tvs8q0i3hb" path="res://scenes/slide_puzzle/slide_puzzle_1.tscn" id="4_waf1h"]
+[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="8_6c4pk"]
 
 [node name="MockOutside" type="Node2D"]
 
-[node name="Interactable" parent="." instance=ExtResource("1_j1oyf")]
+[node name="Mailbox" parent="." instance=ExtResource("1_j1oyf")]
 texture = ExtResource("2_cw1ux")
+script = ExtResource("3_5tvyg")
+puzzle_trigger = 1
+post_puzzle_dialogue = ExtResource("4_1mut8")
 dialogue = ExtResource("3_waf1h")
+
+[node name="Puzzle Popup" type="Control" parent="." node_paths=PackedStringArray("puzzle")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("4_5tvyg")
+puzzle = NodePath("Slide Puzzle 1")
+puzzle_trigger = 1
+
+[node name="Slide Puzzle 1" parent="Puzzle Popup" instance=ExtResource("4_waf1h")]
+position = Vector2(231, 52)
+
+[node name="Button" type="Button" parent="Puzzle Popup"]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 14.0
+offset_right = 634.0
+offset_bottom = 45.0
+text = "Complete Puzzle"
+script = ExtResource("8_6c4pk")
+puzzle_trigger = 1
