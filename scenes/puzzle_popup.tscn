@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://wglw4rfn1fc1"]
 
-[ext_resource type="Script" uid="uid://dijhnm0wab0eb" path="res://scenes/puzzle_popup.gd" id="1_n6hj6"]
+[ext_resource type="Script" uid="uid://cusuwmhelbyur" path="res://scripts/puzzle_popup.gd" id="1_n6hj6"]
 
 [node name="PuzzlePopup" type="CanvasLayer"]
 script = ExtResource("1_n6hj6")
