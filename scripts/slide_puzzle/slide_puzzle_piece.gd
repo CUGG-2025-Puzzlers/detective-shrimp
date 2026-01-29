@@ -7,16 +7,18 @@ extends TextureRect
 
 var dragging: bool = false
 var clicked_cell_offset: Vector2i
+var board: SlidePuzzleBoard = null
 
 #region Setup
 
 func _ready() -> void:
 	# Hide pieces not part of a slide puzzle
-	if not get_parent() is SlidePuzzle:
+	if not get_parent() is SlidePuzzleBoard:
 		print("Piece (", name, ") is not part of a puzzle, hiding it")
 		hide()
 		return
 	
+	board = get_parent()
 	mouse_default_cursor_shape = Control.CURSOR_MOVE
 
 #endregion
@@ -85,8 +87,6 @@ func try_drag():
 	if not dragging or not moveable:
 		return
 	
-	var puzzle_board: SlidePuzzle = get_parent()
-	
 	# Find relative direction of mouse in cell units
 	var piece_cell = get_piece_cell()
 	var mouse_cell = get_mouse_cell()
@@ -94,23 +94,23 @@ func try_drag():
 	
 	# Try to drag in the direction we're attempting to
 	# Up
-	if direction.y < 0 and puzzle_board.can_move(self, Globals.Direction.Up):
-		puzzle_board.move(self, Globals.Direction.Up)
+	if direction.y < 0 and board.can_move(self, Globals.Direction.Up):
+		board.move(self, Globals.Direction.Up)
 		return
 	
 	# Right
-	if direction.x > 0 and puzzle_board.can_move(self, Globals.Direction.Right):
-		puzzle_board.move(self, Globals.Direction.Right)
+	if direction.x > 0 and board.can_move(self, Globals.Direction.Right):
+		board.move(self, Globals.Direction.Right)
 		return
 	
 	# Down
-	if direction.y > 0 and puzzle_board.can_move(self, Globals.Direction.Down):
-		puzzle_board.move(self, Globals.Direction.Down)
+	if direction.y > 0 and board.can_move(self, Globals.Direction.Down):
+		board.move(self, Globals.Direction.Down)
 		return
 	
 	# Left
-	if direction.x < 0 and puzzle_board.can_move(self, Globals.Direction.Left):
-		puzzle_board.move(self, Globals.Direction.Left)
+	if direction.x < 0 and board.can_move(self, Globals.Direction.Left):
+		board.move(self, Globals.Direction.Left)
 		return
 
 #endregion
@@ -118,10 +118,10 @@ func try_drag():
 # Returns a Vector2i representing the cell on the board that this piece is in
 # This cell is the top-leftmost cell of the piece, even if the shape is empty there
 func get_piece_cell() -> Vector2i:
-	return position / get_parent().TILE_SIZE
+	return position / board.TILE_SIZE
 
 # Returns a Vector2i representing the cell on the board that the cursor is hovering
 func get_mouse_cell() -> Vector2i:
-	var tile_size = get_parent().TILE_SIZE
-	var mouse_board_pos = get_global_mouse_position() - get_parent().global_position
+	var tile_size = board.TILE_SIZE
+	var mouse_board_pos = get_global_mouse_position() - board.global_position
 	return mouse_board_pos / tile_size
