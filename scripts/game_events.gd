@@ -5,7 +5,7 @@ extends Node
 #Puzzle completion flags
 var mailbox_complete = false
 var reflection_complete = false
-var casette_complete = false
+var cassette_complete = false
 var letter_complete = false
 
 #Interact flag
