@@ -52,7 +52,9 @@ func interact() -> void:
 		return
 	
 	interacting = true
-	
+	interaction()
+
+func interaction() -> void:	
 	# Special interaction when Basement door is interacted with after 
 	# the key is obtained from the safe.
 	# Definitely not the best way to implement it, but I don't know 
@@ -70,9 +72,6 @@ func _on_enter_basement():
 	Globals.transition_to_scene(load("res://scenes/cutscenes/end.tscn"))
 
 func enable() -> void:
-	if not interacting:
-		return
-	
 	# Waiting a frame prevents the user from immediately interacting again when
 	# clicking on this object while clicking to end the interaction dialogue
 	# Maybe use a short cooldown timer instead?
