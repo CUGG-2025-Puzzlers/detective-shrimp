@@ -8,10 +8,14 @@ var enabled = true
 var interactable = false
 var interacting = false
 
+var basement_dialogue: Dialogue
+
 func _ready() -> void:
 	mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN
 	GameEvents.dialogue_started.connect(_on_dialogue_started)
 	GameEvents.dialogue_ended.connect(_on_dialogue_ended)
+	
+	basement_dialogue = preload("res://resources/dialogue/interact/living_room/basement_door.tres")
 
 func _process(delta: float) -> void:
 	if not interactable and is_player_in_range():
@@ -48,7 +52,22 @@ func interact() -> void:
 		return
 	
 	interacting = true
+	
+	# Special interaction when Basement door is interacted with after 
+	# the key is obtained from the safe.
+	# Definitely not the best way to implement it, but I don't know 
+	# how else to do it. - Cameron
+	if name == "Basement Door" and GameEvents.safe == true:
+		GameEvents.start_dialogue(basement_dialogue)
+		GameEvents.dialogue_ended.connect(_on_enter_basement)
+		return
+
 	GameEvents.start_dialogue(dialogue)
+
+func _on_enter_basement():
+	GameEvents.dialogue_ended.disconnect(_on_enter_basement)
+	Transition.fade_out()
+	Globals.transition_to_scene(load("res://scenes/cutscenes/end.tscn"))
 
 func enable() -> void:
 	if not interacting:
