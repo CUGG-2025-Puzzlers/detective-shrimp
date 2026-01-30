@@ -4,6 +4,7 @@ var cur_texture = -1
 @export var textures: Array[Texture2D]
 
 func _ready() -> void:
+	Player.visible = false
 	GameEvents.dialogue_ended.connect(_on_dialogue_ended)
 	GameEvents.dialogue_line_ended.connect(_on_dialogue_line_ended)
 
