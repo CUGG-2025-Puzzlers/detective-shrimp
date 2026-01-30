@@ -10,6 +10,7 @@ var letter_complete = false
 
 #Interact flag
 var grocery_list = false
+var safe = false
 
 #endregion
 
