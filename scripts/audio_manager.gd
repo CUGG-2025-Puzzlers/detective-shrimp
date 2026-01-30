@@ -4,6 +4,11 @@ extends Node
 
 @onready var music_player: AudioStreamPlayer = $%MusicPlayer
 
+const main_theme: AudioStream = preload("res://assets/sound&music/Shrimptective_theme.mp3")
+const puzzle_theme: AudioStream = preload("res://assets/sound&music/Shrimp_Jazz.mp3")
+const car_theme: AudioStream = preload("res://assets/sound&music/Shrimpin_Around.mp3")
+const end_theme: AudioStream = preload("res://assets/sound&music/End.mp3")
+
 func _ready() -> void:
 	music_player.finished.connect(_on_music_finished)
 
