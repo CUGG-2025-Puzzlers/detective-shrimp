@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=7 format=3 uid="uid://ljg1irov7mty"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_84qh0"]
+[ext_resource type="Texture2D" uid="uid://dnj7wnnwrgas6" path="res://textures/cameron/cameron_normal.png" id="2_eac7r"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="3_fts3s"]
+[ext_resource type="Texture2D" uid="uid://cycrol8exbgwh" path="res://textures/cameron/cameron_annoyed.png" id="3_m0bxo"]
+
+[sub_resource type="Resource" id="Resource_ejmy5"]
+script = ExtResource("1_84qh0")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_eac7r")
+text = "What a pretty painting!"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_ubchd"]
+script = ExtResource("1_84qh0")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_m0bxo")
+text = "It's a little crooked though..."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("3_fts3s")
+name = "painting"
+lines = Array[ExtResource("1_84qh0")]([SubResource("Resource_ejmy5"), SubResource("Resource_ubchd")])
+metadata/_custom_type_script = "uid://6av67jfqula5"
