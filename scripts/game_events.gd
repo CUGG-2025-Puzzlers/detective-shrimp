@@ -3,13 +3,14 @@ extends Node
 #region Flags
 
 #Puzzle completion flags
-var mailbox_complete = false
-var reflection_complete = false
-var cassette_complete = false
-var letter_complete = false
+var mailbox_complete: bool = false
+var reflection_complete: bool = false
+var cassette_complete: bool = false
+var letter_complete: bool = false
 
 #Interact flag
-var grocery_list = false
+var grocery_list: bool = false
+var safe: bool = false
 
 #endregion
 
