@@ -67,6 +67,7 @@ func end_cutscene(cutscene: Cutscene):
 
 func transition_to_scene(scene: PackedScene, showPlayer: bool = true):
 	get_tree().change_scene_to_packed(scene)
+	GameEvents.change_scene(scene.resource_path)
 	if showPlayer:
 		show_player()
 	else:

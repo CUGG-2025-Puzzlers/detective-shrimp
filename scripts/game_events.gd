@@ -30,6 +30,15 @@ func end_dialogue():
 
 #endregion
 
+#region Scene Events
+
+signal scene_changed(scene_name: String)
+
+func change_scene(scene_name: String):
+	scene_changed.emit(scene_name)
+
+#endregion
+
 #region Puzzle Events
 
 signal puzzle_started(trigger: PuzzleTrigger)

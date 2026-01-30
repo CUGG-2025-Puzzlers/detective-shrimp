@@ -25,6 +25,7 @@ AudioManager="*res://scenes/audio_manager.tscn"
 DialogueBox="*res://scenes/dialogue_box.tscn"
 Player="*res://scenes/characters/player.tscn"
 Transition="*res://scenes/cutscenes/transition.tscn"
+QuestTracker="*res://scenes/quest_tracker.tscn"
 
 [display]
 
