@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://jmd287xjo7bm"]
+[gd_scene load_steps=15 format=3 uid="uid://jmd287xjo7bm"]
 
 [ext_resource type="Script" uid="uid://dcjo13kfwmu1c" path="res://scripts/cutscene.gd" id="1_jninw"]
 [ext_resource type="AudioStream" uid="uid://4uokrx6rhil5" path="res://assets/sound&music/End.mp3" id="2_02abs"]
 [ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="3_02abs"]
 [ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="4_02abs"]
 [ext_resource type="Texture2D" uid="uid://d318cbfa5mpko" path="res://textures/cameron/cameron_shocked.png" id="5_vdfjs"]
-[ext_resource type="PackedScene" uid="uid://df56glnmpcbej" path="res://scenes/dialogue_box.tscn" id="6_3vv7h"]
 [ext_resource type="Resource" uid="uid://bnjxmbryu7tgy" path="res://resources/dialogue/cutscene/end.tres" id="6_5gnrx"]
 [ext_resource type="Texture2D" uid="uid://c10jhumwxp45t" path="res://textures/cutscenes/end_1_sized.png" id="7_3vv7h"]
 [ext_resource type="Texture2D" uid="uid://grdb08vgegrm" path="res://textures/cutscenes/end_0.png" id="7_vdfjs"]
@@ -41,9 +40,3 @@ textures = Array[Texture2D]([ExtResource("7_vdfjs"), ExtResource("7_3vv7h"), Ext
 [node name="SceneTimer" type="Timer" parent="Sprite2D"]
 unique_name_in_owner = true
 wait_time = 2.5
-
-[node name="Dialogue Box" parent="." instance=ExtResource("6_3vv7h")]
-offset_left = 104.0
-offset_top = 278.0
-offset_right = 536.0
-offset_bottom = 350.0
