@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgyimct3i3kis"
-path="res://.godot/imported/Cameron_Icon.png-2ed5b92d8c065a957a037aa257878e95.ctex"
+uid="uid://rndify5hthyy"
+path="res://.godot/imported/shrimp_block.png-96d4b6a94f1690c356ae416334ed48e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Cameron_Icon.png"
-dest_files=["res://.godot/imported/Cameron_Icon.png-2ed5b92d8c065a957a037aa257878e95.ctex"]
+source_file="res://textures/light_puzzle/shrimp_block.png"
+dest_files=["res://.godot/imported/shrimp_block.png-96d4b6a94f1690c356ae416334ed48e9.ctex"]
 
 [params]
 

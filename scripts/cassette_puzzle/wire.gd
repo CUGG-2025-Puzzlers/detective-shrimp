@@ -19,7 +19,9 @@ static var unconnected_off_txture = preload("res://textures/cassette_puzzle/wire
 static var connected_texture = preload("res://textures/cassette_puzzle/wire_out_connected.png")
 
 func _ready() -> void:
-	enabled = true
+	if Engine.is_editor_hint():
+		return
+	
 	CassettePuzzleEvents.puzzle_completed.connect(_on_puzzle_complete)
 	
 	mouse_default_cursor_shape = Control.CURSOR_MOVE

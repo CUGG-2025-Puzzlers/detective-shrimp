@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3txqamkair0f"
-path="res://.godot/imported/dialogue_backgroung.png-b30febdee56c199b4dc5998e26036178.ctex"
+uid="uid://dqrngw1qgr7kr"
+path="res://.godot/imported/glowing_circle.png-fa01c69fe8a1d839af3d8e2409c75f83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/dialogue_backgroung.png"
-dest_files=["res://.godot/imported/dialogue_backgroung.png-b30febdee56c199b4dc5998e26036178.ctex"]
+source_file="res://textures/light_puzzle/glowing_circle.png"
+dest_files=["res://.godot/imported/glowing_circle.png-fa01c69fe8a1d839af3d8e2409c75f83.ctex"]
 
 [params]
 

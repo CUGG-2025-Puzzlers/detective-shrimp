@@ -12,7 +12,6 @@ func _ready():
 	playback = animation_tree["parameters/playback"]
 
 func _physics_process(delta: float) -> void:
-	
 	input = Input.get_vector("left", "right", "up", "down")
 	
 	velocity = input.normalized() * SPEED * delta

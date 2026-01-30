@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=6 format=3 uid="uid://b003ev84gnyqc"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_edofq"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="2_fbd8k"]
+[ext_resource type="Texture2D" uid="uid://dk8k5kb8tphqx" path="res://textures/cameron/cameron_sus.png" id="2_vm7j6"]
+
+[sub_resource type="Resource" id="Resource_edofq"]
+script = ExtResource("1_edofq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_vm7j6")
+text = "I can't just leave now..."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_fbd8k"]
+script = ExtResource("1_edofq")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_vm7j6")
+text = "There's gotta be more clues around the house..."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("2_fbd8k")
+name = "Leave Attempt - 2 Puzzles"
+lines = Array[ExtResource("1_edofq")]([SubResource("Resource_edofq"), SubResource("Resource_fbd8k")])
+metadata/_custom_type_script = "uid://6av67jfqula5"

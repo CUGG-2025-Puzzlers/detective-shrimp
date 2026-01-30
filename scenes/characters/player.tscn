@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://dknb10beku6mq"]
 
 [ext_resource type="Script" uid="uid://cukhysnrqmpxl" path="res://scripts/player.gd" id="1_76oj4"]
-[ext_resource type="Texture2D" uid="uid://cmefpk7wn74fu" path="res://assets/characters/Cameron_Sprite_Sheet.png" id="2_yewv4"]
+[ext_resource type="Texture2D" uid="uid://cmefpk7wn74fu" path="res://textures/cameron/Cameron_Sprite_Sheet.png" id="2_yewv4"]
 
 [sub_resource type="Animation" id="Animation_dyp2m"]
 length = 0.001
@@ -235,11 +235,10 @@ states/Walk/position = Vector2(491, 86.96875)
 graph_offset = Vector2(60.05997, -3.8624902)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yewv4"]
-radius = 8.0
-height = 21.666664
+radius = 1.5
+height = 14.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
-scale = Vector2(1.2, 1.2)
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree") groups=["Player"]]
 script = ExtResource("1_76oj4")
 animation_tree = NodePath("AnimationTree")
 
@@ -262,5 +261,6 @@ parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0.0029041767, -0.9508928)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.3333333, 15.833333)
+position = Vector2(2.5, 26.666664)
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_yewv4")
