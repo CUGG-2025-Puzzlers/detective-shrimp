@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cytqjuwkesq5c"
-path="res://.godot/imported/Piano.png-fd89fa4021887e59bb4e259c03ddd22f.ctex"
+uid="uid://b01tl21uouprl"
+path="res://.godot/imported/gate_shape_1.png-ea069078150d6966d799b4295f59d4ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/Piano.png"
-dest_files=["res://.godot/imported/Piano.png-fd89fa4021887e59bb4e259c03ddd22f.ctex"]
+source_file="res://textures/cassette_puzzle/gate_shape_1.png"
+dest_files=["res://.godot/imported/gate_shape_1.png-ea069078150d6966d799b4295f59d4ac.ctex"]
 
 [params]
 
