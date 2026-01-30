@@ -7,11 +7,13 @@ const SPEED = 110.0
 @export var stairs_tilemap : TileMapLayer
 
 var input : Vector2
-var canMove : bool
+var canMove : bool 
 var playback : AnimationNodeStateMachinePlayback
 
 func _ready():
 	visible = false
+	canMove = true
+	
 	playback = animation_tree["parameters/playback"]
 	Globals.requested_player_hide.connect(_on_requested_player_hide)
 	Globals.requested_player_show.connect(_on_requested_player_show)
