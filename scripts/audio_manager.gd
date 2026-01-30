@@ -17,6 +17,9 @@ func play_background_music(music: AudioStream, fade_time: float = 2.5) -> void:
 	music_player.stream = music
 	_fade_in_music(fade_time)
 
+func get_current_music():
+	return music_player.stream
+
 func _fade_in_music(fade_time):
 	music_player.volume_linear = 0
 	music_player.play()
