@@ -9,6 +9,7 @@ var interactable = false
 var interacting = false
 
 var basement_dialogue: Dialogue
+var painting_dialogue: Dialogue
 
 func _ready() -> void:
 	mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN
@@ -16,6 +17,7 @@ func _ready() -> void:
 	GameEvents.dialogue_ended.connect(_on_dialogue_ended)
 	
 	basement_dialogue = preload("res://resources/dialogue/interact/living_room/basement_door.tres")
+	painting_dialogue = preload("res://resources/dialogue/interact/living_room/painting_open.tres")
 
 func _process(delta: float) -> void:
 	if not interactable and is_player_in_range():
@@ -59,9 +61,15 @@ func interaction() -> void:
 	# the key is obtained from the safe.
 	# Definitely not the best way to implement it, but I don't know 
 	# how else to do it. - Cameron
-	if name == "Basement Door" and GameEvents.safe == true:
+	if name == "Basement Door" and GameEvents.safe:
 		GameEvents.start_dialogue(basement_dialogue)
 		GameEvents.dialogue_ended.connect(_on_enter_basement)
+		return
+	# I did it again.
+	if name == "Painting" and GameEvents.letter_complete:
+		$%Fallen_Painting.visible = true
+		visible = false
+		GameEvents.start_dialogue(painting_dialogue)
 		return
 
 	GameEvents.start_dialogue(dialogue)

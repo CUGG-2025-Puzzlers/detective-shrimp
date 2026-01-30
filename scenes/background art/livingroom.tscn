@@ -4137,7 +4137,7 @@ sources/0 = SubResource("TileSetAtlasSource_5j3e2")
 
 [node name="livingRoom" type="Node2D"]
 z_index = -1
-position = Vector2(273, 160)
+position = Vector2(314, 164)
 script = ExtResource("1_7wq2n")
 background_music = ExtResource("2_85mrj")
 
@@ -4167,19 +4167,28 @@ scale = Vector2(1.6857804, 1.6857804)
 tile_map_data = PackedByteArray("AAAKAP//AAADAAEAAAAKAAAAAAADAAIAAAAKAAEAAAADAAMAAAABAP3/AAABAAgAAAA=")
 tile_set = SubResource("TileSet_po3oh")
 
+[node name="Safe" parent="." instance=ExtResource("14_5j3e2")]
+offset_left = 69.0
+offset_top = -65.0
+offset_right = 123.0
+offset_bottom = -38.0
+texture = ExtResource("9_85807")
+
 [node name="Painting" parent="." instance=ExtResource("14_5j3e2")]
 offset_left = 69.0
 offset_top = -65.0
 offset_right = 123.0
 offset_bottom = -38.0
 texture = ExtResource("11_3s3i3")
+interaction_range = 400
 dialogue = ExtResource("12_6y8qb")
 
-[node name="safe" type="TileMapLayer" parent="."]
+[node name="Fallen_Painting" type="TileMapLayer" parent="."]
+unique_name_in_owner = true
 visible = false
 position = Vector2(-11.999998, -11.000001)
 scale = Vector2(1.6857804, 1.6857804)
-tile_map_data = PackedByteArray("AAAEAP7/AgABAAAAAAADAP7/AgAAAAAAAAADAAEAAAAIAAQAADAEAAEAAAAHAAQAADA=")
+tile_map_data = PackedByteArray("AAADAAEAAAAIAAQAADAEAAEAAAAHAAQAADA=")
 tile_set = SubResource("TileSet_po3oh")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -4219,5 +4228,4 @@ offset_right = -178.00002
 offset_bottom = -12.000008
 scale = Vector2(1.292, 1.292)
 texture = ExtResource("14_re2fb")
-interaction_range = 299
 dialogue = ExtResource("15_5j3e2")
