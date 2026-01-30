@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://7jgwmr3e8qj8"]
+[gd_scene load_steps=38 format=4 uid="uid://7jgwmr3e8qj8"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_7e8s8"]
 [ext_resource type="Script" uid="uid://rsau2eqd80m8" path="res://scripts/livingroom.gd" id="1_7wq2n"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cubbvxn8cvoqy" path="res://scenes/background art/staircase.tscn" id="5_c1av1"]
 [ext_resource type="Texture2D" uid="uid://dpi7psorua1gv" path="res://assets/background/rundown house/rundown house/Living room - 2.png" id="5_hqoyq"]
 [ext_resource type="Texture2D" uid="uid://cytqjuwkesq5c" path="res://assets/background/Piano.png" id="8_qum0h"]
+[ext_resource type="Texture2D" uid="uid://cm2heuq3opusu" path="res://assets/background/pixelinterior_LRK/safe.png" id="9_85807"]
 [ext_resource type="Texture2D" uid="uid://8ohi2tgm0k0x" path="res://assets/background/dark-abstract-background.jpg" id="12_re2fb"]
 [ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="14_5j3e2"]
 [ext_resource type="Texture2D" uid="uid://dwyfvxfuvsabh" path="res://assets/background/pixelinterior_LRK/door.png" id="14_re2fb"]
@@ -1640,8 +1641,14 @@ texture = ExtResource("4_y3r63")
 5:8/0 = 0
 10:8/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85807"]
+texture = ExtResource("9_85807")
+0:0/0 = 0
+1:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_po3oh"]
 sources/0 = SubResource("TileSetAtlasSource_7ef23")
+sources/2 = SubResource("TileSetAtlasSource_85807")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qum0h"]
 texture = ExtResource("2_0vul7")
@@ -4137,7 +4144,7 @@ tile_map_data = PackedByteArray("AADv/wAAAAACAAUAAADw/wAAAAADAAUAAADx/wAAAAACAAU
 tile_set = SubResource("TileSet_hqoyq")
 
 [node name="staircase" parent="." instance=ExtResource("5_c1av1")]
-tile_map_data = PackedByteArray("AAAHAP//AAAkAAMAAAAHAAAAAAAkAAQAAAAIAP7/AAAlAAIAAAAIAP//AAAlAAMAAAAIAAAAAAAlAAQAAAAJAP3/AAAmAAEAAAAJAP7/AAAmAAIAAAAJAP//AAAmAAMAAAAJAAAAAAAmAAQAAAAKAPz/AAAlAAIAAAAKAP3/AAAnAAEAAAAKAP7/AAAnAAIAAAAKAP//AAAnAAMAAAAKAAAAAAAnAAQAAAALAPv/AAAlAAIAAAALAPz/AAAlAAMAAAALAP3/AAAmAAMAAAALAP7/AAAiAAMAAAALAP//AAAiAAMAAAALAAAAAAAiAAQAAAAMAPr/AAAmAAEAAAAMAPv/AAAmAAIAAAAMAPz/AAAmAAMAAAAMAP3/AAAiAAMAAAAMAP7/AAAiAAMAAAAMAP//AAAiAAMAAAAMAAAAAAAiAAQAAAANAPr/AAAnAAEAAAANAPv/AAAnAAIAAAANAPz/AAAnAAMAAAANAP3/AAAiAAMAAAANAP7/AAAnAAMAAAANAP//AAAnAAMAAAANAAAAAAAnAAMAAAAHAP7/AAAkAAIAAAAIAP3/AAAlAAEAAAAJAPz/AAAmAAAAAAAKAPv/AAAkAAIAAAALAPr/AAAlAAEAAAAMAPn/AAAmAAAAAAANAPn/AAAnAAAAAAA=")
+tile_map_data = PackedByteArray("AAALAP//AAAiAAMAAAALAAAAAAAiAAQAAAAMAP7/AAAiAAMAAAAMAP//AAAiAAMAAAAMAAAAAAAiAAQAAAANAP3/AAAiAAMAAAANAP7/AAAnAAMAAAANAP//AAAnAAMAAAANAAAAAAAnAAMAAAAHAP//AAAkAAMAAAAHAAAAAAAkAAQAAAAIAP7/AAAlAAIAAAAIAP//AAAlAAMAAAAIAAAAAAAlAAQAAAAJAP3/AAAmAAEAAAAJAP7/AAAmAAIAAAAJAP//AAAmAAMAAAAJAAAAAAAmAAQAAAAKAPz/AAAlAAIAAAAKAP3/AAAnAAEAAAAKAP7/AAAnAAIAAAAKAP//AAAnAAMAAAAKAAAAAAAnAAQAAAALAPv/AAAlAAIAAAALAPz/AAAlAAMAAAALAP3/AAAmAAMAAAALAP7/AAAiAAMAAAAMAPr/AAAmAAEAAAAMAPv/AAAmAAIAAAAMAPz/AAAmAAMAAAAMAP3/AAAiAAMAAAANAPr/AAAnAAEAAAANAPv/AAAnAAIAAAANAPz/AAAnAAMAAAAHAP7/AAAkAAIAAAAIAP3/AAAlAAEAAAAJAPz/AAAmAAAAAAAKAPv/AAAkAAIAAAALAPr/AAAlAAEAAAAMAPn/AAAmAAAAAAANAPn/AAAnAAAAAAA=")
 
 [node name="door" type="TileMapLayer" parent="."]
 visible = false
@@ -4156,6 +4163,13 @@ tile_set = SubResource("TileSet_lufdm")
 position = Vector2(-11.999998, -11.000001)
 scale = Vector2(1.6857804, 1.6857804)
 tile_map_data = PackedByteArray("AAAKAP//AAADAAEAAAAKAAAAAAADAAIAAAAKAAEAAAADAAMAAAAEAP7/AAAIAAQAAAADAP7/AAAHAAQAAAAAAP3/AAABAAgAAAA=")
+tile_set = SubResource("TileSet_po3oh")
+
+[node name="safe" type="TileMapLayer" parent="."]
+visible = false
+position = Vector2(-11.999998, -11.000001)
+scale = Vector2(1.6857804, 1.6857804)
+tile_map_data = PackedByteArray("AAAKAP//AAADAAEAAAAKAAAAAAADAAIAAAAKAAEAAAADAAMAAAAAAP3/AAABAAgAAAADAP7/AgAAAAAAAAAEAP7/AgABAAAAAAA=")
 tile_set = SubResource("TileSet_po3oh")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
