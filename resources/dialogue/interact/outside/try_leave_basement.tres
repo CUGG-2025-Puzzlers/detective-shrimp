@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://bkbiovt2bgq4m"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_a062w"]
+[ext_resource type="Texture2D" uid="uid://d318cbfa5mpko" path="res://textures/cameron/cameron_shocked.png" id="2_a062w"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="3_r12e1"]
+
+[sub_resource type="Resource" id="Resource_wghkj"]
+script = ExtResource("1_a062w")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_a062w")
+text = "There's no going back now."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("3_r12e1")
+name = "Leave Attempt - before basement"
+lines = Array[ExtResource("1_a062w")]([SubResource("Resource_wghkj")])
+metadata/_custom_type_script = "uid://6av67jfqula5"

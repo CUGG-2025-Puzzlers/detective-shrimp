@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=7 format=3 uid="uid://eoaon0q1ko23"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_e7cdk"]
+[ext_resource type="Texture2D" uid="uid://dk8k5kb8tphqx" path="res://textures/cameron/cameron_sus.png" id="2_2mw1x"]
+[ext_resource type="Texture2D" uid="uid://dnj7wnnwrgas6" path="res://textures/cameron/cameron_normal.png" id="3_4hs5i"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="3_wvglf"]
+
+[sub_resource type="Resource" id="Resource_qri7n"]
+script = ExtResource("1_e7cdk")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_2mw1x")
+text = "Anyone home?"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_nanmv"]
+script = ExtResource("1_e7cdk")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_4hs5i")
+text = "I guess I’ll go in first to wait for him. The spare key should be in the [b]Mailbox[/b]."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("3_wvglf")
+name = "Arrive At House"
+lines = Array[ExtResource("1_e7cdk")]([SubResource("Resource_qri7n"), SubResource("Resource_nanmv")])
+metadata/_custom_type_script = "uid://6av67jfqula5"
