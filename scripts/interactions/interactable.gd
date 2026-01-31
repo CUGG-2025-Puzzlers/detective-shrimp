@@ -98,6 +98,24 @@ func interaction() -> void:
 		else:
 			GameEvents.start_dialogue(grocery_dark)
 		return
+		
+	if name == "Upstairs":
+		Transition.transition()
+		await Transition.on_transition_finished
+		Globals.transition_to_scene(load("res://scenes/background art/hallway.tscn"))
+		return
+
+	if name == "Downstairs":
+		Transition.transition()
+		await Transition.on_transition_finished
+		Globals.transition_to_scene(load("res://scenes/background art/livingroom.tscn"))
+		return
+		
+	if name == "Bedroom Door":
+		Transition.transition()
+		await Transition.on_transition_finished
+		Globals.transition_to_scene(load("res://scenes/background art/bedroom.tscn"))
+		return
 
 	GameEvents.start_dialogue(dialogue)
 

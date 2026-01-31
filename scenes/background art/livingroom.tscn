@@ -4260,3 +4260,10 @@ offset_bottom = -12.000008
 scale = Vector2(1.292, 1.292)
 texture = ExtResource("14_re2fb")
 dialogue = ExtResource("15_5j3e2")
+
+[node name="Upstairs" parent="." instance=ExtResource("14_5j3e2")]
+offset_left = 154.0
+offset_top = -32.0
+offset_right = 186.0
+offset_bottom = 20.0
+interaction_range = 1000
