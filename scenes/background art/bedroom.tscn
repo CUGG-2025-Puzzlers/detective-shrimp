@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="9_yaebv"]
 [ext_resource type="Texture2D" uid="uid://ocjlr6rdfnjb" path="res://assets/background/pixelinterior_LRK/casette.png" id="10_ksv6u"]
 [ext_resource type="Script" uid="uid://0n23roro5u0u" path="res://scripts/interactions/puzzle_interactable.gd" id="11_j27r0"]
+[ext_resource type="Texture2D" uid="uid://dkir51ujummi4" path="res://assets/background/pixelinterior_LRK/letter.png" id="11_ksv6u"]
 [ext_resource type="Resource" uid="uid://egbyseh68n50" path="res://resources/dialogue/interact/living_room/casette_2.tres" id="12_uixac"]
 [ext_resource type="Resource" uid="uid://b21n78yes34o5" path="res://resources/dialogue/interact/living_room/casette_1.tres" id="13_3cprq"]
-[ext_resource type="Texture2D" uid="uid://dkir51ujummi4" path="res://assets/background/pixelinterior_LRK/letter.png" id="11_ksv6u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lv7wv"]
 texture = ExtResource("1_qgq5e")
@@ -2503,7 +2503,6 @@ sources/0 = SubResource("TileSetAtlasSource_804uw")
 sources/3 = SubResource("TileSetAtlasSource_yaebv")
 
 [node name="bedroom" type="Node2D"]
-position = Vector2(314, 165)
 
 [node name="background" type="TileMapLayer" parent="."]
 position = Vector2(314.00003, 178.00002)
@@ -2557,8 +2556,8 @@ offset_bottom = 81.0
 scale = Vector2(0.6071832, 4.767659)
 
 [node name="Encrypted Letter" parent="." instance=ExtResource("9_yaebv")]
-offset_left = -93.0
-offset_top = -24.0
-offset_right = -77.0
-offset_bottom = -8.0
+offset_left = 116.0
+offset_top = 153.0
+offset_right = 132.0
+offset_bottom = 169.0
 texture = ExtResource("11_ksv6u")
