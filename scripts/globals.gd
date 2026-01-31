@@ -5,7 +5,7 @@ signal requested_player_show()
 
 var game_settings: GameSettings = preload("res://resources/game_settings.tres")
 var car_scene: PackedScene = preload("res://scenes/cutscenes/car.tscn")
-var outside_scene: PackedScene = preload("res://scenes/mock_outside.tscn")
+var outside_scene: PackedScene = preload("res://scenes/background art/yard.tscn")
 
 var mouse_default = preload("res://textures/mouse_default.png")
 var mouse_move = preload("res://textures/mouse_move.png")
