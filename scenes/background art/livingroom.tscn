@@ -4223,6 +4223,10 @@ tile_map_data = PackedByteArray("AABj/y8AAAAAAAAAAABj/zAAAAAAAAAAAABj/zEAAAAAAAA
 tile_set = SubResource("TileSet_85mrj")
 
 [node name="Couch" parent="." instance=ExtResource("14_5j3e2")]
+offset_left = -166.0
+offset_top = 36.0
+offset_right = -118.0
+offset_bottom = 108.0
 texture = ExtResource("18_bu6ip")
 dialogue = ExtResource("19_w7phq")
 
