@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgktild8i0rtn"]
+
+[ext_resource type="PackedScene" uid="uid://lpkbd7fmqk8y" path="res://scenes/camera_2d.tscn" id="1_dyxox"]
+[ext_resource type="PackedScene" uid="uid://ca63dn5xn6ng" path="res://scenes/paper.tscn" id="2_773mc"]
+
+[node name="Letterslot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="camera_2d" parent="." instance=ExtResource("1_dyxox")]
+
+[node name="paper" parent="." instance=ExtResource("2_773mc")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="KnownLetter" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="UnknownLetter" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Hover" type="ColorRect" parent="VBoxContainer/UnknownLetter"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -55.0
+offset_right = 16.0
+offset_bottom = -15.0
