@@ -1586,6 +1586,7 @@ tile_map_data = PackedByteArray("AADu/wAAAAAAAAAAAADu/wEAAAAAAAAAAADu/wIAAAAAAAA
 tile_set = SubResource("TileSet_3vx0o")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_txc3n")]
+visible = false
 position = Vector2(-109.99999, -27.999998)
 scale = Vector2(1.05, 1.05)
 
