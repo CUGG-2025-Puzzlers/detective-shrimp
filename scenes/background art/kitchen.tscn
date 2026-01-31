@@ -5995,7 +5995,7 @@ offset_right = -111.0
 offset_bottom = 84.0
 texture = ExtResource("12_pu6ws")
 
-[node name="Basement Door" parent="." instance=ExtResource("10_yssk2")]
+[node name="LivingRoom Door" parent="." instance=ExtResource("10_yssk2")]
 offset_left = 190.0
 offset_top = -60.0
 offset_right = 220.0
