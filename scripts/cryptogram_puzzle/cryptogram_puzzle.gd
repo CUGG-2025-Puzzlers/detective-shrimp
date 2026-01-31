@@ -1,5 +1,5 @@
 class_name CryptogramPuzzle
-extends Node2D
+extends Puzzle
 
 const PLAINTEXT = "Nothing is so painful to the human mind as a great and sudden change. The sun might shine or the clouds might lower, but nothing could appear to me as it had done the day before."
 const KNOWN_LETTERS = ["t", "h", "s", "p", "u", "l", "m", "c"]
@@ -32,8 +32,15 @@ var root_container: VBoxContainer
 func _ready():
 	font = preload("res://assets/fonts/PixelOperator8-Bold.ttf")
 	_hide_paper_defaults()
-	CryptogramPuzzleEvents.puzzle_started.connect(_on_puzzle_started)
-	_on_puzzle_started()
+	_build_initial()
+
+func start():
+	CryptogramPuzzleEvents.start_puzzle()
+	_reset_puzzle()
+
+func finish():
+	GameEvents.letter_complete = true
+	CryptogramPuzzleEvents.complete_puzzle()
 
 func _hide_paper_defaults():
 	var paper = get_node_or_null("paper")
@@ -46,7 +53,11 @@ func _hide_paper_defaults():
 	if letter_slot:
 		letter_slot.visible = false
 
-func _on_puzzle_started():
+func _build_initial():
+	_clear_all()
+	_build_all()
+
+func _reset_puzzle():
 	is_active = true
 	player_guesses.clear()
 	selected_letter = ""
@@ -300,6 +311,6 @@ func _check_complete():
 		for panel in slot_panels[letter]:
 			var style = panel.get_theme_stylebox("panel") as StyleBoxFlat
 			style.bg_color = solved_color
-	# Wait for player to see solved then send signal
+	# Wait for player to see solved then signal GameEvents to close popup
 	await get_tree().create_timer(1.5).timeout
-	CryptogramPuzzleEvents.complete_puzzle()
+	GameEvents.finish_puzzle(GameEvents.PuzzleTrigger.PuzzleDecryption)
