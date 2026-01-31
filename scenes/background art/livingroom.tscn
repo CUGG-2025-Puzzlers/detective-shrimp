@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://7jgwmr3e8qj8"]
+[gd_scene load_steps=47 format=4 uid="uid://7jgwmr3e8qj8"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_7e8s8"]
 [ext_resource type="Script" uid="uid://rsau2eqd80m8" path="res://scripts/livingroom.gd" id="1_7wq2n"]
@@ -21,6 +21,11 @@
 [ext_resource type="Resource" uid="uid://cc1637v8qlbtl" path="res://resources/dialogue/interact/living_room/basement_locked.tres" id="15_5j3e2"]
 [ext_resource type="Texture2D" uid="uid://obel6hdj6tgb" path="res://assets/background/pixelinterior_LRK/couch.png" id="18_bu6ip"]
 [ext_resource type="Resource" uid="uid://dig4v4fapivui" path="res://resources/dialogue/interact/living_room/start_nap.tres" id="19_w7phq"]
+[ext_resource type="Script" uid="uid://0n23roro5u0u" path="res://scripts/interactions/puzzle_interactable.gd" id="20_safe"]
+[ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="21_safe"]
+[ext_resource type="PackedScene" uid="uid://hishica6nnlj" path="res://scenes/safe_puzzle/safe_puzzle.tscn" id="22_safe"]
+[ext_resource type="Resource" uid="uid://c8jh5usbwcpgf" path="res://resources/dialogue/interact/living_room/safe.tres" id="23_safe"]
+[ext_resource type="Resource" uid="uid://m8vy3qo4cyyr" path="res://resources/dialogue/interact/living_room/safe_open.tres" id="24_safe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wnl2"]
 texture = ExtResource("1_7e8s8")
@@ -4169,12 +4174,29 @@ scale = Vector2(1.6857804, 1.6857804)
 tile_map_data = PackedByteArray("AAAKAP//AAADAAEAAAAKAAAAAAADAAIAAAAKAAEAAAADAAMAAAABAP3/AAABAAgAAAA=")
 tile_set = SubResource("TileSet_po3oh")
 
+[node name="PuzzlePopup" parent="." node_paths=PackedStringArray("puzzle") instance=ExtResource("21_safe")]
+visible = false
+offset_left = -308.0
+offset_top = -163.0
+offset_right = 361.0
+offset_bottom = 235.0
+puzzle = NodePath("SafePuzzle")
+puzzle_trigger = 5
+
+[node name="SafePuzzle" parent="PuzzlePopup" instance=ExtResource("22_safe")]
+z_index = 100
+position = Vector2(196, 130)
+
 [node name="Safe" parent="." instance=ExtResource("14_5j3e2")]
 offset_left = 69.0
 offset_top = -65.0
 offset_right = 123.0
 offset_bottom = -38.0
 texture = ExtResource("9_85807")
+script = ExtResource("20_safe")
+puzzle_trigger = 5
+post_puzzle_dialogue = ExtResource("24_safe")
+dialogue = ExtResource("23_safe")
 
 [node name="Painting" parent="." instance=ExtResource("14_5j3e2")]
 offset_left = 69.0
