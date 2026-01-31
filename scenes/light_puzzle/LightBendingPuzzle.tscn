@@ -10,7 +10,7 @@
 [ext_resource type="TileSet" uid="uid://cvprit4qech2u" path="res://resources/wall_tileset.tres" id="6_73fua"]
 [ext_resource type="Script" uid="uid://cwbdtcw6r0ang" path="res://scripts/light_puzzle/shrimp_block_1.gd" id="8_fpgth"]
 [ext_resource type="Texture2D" uid="uid://rndify5hthyy" path="res://textures/light_puzzle/shrimp_block.png" id="9_uxdb3"]
-[ext_resource type="Script" path="res://scripts/light_puzzle/light_bending_puzzle.gd" id="10_lbp"]
+[ext_resource type="Script" uid="uid://dximtju08yc60" path="res://scripts/light_puzzle/light_bending_puzzle.gd" id="10_lbp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nk2lv"]
 radius = 3.0
@@ -27,6 +27,7 @@ size = Vector2(14, 14.000002)
 size = Vector2(16, 16)
 
 [node name="LightBendingPuzzle" type="Node2D"]
+z_index = 3
 script = ExtResource("10_lbp")
 
 [node name="LightSource" type="Area2D" parent="." groups=["light_source"]]
