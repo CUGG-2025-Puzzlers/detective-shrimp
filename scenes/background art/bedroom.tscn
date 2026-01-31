@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://e40t17p2oxny"]
+[gd_scene load_steps=28 format=4 uid="uid://e40t17p2oxny"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_qgq5e"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_vdss4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://wp6kbmyuqjb4" path="res://assets/background/pixelinterior_LRK/Sideviewdooor.png" id="8_xpy8l"]
 [ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="9_yaebv"]
 [ext_resource type="Texture2D" uid="uid://ocjlr6rdfnjb" path="res://assets/background/pixelinterior_LRK/casette.png" id="10_ksv6u"]
+[ext_resource type="Texture2D" uid="uid://dkir51ujummi4" path="res://assets/background/pixelinterior_LRK/letter.png" id="11_ksv6u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lv7wv"]
 texture = ExtResource("1_qgq5e")
@@ -2545,3 +2546,10 @@ offset_top = 65.0
 offset_right = 295.0
 offset_bottom = 81.0
 scale = Vector2(0.6071832, 4.767659)
+
+[node name="Encrypted Letter" parent="." instance=ExtResource("9_yaebv")]
+offset_left = -93.0
+offset_top = -24.0
+offset_right = -77.0
+offset_bottom = -8.0
+texture = ExtResource("11_ksv6u")
