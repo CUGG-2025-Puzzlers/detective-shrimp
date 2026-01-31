@@ -118,6 +118,12 @@ func interaction() -> void:
 		await Transition.on_transition_finished
 		Globals.transition_to_scene(load("res://scenes/background art/bedroom.tscn"))
 		return
+		
+	if name == "Bedroom->Hallway":
+		Transition.transition()
+		await Transition.on_transition_finished
+		Globals.transition_to_scene(load("res://scenes/background art/hallway.tscn"))
+		return
 
 	if name == "LivingRoom Door":
 		Transition.transition()
