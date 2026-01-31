@@ -24,7 +24,6 @@ texture = ExtResource("2_cw1ux")
 script = ExtResource("3_5tvyg")
 puzzle_trigger = 1
 post_puzzle_dialogue = ExtResource("4_1mut8")
-interaction_range = 0
 dialogue = ExtResource("3_waf1h")
 
 [node name="Interactable" parent="." instance=ExtResource("1_j1oyf")]
@@ -37,16 +36,18 @@ script = ExtResource("7_s1ij8")
 locked = true
 flag_check = "mailbox_complete"
 exit_scene = ExtResource("8_p6m3i")
-interaction_range = 0
 dialogue = ExtResource("9_16o86")
 
-[node name="PuzzlePopup" parent="." instance=ExtResource("10_16o86")]
+[node name="PuzzlePopup" parent="." node_paths=PackedStringArray("puzzle") instance=ExtResource("10_16o86")]
 visible = false
+puzzle = NodePath("Slide Puzzle 1")
+puzzle_trigger = 1
 
 [node name="Slide Puzzle 1" parent="PuzzlePopup" instance=ExtResource("4_waf1h")]
 position = Vector2(231, 52)
 
 [node name="Button" type="Button" parent="PuzzlePopup"]
+z_index = 2
 layout_mode = 0
 offset_left = 498.0
 offset_top = 14.0
