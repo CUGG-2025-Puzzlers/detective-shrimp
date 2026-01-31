@@ -84,6 +84,7 @@ func get_scene_from_enum(area: Area) -> PackedScene:
 		Area.Hallway: return load("res://scenes/background art/hallway.tscn")
 		Area.Bedroom: return load("res://scenes/background art/bedroom.tscn")
 		Area.Basement: return load("res://scenes/cutscenes/end.tscn")
+		Area.Credits: return load("res://scenes/end_credits.tscn")
 	
 	return null
 
@@ -107,6 +108,7 @@ enum Area {
 	Hallway,
 	Bedroom,
 	Basement,
+	Credits,
 }
 
 #endregion

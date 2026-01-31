@@ -10,7 +10,10 @@ func _ready() -> void:
 
 func _on_dialogue_ended(name: String):
 	if cur_texture == 4:
-		Transition.fade_out()
+		await get_tree().create_timer(2.5).timeout
+		Globals.transition_to_scene(Globals.Area.Credits, false)
+		return
+		
 	await get_tree().create_timer(2.5).timeout
 	return
 
