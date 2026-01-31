@@ -84,7 +84,8 @@ func interaction() -> void:
 			GameEvents.napped = true
 			GameEvents.start_dialogue(dialogue)
 			GameEvents.dialogue_ended.connect(_on_nap_start)
-			return
+			
+		return
 
 	GameEvents.start_dialogue(dialogue)
 

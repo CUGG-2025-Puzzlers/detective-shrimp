@@ -14,7 +14,7 @@ func _on_animation_finished(anim_name):
 		animation_player.play("fade_to_scene")
 	if anim_name == "fade_to_scene":
 		color_rect.visible = false
-		animation_player.animation_finished.disconnect()
+		animation_player.animation_finished.disconnect(_on_animation_finished)
 
 func transition():
 	animation_player.animation_finished.connect(_on_animation_finished)
@@ -26,5 +26,5 @@ func fade_out():
 	animation_player.play("fade_to_black")
 	
 func fade_in():
-	color_rect.visible = false
+	animation_player.animation_finished.connect(_on_animation_finished)
 	animation_player.play("fade_to_scene")
