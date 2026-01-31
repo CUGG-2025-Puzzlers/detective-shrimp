@@ -6023,7 +6023,6 @@ puzzle = NodePath("LightBendingPuzzle")
 puzzle_trigger = 3
 
 [node name="LightBendingPuzzle" parent="PuzzlePopup" instance=ExtResource("18_light")]
-position = Vector2(4, -3)
 
 [node name="Button" type="Button" parent="PuzzlePopup"]
 z_index = 2
