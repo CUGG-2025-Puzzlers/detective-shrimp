@@ -91,8 +91,4 @@ func create_confetti_gradient() -> Gradient:
 
 func trigger_victory():
 	print("VICTORY! Puzzle solved!")
-	GameEvents.reflection_complete = true
-	await get_tree().create_timer(2).timeout
-	Transition.transition()
-	await Transition.on_transition_finished
-	Globals.transition_to_scene(load("res://scenes/background art/kitchen.tscn"))
+	GameEvents.finish_puzzle(GameEvents.PuzzleTrigger.PuzzleLight)
