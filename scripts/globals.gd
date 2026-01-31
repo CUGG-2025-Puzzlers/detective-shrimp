@@ -6,6 +6,11 @@ signal requested_player_show(pos: Vector2)
 var game_settings: GameSettings = preload("res://resources/game_settings.tres")
 var car_scene: PackedScene = preload("res://scenes/cutscenes/car.tscn")
 var outside_scene: PackedScene = preload("res://scenes/background art/yard.tscn")
+var kitchen: PackedScene = preload("res://scenes/background art/kitchen.tscn")
+var living_room: PackedScene = preload("res://scenes/background art/livingroom.tscn")
+var hallway: PackedScene = preload("res://scenes/background art/hallway.tscn")
+var bedroom: PackedScene = preload("res://scenes/background art/bedroom.tscn")
+var end: PackedScene = preload("res://scenes/cutscenes/end.tscn")
 
 var mouse_default = preload("res://textures/mouse_default.png")
 var mouse_move = preload("res://textures/mouse_move.png")
@@ -57,15 +62,17 @@ func resend_mouse_click(pos: Vector2, pressed: bool) -> void:
 #region Game Flow
 
 func start_game():
-	transition_to_scene(car_scene, false)
+	transition_to_scene(Area.Car, false)
 
 func end_cutscene(cutscene: Cutscene):
 	match cutscene:
 		Cutscene.Car:
-			transition_to_scene(outside_scene, true, Vector2(610, 265))
+			transition_to_scene(Area.Yard, true, Vector2(610, 265))
 			
 
-func transition_to_scene(scene: PackedScene, show_player: bool = true, player_pos: Vector2 = Vector2.ZERO):
+func transition_to_scene(area: Area, show_player: bool = true, player_pos: Vector2 = Vector2.ZERO):
+	var scene = get_scene_from_enum(area)
+	
 	Transition.transition()
 	await Transition.on_transition_finished
 	get_tree().change_scene_to_packed(scene)
@@ -74,6 +81,18 @@ func transition_to_scene(scene: PackedScene, show_player: bool = true, player_po
 		show_player(player_pos)
 	else:
 		hide_player()
+
+func get_scene_from_enum(area: Area) -> PackedScene:
+	match area:
+		Area.Car: return car_scene
+		Area.Yard: return outside_scene
+		Area.Kitchen: return kitchen
+		Area.LivingRoom: return living_room
+		Area.Hallway: return hallway
+		Area.Bedroom: return bedroom
+		Area.Basement: return end
+	
+	return null
 
 func hide_player():
 	requested_player_hide.emit()
@@ -85,6 +104,16 @@ enum Cutscene {
 	None,
 	Car,
 	End,
+}
+
+enum Area {
+	Car,
+	Yard,
+	Kitchen,
+	LivingRoom,
+	Hallway,
+	Bedroom,
+	Basement,
 }
 
 #endregion

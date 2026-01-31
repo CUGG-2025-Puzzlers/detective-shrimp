@@ -2,7 +2,7 @@ extends Interactable
 
 @export var locked: bool
 @export var flag_check: String
-@export var exit_scene: PackedScene
+@export var exit_scene: Globals.Area
 @export var player_pos: Vector2
 
 func _ready() -> void:
