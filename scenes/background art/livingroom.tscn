@@ -24,8 +24,8 @@
 [ext_resource type="Script" uid="uid://0n23roro5u0u" path="res://scripts/interactions/puzzle_interactable.gd" id="20_safe"]
 [ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="21_safe"]
 [ext_resource type="PackedScene" uid="uid://hishica6nnlj" path="res://scenes/safe_puzzle/safe_puzzle.tscn" id="22_safe"]
-[ext_resource type="Resource" uid="uid://c8jh5usbwcpgf" path="res://resources/dialogue/interact/living_room/safe.tres" id="23_safe"]
-[ext_resource type="Resource" uid="uid://m8vy3qo4cyyr" path="res://resources/dialogue/interact/living_room/safe_open.tres" id="24_safe"]
+[ext_resource type="Resource" uid="uid://dlrptls2pgrce" path="res://resources/dialogue/interact/living_room/safe.tres" id="23_safe"]
+[ext_resource type="Resource" uid="uid://kq2wva06u211" path="res://resources/dialogue/interact/living_room/safe_open.tres" id="24_safe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wnl2"]
 texture = ExtResource("1_7e8s8")
@@ -4176,16 +4176,16 @@ tile_set = SubResource("TileSet_po3oh")
 
 [node name="PuzzlePopup" parent="." node_paths=PackedStringArray("puzzle") instance=ExtResource("21_safe")]
 visible = false
-offset_left = -308.0
-offset_top = -163.0
-offset_right = 361.0
-offset_bottom = 235.0
+offset_left = -314.0
+offset_top = -164.0
+offset_right = 326.0
+offset_bottom = 196.0
 puzzle = NodePath("SafePuzzle")
 puzzle_trigger = 5
 
 [node name="SafePuzzle" parent="PuzzlePopup" instance=ExtResource("22_safe")]
 z_index = 100
-position = Vector2(196, 130)
+position = Vector2(180, 113)
 
 [node name="Safe" parent="." instance=ExtResource("14_5j3e2")]
 offset_left = 69.0
@@ -4260,3 +4260,10 @@ offset_bottom = -12.000008
 scale = Vector2(1.292, 1.292)
 texture = ExtResource("14_re2fb")
 dialogue = ExtResource("15_5j3e2")
+
+[node name="Upstairs" parent="." instance=ExtResource("14_5j3e2")]
+offset_left = 154.0
+offset_top = -32.0
+offset_right = 186.0
+offset_bottom = 20.0
+interaction_range = 1000

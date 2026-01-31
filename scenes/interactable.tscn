@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cdlblr6cyo7tp" path="res://scripts/interactions/interactable.gd" id="1_56v82"]
 
-
 [node name="Interactable" type="TextureRect"]
 offset_right = 16.0
 offset_bottom = 16.0

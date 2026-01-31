@@ -65,7 +65,10 @@ offset_bottom = 143.0
 metadata/_edit_use_anchors_ = true
 
 [node name="start" type="Button" parent="button manager"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.10982659
+anchor_bottom = 0.10982659
 offset_left = -353.0
 offset_top = 45.0
 offset_right = 357.0
@@ -79,6 +82,7 @@ icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="options" type="Button" parent="button manager"]
+visible = false
 layout_mode = 0
 offset_left = -353.0
 offset_top = 85.0
@@ -94,6 +98,8 @@ metadata/_edit_use_anchors_ = true
 [node name="quit" type="Button" parent="button manager"]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = -0.06358381
+anchor_bottom = -0.06358381
 offset_left = -353.0
 offset_top = 125.0
 offset_right = 357.0
