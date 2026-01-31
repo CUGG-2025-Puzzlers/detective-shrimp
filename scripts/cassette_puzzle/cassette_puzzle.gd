@@ -1,6 +1,6 @@
 @tool
 class_name CassettePuzzle
-extends Node
+extends Puzzle
 
 @export var inputs : Array[InputWire]
 @export var gates : Array[Control]
@@ -46,11 +46,7 @@ func set_up_outputs():
 
 #endregion
 
-# Setup outputs
-func _ready() -> void:
-	if Engine.is_editor_hint():
-		return
-	
+func start():
 	if outputs.size() == 0:
 		print("Cannot start Cassette Puzzle, there are no outputs")
 		return
@@ -59,6 +55,10 @@ func _ready() -> void:
 		output.state_changed.connect(_on_outputs_state_changed)
 	
 	CassettePuzzleEvents.start_puzzle()
+
+func finish() -> void:
+	GameEvents.cassette_complete = true
+	CassettePuzzleEvents.complete_puzzle()
 
 # Checks for completion condition whenever an output is turned on
 func _on_outputs_state_changed(new_state: bool) -> void:
