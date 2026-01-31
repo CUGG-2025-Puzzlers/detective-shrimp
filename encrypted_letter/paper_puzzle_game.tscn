@@ -1,12 +1,811 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtn37j2r2xuby"]
+[gd_scene load_steps=5 format=3 uid="uid://dtn37j2r2xuby"]
 
-[ext_resource type="PackedScene" uid="uid://lpkbd7fmqk8y" path="res://scenes/camera_2d.tscn" id="1_ugtmm"]
-[ext_resource type="PackedScene" uid="uid://ca63dn5xn6ng" path="res://encrypted_letter/paper.tscn" id="2_qf0j5"]
+[ext_resource type="PackedScene" uid="uid://dm8ln6sh4h0f8" path="res://encrypted_letter/newpaper.tscn" id="1_70h41"]
+[ext_resource type="Script" uid="uid://cfawe1pxkclgp" path="res://scripts/h_box_container.gd" id="2_45n35"]
+[ext_resource type="PackedScene" uid="uid://cf8o2ue66tkr5" path="res://encrypted_letter/letter_slot.tscn" id="3_d3hqy"]
+[ext_resource type="Script" uid="uid://dxe1mk0verpau" path="res://scripts/letter_slot_1.gd" id="4_ejm1m"]
 
 [node name="paperPuzzleGame" type="Node2D"]
 
-[node name="Camera2D" parent="." instance=ExtResource("1_ugtmm")]
-position = Vector2(1, 2)
+[node name="paper2" parent="." instance=ExtResource("1_70h41")]
 
-[node name="paper" parent="." instance=ExtResource("2_qf0j5")]
-position = Vector2(3, 2)
+[node name="VBoxContainer" type="VBoxContainer" parent="paper2"]
+clip_contents = true
+layout_direction = 2
+offset_left = -82.0
+offset_top = -79.0
+offset_right = 78.0
+offset_bottom = 68.0
+theme_override_constants/separation = -2
+script = ExtResource("2_45n35")
+letter_slot_scene = ExtResource("3_d3hqy")
+text_content = "WE OFTEN STARE 
+SO INTENTLY AT 
+THE REGRETS HIDDEN 
+BEHIND THE FRAME 
+THAT WE FORGET
+THE PAINTING OF 
+OUR LIFE IS STILL 
+BEING CREATED."
+
+[node name="@HBoxContainer@200188" type="HBoxContainer" parent="paper2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+alignment = 1
+
+[node name="LetterSlot" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200188" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200189" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200188" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200191" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200188" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200192" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200188" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200193" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200188" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200194" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200188" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200195" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200188" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200197" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200188" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200198" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200188" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200199" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200188" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200200" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200188" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200201" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200188" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@HBoxContainer@200203" type="HBoxContainer" parent="paper2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+alignment = 1
+
+[node name="LetterSlot" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200203" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200204" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200203" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200206" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200203" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200207" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200203" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200208" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200203" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200209" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200203" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200210" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200203" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200211" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200203" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200212" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200203" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200213" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200203" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200215" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200203" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200216" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200203" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@HBoxContainer@200218" type="HBoxContainer" parent="paper2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+alignment = 1
+
+[node name="LetterSlot" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200219" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200220" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200222" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200223" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200224" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200225" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200226" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200227" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200228" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200230" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200231" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200232" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200233" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200234" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200235" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200218" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@HBoxContainer@200237" type="HBoxContainer" parent="paper2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+alignment = 1
+
+[node name="LetterSlot" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200238" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200239" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200240" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200241" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200242" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200244" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200245" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200246" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200248" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200249" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200250" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200251" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200252" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200237" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@HBoxContainer@200254" type="HBoxContainer" parent="paper2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+alignment = 1
+
+[node name="LetterSlot" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200254" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200255" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200254" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200256" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200254" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200257" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200254" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200259" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200254" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200260" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200254" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200262" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200254" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200263" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200254" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200264" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200254" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200265" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200254" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200266" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200254" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200267" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200254" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@HBoxContainer@200268" type="HBoxContainer" parent="paper2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+alignment = 1
+
+[node name="LetterSlot" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200269" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200270" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200272" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200273" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200274" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200275" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200276" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200277" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200278" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200279" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200281" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200282" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200268" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@HBoxContainer@200284" type="HBoxContainer" parent="paper2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+alignment = 1
+
+[node name="LetterSlot" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200285" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200286" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200288" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200289" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200290" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200291" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200293" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200294" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200296" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200297" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200298" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200299" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200300" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200284" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@HBoxContainer@200302" type="HBoxContainer" parent="paper2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+alignment = 1
+
+[node name="LetterSlot" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200303" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200304" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200305" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200306" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200308" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200309" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200310" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200311" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200312" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200313" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200314" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")
+
+[node name="@Control@200315" type="Control" parent="paper2/VBoxContainer/@HBoxContainer@200302" instance=ExtResource("3_d3hqy")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_ejm1m")

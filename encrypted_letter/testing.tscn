@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6nvwrdvuua2u"]
+
+[ext_resource type="PackedScene" uid="uid://dm8ln6sh4h0f8" path="res://encrypted_letter/newpaper.tscn" id="1_bs54k"]
+[ext_resource type="Script" uid="uid://dxe1mk0verpau" path="res://scripts/letter_slot_1.gd" id="4_bs54k"]
+[ext_resource type="PackedScene" uid="uid://cf8o2ue66tkr5" path="res://encrypted_letter/letter_slot.tscn" id="4_daqg0"]
+[ext_resource type="Script" uid="uid://cfawe1pxkclgp" path="res://scripts/h_box_container.gd" id="5_daqg0"]
+
+[node name="testing" type="Node2D"]
+
+[node name="paper2" parent="." instance=ExtResource("1_bs54k")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_direction = 2
+offset_left = -82.0
+offset_top = -79.0
+offset_right = 78.0
+offset_bottom = 68.0
+theme_override_constants/separation = -2
+script = ExtResource("5_daqg0")
+letter_slot_scene = ExtResource("4_daqg0")
+difficulty_level = 2
+text_content = "WE OFTEN STARE 
+SO INTENTLY AT 
+THE REGRETS HIDDEN 
+BEHIND THE FRAME 
+THAT WE FORGET
+THE PAINTING OF 
+OUR LIFE IS STILL 
+BEING CREATED."
+
+[node name="@HBoxContainer@238484" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+alignment = 1
+
+[node name="LetterSlot" type="Control" parent="VBoxContainer/@HBoxContainer@238484" instance=ExtResource("4_daqg0")]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_bs54k")

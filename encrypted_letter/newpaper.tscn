@@ -1,17 +1,17 @@
-[gd_scene load_steps=23 format=4 uid="uid://ca63dn5xn6ng"]
+[gd_scene load_steps=23 format=4 uid="uid://dm8ln6sh4h0f8"]
 
-[ext_resource type="PackedScene" uid="uid://lpkbd7fmqk8y" path="res://scenes/camera_2d.tscn" id="1_vas6c"]
-[ext_resource type="Texture2D" uid="uid://1eyj6fdhmafi" path="res://assets/plain paper (texture)/1.png" id="2_lkpnm"]
-[ext_resource type="Texture2D" uid="uid://dviry2dsugusf" path="res://assets/plain paper (texture)/2.png" id="3_hnojf"]
-[ext_resource type="Texture2D" uid="uid://bbdlav8ukx01l" path="res://assets/plain paper (texture)/3.png" id="4_6yxq7"]
-[ext_resource type="Texture2D" uid="uid://dgvru2m3u2ihg" path="res://assets/plain paper (texture)/Example.png" id="5_h7ly7"]
-[ext_resource type="Texture2D" uid="uid://duww6a0twk5qn" path="res://assets/plain paper (texture)/5.png" id="6_invp3"]
-[ext_resource type="Texture2D" uid="uid://b5trnwyq0iqs2" path="res://assets/plain paper (texture)/7.png" id="7_xoyd6"]
-[ext_resource type="Texture2D" uid="uid://dm12t6gxxsmr7" path="res://assets/plain paper (texture)/4.png" id="8_yodfr"]
-[ext_resource type="Texture2D" uid="uid://cpjbxqnty44a7" path="res://assets/plain paper (texture)/9.png" id="9_tf5m5"]
+[ext_resource type="PackedScene" uid="uid://lpkbd7fmqk8y" path="res://scenes/camera_2d.tscn" id="1_a3utm"]
+[ext_resource type="Texture2D" uid="uid://1eyj6fdhmafi" path="res://assets/plain paper (texture)/1.png" id="2_2wrfw"]
+[ext_resource type="Texture2D" uid="uid://dviry2dsugusf" path="res://assets/plain paper (texture)/2.png" id="3_xxx77"]
+[ext_resource type="Texture2D" uid="uid://bbdlav8ukx01l" path="res://assets/plain paper (texture)/3.png" id="4_w1bn6"]
+[ext_resource type="Texture2D" uid="uid://dgvru2m3u2ihg" path="res://assets/plain paper (texture)/Example.png" id="5_71i56"]
+[ext_resource type="Texture2D" uid="uid://duww6a0twk5qn" path="res://assets/plain paper (texture)/5.png" id="6_34uut"]
+[ext_resource type="Texture2D" uid="uid://b5trnwyq0iqs2" path="res://assets/plain paper (texture)/7.png" id="7_ww0eq"]
+[ext_resource type="Texture2D" uid="uid://dm12t6gxxsmr7" path="res://assets/plain paper (texture)/4.png" id="8_yg01j"]
+[ext_resource type="Texture2D" uid="uid://cpjbxqnty44a7" path="res://assets/plain paper (texture)/9.png" id="9_0fmq3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fhxge"]
-texture = ExtResource("2_lkpnm")
+texture = ExtResource("2_2wrfw")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -19,15 +19,15 @@ texture_region_size = Vector2i(32, 32)
 1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtgq2"]
-texture = ExtResource("3_hnojf")
+texture = ExtResource("3_xxx77")
 texture_region_size = Vector2i(50, 50)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gdpnj"]
-texture = ExtResource("4_6yxq7")
+texture = ExtResource("4_w1bn6")
 texture_region_size = Vector2i(50, 50)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebh1w"]
-texture = ExtResource("5_h7ly7")
+texture = ExtResource("5_71i56")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:1/0 = 0
@@ -41,33 +41,33 @@ texture_region_size = Vector2i(32, 32)
 2:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3g63a"]
-texture = ExtResource("6_invp3")
+texture = ExtResource("6_34uut")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uev2u"]
-texture = ExtResource("7_xoyd6")
+texture = ExtResource("7_ww0eq")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtdtr"]
-texture = ExtResource("4_6yxq7")
+texture = ExtResource("4_w1bn6")
 margins = Vector2i(2, 2)
 texture_region_size = Vector2i(28, 28)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmel3"]
-texture = ExtResource("8_yodfr")
+texture = ExtResource("8_yg01j")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ua5"]
-texture = ExtResource("9_tf5m5")
+texture = ExtResource("9_0fmq3")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y6dhq"]
-texture = ExtResource("3_hnojf")
+texture = ExtResource("3_xxx77")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
@@ -85,7 +85,7 @@ sources/8 = SubResource("TileSetAtlasSource_p1ua5")
 sources/9 = SubResource("TileSetAtlasSource_y6dhq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lkpnm"]
-texture = ExtResource("4_6yxq7")
+texture = ExtResource("4_w1bn6")
 margins = Vector2i(2, 2)
 texture_region_size = Vector2i(28, 28)
 0:0/0 = 0
@@ -95,17 +95,17 @@ sources/0 = SubResource("TileSetAtlasSource_lkpnm")
 
 [node name="paper" type="Sprite2D"]
 
-[node name="Camera2D" parent="." instance=ExtResource("1_vas6c")]
+[node name="Camera2D" parent="." instance=ExtResource("1_a3utm")]
 position = Vector2(-3, 0)
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="bg" type="Node2D" parent="."]
 position = Vector2(-3, 0)
 
-[node name="paper1" type="TileMapLayer" parent="Node2D"]
+[node name="paper1" type="TileMapLayer" parent="bg"]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD///z/AwABAAAAAAD+//z/AwABAAIAADAAAPz/AwABAAIAADABAPz/AwABAAAAAAACAPz/AwACAAAAAAD9/wMABQAAAAAAAAD+/wMAAwABAAIAAAD//wMAAwABAAAAADAAAAMAAwABAAIAAAABAAMAAwABAAAAADACAAMACAAAAAAAAAD9//3/BwAAAAAAAAD9//7/BwAAAAAAAAD9////BwAAAAAAAAD9/wAABwAAAAAAAAD9/wEABwAAAAAAAAD9/wIABwAAAAAAAAD+/wIAAwABAAEAAAD+/wEAAwABAAEAAAD+////AwABAAEAAAD+//7/AwABAAEAAAD+//3/AwABAAEAAAD///3/AwABAAEAAAD///7/AwABAAEAAAD/////AwABAAEAAAD//wAAAwABAAEAAAD//wEAAwABAAEAAAD//wIAAwABAAEAAAAAAAIAAwABAAEAAAAAAAEAAwABAAEAAAABAAEAAwABAAEAAAABAAAAAwABAAEAAAABAP//AwABAAEAAAAAAP//AwABAAEAAAAAAP7/AwABAAEAAAAAAP3/AwABAAEAAAAAAAAAAwABAAEAAAABAAIAAwABAAEAAAACAAIAAwACAAEAAAACAAEAAwACAAEAAAACAAAAAwACAAEAAAACAP//AwACAAEAAAACAP7/AwAAAAEAADACAP3/AwACAAEAAAABAP3/AwABAAEAAAABAP7/AwABAAEAAAD9//z/AAAAAAAAAAD+/wAAAwABAAEAAAA=")
 tile_set = SubResource("TileSet_3g63a")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Node2D"]
+[node name="TileMapLayer" type="TileMapLayer" parent="bg"]
 tile_map_data = PackedByteArray("AAAEAPn/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_hnojf")

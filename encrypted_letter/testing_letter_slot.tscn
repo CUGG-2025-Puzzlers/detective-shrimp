@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cf8o2ue66tkr5"]
+[gd_scene load_steps=9 format=3 uid="uid://c5v5rk530sxcl"]
 
-[ext_resource type="Script" uid="uid://dxe1mk0verpau" path="res://scripts/letter_slot_1.gd" id="1_11dhy"]
-[ext_resource type="FontFile" uid="uid://dp421ommw2lqx" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_as5k5"]
+[ext_resource type="Script" uid="uid://dxe1mk0verpau" path="res://scripts/letter_slot_1.gd" id="1_kox0o"]
+[ext_resource type="FontFile" uid="uid://dp421ommw2lqx" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_l86bm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uex03"]
 bg_color = Color(0.67, 0.67, 0.67, 0.21176471)
@@ -39,7 +39,7 @@ offset_right = -73.0
 offset_bottom = -84.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-script = ExtResource("1_11dhy")
+script = ExtResource("1_kox0o")
 
 [node name="hover" type="Button" parent="."]
 custom_minimum_size = Vector2(9, 14)
@@ -62,7 +62,7 @@ offset_bottom = 26.0
 mouse_filter = 2
 theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
 theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
-theme_override_fonts/font = ExtResource("2_as5k5")
+theme_override_fonts/font = ExtResource("2_l86bm")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxEmpty_as5k5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_231hd")
@@ -70,4 +70,13 @@ alignment = 1
 max_length = 1
 middle_mouse_paste_enabled = false
 
+[node name="underline" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 19.0
+offset_right = 11.0
+offset_bottom = 20.0
+color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+
 [connection signal="pressed" from="hover" to="." method="_on_hover_pressed"]
+[connection signal="text_changed" from="hover/char" to="." method="_on_text_changed"]
