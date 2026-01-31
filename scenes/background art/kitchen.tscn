@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://stupsk6vmjcq"]
+[gd_scene load_steps=46 format=4 uid="uid://stupsk6vmjcq"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_mwmjw"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_cwf2y"]
@@ -14,6 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://cjt0q1emt5qaq" path="res://assets/background/pixelinterior_LRK/mirror.png" id="12_pu6ws"]
 [ext_resource type="Texture2D" uid="uid://dwyfvxfuvsabh" path="res://assets/background/pixelinterior_LRK/door.png" id="13_4p702"]
 [ext_resource type="Resource" uid="uid://cc1637v8qlbtl" path="res://resources/dialogue/interact/living_room/basement_locked.tres" id="14_1il4y"]
+[ext_resource type="Script" uid="uid://ctt3ig2kkmt8" path="res://scripts/kitchen.gd" id="15_kitch"]
+[ext_resource type="Script" uid="uid://0n23roro5u0u" path="res://scripts/interactions/puzzle_interactable.gd" id="16_pzint"]
+[ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="17_popup"]
+[ext_resource type="PackedScene" uid="uid://mcdlnsiojpgm" path="res://scenes/light_puzzle/LightBendingPuzzle.tscn" id="18_light"]
+[ext_resource type="Resource" uid="uid://brlgeynt04lr" path="res://resources/dialogue/interact/kitchen/mirror.tres" id="19_mirrd"]
+[ext_resource type="Resource" uid="uid://btwlko81ooq53" path="res://resources/dialogue/interact/kitchen/reflection_win.tres" id="20_refwn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efyc0"]
 texture = ExtResource("1_mwmjw")
@@ -5935,6 +5941,7 @@ texture = ExtResource("10_1r0rb")
 sources/1 = SubResource("TileSetAtlasSource_yssk2")
 
 [node name="kitchen" type="Node2D"]
+script = ExtResource("15_kitch")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, -1)
@@ -5994,6 +6001,10 @@ offset_top = 52.0
 offset_right = -111.0
 offset_bottom = 84.0
 texture = ExtResource("12_pu6ws")
+script = ExtResource("16_pzint")
+puzzle_trigger = 3
+post_puzzle_dialogue = ExtResource("20_refwn")
+dialogue = ExtResource("19_mirrd")
 
 [node name="LivingRoom Door" parent="." instance=ExtResource("10_yssk2")]
 offset_left = 190.0
@@ -6003,3 +6014,16 @@ offset_bottom = -12.0
 scale = Vector2(1.292, 1.292)
 texture = ExtResource("13_4p702")
 dialogue = ExtResource("14_1il4y")
+
+[node name="PuzzlePopup" parent="." node_paths=PackedStringArray("puzzle") instance=ExtResource("17_popup")]
+visible = false
+z_index = 50
+offset_left = -312.0
+offset_top = -181.0
+offset_right = 328.0
+offset_bottom = 179.0
+puzzle = NodePath("LightBendingPuzzle")
+puzzle_trigger = 3
+
+[node name="LightBendingPuzzle" parent="PuzzlePopup" instance=ExtResource("18_light")]
+z_index = 100

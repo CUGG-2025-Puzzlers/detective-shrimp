@@ -93,7 +93,7 @@ func interaction() -> void:
 			GameEvents.dialogue_ended.connect(_on_nap_start)
 		return
 		
-	if name == "Groceries": 
+	if name == "Groceries":
 		if GameEvents.reflection_complete:
 			GameEvents.grocery_list = true
 			GameEvents.start_dialogue(grocery_light)
@@ -131,6 +131,12 @@ func interaction() -> void:
 		else:
 			GameEvents.start_dialogue(dialogue)
 			GameEvents.dialogue_ended.connect(_on_mirror_puzzle_start)
+		return
+
+	if name == "LivingRoom Door":
+		Transition.fade_out()
+		await get_tree().create_timer(1).timeout
+		Globals.transition_to_scene(load("res://scenes/background art/livingroom.tscn"))
 		return
 
 	GameEvents.start_dialogue(dialogue)
