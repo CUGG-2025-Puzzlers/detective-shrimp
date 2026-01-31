@@ -5988,8 +5988,8 @@ offset_bottom = -4.5999994
 texture = ExtResource("11_pu6ws")
 
 [node name="Interactable2" parent="." instance=ExtResource("10_yssk2")]
-offset_left = -145.0
+offset_left = -143.0
 offset_top = 52.0
-offset_right = -113.0
+offset_right = -111.0
 offset_bottom = 84.0
 texture = ExtResource("12_pu6ws")
