@@ -15,6 +15,7 @@ var end_nap: Dialogue
 var post_nap: Dialogue
 var grocery_light: Dialogue
 var grocery_dark: Dialogue
+var reflection_win: Dialogue
 
 func _ready() -> void:
 	mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN
@@ -28,6 +29,7 @@ func _ready() -> void:
 	post_nap = preload("res://resources/dialogue/interact/living_room/post_nap.tres")
 	grocery_light = preload("res://resources/dialogue/interact/kitchen/grocery_light.tres")
 	grocery_dark = preload("res://resources/dialogue/interact/kitchen/grocery_dark.tres")
+	reflection_win = preload("res://resources/dialogue/interact/kitchen/reflection_win.tres")
 
 func _process(delta: float) -> void:
 	if not interactable and is_player_in_range():
@@ -117,6 +119,20 @@ func interaction() -> void:
 		Globals.transition_to_scene(load("res://scenes/background art/bedroom.tscn"))
 		return
 
+	if name == "LivingRoom Door":
+		Transition.transition()
+		await Transition.on_transition_finished
+		Globals.transition_to_scene(load("res://scenes/background art/livingroom.tscn"))
+		return
+
+	if name == "Mirror":
+		if GameEvents.reflection_complete:
+			GameEvents.start_dialogue(reflection_win)
+		else:
+			GameEvents.start_dialogue(dialogue)
+			GameEvents.dialogue_ended.connect(_on_mirror_puzzle_start)
+		return
+
 	GameEvents.start_dialogue(dialogue)
 
 func _on_nap_start(name: String):
@@ -131,6 +147,12 @@ func _on_nap_end(name:String):
 	Transition.fade_in()
 	await get_tree().create_timer(1.2).timeout
 	GameEvents.start_dialogue(end_nap)
+
+func _on_mirror_puzzle_start(name: String):
+	GameEvents.dialogue_ended.disconnect(_on_mirror_puzzle_start)
+	Transition.transition()
+	await Transition.on_transition_finished
+	Globals.transition_to_scene(load("res://scenes/light_puzzle/LightBendingPuzzle.tscn"))
 
 func _on_enter_basement(name: String):
 	GameEvents.dialogue_ended.disconnect(_on_enter_basement)
