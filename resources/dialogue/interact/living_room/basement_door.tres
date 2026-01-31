@@ -8,7 +8,7 @@
 script = ExtResource("1_ax2tl")
 speaker_name = "Shrimplock Holmes"
 speaker_portrait = ExtResource("2_slsl1")
-text = "I have a bad feeling about this. I’m not supposed to be here. 
+text = "I have a bad feeling about this. I'm not supposed to be here. 
 "
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
@@ -16,14 +16,14 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 script = ExtResource("1_ax2tl")
 speaker_name = "Shrimplock Holmes"
 speaker_portrait = ExtResource("2_slsl1")
-text = "Something’s not right. Henry didn’t want me to come back here for a reason. I shouldn’t be here alone."
+text = "Something's not right. Henry didn't want me to come back here for a reason. I shouldn't be here alone."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_vhp3p"]
 script = ExtResource("1_ax2tl")
 speaker_name = "Shrimplock Holmes"
 speaker_portrait = ExtResource("2_slsl1")
-text = "I don’t feel so good…"
+text = "I don't feel so good…"
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]

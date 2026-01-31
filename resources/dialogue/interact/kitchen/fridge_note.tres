@@ -6,13 +6,13 @@
 
 [sub_resource type="Resource" id="Resource_qri7n"]
 script = ExtResource("1_m6wph")
-text = "There’s a note on the fridge, but it’s too dark to read what it says."
+text = "There's a note on the fridge, but it's too dark to read what it says."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_tfbqv"]
 script = ExtResource("1_m6wph")
 speaker_portrait = ExtResource("2_5fs54")
-text = "I wonder if there’s some way to light up the letter…"
+text = "I wonder if there's some way to light up the letter…"
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]
