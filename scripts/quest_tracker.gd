@@ -36,7 +36,7 @@ func _ready() -> void:
 	Globals.requested_player_show.connect(_on_player_show)
 	Globals.requested_player_hide.connect(_on_player_hide)
 
-func _on_player_show() -> void:
+func _on_player_show(pos: Vector2) -> void:
 	player_active = true
 	if current_quest_index < quests.size():
 		control_node.visible = true
