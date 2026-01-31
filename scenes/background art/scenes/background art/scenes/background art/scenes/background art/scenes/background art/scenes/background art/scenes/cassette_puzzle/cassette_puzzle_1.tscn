@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://ch13qt1fo7jef"]
+
+[ext_resource type="PackedScene" uid="uid://bukxbwoax8pwc" path="res://scenes/cassette_puzzle/input_wire.tscn" id="1_nlxpi"]
+[ext_resource type="PackedScene" uid="uid://cyi8enbwjas5f" path="res://scenes/cassette_puzzle/gates/xor_gate.tscn" id="2_ddvrl"]
+[ext_resource type="PackedScene" uid="uid://6irm70cy4miu" path="res://scenes/cassette_puzzle/gates/and_gate.tscn" id="3_nlxpi"]
+[ext_resource type="PackedScene" uid="uid://dvwbe6v72jqgb" path="res://scenes/cassette_puzzle/gates/relay_gate.tscn" id="4_io58p"]
+[ext_resource type="PackedScene" uid="uid://u6t6nj04n00i" path="res://scenes/cassette_puzzle/gates/or_gate.tscn" id="5_ah7v1"]
+[ext_resource type="PackedScene" uid="uid://brtj6y84xuyc0" path="res://scenes/cassette_puzzle/gates/not_gate.tscn" id="6_m2i0q"]
+[ext_resource type="PackedScene" path="res://scenes/cassette_puzzle/output_wire.tscn" id="7_ddvrl"]
+[ext_resource type="Script" uid="uid://xo6incmk80r6" path="res://scripts/cassette_puzzle/cassette_puzzle.gd" id="7_nlxpi"]
+
+[node name="Casette Puzzle 1" type="Node2D" node_paths=PackedStringArray("inputs", "gates", "outputs")]
+script = ExtResource("7_nlxpi")
+inputs = [NodePath("Inputs/InputWire"), NodePath("Inputs/InputWire2"), NodePath("Inputs/InputWire3"), NodePath("Inputs/InputWire4"), NodePath("Inputs/InputWire5"), NodePath("Inputs/InputWire6"), NodePath("Inputs/InputWire7"), NodePath("Inputs/InputWire8")]
+gates = [NodePath("Gates/OR Gate"), NodePath("Gates/XOR Gate"), NodePath("Gates/NOT Gate"), NodePath("Gates/XOR Gate2"), NodePath("Gates/XOR Gate3"), NodePath("Gates/RELAY Gate"), NodePath("Gates/AND Gate"), NodePath("Gates/OR Gate2"), NodePath("Gates/AND Gate2")]
+outputs = [NodePath("Outputs/Output")]
+
+[node name="Inputs" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="InputWire" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(68, 4)
+state = true
+
+[node name="InputWire2" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(68, 36)
+
+[node name="InputWire3" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(4, 68)
+state = true
+
+[node name="InputWire4" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(4, 100)
+
+[node name="InputWire5" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(4, 132)
+state = true
+
+[node name="InputWire6" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(4, 164)
+state = true
+
+[node name="InputWire7" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(68, 196)
+state = true
+
+[node name="InputWire8" parent="Inputs" instance=ExtResource("1_nlxpi")]
+position = Vector2(68, 228)
+
+[node name="Gates" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="OR Gate" parent="Gates" instance=ExtResource("5_ah7v1")]
+offset_left = 52.0
+offset_top = 72.0
+offset_right = 84.0
+offset_bottom = 104.0
+
+[node name="XOR Gate" parent="Gates" instance=ExtResource("2_ddvrl")]
+offset_left = 52.0
+offset_top = 136.0
+offset_right = 84.0
+offset_bottom = 168.0
+
+[node name="NOT Gate" parent="Gates" instance=ExtResource("6_m2i0q")]
+offset_left = 148.0
+offset_top = 8.0
+offset_right = 180.0
+offset_bottom = 40.0
+
+[node name="XOR Gate2" parent="Gates" instance=ExtResource("2_ddvrl")]
+offset_left = 132.0
+offset_top = 72.0
+offset_right = 164.0
+offset_bottom = 104.0
+
+[node name="XOR Gate3" parent="Gates" instance=ExtResource("2_ddvrl")]
+offset_left = 132.0
+offset_top = 136.0
+offset_right = 164.0
+offset_bottom = 168.0
+
+[node name="RELAY Gate" parent="Gates" instance=ExtResource("4_io58p")]
+offset_left = 148.0
+offset_top = 192.0
+offset_right = 180.0
+offset_bottom = 224.0
+
+[node name="AND Gate" parent="Gates" instance=ExtResource("3_nlxpi")]
+offset_left = 212.0
+offset_top = 72.0
+offset_right = 244.0
+offset_bottom = 104.0
+
+[node name="OR Gate2" parent="Gates" instance=ExtResource("5_ah7v1")]
+offset_left = 212.0
+offset_top = 136.0
+offset_right = 244.0
+offset_bottom = 168.0
+
+[node name="AND Gate2" parent="Gates" instance=ExtResource("3_nlxpi")]
+offset_left = 276.0
+offset_top = 104.0
+offset_right = 308.0
+offset_bottom = 136.0
+
+[node name="Outputs" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Output" parent="Outputs" instance=ExtResource("7_ddvrl")]
+position = Vector2(348, 116)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://b22w1ntebwvio"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_0p6ir"]
+[ext_resource type="Texture2D" uid="uid://dnj7wnnwrgas6" path="res://textures/cameron/cameron_normal.png" id="2_0mmrl"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="2_a00ip"]
+
+[sub_resource type="Resource" id="Resource_uq7gm"]
+script = ExtResource("1_0p6ir")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_0mmrl")
+text = "I should probably just grab the spare key from the mailbox and wait inside..."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("2_a00ip")
+name = "Leave Attempt - 0 Puzzles"
+lines = Array[ExtResource("1_0p6ir")]([SubResource("Resource_uq7gm")])
+metadata/_custom_type_script = "uid://6av67jfqula5"
