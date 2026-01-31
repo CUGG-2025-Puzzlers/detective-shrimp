@@ -27,6 +27,8 @@ DialogueBox="*res://scenes/dialogue_box.tscn"
 Player="*res://scenes/characters/player.tscn"
 Transition="*res://scenes/cutscenes/transition.tscn"
 QuestTracker="*res://scenes/quest_tracker.tscn"
+CryptogramPuzzleEvents="*res://scripts/cryptogram_puzzle/cryptogram_puzzle_events.gd"
+
 
 [display]
 
