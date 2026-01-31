@@ -5,6 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_ejmy5"]
 script = ExtResource("1_yc81o")
+speaker_name = "Basement Door"
 text = "It's locked."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 

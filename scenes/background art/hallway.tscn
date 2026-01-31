@@ -1595,8 +1595,8 @@ offset_bottom = 252.0
 script = ExtResource("8_3vx0o")
 locked = false
 flag_check = ""
-exit_scene = 0
-player_pos = Vector2(0, 0)
+exit_scene = 3
+player_pos = Vector2(446, 162)
 
 [node name="Bedroom Door" parent="." instance=ExtResource("8_gq6ba")]
 offset_left = 159.0
@@ -1604,7 +1604,7 @@ offset_top = 108.0
 offset_right = 200.0
 offset_bottom = 174.0
 script = ExtResource("8_3vx0o")
-locked = false
-flag_check = ""
+locked = true
+flag_check = "reflection_complete"
 exit_scene = 5
 player_pos = Vector2(568, 284)
