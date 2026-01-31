@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://hishica6nnlj"]
+[gd_scene load_steps=5 format=3 uid="uid://hishica6nnlj"]
 
 [ext_resource type="Script" uid="uid://qa2s0vnygumi" path="res://scripts/safe_puzzle/safe_puzzle.gd" id="1_safe"]
 [ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://fonts/m5x7.ttf" id="2_font"]
+[ext_resource type="Texture2D" uid="uid://cenox7e2uoov3" path="res://textures/ui/dialogue_backgroung.png" id="2_sk2c2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_digit"]
 bg_color = Color(0.15, 0.15, 0.15, 1)
@@ -18,9 +19,20 @@ corner_radius_bottom_left = 2
 [node name="SafePuzzle" type="Node2D"]
 script = ExtResource("1_safe")
 
+[node name="Background" type="NinePatchRect" parent="."]
+offset_right = 280.0
+offset_bottom = 134.0
+texture = ExtResource("2_sk2c2")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
-offset_right = 248.0
-offset_bottom = 118.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 264.0
+offset_bottom = 134.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
