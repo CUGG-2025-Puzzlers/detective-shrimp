@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=7 format=3 uid="uid://bxqpr5qepyneq"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_nt5g2"]
+[ext_resource type="Texture2D" uid="uid://cycrol8exbgwh" path="res://textures/cameron/cameron_annoyed.png" id="2_225uk"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="2_ocupt"]
+[ext_resource type="Texture2D" uid="uid://box8oppoxrodb" path="res://textures/cameron/cameron_happy.png" id="3_m6uxx"]
+
+[sub_resource type="Resource" id="Resource_qri7n"]
+script = ExtResource("1_nt5g2")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_225uk")
+text = "This letter seems to be missing some letters..."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_10kbx"]
+script = ExtResource("1_nt5g2")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_m6uxx")
+text = "Shrimptective is on the case!"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("2_ocupt")
+name = "Encrypted Letter"
+lines = Array[ExtResource("1_nt5g2")]([SubResource("Resource_qri7n"), SubResource("Resource_10kbx")])
+metadata/_custom_type_script = "uid://6av67jfqula5"
