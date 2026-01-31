@@ -71,19 +71,18 @@ func _on_timer_finished():
 
 func open(dialogue):
 	visible = true
+	$%CanvasLayer.show()
 	cur_dialogue = dialogue
 	displayNextLine()
 
 func close():
 	visible = false
-	
+	$%CanvasLayer.hide()
 	if cur_dialogue == null:
 		return
-	
+	GameEvents.end_dialogue(cur_dialogue.name)
 	cur_line = 0
 	cur_dialogue = null
-	
-	GameEvents.end_dialogue()
 
 func displayNextLine():
 	if !visible:
@@ -98,3 +97,5 @@ func displayNextLine():
 	cur_char_index = 0
 	$%TextTimer.wait_time = text_speed
 	$%TextTimer.start()
+	
+	GameEvents.end_dialogue_line(cur_line)

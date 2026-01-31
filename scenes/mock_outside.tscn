@@ -1,0 +1,58 @@
+[gd_scene load_steps=13 format=3 uid="uid://dm67cgcrnoipj"]
+
+[ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="1_j1oyf"]
+[ext_resource type="Texture2D" uid="uid://70881sv3vhhg" path="res://textures/slide_puzzle/block_2x1.png" id="2_cw1ux"]
+[ext_resource type="Script" uid="uid://0n23roro5u0u" path="res://scripts/interactions/puzzle_interactable.gd" id="3_5tvyg"]
+[ext_resource type="Resource" uid="uid://bj8cd0ekfafes" path="res://resources/dialogue/interact/outside/mailbox.tres" id="3_waf1h"]
+[ext_resource type="Resource" uid="uid://bett2pocdc5qm" path="res://resources/dialogue/interact/outside/mailbox_post.tres" id="4_1mut8"]
+[ext_resource type="PackedScene" uid="uid://dc4tvs8q0i3hb" path="res://scenes/slide_puzzle/slide_puzzle_1.tscn" id="4_waf1h"]
+[ext_resource type="Texture2D" uid="uid://cegc6eogkm7jl" path="res://textures/light_puzzle/tileset_3_16x16.png" id="6_c7mg8"]
+[ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="7_s1ij8"]
+[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="8_6c4pk"]
+[ext_resource type="PackedScene" uid="uid://7jgwmr3e8qj8" path="res://scenes/background art/livingroom.tscn" id="8_p6m3i"]
+[ext_resource type="Resource" uid="uid://c2xvplti0h34q" path="res://resources/dialogue/interact/outside/outside_door.tres" id="9_16o86"]
+[ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="10_16o86"]
+
+[node name="MockOutside" type="Node2D"]
+
+[node name="Mailbox" parent="." instance=ExtResource("1_j1oyf")]
+offset_left = 455.0
+offset_top = 132.0
+offset_right = 487.0
+offset_bottom = 196.0
+texture = ExtResource("2_cw1ux")
+script = ExtResource("3_5tvyg")
+puzzle_trigger = 1
+post_puzzle_dialogue = ExtResource("4_1mut8")
+dialogue = ExtResource("3_waf1h")
+
+[node name="Interactable" parent="." instance=ExtResource("1_j1oyf")]
+offset_left = 136.0
+offset_top = 131.0
+offset_right = 168.0
+offset_bottom = 195.0
+texture = ExtResource("6_c7mg8")
+script = ExtResource("7_s1ij8")
+locked = true
+flag_check = "mailbox_complete"
+exit_scene = ExtResource("8_p6m3i")
+dialogue = ExtResource("9_16o86")
+
+[node name="PuzzlePopup" parent="." node_paths=PackedStringArray("puzzle") instance=ExtResource("10_16o86")]
+visible = false
+puzzle = NodePath("Slide Puzzle 1")
+puzzle_trigger = 1
+
+[node name="Slide Puzzle 1" parent="PuzzlePopup" instance=ExtResource("4_waf1h")]
+position = Vector2(231, 52)
+
+[node name="Button" type="Button" parent="PuzzlePopup"]
+z_index = 2
+layout_mode = 0
+offset_left = 498.0
+offset_top = 14.0
+offset_right = 634.0
+offset_bottom = 45.0
+text = "Complete Puzzle"
+script = ExtResource("8_6c4pk")
+puzzle_trigger = 1

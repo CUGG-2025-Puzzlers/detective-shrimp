@@ -1,22 +1,15 @@
 extends Node2D
 
+@export var background_music: AudioStream
 
+func _ready() -> void:
+	AudioManager.play_background_music(background_music)
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_level.tscn")
-
+	Globals.start_game()
 
 func _on_options_pressed() -> void:
 	pass # Replace with function body.
 
-
-
-
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-
-
-
-func _on_audio_stream_player_finished() -> void:
-	await get_tree().create_timer(5.0).timeout
-	$AudioStreamPlayer.play()

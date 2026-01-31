@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" uid="uid://quest_tracker" path="res://scripts/quest_tracker.gd" id="1_quest"]
+[ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://fonts/m5x7.ttf" id="2_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0, 0, 0, 0.5)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+content_margin_left = 6.0
+content_margin_top = 4.0
+content_margin_right = 6.0
+content_margin_bottom = 4.0
+
+[node name="QuestTracker" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_quest")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 440.0
+offset_top = 8.0
+offset_right = 632.0
+offset_bottom = 36.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 28.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="QuestLabel" type="RichTextLabel" parent="Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_font")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Interact with the mailbox"
+scroll_active = false
+fit_content = true

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://bett2pocdc5qm"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_abnop"]
+[ext_resource type="Texture2D" uid="uid://dnj7wnnwrgas6" path="res://textures/cameron/cameron_normal.png" id="2_q8v0t"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="2_whdho"]
+
+[sub_resource type="Resource" id="Resource_20ysl"]
+script = ExtResource("1_abnop")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_q8v0t")
+text = "I guess Henry hasn't checked his mail in a while."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("2_whdho")
+name = "Mailbox Interact - Post Puzzle"
+lines = Array[ExtResource("1_abnop")]([SubResource("Resource_20ysl")])
+metadata/_custom_type_script = "uid://6av67jfqula5"

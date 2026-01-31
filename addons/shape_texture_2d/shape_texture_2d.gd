@@ -1,4 +1,4 @@
-@tool
+s@tool
 extends Texture2D
 class_name ShapeTexture2D
 

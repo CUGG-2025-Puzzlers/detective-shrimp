@@ -1,18 +1,24 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://bj8cd0ekfafes"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=6 format=3 uid="uid://bj8cd0ekfafes"]
 
 [ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_suj0v"]
 [ext_resource type="Texture2D" uid="uid://cycrol8exbgwh" path="res://textures/cameron/cameron_annoyed.png" id="2_di62p"]
 [ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="2_ki55u"]
 
+[sub_resource type="Resource" id="Resource_di62p"]
+script = ExtResource("1_suj0v")
+speaker_name = "Mailbox"
+text = "The mailbox is overflowing with unread mail."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
 [sub_resource type="Resource" id="Resource_qri7n"]
 script = ExtResource("1_suj0v")
 speaker_name = "Shrimplock Holmes"
 speaker_portrait = ExtResource("2_di62p")
-text = "I see the key in here, but it’s blocked by mail. I’ll need to rearrange the packages to get the key."
+text = "I see the key in there, but there's too much mail. I’ll need to rearrange the packages to get the key."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]
 script = ExtResource("2_ki55u")
 name = "Mailbox Interact"
-lines = Array[ExtResource("1_suj0v")]([SubResource("Resource_qri7n")])
+lines = Array[ExtResource("1_suj0v")]([SubResource("Resource_di62p"), SubResource("Resource_qri7n")])
 metadata/_custom_type_script = "uid://6av67jfqula5"

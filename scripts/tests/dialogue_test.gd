@@ -43,5 +43,5 @@ func _ready() -> void:
 func onDisplayStart(dialogue: Dialogue) -> void:
 	print("Started Dialogue: ", dialogue.name)
 
-func onDisplayEnd() -> void:
+func onDisplayEnd(name: String) -> void:
 	print("Ended Dialogue")

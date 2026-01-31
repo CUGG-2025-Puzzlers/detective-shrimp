@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://kq2wva06u211"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_line"]
+[ext_resource type="Texture2D" uid="uid://box8oppoxrodb" path="res://textures/cameron/cameron_happy.png" id="2_happy"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="3_dlg"]
+
+[sub_resource type="Resource" id="Resource_safe2"]
+script = ExtResource("1_line")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_happy")
+text = "The safe is already open."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("3_dlg")
+name = "Safe Open"
+lines = Array[ExtResource("1_line")]([SubResource("Resource_safe2")])
+metadata/_custom_type_script = "uid://6av67jfqula5"

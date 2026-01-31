@@ -11,17 +11,24 @@ config_version=5
 [application]
 
 config/name="Detective Shrimp"
-run/main_scene="uid://dk2lkyxm55tc0"
+run/main_scene="uid://dkrxhuquv6u7e"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameEvents="*res://scripts/game_events.gd"
 Globals="*res://scripts/globals.gd"
+GameEvents="*res://scripts/game_events.gd"
 SlidePuzzleEvents="*res://scripts/slide_puzzle/slide_puzzle_events.gd"
 CassettePuzzleEvents="*res://scripts/cassette_puzzle/cassette_puzzle_events.gd"
+SafePuzzleEvents="*res://scripts/safe_puzzle/safe_puzzle_events.gd"
+AudioManager="*res://scenes/audio_manager.tscn"
+DialogueBox="*res://scenes/dialogue_box.tscn"
+Player="*res://scenes/characters/player.tscn"
+Transition="*res://scenes/cutscenes/transition.tscn"
+QuestTracker="*res://scenes/quest_tracker.tscn"
 CryptogramPuzzleEvents="*res://scripts/cryptogram_puzzle/cryptogram_puzzle_events.gd"
+
 
 [display]
 
@@ -65,5 +72,6 @@ textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 anti_aliasing/quality/msaa_2d=1
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 2d/canvas_textures/default_texture_filter=0
 2d/quality/msaa_2d=0
