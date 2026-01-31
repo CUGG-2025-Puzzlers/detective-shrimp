@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://xbadgawwhojf"]
+[gd_scene load_steps=26 format=4 uid="uid://xbadgawwhojf"]
 
 [ext_resource type="Texture2D" uid="uid://c56xp07qi7tkm" path="res://assets/background/16x16 TopDown Nature/4_Seasons_Ground_Tiles.png" id="1_3a355"]
 [ext_resource type="Texture2D" uid="uid://8ohi2tgm0k0x" path="res://assets/background/dark-abstract-background.jpg" id="1_b5d1x"]
@@ -10,11 +10,10 @@
 [ext_resource type="Resource" uid="uid://bj8cd0ekfafes" path="res://resources/dialogue/interact/outside/mailbox.tres" id="7_426ft"]
 [ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="8_fjkrq"]
 [ext_resource type="PackedScene" uid="uid://dc4tvs8q0i3hb" path="res://scenes/slide_puzzle/slide_puzzle_1.tscn" id="9_tb1nq"]
-[ext_resource type="Script" path="res://scripts/tests/complete_puzzle_test.gd" id="10_grp46"]
-[ext_resource type="Resource" uid="uid://c2xvplti0h34q" path="res://resources/dialogue/interact/outside/outside_door.tres" id="11_b5d1x"]
+[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="10_grp46"]
 [ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="11_grp46"]
-[ext_resource type="PackedScene" uid="uid://stupsk6vmjcq" path="res://scenes/background art/kitchen.tscn" id="12_b5d1x"]
 [ext_resource type="Resource" uid="uid://cc1637v8qlbtl" path="res://resources/dialogue/interact/living_room/basement_locked.tres" id="12_f2p5c"]
+[ext_resource type="Resource" uid="uid://c2xvplti0h34q" path="res://resources/dialogue/interact/outside/outside_door.tres" id="13_grp46"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2p5c"]
 texture = ExtResource("1_b5d1x")
@@ -2124,9 +2123,9 @@ offset_bottom = 283.0
 script = ExtResource("11_grp46")
 locked = true
 flag_check = "mailbox_complete"
-exit_scene = ExtResource("12_b5d1x")
-player_pos = Vector2(66, 194)
-dialogue = ExtResource("11_b5d1x")
+exit_scene = 2
+player_pos = Vector2(56, 196)
+dialogue = ExtResource("13_grp46")
 
 [node name="Front Door" parent="." instance=ExtResource("4_ughhp")]
 offset_left = 116.0

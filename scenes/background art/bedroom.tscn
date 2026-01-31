@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://e40t17p2oxny"]
+[gd_scene load_steps=40 format=4 uid="uid://e40t17p2oxny"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_qgq5e"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_vdss4"]
@@ -17,8 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="14_csd8x"]
 [ext_resource type="Resource" uid="uid://b21n78yes34o5" path="res://resources/dialogue/interact/living_room/casette_1.tres" id="14_qepsd"]
 [ext_resource type="PackedScene" uid="uid://ch13qt1fo7jef" path="res://scenes/cassette_puzzle/cassette_puzzle_1.tscn" id="15_ln1au"]
-[ext_resource type="Script" path="res://scripts/tests/complete_puzzle_test.gd" id="16_g12pr"]
+[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="16_g12pr"]
 [ext_resource type="Resource" uid="uid://cncjgmkjgv72l" path="res://resources/dialogue/interact/bedroom/encrypted_letter_post.tres" id="18_g12pr"]
+[ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="18_lkots"]
 [ext_resource type="PackedScene" uid="uid://n4wqsj43w5yj" path="res://scenes/cryptogram_puzzle/cryptogram_puzzle.tscn" id="20_crypt"]
 [ext_resource type="Resource" uid="uid://bxqpr5qepyneq" path="res://resources/dialogue/interact/bedroom/encrypted_letter.tres" id="20_h1e11"]
 
@@ -2581,12 +2582,17 @@ text = "Complete Puzzle"
 script = ExtResource("16_g12pr")
 puzzle_trigger = 2
 
-[node name="Bedroom->Hallway" parent="." instance=ExtResource("9_yaebv")]
-offset_left = 593.0
+[node name="Door" parent="." instance=ExtResource("9_yaebv")]
+offset_left = 586.0
 offset_top = 243.0
-offset_right = 609.0
+offset_right = 613.5286
 offset_bottom = 259.0
 scale = Vector2(0.6071832, 4.767659)
+script = ExtResource("18_lkots")
+locked = false
+flag_check = ""
+exit_scene = 4
+player_pos = Vector2(176, 160)
 
 [node name="Encrypted Letter" parent="." instance=ExtResource("9_yaebv")]
 offset_left = 116.0
