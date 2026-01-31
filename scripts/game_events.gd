@@ -11,6 +11,7 @@ var letter_complete: bool = false
 #Interact flag
 var grocery_list: bool = false
 var safe: bool = false
+var napped: bool = false
 
 #endregion
 
@@ -18,7 +19,7 @@ var safe: bool = false
 
 signal dialogue_started(dialogue: Dialogue)
 signal dialogue_line_ended(cur_line: int)
-signal dialogue_ended()
+signal dialogue_ended(name: String)
 
 func start_dialogue(dialogue: Dialogue):
 	dialogue_started.emit(dialogue)
@@ -26,8 +27,8 @@ func start_dialogue(dialogue: Dialogue):
 func end_dialogue_line(cur_line: int):
 	dialogue_line_ended.emit(cur_line)
 
-func end_dialogue():
-	dialogue_ended.emit()
+func end_dialogue(name: String):
+	dialogue_ended.emit(name)
 
 #endregion
 

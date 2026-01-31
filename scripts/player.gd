@@ -54,5 +54,5 @@ func _on_requested_player_show():
 func _on_dialogue_started(dialogue: Dialogue):
 	canMove = false
 
-func _on_dialogue_ended():
+func _on_dialogue_ended(name: String):
 	canMove = true

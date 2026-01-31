@@ -10,6 +10,9 @@ var interacting = false
 
 var basement_dialogue: Dialogue
 var painting_dialogue: Dialogue
+var mid_nap: Dialogue
+var end_nap: Dialogue
+var post_nap: Dialogue
 
 func _ready() -> void:
 	mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN
@@ -18,7 +21,9 @@ func _ready() -> void:
 	
 	basement_dialogue = preload("res://resources/dialogue/interact/living_room/basement_door.tres")
 	painting_dialogue = preload("res://resources/dialogue/interact/living_room/painting_open.tres")
-
+	mid_nap = preload("res://resources/dialogue/interact/living_room/mid_nap.tres")
+	end_nap = preload("res://resources/dialogue/interact/living_room/end_nap.tres")
+	post_nap = preload("res://resources/dialogue/interact/living_room/post_nap.tres")
 func _process(delta: float) -> void:
 	if not interactable and is_player_in_range():
 		interactable = true
@@ -44,7 +49,7 @@ func _on_mouse_down() -> void:
 func _on_dialogue_started(dialogue: Dialogue) -> void:
 	disable()
 
-func _on_dialogue_ended() -> void:
+func _on_dialogue_ended(name: String) -> void:
 	enable()
 
 #endregion
@@ -72,11 +77,34 @@ func interaction() -> void:
 		GameEvents.start_dialogue(painting_dialogue)
 		return
 
+	if name == "Couch": 
+		if GameEvents.napped:
+			GameEvents.start_dialogue(post_nap)
+		else:
+			GameEvents.napped = true
+			GameEvents.start_dialogue(dialogue)
+			GameEvents.dialogue_ended.connect(_on_nap_start)
+			return
+
 	GameEvents.start_dialogue(dialogue)
 
-func _on_enter_basement():
+func _on_nap_start(name: String):
+	GameEvents.dialogue_ended.disconnect(_on_nap_start)
+	Transition.fade_out()
+	await get_tree().create_timer(1.2).timeout
+	GameEvents.start_dialogue(mid_nap)
+	GameEvents.dialogue_ended.connect(_on_nap_end)
+
+func _on_nap_end(name:String):
+	GameEvents.dialogue_ended.disconnect(_on_nap_end)
+	Transition.fade_in()
+	await get_tree().create_timer(1.2).timeout
+	GameEvents.start_dialogue(end_nap)
+
+func _on_enter_basement(name: String):
 	GameEvents.dialogue_ended.disconnect(_on_enter_basement)
 	Transition.fade_out()
+	await get_tree().create_timer(1).timeout
 	Globals.transition_to_scene(load("res://scenes/cutscenes/end.tscn"))
 
 func enable() -> void:

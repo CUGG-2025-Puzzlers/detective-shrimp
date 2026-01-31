@@ -15,17 +15,22 @@ offset_right = 536.0
 offset_bottom = 344.0
 script = ExtResource("1_hvmm2")
 
-[node name="Background" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_right = 432.0
-offset_bottom = 72.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+
+[node name="Background" type="NinePatchRect" parent="CanvasLayer"]
+offset_left = 104.0
+offset_top = 272.0
+offset_right = 536.0
+offset_bottom = 344.0
 texture = ExtResource("1_tm68y")
 patch_margin_left = 5
 patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="Name Card" type="NinePatchRect" parent="Background"]
+[node name="Name Card" type="NinePatchRect" parent="CanvasLayer/Background"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 4.0
@@ -37,14 +42,14 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="Name" parent="Background/Name Card" instance=ExtResource("3_hvmm2")]
+[node name="Name" parent="CanvasLayer/Background/Name Card" instance=ExtResource("3_hvmm2")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
 offset_right = 120.0
 text = "Cameron"
 
-[node name="Text" parent="Background" instance=ExtResource("3_hvmm2")]
+[node name="Text" parent="CanvasLayer/Background" instance=ExtResource("3_hvmm2")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 72.0
@@ -53,10 +58,10 @@ offset_right = 416.0
 offset_bottom = 60.0
 text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
 
-[node name="TextTimer" type="Timer" parent="Background/Text"]
+[node name="TextTimer" type="Timer" parent="CanvasLayer/Background/Text"]
 unique_name_in_owner = true
 
-[node name="Portrait" type="TextureRect" parent="Background"]
+[node name="Portrait" type="TextureRect" parent="CanvasLayer/Background"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 4.0

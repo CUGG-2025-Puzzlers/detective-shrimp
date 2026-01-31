@@ -26,5 +26,5 @@ func fade_out():
 	animation_player.play("fade_to_black")
 	
 func fade_in():
-	color_rect.visible = true
+	color_rect.visible = false
 	animation_player.play("fade_to_scene")

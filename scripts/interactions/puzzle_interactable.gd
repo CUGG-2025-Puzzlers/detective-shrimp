@@ -3,7 +3,7 @@ extends Interactable
 @export var puzzle_trigger: GameEvents.PuzzleTrigger
 @export var post_puzzle_dialogue: Dialogue
 
-func _on_dialogue_ended() -> void:
+func _on_dialogue_ended(name: String) -> void:
 	if not interacting or GameEvents.puzzle_already_completed(puzzle_trigger):
 		enable()
 		return

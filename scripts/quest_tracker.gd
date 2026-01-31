@@ -46,7 +46,7 @@ func _on_player_hide() -> void:
 	player_active = false
 	control_node.visible = false
 
-func _on_dialogue_ended() -> void:
+func _on_dialogue_ended(name: String) -> void:
 	_try_complete("dialogue_ended", null)
 
 func _on_puzzle_started(trigger: GameEvents.PuzzleTrigger) -> void:
