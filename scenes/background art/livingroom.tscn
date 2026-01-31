@@ -4175,6 +4175,7 @@ tile_map_data = PackedByteArray("AAAKAP//AAADAAEAAAAKAAAAAAADAAIAAAAKAAEAAAADAAM
 tile_set = SubResource("TileSet_po3oh")
 
 [node name="PuzzlePopup" parent="." node_paths=PackedStringArray("puzzle") instance=ExtResource("21_safe")]
+visible = false
 offset_left = -314.0
 offset_top = -164.0
 offset_right = 326.0
