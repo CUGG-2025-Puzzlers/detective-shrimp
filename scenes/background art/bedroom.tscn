@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="14_csd8x"]
 [ext_resource type="Resource" uid="uid://b21n78yes34o5" path="res://resources/dialogue/interact/living_room/casette_1.tres" id="14_qepsd"]
 [ext_resource type="PackedScene" uid="uid://ch13qt1fo7jef" path="res://scenes/cassette_puzzle/cassette_puzzle_1.tscn" id="15_ln1au"]
-[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="16_g12pr"]
+[ext_resource type="Script" path="res://scripts/tests/complete_puzzle_test.gd" id="16_g12pr"]
 [ext_resource type="Resource" uid="uid://cncjgmkjgv72l" path="res://resources/dialogue/interact/bedroom/encrypted_letter_post.tres" id="18_g12pr"]
 [ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="18_lkots"]
 [ext_resource type="PackedScene" uid="uid://n4wqsj43w5yj" path="res://scenes/cryptogram_puzzle/cryptogram_puzzle.tscn" id="20_crypt"]
@@ -2572,6 +2572,7 @@ puzzle_trigger = 2
 position = Vector2(16, 16)
 
 [node name="Button" type="Button" parent="Cassette Popup"]
+visible = false
 z_index = 2
 layout_mode = 0
 offset_left = 476.0
@@ -2615,6 +2616,7 @@ z_index = 3
 position = Vector2(320, 180)
 
 [node name="Button" type="Button" parent="Letter Popup"]
+visible = false
 z_index = 2
 layout_mode = 0
 offset_left = 476.0

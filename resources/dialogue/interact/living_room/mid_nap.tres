@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_qri7n"]
 script = ExtResource("1_ueptu")
-text = "Since shrimps are cold-blooded, the couch remains cold. But at least it’s not alone anymore."
+text = "Since shrimps are cold-blooded, the couch remains cold. But at least it's not alone anymore."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]

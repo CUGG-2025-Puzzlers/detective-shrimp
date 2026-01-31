@@ -13,7 +13,7 @@
 script = ExtResource("1_gqfwq")
 speaker_name = "Shrimplock Holmes"
 speaker_portrait = ExtResource("2_jft4x")
-text = "It’s getting late, I’ll call to check on him. "
+text = "It's getting late, I'll call to check on him. "
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_gqfwq"]
@@ -133,7 +133,7 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 script = ExtResource("1_gqfwq")
 speaker_name = "Shrimplock Holmes"
 speaker_portrait = ExtResource("3_ejmy5")
-text = "Let’s start by looking around the house for clues."
+text = "Let's start by looking around the house for clues."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]

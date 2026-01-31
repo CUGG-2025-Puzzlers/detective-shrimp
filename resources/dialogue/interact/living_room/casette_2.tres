@@ -12,7 +12,7 @@
 script = ExtResource("1_fwdl7")
 speaker_name = "Shrimplock Holmes"
 speaker_portrait = ExtResource("2_kjs5m")
-text = "Phew! All in a day’s work. "
+text = "Phew! All in a day's work. "
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_tii3y"]
@@ -109,7 +109,7 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 script = ExtResource("1_fwdl7")
 speaker_name = "???"
 speaker_portrait = ExtResource("3_fwdl7")
-text = "I fudged some numbers. We’re actually at $999,800."
+text = "I fudged some numbers. We're actually at $999,800."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_deotb"]
@@ -123,7 +123,7 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 script = ExtResource("1_fwdl7")
 speaker_name = "Henry"
 speaker_portrait = ExtResource("4_kjs5m")
-text = "You know I don’t like when you take it."
+text = "You know I don't like when you take it."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_xo24k"]
@@ -137,7 +137,7 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 script = ExtResource("1_fwdl7")
 speaker_name = "???"
 speaker_portrait = ExtResource("3_fwdl7")
-text = "Don’t worry, I’ll be fine-"
+text = "Don't worry, I'll be fine-"
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_itkqb"]

@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 script = ExtResource("1_suj0v")
 speaker_name = "Shrimplock Holmes"
 speaker_portrait = ExtResource("2_di62p")
-text = "I see the key in there, but there's too much mail. I’ll need to rearrange the packages to get the key."
+text = "I see the key in there, but there's too much mail. I'll need to rearrange the packages to get the key."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]
