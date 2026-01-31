@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://stupsk6vmjcq"]
+[gd_scene load_steps=48 format=4 uid="uid://stupsk6vmjcq"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_mwmjw"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_cwf2y"]
@@ -21,8 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="17_popup"]
 [ext_resource type="PackedScene" uid="uid://mcdlnsiojpgm" path="res://scenes/light_puzzle/LightBendingPuzzle.tscn" id="18_light"]
 [ext_resource type="Resource" uid="uid://brlgeynt04lr" path="res://resources/dialogue/interact/kitchen/mirror.tres" id="19_mirrd"]
+[ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="20_ace1i"]
 [ext_resource type="Resource" uid="uid://btwlko81ooq53" path="res://resources/dialogue/interact/kitchen/reflection_win.tres" id="20_refwn"]
-[ext_resource type="Script" path="res://scripts/tests/complete_puzzle_test.gd" id="21_7g777"]
+[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="21_7g777"]
+[ext_resource type="PackedScene" uid="uid://7jgwmr3e8qj8" path="res://scenes/background art/livingroom.tscn" id="21_djy2o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efyc0"]
 texture = ExtResource("1_mwmjw")
@@ -5228,6 +5230,11 @@ offset_right = 536.0
 offset_bottom = 165.0
 scale = Vector2(1.292, 1.292)
 texture = ExtResource("13_4p702")
+script = ExtResource("20_ace1i")
+locked = false
+flag_check = ""
+exit_scene = ExtResource("21_djy2o")
+player_pos = Vector2(0, 0)
 dialogue = ExtResource("14_1il4y")
 
 [node name="PuzzlePopup" parent="." node_paths=PackedStringArray("puzzle") instance=ExtResource("17_popup")]
