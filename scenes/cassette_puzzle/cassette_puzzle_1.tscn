@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://xo6incmk80r6" path="res://scripts/cassette_puzzle/cassette_puzzle.gd" id="7_nlxpi"]
 
 [node name="Casette Puzzle 1" type="Node2D" node_paths=PackedStringArray("inputs", "gates", "outputs")]
+z_index = 3
 script = ExtResource("7_nlxpi")
 inputs = [NodePath("Inputs/InputWire"), NodePath("Inputs/InputWire2"), NodePath("Inputs/InputWire3"), NodePath("Inputs/InputWire4"), NodePath("Inputs/InputWire5"), NodePath("Inputs/InputWire6"), NodePath("Inputs/InputWire7"), NodePath("Inputs/InputWire8")]
 gates = [NodePath("Gates/OR Gate"), NodePath("Gates/XOR Gate"), NodePath("Gates/NOT Gate"), NodePath("Gates/XOR Gate2"), NodePath("Gates/XOR Gate3"), NodePath("Gates/RELAY Gate"), NodePath("Gates/AND Gate"), NodePath("Gates/OR Gate2"), NodePath("Gates/AND Gate2")]

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bfhsl8g57pdfd" path="res://scenes/slide_puzzle/pieces/piece_2x2.tscn" id="6_t6tvq"]
 
 [node name="Slide Puzzle 1" type="Node2D"]
+z_index = 3
 script = ExtResource("1_fc65t")
 
 [node name="Board" parent="." node_paths=PackedStringArray("pieces") instance=ExtResource("1_fw6dy")]
