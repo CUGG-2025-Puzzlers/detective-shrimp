@@ -5234,7 +5234,7 @@ script = ExtResource("20_ace1i")
 locked = false
 flag_check = ""
 exit_scene = ExtResource("21_djy2o")
-player_pos = Vector2(0, 0)
+player_pos = Vector2(64, 280)
 dialogue = ExtResource("14_1il4y")
 
 [node name="PuzzlePopup" parent="." node_paths=PackedStringArray("puzzle") instance=ExtResource("17_popup")]
