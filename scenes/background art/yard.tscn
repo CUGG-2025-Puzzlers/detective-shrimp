@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=4 uid="uid://dtgbddf6t85w7"]
 
-[ext_resource type="Texture2D" uid="uid://c56xp07qi7tkm" path="res://assets/background/16x16 TopDown Nature/4_Seasons_Ground_Tiles.png" id="2_cvr5o"]
-[ext_resource type="Texture2D" uid="uid://cf8c5tj8hgjbe" path="res://assets/background/House 2.png" id="2_e3kx7"]
-[ext_resource type="Texture2D" uid="uid://bxmqf66kfi0ju" path="res://assets/background/975bb2b3ef472065d5482e3f50f8d164.png" id="3_cvr5o"]
+[ext_resource type="Texture2D" uid="uid://c56xp07qi7tkm" path="res://assets/background/16x16 TopDown Nature/4_Seasons_Ground_Tiles.png" id="1_3a355"]
+[ext_resource type="Texture2D" uid="uid://cf8c5tj8hgjbe" path="res://assets/background/House 2.png" id="2_otrge"]
+[ext_resource type="Texture2D" uid="uid://bxmqf66kfi0ju" path="res://assets/background/975bb2b3ef472065d5482e3f50f8d164.png" id="3_8hp3h"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cvr5o"]
 load_path = "res://.godot/imported/4_Seasons_Ground_Tiles.png-0fa96633052aea274b60136c53ebe47d.ctex"
@@ -119,7 +119,7 @@ texture = SubResource("CompressedTexture2D_cvr5o")
 8:11/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g7wxf"]
-texture = ExtResource("2_cvr5o")
+texture = ExtResource("1_3a355")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -230,7 +230,7 @@ texture = ExtResource("2_cvr5o")
 8:11/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gkmhu"]
-texture = ExtResource("2_e3kx7")
+texture = ExtResource("2_otrge")
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
@@ -457,7 +457,7 @@ texture = ExtResource("2_e3kx7")
 2:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xw55"]
-texture = ExtResource("3_cvr5o")
+texture = ExtResource("3_8hp3h")
 32:18/0 = 0
 33:18/0 = 0
 34:18/0 = 0
@@ -852,7 +852,7 @@ sources/3 = SubResource("TileSetAtlasSource_gkmhu")
 sources/4 = SubResource("TileSetAtlasSource_0xw55")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6ggx"]
-texture = ExtResource("3_cvr5o")
+texture = ExtResource("3_8hp3h")
 32:18/0 = 0
 33:18/0 = 0
 34:18/0 = 0
