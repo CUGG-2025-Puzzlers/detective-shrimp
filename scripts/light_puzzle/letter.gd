@@ -91,15 +91,4 @@ func create_confetti_gradient() -> Gradient:
 
 func trigger_victory():
 	print("VICTORY! Puzzle solved!")
-
-	# Option 1: Load next level
-	# get_tree().change_scene_to_file("res://next_level.tscn")
-
-	# Option 2: Show victory UI
-	# get_tree().call_group("ui", "show_victory_screen")
-
-	# Option 3: Restart current level
-	# get_tree().reload_current_scene()
-
-	# For now, just pause and print
 	get_tree().paused = true
