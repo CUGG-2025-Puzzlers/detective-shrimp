@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=13 format=3 uid="uid://dpb00sgfygffd"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_otu21"]
+[ext_resource type="Texture2D" uid="uid://cycrol8exbgwh" path="res://textures/cameron/cameron_annoyed.png" id="2_584ga"]
+[ext_resource type="Texture2D" uid="uid://dk8k5kb8tphqx" path="res://textures/cameron/cameron_sus.png" id="3_ce3xw"]
+[ext_resource type="Texture2D" uid="uid://dnj7wnnwrgas6" path="res://textures/cameron/cameron_normal.png" id="4_woaup"]
+[ext_resource type="Texture2D" uid="uid://b2r8sbjjl8kyu" path="res://textures/cameron/cameron_angry.png" id="5_53u7g"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="6_1fvb8"]
+
+[sub_resource type="Resource" id="Resource_wluuy"]
+script = ExtResource("1_otu21")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_584ga")
+text = "2 cloves of garlic.."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_jxi2o"]
+script = ExtResource("1_otu21")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_584ga")
+text = "1 stick of butter.."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_jhv10"]
+script = ExtResource("1_otu21")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_584ga")
+text = "6 lemons.."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_ywm2w"]
+script = ExtResource("1_otu21")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("3_ce3xw")
+text = "7 pounds of lime!?"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_cx3bl"]
+script = ExtResource("1_otu21")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("4_woaup")
+text = "Oh, it's just a grocery list."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[sub_resource type="Resource" id="Resource_qri7n"]
+script = ExtResource("1_otu21")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("5_53u7g")
+text = "What a waste of time!"
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("6_1fvb8")
+name = "Grocery Interact 1"
+lines = Array[ExtResource("1_otu21")]([SubResource("Resource_wluuy"), SubResource("Resource_jxi2o"), SubResource("Resource_jhv10"), SubResource("Resource_ywm2w"), SubResource("Resource_cx3bl"), SubResource("Resource_qri7n")])
+metadata/_custom_type_script = "uid://6av67jfqula5"

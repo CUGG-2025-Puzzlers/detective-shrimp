@@ -13,6 +13,8 @@ var painting_dialogue: Dialogue
 var mid_nap: Dialogue
 var end_nap: Dialogue
 var post_nap: Dialogue
+var grocery_light: Dialogue
+var grocery_dark: Dialogue
 
 func _ready() -> void:
 	mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN
@@ -24,6 +26,9 @@ func _ready() -> void:
 	mid_nap = preload("res://resources/dialogue/interact/living_room/mid_nap.tres")
 	end_nap = preload("res://resources/dialogue/interact/living_room/end_nap.tres")
 	post_nap = preload("res://resources/dialogue/interact/living_room/post_nap.tres")
+	grocery_light = preload("res://resources/dialogue/interact/kitchen/grocery_light.tres")
+	grocery_dark = preload("res://resources/dialogue/interact/kitchen/grocery_dark.tres")
+
 func _process(delta: float) -> void:
 	if not interactable and is_player_in_range():
 		interactable = true
@@ -84,7 +89,14 @@ func interaction() -> void:
 			GameEvents.napped = true
 			GameEvents.start_dialogue(dialogue)
 			GameEvents.dialogue_ended.connect(_on_nap_start)
-			
+		return
+		
+	if name == "Groceries": 
+		if GameEvents.reflection_complete:
+			GameEvents.grocery_list = true
+			GameEvents.start_dialogue(grocery_light)
+		else:
+			GameEvents.start_dialogue(grocery_dark)
 		return
 
 	GameEvents.start_dialogue(dialogue)
