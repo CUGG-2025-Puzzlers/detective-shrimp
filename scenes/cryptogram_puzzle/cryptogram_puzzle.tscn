@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://n4wqsj43w5yj"]
+
+[ext_resource type="Script" uid="uid://bsm8p2rhbi4o6" path="res://scripts/cryptogram_puzzle/cryptogram_puzzle.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://yaewwa8xelsb" path="res://scenes/paper.tscn" id="2_paper"]
+
+[node name="CryptogramPuzzle" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="paper" parent="." instance=ExtResource("2_paper")]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtn37j2r2xuby"]
+
+[ext_resource type="PackedScene" uid="uid://lpkbd7fmqk8y" path="res://scenes/camera_2d.tscn" id="1_ugtmm"]
+[ext_resource type="PackedScene" uid="uid://ca63dn5xn6ng" path="res://scenes/paper.tscn" id="2_qf0j5"]
+
+[node name="paperPuzzleGame" type="Node2D"]
+
+[node name="Camera2D" parent="." instance=ExtResource("1_ugtmm")]
+position = Vector2(1, 2)
+
+[node name="paper" parent="." instance=ExtResource("2_qf0j5")]
+position = Vector2(3, 2)

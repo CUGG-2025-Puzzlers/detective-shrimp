@@ -1,0 +1,184 @@
+[gd_scene load_steps=29 format=4 uid="uid://ca63dn5xn6ng"]
+
+[ext_resource type="PackedScene" uid="uid://lpkbd7fmqk8y" path="res://scenes/camera_2d.tscn" id="1_vas6c"]
+[ext_resource type="Texture2D" uid="uid://1eyj6fdhmafi" path="res://assets/plain paper (texture)/1.png" id="2_lkpnm"]
+[ext_resource type="Texture2D" uid="uid://dviry2dsugusf" path="res://assets/plain paper (texture)/2.png" id="3_hnojf"]
+[ext_resource type="Texture2D" uid="uid://bbdlav8ukx01l" path="res://assets/plain paper (texture)/3.png" id="4_6yxq7"]
+[ext_resource type="Texture2D" uid="uid://dgvru2m3u2ihg" path="res://assets/plain paper (texture)/Example.png" id="5_h7ly7"]
+[ext_resource type="Texture2D" uid="uid://duww6a0twk5qn" path="res://assets/plain paper (texture)/5.png" id="6_invp3"]
+[ext_resource type="Texture2D" uid="uid://b5trnwyq0iqs2" path="res://assets/plain paper (texture)/7.png" id="7_xoyd6"]
+[ext_resource type="Texture2D" uid="uid://dm12t6gxxsmr7" path="res://assets/plain paper (texture)/4.png" id="8_yodfr"]
+[ext_resource type="Texture2D" uid="uid://cpjbxqnty44a7" path="res://assets/plain paper (texture)/9.png" id="9_tf5m5"]
+[ext_resource type="FontFile" uid="uid://dp421ommw2lqx" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="12_h7ly7"]
+[ext_resource type="Script" uid="uid://dxe1mk0verpau" path="res://scripts/letter_slot_1.gd" id="12_invp3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fhxge"]
+texture = ExtResource("2_lkpnm")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mtgq2"]
+texture = ExtResource("3_hnojf")
+texture_region_size = Vector2i(50, 50)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gdpnj"]
+texture = ExtResource("4_6yxq7")
+texture_region_size = Vector2i(50, 50)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebh1w"]
+texture = ExtResource("5_h7ly7")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+1:0/0 = 0
+1:2/0 = 0
+1:1/0 = 0
+2:2/0 = 0
+2:1/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3g63a"]
+texture = ExtResource("6_invp3")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uev2u"]
+texture = ExtResource("7_xoyd6")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gtdtr"]
+texture = ExtResource("4_6yxq7")
+margins = Vector2i(2, 2)
+texture_region_size = Vector2i(28, 28)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmel3"]
+texture = ExtResource("8_yodfr")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1ua5"]
+texture = ExtResource("9_tf5m5")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y6dhq"]
+texture = ExtResource("3_hnojf")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3g63a"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_fhxge")
+sources/1 = SubResource("TileSetAtlasSource_mtgq2")
+sources/2 = SubResource("TileSetAtlasSource_gdpnj")
+sources/3 = SubResource("TileSetAtlasSource_ebh1w")
+sources/4 = SubResource("TileSetAtlasSource_3g63a")
+sources/5 = SubResource("TileSetAtlasSource_uev2u")
+sources/6 = SubResource("TileSetAtlasSource_gtdtr")
+sources/7 = SubResource("TileSetAtlasSource_kmel3")
+sources/8 = SubResource("TileSetAtlasSource_p1ua5")
+sources/9 = SubResource("TileSetAtlasSource_y6dhq")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lkpnm"]
+texture = ExtResource("4_6yxq7")
+margins = Vector2i(2, 2)
+texture_region_size = Vector2i(28, 28)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hnojf"]
+sources/0 = SubResource("TileSetAtlasSource_lkpnm")
+
+[sub_resource type="FontVariation" id="FontVariation_h7ly7"]
+base_font = ExtResource("12_h7ly7")
+spacing_glyph = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7ly7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.08625444, 0.0052685016, 0, 0.70980394)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yxq7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7ly7"]
+
+[node name="paper" type="Sprite2D"]
+
+[node name="Camera2D" parent="." instance=ExtResource("1_vas6c")]
+position = Vector2(-3, 0)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-3, 0)
+
+[node name="paper1" type="TileMapLayer" parent="Node2D"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD///z/AwABAAAAAAD+//z/AwABAAIAADAAAPz/AwABAAIAADABAPz/AwABAAAAAAACAPz/AwACAAAAAAD9/wMABQAAAAAAAAD+/wMAAwABAAIAAAD//wMAAwABAAAAADAAAAMAAwABAAIAAAABAAMAAwABAAAAADACAAMACAAAAAAAAAD9//3/BwAAAAAAAAD9//7/BwAAAAAAAAD9////BwAAAAAAAAD9/wAABwAAAAAAAAD9/wEABwAAAAAAAAD9/wIABwAAAAAAAAD+/wIAAwABAAEAAAD+/wEAAwABAAEAAAD+////AwABAAEAAAD+//7/AwABAAEAAAD+//3/AwABAAEAAAD///3/AwABAAEAAAD///7/AwABAAEAAAD/////AwABAAEAAAD//wAAAwABAAEAAAD//wEAAwABAAEAAAD//wIAAwABAAEAAAAAAAIAAwABAAEAAAAAAAEAAwABAAEAAAABAAEAAwABAAEAAAABAAAAAwABAAEAAAABAP//AwABAAEAAAAAAP//AwABAAEAAAAAAP7/AwABAAEAAAAAAP3/AwABAAEAAAAAAAAAAwABAAEAAAABAAIAAwABAAEAAAACAAIAAwACAAEAAAACAAEAAwACAAEAAAACAAAAAwACAAEAAAACAP//AwACAAEAAAACAP7/AwAAAAEAADACAP3/AwACAAEAAAABAP3/AwABAAEAAAABAP7/AwABAAEAAAD9//z/AAAAAAAAAAD+/wAAAwABAAEAAAA=")
+tile_set = SubResource("TileSet_3g63a")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Node2D"]
+tile_map_data = PackedByteArray("AAAEAPn/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_hnojf")
+
+[node name="KnownText" type="Label" parent="."]
+custom_minimum_size = Vector2(16, 16)
+offset_left = -82.0
+offset_top = -109.0
+offset_right = 88.0
+offset_bottom = 229.0
+theme_override_colors/font_color = Color(0.32, 0.12319999, 0.032000005, 1)
+theme_override_constants/line_spacing = 7
+theme_override_fonts/font = SubResource("FontVariation_h7ly7")
+theme_override_font_sizes/font_size = 8
+text = "
+__th___ _s s_ p____ul t_ th_ hum__ m___ _s _ ____t ___ su____ ch____. Th_ su_ m__ht sh___ __ th_ cl_u_s m__ht l____, _ut __th___ c_ul_ _pp___ t_ m_ _s _t h__ ____ th_ ___ ______. "
+autowrap_mode = 3
+
+[node name="LetterSlot1" type="Control" parent="."]
+custom_minimum_size = Vector2(12, 20)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -86.0
+offset_top = -104.0
+offset_right = -73.0
+offset_bottom = -84.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+script = ExtResource("12_invp3")
+
+[node name="MarginContainer" type="MarginContainer" parent="LetterSlot1"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 11.0
+offset_bottom = 18.0
+
+[node name="HoverRect" type="Panel" parent="LetterSlot1/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h7ly7")
+
+[node name="LetterIn" type="LineEdit" parent="LetterSlot1"]
+layout_mode = 0
+offset_left = -28.999998
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03529412, 1)
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0.7882353)
+theme_override_fonts/font = ExtResource("12_h7ly7")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6yxq7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h7ly7")
+text = "K"
+alignment = 1
+max_length = 1
+middle_mouse_paste_enabled = false

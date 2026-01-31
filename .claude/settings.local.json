@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/mouad/Documents/GitHub/detective-shrimp diff encryptionPuzzle..integration --stat)",
+      "Bash(git ls-tree:*)"
+    ]
+  }
+}
