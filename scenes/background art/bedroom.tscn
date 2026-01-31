@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://e40t17p2oxny"]
+[gd_scene load_steps=39 format=4 uid="uid://e40t17p2oxny"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_qgq5e"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_vdss4"]
@@ -21,7 +21,6 @@
 [ext_resource type="Resource" uid="uid://cncjgmkjgv72l" path="res://resources/dialogue/interact/bedroom/encrypted_letter_post.tres" id="18_g12pr"]
 [ext_resource type="PackedScene" uid="uid://n4wqsj43w5yj" path="res://scenes/cryptogram_puzzle/cryptogram_puzzle.tscn" id="20_crypt"]
 [ext_resource type="Resource" uid="uid://bxqpr5qepyneq" path="res://resources/dialogue/interact/bedroom/encrypted_letter.tres" id="20_h1e11"]
-[ext_resource type="Script" uid="uid://taf3lngj3rau" path="res://scripts/tests/bedroom_test_spawn.gd" id="21_spawn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lv7wv"]
 texture = ExtResource("1_qgq5e")
@@ -2518,7 +2517,6 @@ sources/0 = SubResource("TileSetAtlasSource_804uw")
 sources/3 = SubResource("TileSetAtlasSource_yaebv")
 
 [node name="bedroom" type="Node2D"]
-script = ExtResource("21_spawn")
 
 [node name="background" type="TileMapLayer" parent="."]
 position = Vector2(314.00003, 178.00002)
