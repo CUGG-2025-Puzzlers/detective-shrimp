@@ -72,7 +72,9 @@ func puzzle_already_completed(trigger: PuzzleTrigger) -> bool:
 			return reflection_complete
 		PuzzleTrigger.PuzzleDecryption:
 			return letter_complete
-	
+		PuzzleTrigger.PuzzleSafe:
+			return safe
+
 	return false
 
 enum PuzzleTrigger {
@@ -81,6 +83,7 @@ enum PuzzleTrigger {
 	PuzzleCassette,
 	PuzzleLight,
 	PuzzleDecryption,
+	PuzzleSafe,
 }
 
 #endregion

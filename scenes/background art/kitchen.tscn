@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://stupsk6vmjcq"]
+[gd_scene load_steps=40 format=4 uid="uid://stupsk6vmjcq"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_mwmjw"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_cwf2y"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="10_yssk2"]
 [ext_resource type="Texture2D" uid="uid://dkir51ujummi4" path="res://assets/background/pixelinterior_LRK/letter.png" id="11_pu6ws"]
 [ext_resource type="Texture2D" uid="uid://cjt0q1emt5qaq" path="res://assets/background/pixelinterior_LRK/mirror.png" id="12_pu6ws"]
+[ext_resource type="Texture2D" uid="uid://dwyfvxfuvsabh" path="res://assets/background/pixelinterior_LRK/door.png" id="13_4p702"]
+[ext_resource type="Resource" uid="uid://cc1637v8qlbtl" path="res://resources/dialogue/interact/living_room/basement_locked.tres" id="14_1il4y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efyc0"]
 texture = ExtResource("1_mwmjw")
@@ -5954,7 +5956,6 @@ tile_set = SubResource("TileSet_f16ov")
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 position = Vector2(-163, -68)
 scale = Vector2(1.5, 1.5)
-tile_map_data = PackedByteArray("AAAPAAAAAQAHAAYAAAAPAAEAAQAHAAcAAAAPAAIAAQAHAAgAAAAQAAAAAQAIAAYAAAAQAAEAAQAIAAcAAAAQAAIAAQAIAAgAAAA=")
 tile_set = SubResource("TileSet_scder")
 
 [node name="furnitures" type="TileMapLayer" parent="."]
@@ -5993,3 +5994,12 @@ offset_top = 52.0
 offset_right = -111.0
 offset_bottom = 84.0
 texture = ExtResource("12_pu6ws")
+
+[node name="Basement Door" parent="." instance=ExtResource("10_yssk2")]
+offset_left = 190.0
+offset_top = -60.0
+offset_right = 220.0
+offset_bottom = -12.0
+scale = Vector2(1.292, 1.292)
+texture = ExtResource("13_4p702")
+dialogue = ExtResource("14_1il4y")
