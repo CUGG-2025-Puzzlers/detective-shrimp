@@ -16,7 +16,7 @@ func _ready() -> void:
 		_play_dialogue()
 		GameEvents.dialogue_ended.connect(_on_dialogue_ended)
 
-func _on_dialogue_ended():
+func _on_dialogue_ended(name: String):
 	if (cur_dialogue >= dialogue.size()):
 		GameEvents.dialogue_ended.disconnect(_on_dialogue_ended)
 		Globals.end_cutscene(cutscene)
