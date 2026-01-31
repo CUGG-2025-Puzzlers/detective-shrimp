@@ -21,6 +21,8 @@ func trigger_event(event: EventTrigger):
 			SlidePuzzleEvents.start_puzzle()
 		EventTrigger.PuzzleCassette:
 			CassettePuzzleEvents.start_puzzle()
+		EventTrigger.PuzzleDecryption:
+			CryptogramPuzzleEvents.start_puzzle()
 
 enum EventTrigger {
 	None,

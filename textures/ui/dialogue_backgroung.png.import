@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:textures/light_puzzle/Letter_16x16.png.import
-uid="uid://j8y7633cp7pm"
-path="res://.godot/imported/Letter_16x16.png-8037bc3a3c3959a29b1a7419e03626b9.ctex"
-========
-uid="uid://b3txqamkair0f"
+uid="uid://cihrgp203aoh5"
 path="res://.godot/imported/dialogue_backgroung.png-be8b5cac112cc4f40d140ff19a9b3690.ctex"
->>>>>>>> main:textures/ui/dialogue_backgroung.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:textures/light_puzzle/Letter_16x16.png.import
-source_file="res://textures/light_puzzle/Letter_16x16.png"
-dest_files=["res://.godot/imported/Letter_16x16.png-8037bc3a3c3959a29b1a7419e03626b9.ctex"]
-========
 source_file="res://textures/ui/dialogue_backgroung.png"
 dest_files=["res://.godot/imported/dialogue_backgroung.png-be8b5cac112cc4f40d140ff19a9b3690.ctex"]
->>>>>>>> main:textures/ui/dialogue_backgroung.png.import
 
 [params]
 
