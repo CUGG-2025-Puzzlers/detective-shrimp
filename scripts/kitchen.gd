@@ -5,4 +5,3 @@ extends Node2D
 func _ready() -> void:
 	if background_music:
 		AudioManager.play_background_music(background_music)
-	Globals.show_player()

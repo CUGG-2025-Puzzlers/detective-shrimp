@@ -3,6 +3,7 @@ extends Interactable
 @export var locked: bool
 @export var flag_check: String
 @export var exit_scene: PackedScene
+@export var player_pos: Vector2
 
 func _ready() -> void:
 	if flag_check == "" or not GameEvents.get(flag_check):
@@ -21,4 +22,4 @@ func interaction() -> void:
 		
 		unlock()
 	
-	Globals.transition_to_scene(exit_scene)
+	Globals.transition_to_scene(exit_scene, true, player_pos)
