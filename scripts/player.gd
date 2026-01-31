@@ -21,6 +21,7 @@ func _ready():
 	GameEvents.dialogue_ended.connect(_on_dialogue_ended)
 	GameEvents.puzzle_started.connect(_on_puzzle_started)
 	GameEvents.puzzle_finished.connect(_on_puzzle_finished)
+	GameEvents.puzzle_exited.connect(_on_puzzle_exited)
 
 func _physics_process(delta: float) -> void:
 	if not visible or not canMove:
@@ -64,6 +65,9 @@ func _on_puzzle_started(trigger: GameEvents.PuzzleTrigger):
 	pause_movement()
 
 func _on_puzzle_finished(trigger: GameEvents.PuzzleTrigger):
+	resume_movement()
+
+func _on_puzzle_exited(trigger: GameEvents.PuzzleTrigger):
 	resume_movement()
 
 func pause_movement():

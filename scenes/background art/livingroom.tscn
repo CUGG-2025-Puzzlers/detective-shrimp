@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://7jgwmr3e8qj8"]
+[gd_scene load_steps=48 format=4 uid="uid://7jgwmr3e8qj8"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_7e8s8"]
 [ext_resource type="Script" uid="uid://rsau2eqd80m8" path="res://scripts/livingroom.gd" id="1_7wq2n"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cm2heuq3opusu" path="res://assets/background/pixelinterior_LRK/safe.png" id="9_85807"]
 [ext_resource type="Texture2D" uid="uid://l7noo2fmc3tq" path="res://assets/background/pixelinterior_LRK/Painting.png" id="11_3s3i3"]
 [ext_resource type="Resource" uid="uid://ljg1irov7mty" path="res://resources/dialogue/interact/living_room/painting.tres" id="12_6y8qb"]
+[ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://fonts/m5x7.ttf" id="12_noccn"]
 [ext_resource type="Texture2D" uid="uid://8ohi2tgm0k0x" path="res://assets/background/dark-abstract-background.jpg" id="12_re2fb"]
 [ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="14_5j3e2"]
 [ext_resource type="Resource" uid="uid://cc1637v8qlbtl" path="res://resources/dialogue/interact/living_room/basement_locked.tres" id="15_5j3e2"]
@@ -4185,6 +4186,17 @@ puzzle_trigger = 5
 z_index = 100
 position = Vector2(180, 113)
 
+[node name="Exit Button" type="Button" parent="PuzzlePopup"]
+z_index = 2
+layout_mode = 0
+offset_left = 194.0
+offset_top = 282.0
+offset_right = 446.0
+offset_bottom = 309.0
+theme_override_fonts/font = ExtResource("12_noccn")
+theme_override_font_sizes/font_size = 16
+text = "EXIT"
+
 [node name="Safe" parent="." instance=ExtResource("14_5j3e2")]
 offset_left = 383.0
 offset_top = 99.0
@@ -4291,3 +4303,5 @@ locked = false
 flag_check = ""
 exit_scene = 4
 player_pos = Vector2(88, 212)
+
+[connection signal="pressed" from="PuzzlePopup/Exit Button" to="PuzzlePopup" method="_on_exit_pressed"]

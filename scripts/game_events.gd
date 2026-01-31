@@ -45,6 +45,7 @@ func change_scene(scene_name: String):
 
 signal puzzle_started(trigger: PuzzleTrigger)
 signal puzzle_finished(trigger: PuzzleTrigger)
+signal puzzle_exited(trigger: PuzzleTrigger)
 
 func start_puzzle(trigger: PuzzleTrigger):
 	if puzzle_already_completed(trigger):
@@ -59,6 +60,13 @@ func finish_puzzle(trigger: PuzzleTrigger):
 	
 	print("Finishing Puzzle...")
 	puzzle_finished.emit(trigger)
+
+func exit_puzzle(trigger: PuzzleTrigger):
+	if puzzle_already_completed(trigger):
+		return
+	
+	print("Exiting Puzzle...")
+	puzzle_exited.emit(trigger)
 
 func puzzle_already_completed(trigger: PuzzleTrigger) -> bool:
 	match trigger:

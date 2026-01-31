@@ -16,19 +16,23 @@ func _on_puzzle_started(trigger: GameEvents.PuzzleTrigger):
 	
 	open()
 	puzzle.start()
-	previous_music = AudioManager.get_current_music()
-	AudioManager.play_background_music(AudioManager.puzzle_theme)
 
 func _on_puzzle_finished(trigger: GameEvents.PuzzleTrigger):
 	if trigger != puzzle_trigger:
 		return
 	
-	AudioManager.play_background_music(previous_music)
 	puzzle.finish()
 	close()
 
 func open():
 	visible = true
+	previous_music = AudioManager.get_current_music()
+	AudioManager.play_background_music(AudioManager.puzzle_theme)
 
 func close():
 	visible = false
+	AudioManager.play_background_music(previous_music)
+
+func _on_exit_pressed():
+	close()
+	GameEvents.exit_puzzle(puzzle_trigger)
