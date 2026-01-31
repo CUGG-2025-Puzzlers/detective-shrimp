@@ -24,8 +24,8 @@
 [ext_resource type="Script" uid="uid://0n23roro5u0u" path="res://scripts/interactions/puzzle_interactable.gd" id="20_safe"]
 [ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="21_safe"]
 [ext_resource type="PackedScene" uid="uid://hishica6nnlj" path="res://scenes/safe_puzzle/safe_puzzle.tscn" id="22_safe"]
-[ext_resource type="Resource" uid="uid://c8jh5usbwcpgf" path="res://resources/dialogue/interact/living_room/safe.tres" id="23_safe"]
-[ext_resource type="Resource" uid="uid://m8vy3qo4cyyr" path="res://resources/dialogue/interact/living_room/safe_open.tres" id="24_safe"]
+[ext_resource type="Resource" uid="uid://dlrptls2pgrce" path="res://resources/dialogue/interact/living_room/safe.tres" id="23_safe"]
+[ext_resource type="Resource" uid="uid://kq2wva06u211" path="res://resources/dialogue/interact/living_room/safe_open.tres" id="24_safe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wnl2"]
 texture = ExtResource("1_7e8s8")
