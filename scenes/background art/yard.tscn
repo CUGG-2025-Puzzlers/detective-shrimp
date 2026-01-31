@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://bj8cd0ekfafes" path="res://resources/dialogue/interact/outside/mailbox.tres" id="7_426ft"]
 [ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="8_fjkrq"]
 [ext_resource type="PackedScene" uid="uid://dc4tvs8q0i3hb" path="res://scenes/slide_puzzle/slide_puzzle_1.tscn" id="9_tb1nq"]
-[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="10_grp46"]
+[ext_resource type="Script" path="res://scripts/tests/complete_puzzle_test.gd" id="10_grp46"]
 [ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="11_grp46"]
 [ext_resource type="Resource" uid="uid://cc1637v8qlbtl" path="res://resources/dialogue/interact/living_room/basement_locked.tres" id="12_f2p5c"]
 [ext_resource type="Resource" uid="uid://c2xvplti0h34q" path="res://resources/dialogue/interact/outside/outside_door.tres" id="13_grp46"]
@@ -2105,6 +2105,7 @@ puzzle_trigger = 1
 position = Vector2(232, 48)
 
 [node name="Button" type="Button" parent="Slide Popup"]
+visible = false
 z_index = 2
 layout_mode = 0
 offset_left = 473.0

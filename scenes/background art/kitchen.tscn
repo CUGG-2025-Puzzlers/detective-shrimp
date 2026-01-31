@@ -23,7 +23,7 @@
 [ext_resource type="Resource" uid="uid://brlgeynt04lr" path="res://resources/dialogue/interact/kitchen/mirror.tres" id="19_mirrd"]
 [ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="20_ace1i"]
 [ext_resource type="Resource" uid="uid://btwlko81ooq53" path="res://resources/dialogue/interact/kitchen/reflection_win.tres" id="20_refwn"]
-[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="21_7g777"]
+[ext_resource type="Script" path="res://scripts/tests/complete_puzzle_test.gd" id="21_7g777"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efyc0"]
 texture = ExtResource("1_mwmjw")
@@ -5255,6 +5255,7 @@ render_target_update_mode = 0
 [node name="LightBendingPuzzle" parent="PuzzlePopup/SubViewportContainer/SubViewport" instance=ExtResource("18_light")]
 
 [node name="Button" type="Button" parent="PuzzlePopup/SubViewportContainer/SubViewport"]
+visible = false
 z_index = 2
 offset_left = 480.0
 offset_top = 306.0
