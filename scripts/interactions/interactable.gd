@@ -69,14 +69,9 @@ func interact() -> void:
 	interaction()
 
 func interaction() -> void:	
-	# Special interaction when Basement door is interacted with after 
-	# the key is obtained from the safe.
 	# Definitely not the best way to implement it, but I don't know 
 	# how else to do it. - Cameron
-	if name == "Basement Door" and GameEvents.safe:
-		GameEvents.start_dialogue(basement_dialogue)
-		GameEvents.dialogue_ended.connect(_on_enter_basement)
-		return
+
 	# I did it again.
 	if name == "Painting" and GameEvents.letter_complete:
 		$%Fallen_Painting.visible = true
@@ -100,36 +95,6 @@ func interaction() -> void:
 		else:
 			GameEvents.start_dialogue(grocery_dark)
 		return
-		
-	if name == "Upstairs":
-		Transition.transition()
-		await Transition.on_transition_finished
-		Globals.transition_to_scene(load("res://scenes/background art/hallway.tscn"))
-		return
-
-	if name == "Downstairs":
-		Transition.transition()
-		await Transition.on_transition_finished
-		Globals.transition_to_scene(load("res://scenes/background art/livingroom.tscn"))
-		return
-		
-	if name == "Bedroom Door":
-		Transition.transition()
-		await Transition.on_transition_finished
-		Globals.transition_to_scene(load("res://scenes/background art/bedroom.tscn"))
-		return
-		
-	if name == "Bedroom->Hallway":
-		Transition.transition()
-		await Transition.on_transition_finished
-		Globals.transition_to_scene(load("res://scenes/background art/hallway.tscn"))
-		return
-
-	if name == "LivingRoom Door":
-		Transition.transition()
-		await Transition.on_transition_finished
-		Globals.transition_to_scene(load("res://scenes/background art/livingroom.tscn"))
-		return
 
 	GameEvents.start_dialogue(dialogue)
 
@@ -145,12 +110,6 @@ func _on_nap_end(name:String):
 	Transition.fade_in()
 	await get_tree().create_timer(1.2).timeout
 	GameEvents.start_dialogue(end_nap)
-
-func _on_enter_basement(name: String):
-	GameEvents.dialogue_ended.disconnect(_on_enter_basement)
-	Transition.fade_out()
-	await get_tree().create_timer(1).timeout
-	Globals.transition_to_scene(load("res://scenes/cutscenes/end.tscn"))
 
 func enable() -> void:
 	# Waiting a frame prevents the user from immediately interacting again when
