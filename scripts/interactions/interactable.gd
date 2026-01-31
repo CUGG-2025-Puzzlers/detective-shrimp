@@ -139,6 +139,12 @@ func interaction() -> void:
 		Globals.transition_to_scene(load("res://scenes/background art/livingroom.tscn"))
 		return
 
+	if name == "LivingRoom Door":
+		Transition.fade_out()
+		await get_tree().create_timer(1).timeout
+		Globals.transition_to_scene(load("res://scenes/background art/livingroom.tscn"))
+		return
+
 	GameEvents.start_dialogue(dialogue)
 
 func _on_nap_start(name: String):
