@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dnj7wnnwrgas6" path="res://textures/cameron/cameron_normal.png" id="4_hvmm2"]
 
 [node name="Dialogue Box" type="Control"]
+z_index = 3
 layout_mode = 3
 anchors_preset = 0
 offset_left = 104.0
