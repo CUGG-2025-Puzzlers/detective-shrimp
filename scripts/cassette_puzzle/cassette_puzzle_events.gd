@@ -10,7 +10,7 @@ func start_puzzle() -> void:
 	print("Started Cassette Puzzle")
 
 func complete_puzzle() -> void:
-	GameEvents.casette_complete = true
+	GameEvents.cassette_complete = true
 	puzzle_completed.emit()
 	print("Completed Cassette Puzzle")
 
