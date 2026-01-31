@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgktild8i0rtn"]
 
 [ext_resource type="PackedScene" uid="uid://lpkbd7fmqk8y" path="res://scenes/camera_2d.tscn" id="1_dyxox"]
-[ext_resource type="PackedScene" uid="uid://ca63dn5xn6ng" path="res://scenes/paper.tscn" id="2_773mc"]
+[ext_resource type="PackedScene" uid="uid://ca63dn5xn6ng" path="res://encrypted_letter/paper.tscn" id="2_773mc"]
 
 [node name="Letterslot" type="Control"]
 layout_mode = 3

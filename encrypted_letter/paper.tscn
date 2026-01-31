@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dm12t6gxxsmr7" path="res://assets/plain paper (texture)/4.png" id="8_yodfr"]
 [ext_resource type="Texture2D" uid="uid://cpjbxqnty44a7" path="res://assets/plain paper (texture)/9.png" id="9_tf5m5"]
 [ext_resource type="Script" uid="uid://dlatcfayklgf5" path="res://scripts/puzzle_area.gd" id="10_h7ly7"]
-[ext_resource type="PackedScene" uid="uid://cf8o2ue66tkr5" path="res://scenes/letter_slot.tscn" id="11_6yxq7"]
+[ext_resource type="PackedScene" uid="uid://cf8o2ue66tkr5" path="res://encrypted_letter/letter_slot.tscn" id="11_6yxq7"]
 [ext_resource type="FontFile" uid="uid://dp421ommw2lqx" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="12_h7ly7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fhxge"]
