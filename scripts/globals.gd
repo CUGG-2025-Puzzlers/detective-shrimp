@@ -4,13 +4,6 @@ signal requested_player_hide()
 signal requested_player_show(pos: Vector2)
 
 var game_settings: GameSettings = preload("res://resources/game_settings.tres")
-var car_scene: PackedScene = preload("res://scenes/cutscenes/car.tscn")
-var outside_scene: PackedScene = preload("res://scenes/background art/yard.tscn")
-var kitchen: PackedScene = preload("res://scenes/background art/kitchen.tscn")
-var living_room: PackedScene = preload("res://scenes/background art/livingroom.tscn")
-var hallway: PackedScene = preload("res://scenes/background art/hallway.tscn")
-var bedroom: PackedScene = preload("res://scenes/background art/bedroom.tscn")
-var end: PackedScene = preload("res://scenes/cutscenes/end.tscn")
 
 var mouse_default = preload("res://textures/mouse_default.png")
 var mouse_move = preload("res://textures/mouse_move.png")
@@ -84,13 +77,13 @@ func transition_to_scene(area: Area, show_player: bool = true, player_pos: Vecto
 
 func get_scene_from_enum(area: Area) -> PackedScene:
 	match area:
-		Area.Car: return car_scene
-		Area.Yard: return outside_scene
-		Area.Kitchen: return kitchen
-		Area.LivingRoom: return living_room
-		Area.Hallway: return hallway
-		Area.Bedroom: return bedroom
-		Area.Basement: return end
+		Area.Car: return load("res://scenes/cutscenes/car.tscn")
+		Area.Yard: return load("res://scenes/background art/yard.tscn")
+		Area.Kitchen: return load("res://scenes/background art/kitchen.tscn")
+		Area.LivingRoom: return load("res://scenes/background art/livingroom.tscn")
+		Area.Hallway: return load("res://scenes/background art/hallway.tscn")
+		Area.Bedroom: return load("res://scenes/background art/bedroom.tscn")
+		Area.Basement: return load("res://scenes/cutscenes/end.tscn")
 	
 	return null
 
