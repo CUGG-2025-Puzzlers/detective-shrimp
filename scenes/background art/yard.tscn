@@ -1517,6 +1517,7 @@ script = ExtResource("11_grp46")
 locked = true
 flag_check = "mailbox_complete"
 exit_scene = ExtResource("12_b5d1x")
+player_pos = Vector2(66, 194)
 dialogue = ExtResource("11_b5d1x")
 
 [node name="Front Door" parent="." instance=ExtResource("4_ughhp")]
