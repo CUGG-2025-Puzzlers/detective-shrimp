@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://e40t17p2oxny"]
+[gd_scene load_steps=30 format=4 uid="uid://e40t17p2oxny"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_qgq5e"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_vdss4"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://wp6kbmyuqjb4" path="res://assets/background/pixelinterior_LRK/Sideviewdooor.png" id="8_xpy8l"]
 [ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="9_yaebv"]
 [ext_resource type="Texture2D" uid="uid://ocjlr6rdfnjb" path="res://assets/background/pixelinterior_LRK/casette.png" id="10_ksv6u"]
+[ext_resource type="Script" uid="uid://0n23roro5u0u" path="res://scripts/interactions/puzzle_interactable.gd" id="11_j27r0"]
+[ext_resource type="Resource" uid="uid://egbyseh68n50" path="res://resources/dialogue/interact/living_room/casette_2.tres" id="12_uixac"]
+[ext_resource type="Resource" uid="uid://b21n78yes34o5" path="res://resources/dialogue/interact/living_room/casette_1.tres" id="13_3cprq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lv7wv"]
 texture = ExtResource("1_qgq5e")
@@ -2540,3 +2543,7 @@ offset_top = 32.0
 offset_right = 57.0
 offset_bottom = 64.0
 texture = ExtResource("10_ksv6u")
+script = ExtResource("11_j27r0")
+puzzle_trigger = 2
+post_puzzle_dialogue = ExtResource("12_uixac")
+dialogue = ExtResource("13_3cprq")
