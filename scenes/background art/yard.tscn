@@ -1490,9 +1490,13 @@ puzzle_trigger = 1
 position = Vector2(232, 48)
 
 [node name="Button" type="Button" parent="Slide Popup"]
+z_index = 2
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 473.0
+offset_top = 24.0
+offset_right = 609.0
+offset_bottom = 55.0
+text = "Complete Puzzle"
 script = ExtResource("10_grp46")
 puzzle_trigger = 1
 
