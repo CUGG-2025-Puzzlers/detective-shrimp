@@ -2573,10 +2573,10 @@ script = ExtResource("16_g12pr")
 puzzle_trigger = 2
 
 [node name="Bedroom->Hallway" parent="." instance=ExtResource("9_yaebv")]
-offset_left = 279.0
-offset_top = 65.0
-offset_right = 295.0
-offset_bottom = 81.0
+offset_left = 593.0
+offset_top = 243.0
+offset_right = 609.0
+offset_bottom = 259.0
 scale = Vector2(0.6071832, 4.767659)
 
 [node name="Encrypted Letter" parent="." instance=ExtResource("9_yaebv")]
