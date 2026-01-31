@@ -1,7 +1,7 @@
 extends Node
 
 signal requested_player_hide()
-signal requested_player_show()
+signal requested_player_show(pos: Vector2)
 
 var game_settings: GameSettings = preload("res://resources/game_settings.tres")
 var car_scene: PackedScene = preload("res://scenes/cutscenes/car.tscn")
@@ -62,22 +62,22 @@ func start_game():
 func end_cutscene(cutscene: Cutscene):
 	match cutscene:
 		Cutscene.Car:
-			transition_to_scene(outside_scene)
+			transition_to_scene(outside_scene, true, Vector2(610, 265))
 			
 
-func transition_to_scene(scene: PackedScene, showPlayer: bool = true):
+func transition_to_scene(scene: PackedScene, show_player: bool = true, player_pos: Vector2 = Vector2.ZERO):
 	get_tree().change_scene_to_packed(scene)
 	GameEvents.change_scene(scene.resource_path)
-	if showPlayer:
-		show_player()
+	if show_player:
+		show_player(player_pos)
 	else:
 		hide_player()
 
 func hide_player():
 	requested_player_hide.emit()
 
-func show_player():
-	requested_player_show.emit()
+func show_player(pos: Vector2):
+	requested_player_show.emit(pos)
 
 enum Cutscene {
 	None,

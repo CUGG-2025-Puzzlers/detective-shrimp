@@ -50,7 +50,8 @@ func update_animation_parameters():
 func _on_requested_player_hide():
 	visible = false
 
-func _on_requested_player_show():
+func _on_requested_player_show(pos: Vector2):
+	global_position = pos
 	visible = true
 
 func _on_dialogue_started(dialogue: Dialogue):
