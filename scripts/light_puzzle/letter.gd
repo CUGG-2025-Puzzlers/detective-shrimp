@@ -19,7 +19,7 @@ func on_light_hit():
 			beam.default_color = Color(0, 1, 0)  # Green
 
 		# Spawn confetti!
-		spawn_confetti()
+		# spawn_confetti()
 
 		await get_tree().create_timer(victory_delay).timeout
 		trigger_victory()
