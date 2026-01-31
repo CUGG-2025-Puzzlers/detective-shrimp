@@ -1,11 +1,11 @@
 class_name CryptogramPuzzle
 extends Puzzle
 
-const PLAINTEXT = "Nothing is so painful to the human mind as a great and sudden change. The sun might shine or the clouds might lower, but nothing could appear to me as it had done the day before."
-const KNOWN_LETTERS = ["t", "h", "s", "p", "u", "l", "m", "c"]
-const CHARS_PER_LINE = 16
-const CHAR_WIDTH = 9
-const CHAR_HEIGHT = 16
+const PLAINTEXT = "The house is larger than it seems. A silent face distracts from the lies beneath. Seek the frame that holds a borrowed memory and look beyond what it conceals."
+const KNOWN_LETTERS = ["t", "h", "s", "l", "n", "m", "c"]
+const CHARS_PER_LINE = 20
+const CHAR_WIDTH = 8
+const CHAR_HEIGHT = 14
 const INK_COLOR = Color(0.32, 0.123, 0.032)
 const SLOT_BG_COLOR = Color(0.45, 0.3, 0.1, 0.2)
 const HIGHLIGHT_COLOR = Color(0.6, 0.35, 0.05, 0.4)
@@ -75,8 +75,8 @@ func _clear_all():
 
 func _build_all():
 	root_container = VBoxContainer.new()
-	root_container.position = Vector2(-78, -108)
-	root_container.add_theme_constant_override("separation", 4)
+	root_container.position = Vector2(-80, -92)
+	root_container.add_theme_constant_override("separation", 3)
 	add_child(root_container)
 
 	# Build text grid
