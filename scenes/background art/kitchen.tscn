@@ -5232,14 +5232,23 @@ dialogue = ExtResource("14_1il4y")
 
 [node name="PuzzlePopup" parent="." node_paths=PackedStringArray("puzzle") instance=ExtResource("17_popup")]
 visible = false
-puzzle = NodePath("LightBendingPuzzle")
+puzzle = NodePath("SubViewportContainer/SubViewport/LightBendingPuzzle")
 puzzle_trigger = 3
 
-[node name="LightBendingPuzzle" parent="PuzzlePopup" instance=ExtResource("18_light")]
-
-[node name="Button" type="Button" parent="PuzzlePopup"]
-z_index = 2
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PuzzlePopup"]
 layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="SubViewport" type="SubViewport" parent="PuzzlePopup/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(640, 360)
+render_target_update_mode = 0
+
+[node name="LightBendingPuzzle" parent="PuzzlePopup/SubViewportContainer/SubViewport" instance=ExtResource("18_light")]
+
+[node name="Button" type="Button" parent="PuzzlePopup/SubViewportContainer/SubViewport"]
+z_index = 2
 offset_left = 480.0
 offset_top = 306.0
 offset_right = 616.0
