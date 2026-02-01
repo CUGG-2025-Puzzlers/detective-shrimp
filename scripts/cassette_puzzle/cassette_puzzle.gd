@@ -69,4 +69,4 @@ func _on_outputs_state_changed(new_state: bool) -> void:
 		if not output.state:
 			return
 	
-	CassettePuzzleEvents.complete_puzzle()
+	GameEvents.finish_puzzle(GameEvents.PuzzleTrigger.PuzzleCassette)
