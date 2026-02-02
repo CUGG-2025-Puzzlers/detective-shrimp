@@ -9,7 +9,7 @@
 script = ExtResource("1_86d37")
 speaker_name = "Shrimplock Holmes"
 speaker_portrait = ExtResource("2_y5hkb")
-text = "Let’s gooooooooooooooooooooooooo-"
+text = "Let's gooooooooooooooooooooooooo-"
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_86d37"]
@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 script = ExtResource("1_86d37")
 speaker_name = "Shrimplock Holmes"
 speaker_portrait = ExtResource("3_y5hkb")
-text = "Now, let’s take a look at the letter."
+text = "Now, let's take a look at the letter."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]

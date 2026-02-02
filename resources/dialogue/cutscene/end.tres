@@ -15,63 +15,63 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "I’m scared."
+text = "I'm scared."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_mgxjn"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "It’s all my fault isn’t it?"
+text = "It's all my fault isn't it?"
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_bmv0p"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "I can’t fix what happened. "
+text = "I can't fix what happened. "
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_x4wt7"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "Apologizing won’t fix anything. "
+text = "Apologizing won't fix anything. "
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_vje1i"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "Apologizing won’t bring Henry back."
+text = "Apologizing won't bring Henry back."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_ogpa3"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "I’m unforgivable."
+text = "I'm unforgivable."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_vv1en"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "Why can’t life just be like Shrimptective? Why can’t i just solve the mystery, and teach the bad guys a lesson?"
+text = "Why can't life just be like Shrimptective? Why can't I just solve the mystery, and teach the bad guys a lesson?"
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_0d7bg"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "Why do I have to ruin everything?"
+text = "Why do I always ruin everything?"
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_pbr2v"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "Henry, I’m sorry. You were right. Again."
+text = "Henry, I'm sorry. You were right. Again."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_hsqph"]
@@ -106,14 +106,14 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "It’s no wonder you were picked on, heh."
+text = "It's no wonder you were picked on, heh."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_djk0j"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "What you said about turning over a new leaf stuck with me. I can’t say I’m perfect, but I’ve been trying my best."
+text = "What you said about turning over a new leaf stuck with me. I can't say I'm perfect, but I've been trying my best."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_n8fw7"]
@@ -134,28 +134,28 @@ metadata/_custom_type_script = "uid://drvyi1grf150r"
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "But it’s hard. "
+text = "But it's hard. "
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_wp8eh"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "I made a mistake today, and that’s why I’m here. Again."
+text = "I made a mistake today, and that's why I'm here. Again."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_t86fy"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "I’m sorry, Henry. "
+text = "I'm sorry, Henry. "
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_ivce4"]
 script = ExtResource("1_mgxjn")
 speaker_name = "Cameron"
 speaker_portrait = ExtResource("2_ud5mk")
-text = "I can’t fix what I’ve done, but I’ll live a life you’re proud of. "
+text = "I can't fix what I've done, but I'll live a life you're proud of. "
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_hjnro"]

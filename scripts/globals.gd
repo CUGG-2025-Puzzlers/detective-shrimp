@@ -1,5 +1,8 @@
 extends Node
 
+signal requested_player_hide()
+signal requested_player_show(pos: Vector2)
+
 var game_settings: GameSettings = preload("res://resources/game_settings.tres")
 
 var mouse_default = preload("res://textures/mouse_default.png")
@@ -12,6 +15,8 @@ var scale_factor
 
 func _ready() -> void:
 	_resize_cursors()
+
+#region Cursor
 
 func _resize_cursors():
 	var viewport_size = get_viewport().size
@@ -44,6 +49,69 @@ func resend_mouse_click(pos: Vector2, pressed: bool) -> void:
 	# Scale position by viewport scale for proper positioning
 	press_event.position = pos * get_viewport().get_final_transform()[0][0]
 	get_viewport().push_input(press_event)
+
+#endregion
+
+#region Game Flow
+
+func start_game():
+	transition_to_scene(Area.Car, false)
+
+func end_cutscene(cutscene: Cutscene):
+	match cutscene:
+		Cutscene.Car:
+			transition_to_scene(Area.Yard, true, Vector2(610, 265))
+			
+
+func transition_to_scene(area: Area, show_player: bool = true, player_pos: Vector2 = Vector2.ZERO):
+	var scene = get_scene_from_enum(area)
+	
+	Transition.transition()
+	await Transition.on_transition_finished
+	get_tree().change_scene_to_packed(scene)
+	GameEvents.change_scene(scene.resource_path)
+	if show_player:
+		show_player(player_pos)
+	else:
+		hide_player()
+
+func get_scene_from_enum(area: Area) -> PackedScene:
+	match area:
+		Area.Car: return load("res://scenes/cutscenes/car.tscn")
+		Area.Yard: return load("res://scenes/background art/yard.tscn")
+		Area.Kitchen: return load("res://scenes/background art/kitchen.tscn")
+		Area.LivingRoom: return load("res://scenes/background art/livingroom.tscn")
+		Area.Hallway: return load("res://scenes/background art/hallway.tscn")
+		Area.Bedroom: return load("res://scenes/background art/bedroom.tscn")
+		Area.Basement: return load("res://scenes/cutscenes/end.tscn")
+		Area.Credits: return load("res://scenes/end_credits.tscn")
+	
+	return null
+
+func hide_player():
+	requested_player_hide.emit()
+
+func show_player(pos: Vector2):
+	requested_player_show.emit(pos)
+
+enum Cutscene {
+	None,
+	Car,
+	End,
+}
+
+enum Area {
+	Car,
+	Yard,
+	Kitchen,
+	LivingRoom,
+	Hallway,
+	Bedroom,
+	Basement,
+	Credits,
+}
+
+#endregion
 
 enum SlidePuzzleValues {
 	Empty,

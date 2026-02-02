@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://dlrptls2pgrce"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_line"]
+[ext_resource type="Texture2D" uid="uid://dnj7wnnwrgas6" path="res://textures/cameron/cameron_normal.png" id="2_norm"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="3_dlg"]
+
+[sub_resource type="Resource" id="Resource_safe1"]
+script = ExtResource("1_line")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_norm")
+text = "A safe! It needs a 4-digit combination to open."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("3_dlg")
+name = "Safe"
+lines = Array[ExtResource("1_line")]([SubResource("Resource_safe1")])
+metadata/_custom_type_script = "uid://6av67jfqula5"

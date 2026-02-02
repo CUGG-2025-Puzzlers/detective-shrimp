@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://dknb10beku6mq"]
 
-[ext_resource type="Script" uid="uid://cukhysnrqmpxl" path="res://scripts/player.gd" id="1_76oj4"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_76oj4"]
 [ext_resource type="Texture2D" uid="uid://cmefpk7wn74fu" path="res://textures/cameron/Cameron_Sprite_Sheet.png" id="2_yewv4"]
 
 [sub_resource type="Animation" id="Animation_dyp2m"]
@@ -239,6 +239,8 @@ radius = 1.5
 height = 14.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree") groups=["Player"]]
+z_index = 2
+safe_margin = 0.001
 script = ExtResource("1_76oj4")
 animation_tree = NodePath("AnimationTree")
 

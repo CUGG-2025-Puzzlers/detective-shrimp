@@ -1,34 +1,33 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=8 format=3 uid="uid://b0ji3jsew410b"]
+[gd_resource type="Resource" script_class="Dialogue" load_steps=7 format=3 uid="uid://dw7kb1c6ehulb"]
 
-[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_7jhg8"]
-[ext_resource type="Texture2D" uid="uid://d318cbfa5mpko" path="res://textures/cameron/cameron_shocked.png" id="4_hl6p6"]
-[ext_resource type="Texture2D" uid="uid://cycrol8exbgwh" path="res://textures/cameron/cameron_annoyed.png" id="5_d24im"]
-[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="8_vy6uh"]
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_ax2tl"]
+[ext_resource type="Texture2D" uid="uid://d318cbfa5mpko" path="res://textures/cameron/cameron_shocked.png" id="2_slsl1"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="3_tdbmm"]
 
 [sub_resource type="Resource" id="Resource_ejmy5"]
-script = ExtResource("1_7jhg8")
+script = ExtResource("1_ax2tl")
 speaker_name = "Shrimplock Holmes"
-speaker_portrait = ExtResource("5_d24im")
-text = "I have a bad feeling about this. I’m not supposed to be here. 
+speaker_portrait = ExtResource("2_slsl1")
+text = "I have a bad feeling about this. I'm not supposed to be here. 
 "
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_ubchd"]
-script = ExtResource("1_7jhg8")
+script = ExtResource("1_ax2tl")
 speaker_name = "Shrimplock Holmes"
-speaker_portrait = ExtResource("5_d24im")
-text = "Something’s not right. Henry didn’t want me to come back here for a reason. I shouldn’t be here alone."
+speaker_portrait = ExtResource("2_slsl1")
+text = "Something's not right. Henry didn't want me to come back here for a reason. I shouldn't be here alone."
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [sub_resource type="Resource" id="Resource_vhp3p"]
-script = ExtResource("1_7jhg8")
+script = ExtResource("1_ax2tl")
 speaker_name = "Shrimplock Holmes"
-speaker_portrait = ExtResource("4_hl6p6")
-text = "I don’t feel so good…"
+speaker_portrait = ExtResource("2_slsl1")
+text = "I don't feel so good…"
 metadata/_custom_type_script = "uid://drvyi1grf150r"
 
 [resource]
-script = ExtResource("8_vy6uh")
+script = ExtResource("3_tdbmm")
 name = "Couch Interact - Nap End"
-lines = Array[ExtResource("1_7jhg8")]([SubResource("Resource_ejmy5"), SubResource("Resource_ubchd"), SubResource("Resource_vhp3p")])
+lines = Array[ExtResource("1_ax2tl")]([SubResource("Resource_ejmy5"), SubResource("Resource_ubchd"), SubResource("Resource_vhp3p")])
 metadata/_custom_type_script = "uid://6av67jfqula5"

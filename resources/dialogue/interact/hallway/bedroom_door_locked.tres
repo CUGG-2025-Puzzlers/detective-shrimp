@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://bwq1p4qxbbilj"]
+
+[ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_f1qyx"]
+[ext_resource type="Texture2D" uid="uid://dk8k5kb8tphqx" path="res://textures/cameron/cameron_sus.png" id="2_o00pj"]
+[ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="2_uo56k"]
+
+[sub_resource type="Resource" id="Resource_wi3sl"]
+script = ExtResource("1_f1qyx")
+speaker_name = "Shrimplock Holmes"
+speaker_portrait = ExtResource("2_o00pj")
+text = "I should thoroughly check downstairs first..."
+metadata/_custom_type_script = "uid://drvyi1grf150r"
+
+[resource]
+script = ExtResource("2_uo56k")
+name = "Bedroom Door - Locked"
+lines = Array[ExtResource("1_f1qyx")]([SubResource("Resource_wi3sl")])
+metadata/_custom_type_script = "uid://6av67jfqula5"
