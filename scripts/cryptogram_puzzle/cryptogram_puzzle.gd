@@ -30,7 +30,7 @@ var font: Font
 var root_container: VBoxContainer
 
 func _ready():
-	font = preload("res://assets/fonts/PixelOperator8-Bold.ttf")
+	font = preload("res://fonts/PixelOperator8-Bold.ttf")
 	_hide_paper_defaults()
 	_build_initial()
 

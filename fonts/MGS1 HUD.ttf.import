@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://i08xrm8xq6hk"
-path="res://.godot/imported/m5x7.ttf-47a8993373daecfb025c7957e719fc41.fontdata"
+uid="uid://bpkekvew8316x"
+path="res://.godot/imported/MGS1 HUD.ttf-2a644e4e53bb91f490d91c136613765e.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/m5x7.ttf"
-dest_files=["res://.godot/imported/m5x7.ttf-47a8993373daecfb025c7957e719fc41.fontdata"]
+source_file="res://fonts/MGS1 HUD.ttf"
+dest_files=["res://.godot/imported/MGS1 HUD.ttf-2a644e4e53bb91f490d91c136613765e.fontdata"]
 
 [params]
 

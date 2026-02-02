@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://b5trnwyq0iqs2" path="res://assets/plain paper (texture)/7.png" id="7_xoyd6"]
 [ext_resource type="Texture2D" uid="uid://dm12t6gxxsmr7" path="res://assets/plain paper (texture)/4.png" id="8_yodfr"]
 [ext_resource type="Texture2D" uid="uid://cpjbxqnty44a7" path="res://assets/plain paper (texture)/9.png" id="9_tf5m5"]
-[ext_resource type="FontFile" uid="uid://dp421ommw2lqx" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="12_h7ly7"]
-[ext_resource type="Script" uid="uid://dxe1mk0verpau" path="res://scripts/letter_slot_1.gd" id="12_invp3"]
+[ext_resource type="FontFile" uid="uid://dp421ommw2lqx" path="res://fonts/PixelOperator8-Bold.ttf" id="12_h7ly7"]
+[ext_resource type="Script" path="res://scripts/letter_slot_1.gd" id="12_invp3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fhxge"]
 texture = ExtResource("2_lkpnm")

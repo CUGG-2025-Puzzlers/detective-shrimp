@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxmqf66kfi0ju"
-path="res://.godot/imported/975bb2b3ef472065d5482e3f50f8d164.png-aac9810d489a591d15f89c0e51370471.ctex"
+path="res://.godot/imported/mailbox.png-75c2ea63d84d73e9eff045f906b4988b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/975bb2b3ef472065d5482e3f50f8d164.png"
-dest_files=["res://.godot/imported/975bb2b3ef472065d5482e3f50f8d164.png-aac9810d489a591d15f89c0e51370471.ctex"]
+source_file="res://assets/background/mailbox.png"
+dest_files=["res://.godot/imported/mailbox.png-75c2ea63d84d73e9eff045f906b4988b.ctex"]
 
 [params]
 
