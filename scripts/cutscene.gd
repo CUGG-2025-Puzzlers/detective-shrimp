@@ -1,20 +1,19 @@
-extends Node
+extends Scene
 
 @export var cutscene: Globals.Cutscene
-@export var background_music: AudioStream
 @export var dialogue: Array[Dialogue]
 @export var dialogue_delay: float = 2.0
 
 var cur_dialogue = 0
 
 func _ready() -> void:
-	if (background_music != null):
-		AudioManager.play_background_music(background_music, 5)
+	super._ready()
+	if (dialogue.size() == 0):
+		return
 	
-	if (dialogue.size() > 0):
-		await get_tree().create_timer(dialogue_delay).timeout
-		_play_dialogue()
-		GameEvents.dialogue_ended.connect(_on_dialogue_ended)
+	await get_tree().create_timer(dialogue_delay).timeout
+	_play_dialogue()
+	GameEvents.dialogue_ended.connect(_on_dialogue_ended)
 
 func _on_dialogue_ended(name: String):
 	if (cur_dialogue >= dialogue.size()):

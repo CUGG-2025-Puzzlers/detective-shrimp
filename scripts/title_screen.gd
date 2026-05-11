@@ -1,6 +1,4 @@
-extends Node2D
-
-@export var background_music: AudioStream
+extends Scene
 
 func _ready() -> void:
 	AudioManager.play_background_music(background_music)

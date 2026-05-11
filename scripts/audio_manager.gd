@@ -4,17 +4,28 @@ extends Node
 
 @onready var music_player: AudioStreamPlayer = $%MusicPlayer
 
-const main_theme: AudioStream = preload("res://assets/sound&music/Shrimptective_theme.mp3")
-const puzzle_theme: AudioStream = preload("res://assets/sound&music/Shrimp_Jazz.mp3")
-const car_theme: AudioStream = preload("res://assets/sound&music/Shrimpin_Around.mp3")
-const end_theme: AudioStream = preload("res://assets/sound&music/End.mp3")
+var current_theme: MusicTheme
+const THEMES: Dictionary[MusicTheme, AudioStream] = {
+	MusicTheme.Main: preload("res://assets/sound&music/Shrimptective_theme.mp3"),
+	MusicTheme.Puzzle: preload("res://assets/sound&music/Shrimp_Jazz.mp3"),
+	MusicTheme.Car: preload("res://assets/sound&music/Shrimpin_Around.mp3"),
+	MusicTheme.End: preload("res://assets/sound&music/End.mp3"),
+}
 
 func _ready() -> void:
+	current_theme = MusicTheme.None
 	music_player.finished.connect(_on_music_finished)
 
-func play_background_music(music: AudioStream, fade_time: float = 2.5) -> void:
+func play_background_music(new_music: MusicTheme, fade_time: float = 2.5) -> void:
+	print("Request to change music from ", current_theme, " to ", new_music)
+	if new_music == current_theme or new_music == MusicTheme.None:
+		print("Request denied")
+		return
+	
+	print("Request accepted")
+	current_theme = new_music
 	music_player.stop()
-	music_player.stream = music
+	music_player.stream = THEMES[new_music]
 	_fade_in_music(fade_time)
 
 func get_current_music():
@@ -32,3 +43,11 @@ func _on_music_finished():
 
 func _get_volume() -> float:
 	return Globals.game_settings.music_volume / 300.0
+
+enum MusicTheme {
+	None,
+	Main,
+	Car,
+	Puzzle,
+	End,
+}

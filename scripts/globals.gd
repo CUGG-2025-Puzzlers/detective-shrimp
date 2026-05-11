@@ -61,6 +61,8 @@ func end_cutscene(cutscene: Cutscene):
 	match cutscene:
 		Cutscene.Car:
 			transition_to_scene(Area.Yard, true, Vector2(610, 265))
+		Cutscene.End:
+			transition_to_scene(Area.Credits, false)
 			
 
 func transition_to_scene(area: Area, show_player: bool = true, player_pos: Vector2 = Vector2.ZERO):
