@@ -3,7 +3,7 @@ extends Control
 @export var puzzle: Puzzle
 @export var puzzle_trigger: GameEvents.PuzzleTrigger
 
-var previous_music: AudioStream
+var previous_music: AudioManager.MusicTheme
 
 func _ready() -> void:
 	close()
@@ -26,8 +26,8 @@ func _on_puzzle_finished(trigger: GameEvents.PuzzleTrigger):
 
 func open():
 	visible = true
-	previous_music = AudioManager.get_current_music()
-	AudioManager.play_background_music(AudioManager.puzzle_theme)
+	previous_music = AudioManager.current_theme
+	AudioManager.play_background_music(AudioManager.MusicTheme.Puzzle)
 
 func close():
 	visible = false

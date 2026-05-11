@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialogue" load_steps=7 format=3 uid="uid://b6auddm2i1ye6"]
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://b6auddm2i1ye6"]
 
 [ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="1_fpmfp"]
 [ext_resource type="Texture2D" uid="uid://box8oppoxrodb" path="res://textures/cameron/cameron_happy.png" id="2_fpmfp"]

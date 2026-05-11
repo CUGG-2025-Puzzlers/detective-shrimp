@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://cvprit4qech2u"]
+[gd_resource type="TileSet" format=3 uid="uid://cvprit4qech2u"]
 
 [ext_resource type="Texture2D" uid="uid://d205euqcyvuaf" path="res://textures/light_puzzle/Letter_16x16.png" id="1_ggnq1"]
 [ext_resource type="Texture2D" uid="uid://bcv0k2rnepmfv" path="res://textures/light_puzzle/tileset_1_16x16.png" id="1_jjm5f"]
