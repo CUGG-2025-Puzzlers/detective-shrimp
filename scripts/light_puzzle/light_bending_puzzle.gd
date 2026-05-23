@@ -1,8 +1,10 @@
 class_name LightBendingPuzzle
 extends Puzzle
 
+@onready var start_light_button = %StartLightButton
+
 func _ready() -> void:
-	$LightSource/Button.pressed.connect(_on_start_pressed)
+	start_light_button.pressed.connect(_on_start_pressed)
 
 func start() -> void:
 	var raycast = $LightSource/RayCast2D
