@@ -115,6 +115,14 @@ enum Area {
 
 #endregion
 
+func get_direction_vector(dir: Direction) -> Vector2:
+	match dir:
+		Direction.Left:  return Vector2.LEFT
+		Direction.Right: return Vector2.RIGHT
+		Direction.Up:    return Vector2.UP
+		Direction.Down:  return Vector2.DOWN
+		_:               return Vector2.ZERO
+
 enum SlidePuzzleValues {
 	Empty,
 	Wall,
