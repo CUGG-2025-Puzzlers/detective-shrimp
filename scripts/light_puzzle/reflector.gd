@@ -16,6 +16,7 @@ const HALF_GRID_SIZE: Vector2 = Vector2(8, 8)
 var hovering: bool = false
 var dragging: bool = false
 var drag_offset: Vector2 = Vector2.ZERO
+var pickup_pos: Vector2
 
 func _ready() -> void:
 	_set_orientation()
@@ -78,13 +79,14 @@ func _on_mouse_exited() -> void:
 
 func _on_mouse_down() -> void:
 	dragging = true
+	pickup_pos = position
 	drag_offset = global_position - get_global_mouse_position()
 	Input.set_default_cursor_shape(Input.CURSOR_DRAG)
 
 func _on_mouse_up() -> void:
 	dragging = false
-	_snap_position()
 	Input.set_default_cursor_shape(Input.CURSOR_MOVE)
+	GameEvents.attempt_reflector_placement(self, position - drag_offset)
 
 func _snap_position() -> void:
 	position = ((position - drag_offset) / GRID_CELL_SIZE).floor() * GRID_CELL_SIZE + HALF_GRID_SIZE
@@ -104,6 +106,13 @@ func reflect(dir: Globals.Direction) -> Globals.Direction:
 			return Globals.Direction.Left if type == Type.Forward else Globals.Direction.Right
 		_:
 			return dir
+
+func place() -> void:
+	_snap_position()
+
+func put_back() -> void:
+	position = pickup_pos
+	_snap_position()
 
 enum Type {
 	None,
