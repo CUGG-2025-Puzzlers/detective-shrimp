@@ -1,7 +1,8 @@
 class_name LightBendingPuzzle
 extends Puzzle
 
-@onready var start_light_button = %StartLightButton
+@onready var start_light_button: Button = %StartLightButton
+@onready var light_source: Light = %LightSource
 
 func _ready() -> void:
 	start_light_button.pressed.connect(_on_start_pressed)
@@ -21,4 +22,4 @@ func finish() -> void:
 	GameEvents.reflection_complete = true
 
 func _on_start_pressed() -> void:
-	$LightSource/RayCast2D.shoot()
+	light_source.fire()
