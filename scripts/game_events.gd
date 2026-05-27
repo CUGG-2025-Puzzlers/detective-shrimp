@@ -47,6 +47,8 @@ signal puzzle_started(trigger: PuzzleTrigger)
 signal puzzle_finished(trigger: PuzzleTrigger)
 signal puzzle_exited(trigger: PuzzleTrigger)
 
+signal attempted_reflector_placement(reflector: Reflector, pos: Vector2)
+
 func start_puzzle(trigger: PuzzleTrigger):
 	if puzzle_already_completed(trigger):
 		return
@@ -67,6 +69,10 @@ func exit_puzzle(trigger: PuzzleTrigger):
 	
 	print("Exiting Puzzle...")
 	puzzle_exited.emit(trigger)
+
+func attempt_reflector_placement(reflector: Reflector, pos: Vector2):
+	print("Attempting to place reflector %s at (%d, %d)" % [reflector.name, pos.x, pos.y])
+	attempted_reflector_placement.emit(reflector, pos)
 
 func puzzle_already_completed(trigger: PuzzleTrigger) -> bool:
 	match trigger:
