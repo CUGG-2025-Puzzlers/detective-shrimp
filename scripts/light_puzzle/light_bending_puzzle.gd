@@ -20,7 +20,7 @@ func start() -> void:
 	var letter = get_tree().get_first_node_in_group("target")
 	if letter:
 		letter.victory_triggered = false
-	GameEvents.tried_place_reflector.connect(_on_attempted_reflector_placement)
+	GameEvents.attempted_reflector_placement.connect(_on_attempted_reflector_placement)
 	
 
 func finish() -> void:
