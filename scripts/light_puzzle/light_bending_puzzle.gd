@@ -20,19 +20,19 @@ func start() -> void:
 	var letter = get_tree().get_first_node_in_group("target")
 	if letter:
 		letter.victory_triggered = false
-	GameEvents.tried_place_reflector.connect(_on_tried_place_reflector)
+	GameEvents.tried_place_reflector.connect(_on_attempted_reflector_placement)
 	
 
 func finish() -> void:
 	print("Light puzzle complete!")
 	GameEvents.reflection_complete = true
 	
-	GameEvents.tried_place_reflector.disconnect(_on_tried_place_reflector)
+	GameEvents.attempted_reflector_placement.disconnect(_on_attempted_reflector_placement)
 
 func _on_start_pressed() -> void:
 	light_source.fire()
 
-func _on_tried_place_reflector(reflector: Reflector, pos: Vector2) -> void:
+func _on_attempted_reflector_placement(reflector: Reflector, pos: Vector2) -> void:
 	var cell_coords: Vector2 = background_layer.local_to_map(pos)
 	var background_tile_data: TileData = background_layer.get_cell_tile_data(cell_coords)
 	var object_tile_data: TileData = object_layer.get_cell_tile_data(cell_coords)
