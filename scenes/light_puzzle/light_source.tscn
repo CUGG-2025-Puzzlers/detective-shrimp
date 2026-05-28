@@ -10,6 +10,7 @@ shader_parameter/color = Color(1, 1, 1, 1)
 
 [node name="LightSource" type="Node2D" unique_id=1055232262]
 script = ExtResource("1_s3iea")
+speed_of_light = 800.0
 default_color = Color(1, 0.8745098, 0.13333334, 1)
 
 [node name="LightBeam" type="Line2D" parent="." unique_id=416779311]
