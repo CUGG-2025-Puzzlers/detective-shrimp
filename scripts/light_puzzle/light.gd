@@ -12,13 +12,21 @@ extends Node2D
 @onready var raycast: RayCast2D = %Raycast
 
 const OBJECT_LAYER: int = 1 << (7 - 1) # Objects on collision layer 7
-const HALF_GRID_CELL_SIZE: int = 16
 const HALF_GRID_SIZE: Vector2 = Vector2(8, 8)
 
 var beam_points: Array[Vector2]
+var active_activators: Array[ActivationData]
 var active_block_ids: Array[int]
 var travel_direction: Globals.Direction
 var bounces: int
+
+class ActivationData:
+	var length_from_start: float
+	var activation_id: int
+	
+	func _init(id: int, length: float) -> void:
+		activation_id = id
+		length_from_start = length
 
 func _ready() -> void:
 	pass
@@ -26,15 +34,15 @@ func _ready() -> void:
 func fire() -> void:
 	_reset()
 	_calculate_path()
-	for point in beam_points:
-		light_beam.add_point(point)
+	_animate_beam()
 
 func _reset() -> void:
 	print("Resetting light beam...")
-	active_block_ids.clear()
+	active_activators.clear()
 	beam_points.clear()
 	light_beam.clear_points()
-	light_beam.default_color = default_color
+	light_beam.material.set_shader_parameter("progress", 0.0)
+	light_beam.material.set_shader_parameter("color", default_color)
 	raycast.position = Vector2.ZERO
 	raycast.target_position = raycast.position + Globals.get_direction_vector(fire_direction) * max_raycast_distance
 
@@ -98,18 +106,31 @@ func _handle_tilemap_object_collision(hit_position: Vector2, tile_map: TileMapLa
 		return true
 	
 	# End beam if block is not active (block is solid)
-	if tile_data.is_activable and not tile_data.activation_id in active_block_ids:
+	if tile_data.is_activable and not _is_id_active(tile_data.activation_id):
 		print("Hit solid block! Ending beam")
 		beam_points.append(hit_position)
 		return true
 	
-	# Store activation ID for activable check
+	# Pass through activators and store activation ID for activable check
 	if tile_data.is_activator:
 		print("Hit activator! Adding ID %d to active IDs" % tile_data.activation_id)
-		active_block_ids.append(tile_data.activation_id)
+		beam_points.append(hit_position + Globals.get_direction_vector(travel_direction))
+		var length: float = _get_beam_length()
+		var activator_data: ActivationData = ActivationData.new(tile_data.activation_id, length)
+		active_activators.append(activator_data)
+		return false
 	
-	# Pass through activators and active blocks (block is pass-through)
-	beam_points.append(hit_position + Globals.get_direction_vector(travel_direction) * HALF_GRID_CELL_SIZE)
+	# Pass through active blocks (block is pass-through)
+	beam_points.append(hit_position + Globals.get_direction_vector(travel_direction))
+	return false
+
+# Returns true if an active activator has the given ID
+# Returns false otherwise
+func _is_id_active(id: int) -> bool:
+	for activator in active_activators:
+		if activator.activation_id == id:
+			return true
+	
 	return false
 
 func _calculate_path() -> void:
@@ -155,3 +176,46 @@ func _calculate_path() -> void:
 		reached_end = true
 	
 	print("Finished calculating path with %d collision points" % (len(beam_points) - 1))
+
+func _get_beam_length() -> float:
+	if beam_points.size() < 2:
+		return 0.0
+	
+	var length: float = 0.0
+	for i in range(beam_points.size() - 1):
+		length += beam_points[i].distance_to(beam_points[i + 1])
+	
+	return length
+
+func _animate_beam() -> void:
+	print("Animating beam...")
+	for point in beam_points:
+		light_beam.add_point(point)
+	
+	var tween: Tween
+	var current_length: float = 0.0
+	var total_length: float = _get_beam_length()
+	var segment_length: float
+	var animation_time: float
+	
+	# Animate in segments to each activator to allow for event firing
+	for activator in active_activators:
+		segment_length = activator.length_from_start - current_length
+		current_length = activator.length_from_start
+		animation_time = segment_length / speed_of_light
+		
+		var beam_percentage: float = current_length / total_length
+		
+		tween = create_tween()
+		tween.tween_property(light_beam.material, "shader_parameter/progress", beam_percentage, animation_time).from_current()
+		await tween.finished
+		print("\nActivator %d activated!\n" % activator.activation_id)
+	
+	# Animate remaining segment
+	segment_length = total_length - current_length
+	animation_time = segment_length / speed_of_light
+	
+	tween = create_tween()
+	tween.tween_property(light_beam.material, "shader_parameter/progress", 1.0, animation_time).from_current()
+	await tween.finished
+	print("Finished animating beam")
