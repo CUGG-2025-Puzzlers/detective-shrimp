@@ -18,6 +18,7 @@ var beam_points: Array[Vector2]
 var active_activators: Array[ActivationData]
 var travel_direction: Globals.Direction
 var bounces: int
+var hit_target = false
 
 class ActivationData:
 	var tile_pos: Vector2i
@@ -44,6 +45,7 @@ func _reset() -> void:
 	beam_points.clear()
 	active_activators.clear()
 	travel_direction = fire_direction
+	hit_target = false
 	
 	light_beam.clear_points()
 	light_beam.material.set_shader_parameter("progress", 0.0)
@@ -109,6 +111,7 @@ func _handle_tilemap_object_collision(hit_position: Vector2, tile_map: TileMapLa
 	if tile_data.is_target:
 		print("Hit target! Ending beam")
 		beam_points.append(hit_position)
+		hit_target = true
 		return true
 	
 	# End beam if block is not active (block is solid)
@@ -223,4 +226,10 @@ func _animate_beam() -> void:
 	tween = create_tween()
 	tween.tween_property(light_beam.material, "shader_parameter/progress", 1.0, animation_time).from_current()
 	await tween.finished
+	
+	if hit_target:
+		light_beam.material.set_shader_parameter("color", completion_color)
+		GameEvents.hit_target()
+		GameEvents.finish_puzzle(GameEvents.PuzzleTrigger.PuzzleLight)
+	
 	print("Finished animating beam")

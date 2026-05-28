@@ -50,6 +50,7 @@ signal puzzle_exited(trigger: PuzzleTrigger)
 signal beam_fired()
 signal attempted_reflector_placement(reflector: Reflector, pos: Vector2)
 signal activated_activator(coords: Vector2i, id: int)
+signal target_hit()
 
 func start_puzzle(trigger: PuzzleTrigger):
 	if puzzle_already_completed(trigger):
@@ -83,6 +84,10 @@ func attempt_reflector_placement(reflector: Reflector, pos: Vector2):
 func activate_activator(coords: Vector2i, id: int):
 	print("Activator %d at (%d, %d) activated!" % [id, coords.x, coords.y])
 	activated_activator.emit(coords, id)
+
+func hit_target():
+	print("Target Hit!")
+	target_hit.emit()
 
 func puzzle_already_completed(trigger: PuzzleTrigger) -> bool:
 	match trigger:
