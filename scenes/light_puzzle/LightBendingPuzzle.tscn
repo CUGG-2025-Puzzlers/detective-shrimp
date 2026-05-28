@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://fonts/m5x7.ttf" id="2_qoblw"]
 [ext_resource type="PackedScene" uid="uid://behvep1mrg318" path="res://scenes/light_puzzle/light_source.tscn" id="3_veyn7"]
+[ext_resource type="Script" uid="uid://bn46hicetlykv" path="res://scripts/light_puzzle/light_puzzle_objects.gd" id="4_yw8bd"]
 [ext_resource type="PackedScene" uid="uid://cj1mrnasn18ri" path="res://scenes/light_puzzle/reflector.tscn" id="7_o4sos"]
 [ext_resource type="Script" uid="uid://dximtju08yc60" path="res://scripts/light_puzzle/light_bending_puzzle.gd" id="10_lbp"]
 [ext_resource type="TileSet" uid="uid://12me4vv05j2d" path="res://resources/light_puzzle_tile_set.tres" id="13_qoblw"]
@@ -31,6 +32,7 @@ unique_name_in_owner = true
 tile_map_data = PackedByteArray("AAABAAgAAAAAAAEAAQAEAA0AAAACAAAAAQAMAAMAAAACAAEAAQAQAAgAAAACAAEAAgAZAAQAAAACAAAAAgAZAAIAAAABAAEAAAA=")
 tile_set = ExtResource("13_qoblw")
 physics_quadrant_size = 1
+script = ExtResource("4_yw8bd")
 
 [node name="LightSource" parent="." unique_id=1055232262 instance=ExtResource("3_veyn7")]
 unique_name_in_owner = true

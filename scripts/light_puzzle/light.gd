@@ -20,10 +20,12 @@ var travel_direction: Globals.Direction
 var bounces: int
 
 class ActivationData:
-	var length_from_start: float
+	var tile_pos: Vector2i
 	var activation_id: int
+	var length_from_start: float
 	
-	func _init(id: int, length: float) -> void:
+	func _init(pos: Vector2i, id: int, length: float) -> void:
+		tile_pos = pos
 		activation_id = id
 		length_from_start = length
 
@@ -35,6 +37,7 @@ func fire() -> void:
 	_calculate_path()
 	_animate_beam()
 
+# Resets beam properties to their default values
 func _reset() -> void:
 	print("Resetting light beam...")
 	bounces = 0
@@ -77,6 +80,7 @@ func _handle_tilemap_object_collision(hit_position: Vector2, tile_map: TileMapLa
 	
 	# Get the information about the tile that was collided with
 	var tile_rid: RID = raycast.get_collider_rid()
+	var tile_coords: Vector2i = tile_map.get_coords_for_body_rid(tile_rid)
 	var collision_layer: int = PhysicsServer2D.body_get_collision_layer(tile_rid)
 	
 	# End the beam when reaching a wall or other unexpected collision
@@ -85,8 +89,7 @@ func _handle_tilemap_object_collision(hit_position: Vector2, tile_map: TileMapLa
 		beam_points.append(hit_position)
 		return true
 	
-	var tile_data: LightPuzzleTileData = LightPuzzleTileData.new()
-	tile_data.get_tile_data(tile_map, tile_rid)
+	var tile_data: LightPuzzleTileData = LightPuzzleTileData.new(tile_map, tile_coords)
 	
 	# Unexpected collision: No tile found at collision position
 	if not tile_data.valid:
@@ -119,7 +122,7 @@ func _handle_tilemap_object_collision(hit_position: Vector2, tile_map: TileMapLa
 		print("Hit activator! Adding ID %d to active IDs" % tile_data.activation_id)
 		beam_points.append(hit_position + Globals.get_direction_vector(travel_direction))
 		var length: float = _get_beam_length()
-		var activator_data: ActivationData = ActivationData.new(tile_data.activation_id, length)
+		var activator_data: ActivationData = ActivationData.new(tile_coords, tile_data.activation_id, length)
 		active_activators.append(activator_data)
 		return false
 	
@@ -211,7 +214,7 @@ func _animate_beam() -> void:
 		tween.tween_property(light_beam.material, "shader_parameter/progress", beam_percentage, animation_time).from_current()
 		await tween.finished
 		
-		GameEvents.activate_activator(activator.activation_id)
+		GameEvents.activate_activator(activator.tile_pos, activator.activation_id)
 	
 	# Animate remaining segment
 	segment_length = total_length - current_length

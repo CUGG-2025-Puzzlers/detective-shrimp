@@ -27,6 +27,7 @@ func finish() -> void:
 # Event listener for when the start button is pressed
 # Fires the light beam
 func _on_start_pressed() -> void:
+	GameEvents.fire_beam()
 	light_source.fire()
 
 # Event listener for when attempting to place a reflector on a tile

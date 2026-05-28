@@ -14,13 +14,12 @@ var is_activator: bool
 var is_activable: bool
 var activation_id: int
 
-func get_tile_data(map: TileMapLayer, rid: RID) -> void:
-	var world_coords: Vector2i = map.get_coords_for_body_rid(rid)
-	var source_id: int = map.get_cell_source_id(world_coords)
-	var atlas_coords: Vector2i = map.get_cell_atlas_coords(world_coords)
-	var alt_id: int = map.get_cell_alternative_tile(world_coords)
+func _init(map: TileMapLayer, coords: Vector2i) -> void:
+	var source_id: int = map.get_cell_source_id(coords)
+	var atlas_coords: Vector2i = map.get_cell_atlas_coords(coords)
+	var alt_id: int = map.get_cell_alternative_tile(coords)
 	var source: TileSetAtlasSource = map.tile_set.get_source(source_id)
-	print("Tile world coordinates: (%d, %d)" % [world_coords.x, world_coords.y])
+	print("Tile world coordinates: (%d, %d)" % [coords.x, coords.y])
 	print("Tile atlas coordinates: (%d, %d)" % [atlas_coords.x, atlas_coords.y])
 	
 	# Unexpected collision: No tile found at collision position
