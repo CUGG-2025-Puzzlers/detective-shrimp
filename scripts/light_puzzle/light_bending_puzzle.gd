@@ -16,16 +16,7 @@ func _ready() -> void:
 	_setup_reflectors()
 
 func start() -> void:
-	var raycast = $LightSource/RayCast2D
-	raycast.restart()
-	for shrimp in get_tree().get_nodes_in_group("color_shrimp"):
-		if shrimp.has_method("deactivate"):
-			shrimp.deactivate()
-	var letter = get_tree().get_first_node_in_group("target")
-	if letter:
-		letter.victory_triggered = false
 	GameEvents.attempted_reflector_placement.connect(_on_attempted_reflector_placement)
-	
 
 func finish() -> void:
 	print("Light puzzle complete!")
