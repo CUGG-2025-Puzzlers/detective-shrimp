@@ -85,8 +85,9 @@ func _on_mouse_down() -> void:
 
 func _on_mouse_up() -> void:
 	dragging = false
+	_snap_position()
 	Input.set_default_cursor_shape(Input.CURSOR_MOVE)
-	GameEvents.attempt_reflector_placement(self, position - drag_offset)
+	GameEvents.attempt_reflector_placement(self, position)
 
 func _snap_position() -> void:
 	position = ((position - drag_offset) / GRID_CELL_SIZE).floor() * GRID_CELL_SIZE + HALF_GRID_SIZE
@@ -106,9 +107,6 @@ func reflect(dir: Globals.Direction) -> Globals.Direction:
 			return Globals.Direction.Left if type == Type.Forward else Globals.Direction.Right
 		_:
 			return dir
-
-func place() -> void:
-	_snap_position()
 
 func put_back() -> void:
 	position = pickup_pos

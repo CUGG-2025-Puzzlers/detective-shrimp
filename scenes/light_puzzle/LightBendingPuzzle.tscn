@@ -37,6 +37,7 @@ unique_name_in_owner = true
 position = Vector2(24, 136)
 
 [node name="Reflectors" type="Node2D" parent="." unique_id=471833294]
+unique_name_in_owner = true
 
 [node name="Reflector" parent="Reflectors" unique_id=1828266084 instance=ExtResource("7_o4sos")]
 position = Vector2(24, 248)
