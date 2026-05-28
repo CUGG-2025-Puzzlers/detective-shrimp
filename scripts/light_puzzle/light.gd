@@ -16,7 +16,6 @@ const HALF_GRID_SIZE: Vector2 = Vector2(8, 8)
 
 var beam_points: Array[Vector2]
 var active_activators: Array[ActivationData]
-var active_block_ids: Array[int]
 var travel_direction: Globals.Direction
 var bounces: int
 
@@ -38,11 +37,15 @@ func fire() -> void:
 
 func _reset() -> void:
 	print("Resetting light beam...")
-	active_activators.clear()
+	bounces = 0
 	beam_points.clear()
+	active_activators.clear()
+	travel_direction = fire_direction
+	
 	light_beam.clear_points()
 	light_beam.material.set_shader_parameter("progress", 0.0)
 	light_beam.material.set_shader_parameter("color", default_color)
+	
 	raycast.position = Vector2.ZERO
 	raycast.target_position = raycast.position + Globals.get_direction_vector(fire_direction) * max_raycast_distance
 
@@ -137,8 +140,6 @@ func _calculate_path() -> void:
 	print("Calculating beam path...")
 	var reached_end: bool = false
 	
-	bounces = 0
-	travel_direction = fire_direction
 	beam_points.append(raycast.position)
 	while not reached_end:
 		print()
@@ -209,7 +210,8 @@ func _animate_beam() -> void:
 		tween = create_tween()
 		tween.tween_property(light_beam.material, "shader_parameter/progress", beam_percentage, animation_time).from_current()
 		await tween.finished
-		print("\nActivator %d activated!\n" % activator.activation_id)
+		
+		GameEvents.activate_activator(activator.activation_id)
 	
 	# Animate remaining segment
 	segment_length = total_length - current_length
