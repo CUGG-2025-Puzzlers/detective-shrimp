@@ -227,9 +227,8 @@ func _animate_beam() -> void:
 	tween.tween_property(light_beam.material, "shader_parameter/progress", 1.0, animation_time).from_current()
 	await tween.finished
 	
-	GameEvents.finish_beam()
+	GameEvents.finish_beam(hit_target)
 	
 	if hit_target:
 		light_beam.material.set_shader_parameter("color", completion_color)
-		GameEvents.hit_target()
 		GameEvents.finish_puzzle(GameEvents.PuzzleTrigger.PuzzleLight)

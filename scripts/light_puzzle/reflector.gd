@@ -109,16 +109,22 @@ func _on_mouse_up() -> void:
 	GameEvents.attempt_reflector_placement(self, position)
 
 func _on_puzzle_started(trigger: GameEvents.PuzzleTrigger) -> void:
+	if trigger != GameEvents.PuzzleTrigger.PuzzleLight:
+		return
+	
 	_set_pickable(true)
 
 func _on_puzzle_finished(trigger: GameEvents.PuzzleTrigger) -> void:
+	if trigger != GameEvents.PuzzleTrigger.PuzzleLight:
+		return
+	
 	_set_pickable(false)
 
 func _on_beam_fired() -> void:
 	_set_pickable(false)
 
-func _on_beam_finished() -> void:
-	_set_pickable(true)
+func _on_beam_finished(hit_target: bool) -> void:
+	_set_pickable(not hit_target)
 
 # Snaps this reflectors position to the grid
 func _snap_position() -> void:

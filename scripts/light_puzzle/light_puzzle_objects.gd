@@ -28,7 +28,7 @@ func _use_tile_data_runtime_update(coords: Vector2i) -> bool:
 	# Mark active tiles for transparency
 	return _is_tile_in_array(coords, _active_tiles)
 
-func _tile_data_runtime_update(coords: Vector2i, tile_data: TileData) -> void:
+func _tile_data_runtime_update(_coords: Vector2i, tile_data: TileData) -> void:
 	# Reset all activators and activables
 	if reset:
 		tile_data.modulate.a = 1.0

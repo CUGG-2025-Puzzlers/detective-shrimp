@@ -34,8 +34,8 @@ func _on_start_pressed() -> void:
 
 # Event listener for when the light beam finished animating
 # Re-enables the start button
-func _on_beam_finished() -> void:
-	start_light_button.disabled = false
+func _on_beam_finished(hit_target: bool) -> void:
+	start_light_button.disabled = hit_target
 
 # Event listener for when attempting to place a reflector on a tile
 # Returns the reflector back to its pick up position if placed in an invalid tile
