@@ -13,10 +13,12 @@ const PLACEABILITY_LAYER = 0
 
 func _ready() -> void:
 	start_light_button.pressed.connect(_on_start_pressed)
+	
 	_setup_reflectors()
 
 func start() -> void:
 	GameEvents.attempted_reflector_placement.connect(_on_attempted_reflector_placement)
+	GameEvents.beam_finished.connect(_on_beam_finished)
 
 func finish() -> void:
 	print("Light puzzle complete!")
@@ -24,10 +26,16 @@ func finish() -> void:
 	GameEvents.attempted_reflector_placement.disconnect(_on_attempted_reflector_placement)
 
 # Event listener for when the start button is pressed
-# Fires the light beam
+# Fires the light beam, disables the start button
 func _on_start_pressed() -> void:
 	GameEvents.fire_beam()
+	start_light_button.disabled = true
 	light_source.fire()
+
+# Event listener for when the light beam finished animating
+# Re-enables the start button
+func _on_beam_finished() -> void:
+	start_light_button.disabled = false
 
 # Event listener for when attempting to place a reflector on a tile
 # Returns the reflector back to its pick up position if placed in an invalid tile
