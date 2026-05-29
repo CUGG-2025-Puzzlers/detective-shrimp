@@ -21,7 +21,6 @@ func start() -> void:
 func finish() -> void:
 	print("Light puzzle complete!")
 	GameEvents.reflection_complete = true
-	
 	GameEvents.attempted_reflector_placement.disconnect(_on_attempted_reflector_placement)
 
 # Event listener for when the start button is pressed

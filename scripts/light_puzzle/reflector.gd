@@ -19,10 +19,18 @@ var drag_offset: Vector2 = Vector2.ZERO
 var pickup_pos: Vector2
 
 func _ready() -> void:
+	_set_pickable(false)
 	_set_orientation()
+	
 	clickable_area.input_event.connect(_on_clickable_area_input_event)
 	clickable_area.mouse_entered.connect(_on_mouse_entered)
 	clickable_area.mouse_exited.connect(_on_mouse_exited)
+	
+	GameEvents.puzzle_started.connect(_on_puzzle_started)
+	GameEvents.puzzle_finished.connect(_on_puzzle_finished)
+	
+	GameEvents.beam_fired.connect(_on_beam_fired)
+	GameEvents.beam_finished.connect(_on_beam_finished)
 
 func _process(_delta: float) -> void:
 	if not hovering:
@@ -49,6 +57,7 @@ func _process(_delta: float) -> void:
 		
 		global_position = get_global_mouse_position() + drag_offset
 
+# Sets the orientation for this reflector based on its type
 func _set_orientation() -> void:
 	if light_reflector == null:
 		return
@@ -61,6 +70,8 @@ func _set_orientation() -> void:
 		_:
 			light_reflector.rotation_degrees = 0.0
 
+# Event handler for when the clickable area Area2D receives an event
+# Calls event handlers for left-click press and release
 func _on_clickable_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_released():
@@ -68,30 +79,57 @@ func _on_clickable_area_input_event(_viewport: Node, event: InputEvent, _shape_i
 		elif event.is_pressed():
 			_on_mouse_down()
 
+# Event handler for when the cursor starts hovering this reflector
+# Updates the cursor
 func _on_mouse_entered() -> void:
 	hovering = true
 	Input.set_default_cursor_shape(Input.CURSOR_MOVE)
 
+# Event handler for when the cursor stops hovering this reflector
+# Updates the cursor
 func _on_mouse_exited() -> void:
 	hovering = false
 	drag_offset = Vector2.ZERO
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
+# Event handler for when left-click is first pressed
+# Starts dragging this reflector
 func _on_mouse_down() -> void:
 	dragging = true
 	pickup_pos = position
 	drag_offset = global_position - get_global_mouse_position()
 	Input.set_default_cursor_shape(Input.CURSOR_DRAG)
 
+# Event handler for when left-click is first released
+# Stops dragging the reflector and attempts to place it
 func _on_mouse_up() -> void:
 	dragging = false
 	_snap_position()
 	Input.set_default_cursor_shape(Input.CURSOR_MOVE)
 	GameEvents.attempt_reflector_placement(self, position)
 
+func _on_puzzle_started(trigger: GameEvents.PuzzleTrigger) -> void:
+	_set_pickable(true)
+
+func _on_puzzle_finished(trigger: GameEvents.PuzzleTrigger) -> void:
+	_set_pickable(false)
+
+func _on_beam_fired() -> void:
+	_set_pickable(false)
+
+func _on_beam_finished() -> void:
+	_set_pickable(true)
+
+# Snaps this reflectors position to the grid
 func _snap_position() -> void:
 	position = ((position - drag_offset) / GRID_CELL_SIZE).floor() * GRID_CELL_SIZE + HALF_GRID_SIZE
 
+# Sets whether or not this reflector responds to input
+func _set_pickable(pickable: bool) -> void:
+	clickable_area.input_pickable = pickable
+
+# Returns a reflected outgoing direction based on the given
+# incoming direction and the type of reflector this is
 func reflect(dir: Globals.Direction) -> Globals.Direction:
 	if type == Type.None:
 		return dir
@@ -108,6 +146,7 @@ func reflect(dir: Globals.Direction) -> Globals.Direction:
 		_:
 			return dir
 
+# Returns this reflector to where it was picked up from
 func put_back() -> void:
 	position = pickup_pos
 	_snap_position()
