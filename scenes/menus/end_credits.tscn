@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://cgg8lih65lgox"]
+
+[ext_resource type="Script" uid="uid://crmm828mjhhyx" path="res://scripts/menus/end_credits.gd" id="1_1naf4"]
+[ext_resource type="PackedScene" uid="uid://vss4dx8y6io5" path="res://scenes/configured_text_label.tscn" id="1_dhn2b"]
+[ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://fonts/m5x7.ttf" id="3_vfuxg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ml0dg"]
+
+[node name="EndCredits" type="Node2D" unique_id=1630436198]
+script = ExtResource("1_1naf4")
+
+[node name="The End" parent="." unique_id=1618307021 instance=ExtResource("1_dhn2b")]
+offset_top = 16.0
+offset_right = 640.0
+offset_bottom = 98.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 100
+text = "THE END"
+horizontal_alignment = 1
+
+[node name="Credits" parent="." unique_id=930292553 instance=ExtResource("1_dhn2b")]
+offset_left = 42.0
+offset_top = 90.0
+offset_right = 286.0
+offset_bottom = 350.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 35
+text = "[b]Music[/b]
+Dominic Lo
+
+[b]Background Art[/b]
+Huajin Chen
+
+[b]Character & Puzzle Art[/b]
+Dominic Lo"
+horizontal_alignment = 1
+
+[node name="Credits2" parent="." unique_id=1238267777 instance=ExtResource("1_dhn2b")]
+offset_left = 345.0
+offset_top = 90.0
+offset_right = 589.0
+offset_bottom = 350.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 35
+text = "[b]Dialogue & Story[/b]
+Dominic Lo
+Huajin Chen
+Mouad Oulouali
+
+[b]Programming & Puzzles[/b]
+Huajin Chen
+Dominic Lo
+Mouad Oulouali
+Joseph Collado"
+horizontal_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1339707706]
+unique_name_in_owner = true
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 166.0
+offset_bottom = 42.0
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_vfuxg")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ml0dg")
+text = "MAIN MENU
+"
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="." unique_id=719100371]
+unique_name_in_owner = true
+offset_left = 544.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 42.0
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_vfuxg")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ml0dg")
+text = "QUIT
+"
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
