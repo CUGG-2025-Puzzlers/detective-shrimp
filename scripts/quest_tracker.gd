@@ -16,7 +16,7 @@ var quests: Array[Dictionary] = [
 	{
 		"text": "Get the key from the mailbox",
 		"signal": "puzzle_finished",
-		"trigger": GameEvents.PuzzleTrigger.PuzzleSlide,
+		"trigger": GameData.PuzzleType.Key,
 	},
 	{
 		"text": "Use the key to go inside the house",
@@ -49,11 +49,11 @@ func _on_player_hide() -> void:
 func _on_dialogue_ended(name: String) -> void:
 	_try_complete("dialogue_ended", null)
 
-func _on_puzzle_started(trigger: GameEvents.PuzzleTrigger) -> void:
-	_try_complete("puzzle_started", trigger)
+func _on_puzzle_started(puzzle: GameData.PuzzleType) -> void:
+	_try_complete("puzzle_started", puzzle)
 
-func _on_puzzle_finished(trigger: GameEvents.PuzzleTrigger) -> void:
-	_try_complete("puzzle_finished", trigger)
+func _on_puzzle_finished(puzzle: GameData.PuzzleType) -> void:
+	_try_complete("puzzle_finished", puzzle)
 
 func _on_scene_changed(_scene_name: String) -> void:
 	_try_complete("scene_changed", null)

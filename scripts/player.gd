@@ -56,19 +56,19 @@ func _on_requested_player_show(pos: Vector2):
 	global_position = pos
 	visible = true
 
-func _on_dialogue_started(dialogue: Dialogue):
+func _on_dialogue_started(_dialogue: Dialogue):
 	pause_movement()
 
-func _on_dialogue_ended(name: String):
+func _on_dialogue_ended(_name: String):
 	resume_movement()
 
-func _on_puzzle_started(trigger: GameEvents.PuzzleTrigger):
+func _on_puzzle_started(_puzzle: GameData.PuzzleType):
 	pause_movement()
 
-func _on_puzzle_finished(trigger: GameEvents.PuzzleTrigger):
+func _on_puzzle_finished(_puzzle: GameData.PuzzleType):
 	resume_movement()
 
-func _on_puzzle_exited(trigger: GameEvents.PuzzleTrigger):
+func _on_puzzle_exited(_puzzle: GameData.PuzzleType):
 	resume_movement()
 
 func pause_movement():

@@ -313,4 +313,4 @@ func _check_complete():
 			style.bg_color = solved_color
 	# Wait for player to see solved then signal GameEvents to close popup
 	await get_tree().create_timer(1.5).timeout
-	GameEvents.finish_puzzle(GameEvents.PuzzleTrigger.PuzzleDecryption)
+	GameEvents.finish_puzzle(GameData.PuzzleType.Letter)
