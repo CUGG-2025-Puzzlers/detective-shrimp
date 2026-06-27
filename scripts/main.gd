@@ -15,7 +15,25 @@ var player: Player = null
 var _current_menu : Menu = null
 
 func _ready() -> void:
-	load_menu(UID.MAIN_MENU)
+	# Register Event Handlers
+	GameEvents.scene_change_requested.connect(_on_scene_change_requested)
+	GameEvents.menu_open_requested.connect(_on_menu_open_requested)
+	GameEvents.menu_close_requested.connect(_on_menu_close_requested)
+	
+	_load_menu(UID.MAIN_MENU)
+
+#region Event Handlers
+
+func _on_scene_change_requested(scene_uid: String) -> void:
+	_load_scene(scene_uid)
+
+func _on_menu_open_requested(menu_uid: String) -> void:
+	_load_menu(menu_uid)
+
+func _on_menu_close_requested() -> void:
+	_close_menu()
+
+#endregion
 
 ## Initializes the player
 func _init_player() -> void:
@@ -38,7 +56,7 @@ func _init_player() -> void:
 
 ## Loads a menu on top of the current scene (if there is one) and pauses the game.
 ## Only one menu should be loaded at any time (i.e. no stacked menus)
-func load_menu(menu_uid: String) -> void:
+func _load_menu(menu_uid: String) -> void:
 	if _current_menu != null:
 		var error: String =\
 			"Could not load menu %s: Another menu is already open" % menu_uid
@@ -65,7 +83,7 @@ func load_menu(menu_uid: String) -> void:
 	pause_root.add_child(_current_menu)
 
 ## Closes the current menu and returns to control to the current scene
-func close_menu() -> void:
+func _close_menu() -> void:
 	if _current_menu == null:
 		var error: String = "Could not close menu: No menu is currently open"
 		push_error(error)
@@ -77,7 +95,7 @@ func close_menu() -> void:
 	get_tree().paused = false
 
 ## Loads a new game scene in the world, specifically cutscenes and rooms
-func load_scene(scene_uid: String) -> void:
+func _load_scene(scene_uid: String) -> void:
 	_deferred_load_scene.call_deferred(scene_uid)
 
 ## Does the actual scene loading during idle time
@@ -85,5 +103,5 @@ func _deferred_load_scene(scene_uid: String) -> void:
 	pass
 
 ## Stops the current scene (if there is one) and loads a puzzle
-func load_puzzle() -> void:
+func _load_puzzle() -> void:
 	pass

@@ -1,5 +1,31 @@
 extends Node
 
+#region Scenes
+
+signal scene_change_requested(scene_uid: String)
+signal menu_open_requested(menu_uid: String)
+signal menu_close_requested()
+
+## Emits a signal that a scene change was requested.
+## Does not actually handle scene changing, that should be
+## done by an event handler
+func request_scene_change(scene_uid: String) -> void:
+	print("Requesting scene change to %s" % scene_uid)
+	scene_change_requested.emit(scene_uid)
+
+## Emits a signal that a menu was requested to be opened.
+## Does not actually open the menu, that should be done by
+## an event handler
+func request_menu_open(menu_uid: String) -> void:
+	print("Requesting to open menu %s" % menu_uid)
+	menu_open_requested.emit(menu_uid)
+
+## Emits a signal that a menu was requested to be closed.
+## Does not actually close the menu, that should be done by
+## an event handler
+func request_menu_close() -> void:
+	print("Requesting to close current menu")
+	menu_close_requested.emit()
 
 #endregion
 
