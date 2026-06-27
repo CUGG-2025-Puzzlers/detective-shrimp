@@ -10,27 +10,24 @@ extends Node
 @onready var transition_root: Control = %TransitionRoot
 @onready var pause_root     : Control = %PauseRoot
 
-# Scene UIDs
-const MAIN_MENU_UID: String = "uid://dkrxhuquv6u7e"
-const PLAYER_UID   : String = "uid://dknb10beku6mq"
-
 var player: Player = null
 
 func _ready() -> void:
-	load_scene(MAIN_MENU_UID)
+	load_menu(UID.MAIN_MENU)
 
 ## Initializes the player
 func _init_player() -> void:
-	var player_scene: PackedScene = ResourceLoader.load(PLAYER_UID) as PackedScene
+	var player_scene: PackedScene = ResourceLoader.load(UID.PLAYER) as PackedScene
 	if player_scene == null:
-		var error: String = "Could not load player scene: %s" % PLAYER_UID
+		var error: String = "Could not load player scene: %s" % UID.PLAYER
 		push_error(error)
 		print(error)
 		return
 	
 	player = player_scene.instantiate() as Player
 	if player == null:
-		var error: String = "Loaded player scene does not extend player or does not exist: %s" % PLAYER_UID
+		var error: String =\
+			"Loaded player scene does not extend Player or does not exist: %s" % UID.PLAYER
 		push_error(error)
 		print(error)
 		return
