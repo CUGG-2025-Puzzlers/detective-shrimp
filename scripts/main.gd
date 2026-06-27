@@ -12,6 +12,7 @@ extends Node
 
 var player: Player = null
 
+var _current_scene: Scene = null
 var _current_menu : Menu = null
 
 func _ready() -> void:
@@ -24,13 +25,22 @@ func _ready() -> void:
 
 #region Event Handlers
 
+## Event Handler for when a scene change is requested.
+## Attempts to load the scene given by [param scene_uid]
 func _on_scene_change_requested(scene_uid: String) -> void:
+	print("Scene change request accepted. Attempting to load scene %s" % scene_uid)
 	_load_scene(scene_uid)
 
+## Event Handler for when a menu is requested to be opened.
+## Attempts to open the menu given by [param menu_uid]
 func _on_menu_open_requested(menu_uid: String) -> void:
+	print("Menu open request accepted. Attempting to open menu %s" % menu_uid)
 	_load_menu(menu_uid)
 
+## Event Handler for when a menu is requested to be closed.
+## Attempts to close the current menu
 func _on_menu_close_requested() -> void:
+	print("Menu close request accepted. Attempting to close current menu")
 	_close_menu()
 
 #endregion
@@ -100,7 +110,31 @@ func _load_scene(scene_uid: String) -> void:
 
 ## Does the actual scene loading during idle time
 func _deferred_load_scene(scene_uid: String) -> void:
-	pass
+	# Remove the current scene
+	if _current_scene != null:
+		_current_scene.queue_free()
+		_current_scene = null
+		await get_tree().process_frame
+	
+	# Load the next scene
+	var new_scene: PackedScene = ResourceLoader.load(scene_uid) as PackedScene
+	if new_scene == null:
+		var error: String = "Could not load scene %s as PackedScene" % scene_uid
+		push_error(error)
+		print(error)
+		return
+	
+	# Instantiate the new scene
+	_current_scene = new_scene.instantiate() as Scene
+	if _current_scene == null:
+		var error: String =\
+			"Loaded scene %s is not of type Scene or does not exist" % scene_uid
+		push_error(error)
+		print(error)
+		return
+	
+	level_root.add_child(_current_scene)
+	await get_tree().process_frame
 
 ## Stops the current scene (if there is one) and loads a puzzle
 func _load_puzzle() -> void:
