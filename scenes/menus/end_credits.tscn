@@ -8,6 +8,7 @@
 
 [node name="EndCredits" type="Node2D" unique_id=1630436198]
 script = ExtResource("1_1naf4")
+music = 4
 
 [node name="The End" parent="." unique_id=1618307021 instance=ExtResource("1_dhn2b")]
 offset_top = 16.0

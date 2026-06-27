@@ -48,6 +48,7 @@ _data = {
 
 [node name="TitleScreen" type="Node2D" unique_id=1026944352]
 script = ExtResource("1_fgkus")
+music = 1
 
 [node name="Background" type="Sprite2D" parent="." unique_id=762932808]
 position = Vector2(320, 180)
