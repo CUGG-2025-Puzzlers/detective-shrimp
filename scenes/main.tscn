@@ -25,6 +25,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=605232085]
 process_mode = 1
@@ -36,6 +37,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1898843469]
 process_mode = 1
@@ -47,6 +49,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1640143183]
 process_mode = 2
@@ -58,6 +61,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="DebugLayer" type="CanvasLayer" parent="." unique_id=1794797134]
 process_mode = 3
@@ -69,3 +73,4 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
