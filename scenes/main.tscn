@@ -12,7 +12,7 @@ process_mode = 1
 [node name="LevelRoot" type="Node2D" parent="World" unique_id=1130385675]
 unique_name_in_owner = true
 
-[node name="CutSceneRoot" type="Node2D" parent="World" unique_id=1260041035]
+[node name="EntityRoot" type="Node2D" parent="World" unique_id=2095164068]
 unique_name_in_owner = true
 
 [node name="PuzzleLayer" type="CanvasLayer" parent="." unique_id=1175309335]
@@ -26,9 +26,20 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1898843469]
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=605232085]
 process_mode = 1
 layer = 20
+
+[node name="HUDRoot" type="Control" parent="HUDLayer" unique_id=810720078]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1898843469]
+process_mode = 1
+layer = 30
 
 [node name="TransitionRoot" type="Control" parent="TransitionLayer" unique_id=41978584]
 unique_name_in_owner = true
@@ -39,7 +50,7 @@ offset_bottom = 40.0
 
 [node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1640143183]
 process_mode = 2
-layer = 30
+layer = 40
 
 [node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=1807507078]
 unique_name_in_owner = true
