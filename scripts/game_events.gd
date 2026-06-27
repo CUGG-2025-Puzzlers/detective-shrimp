@@ -1,17 +1,5 @@
 extends Node
 
-#region Flags
-
-#Puzzle completion flags
-var mailbox_complete: bool = false
-var reflection_complete: bool = false
-var cassette_complete: bool = false
-var letter_complete: bool = false
-
-#Interact flag
-var grocery_list: bool = false
-var safe: bool = false
-var napped: bool = false
 
 #endregion
 
@@ -43,53 +31,29 @@ func change_scene(scene_name: String):
 
 #region Puzzle Events
 
-signal puzzle_started(trigger: PuzzleTrigger)
-signal puzzle_finished(trigger: PuzzleTrigger)
-signal puzzle_exited(trigger: PuzzleTrigger)
+signal puzzle_started(puzzle: GameData.PuzzleType)
+signal puzzle_finished(puzzle: GameData.PuzzleType)
+signal puzzle_exited(puzzle: GameData.PuzzleType)
 
-func start_puzzle(trigger: PuzzleTrigger):
-	if puzzle_already_completed(trigger):
+func start_puzzle(puzzle: GameData.PuzzleType):
+	if GameData.puzzle_already_completed(puzzle):
 		return
 	
 	print("Starting Puzzle...")
-	puzzle_started.emit(trigger)
+	puzzle_started.emit(puzzle)
 
-func finish_puzzle(trigger: PuzzleTrigger):
-	if puzzle_already_completed(trigger):
+func finish_puzzle(puzzle: GameData.PuzzleType):
+	if GameData.puzzle_already_completed(puzzle):
 		return
 	
 	print("Finishing Puzzle...")
-	puzzle_finished.emit(trigger)
+	puzzle_finished.emit(puzzle)
 
-func exit_puzzle(trigger: PuzzleTrigger):
-	if puzzle_already_completed(trigger):
+func exit_puzzle(puzzle: GameData.PuzzleType):
+	if GameData.puzzle_already_completed(puzzle):
 		return
 	
 	print("Exiting Puzzle...")
-	puzzle_exited.emit(trigger)
-
-func puzzle_already_completed(trigger: PuzzleTrigger) -> bool:
-	match trigger:
-		PuzzleTrigger.PuzzleSlide:
-			return mailbox_complete
-		PuzzleTrigger.PuzzleCassette:
-			return cassette_complete
-		PuzzleTrigger.PuzzleLight:
-			return reflection_complete
-		PuzzleTrigger.PuzzleDecryption:
-			return letter_complete
-		PuzzleTrigger.PuzzleSafe:
-			return safe
-
-	return false
-
-enum PuzzleTrigger {
-	None,
-	PuzzleSlide,
-	PuzzleCassette,
-	PuzzleLight,
-	PuzzleDecryption,
-	PuzzleSafe,
-}
+	puzzle_exited.emit(puzzle)
 
 #endregion
