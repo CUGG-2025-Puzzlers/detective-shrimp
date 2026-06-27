@@ -12,6 +12,8 @@ extends Node
 
 var player: Player = null
 
+var _current_menu : Menu = null
+
 func _ready() -> void:
 	load_menu(UID.MAIN_MENU)
 
@@ -34,9 +36,45 @@ func _init_player() -> void:
 	
 	entity_root.add_child(player)
 
-## Loads a menu on top of the current scene (if there is one)
+## Loads a menu on top of the current scene (if there is one) and pauses the game.
+## Only one menu should be loaded at any time (i.e. no stacked menus)
 func load_menu(menu_uid: String) -> void:
-	pass
+	if _current_menu != null:
+		var error: String =\
+			"Could not load menu %s: Another menu is already open" % menu_uid
+		push_error(error)
+		print(error)
+		return
+	
+	var menu_scene: PackedScene = ResourceLoader.load(menu_uid) as PackedScene
+	if menu_scene == null:
+		var error: String = "Could not load menu %s as a packed scene" % menu_uid
+		push_error(error)
+		print(error)
+		return
+	
+	_current_menu = menu_scene.instantiate() as Menu
+	if _current_menu == null:
+		var error: String =\
+			"Loaded menu %s does not extend Menu or does not exist" % menu_uid
+		push_error(error)
+		print(error)
+		return
+	
+	get_tree().paused = true
+	pause_root.add_child(_current_menu)
+
+## Closes the current menu and returns to control to the current scene
+func close_menu() -> void:
+	if _current_menu == null:
+		var error: String = "Could not close menu: No menu is currently open"
+		push_error(error)
+		print(error)
+		return
+	
+	_current_menu.queue_free()
+	await get_tree().process_frame
+	get_tree().paused = false
 
 ## Loads a new game scene in the world, specifically cutscenes and rooms
 func load_scene(scene_uid: String) -> void:
