@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c56xp07qi7tkm" path="res://assets/background/16x16 TopDown Nature/4_Seasons_Ground_Tiles.png" id="1_3a355"]
 [ext_resource type="Texture2D" uid="uid://8ohi2tgm0k0x" path="res://assets/background/dark-abstract-background.jpg" id="1_b5d1x"]
-[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/game_scenes/scene.gd" id="1_f2p5c"]
+[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/game_scenes/game_scene.gd" id="1_f2p5c"]
 [ext_resource type="Texture2D" uid="uid://cf8c5tj8hgjbe" path="res://assets/background/House 2.png" id="2_otrge"]
 [ext_resource type="Texture2D" uid="uid://bxmqf66kfi0ju" path="res://assets/background/mailbox.png" id="3_8hp3h"]
 [ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="4_ughhp"]
