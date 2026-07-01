@@ -12,8 +12,9 @@ extends Node
 
 var player: Player = null
 
-var _current_scene: Scene = null
-var _current_menu : Menu = null
+var _current_scene  : GameScene = null
+var _current_menu   : Menu = null
+var _target_spawn_id: int = -1
 
 func _ready() -> void:
 	# Register Event Handlers
@@ -27,9 +28,9 @@ func _ready() -> void:
 
 ## Event Handler for when a scene change is requested.
 ## Attempts to load the scene given by [param scene_uid]
-func _on_scene_change_requested(scene_uid: String) -> void:
+func _on_scene_change_requested(scene_uid: String, spawn_location_index: int) -> void:
 	print("Scene change request accepted. Attempting to load scene %s" % scene_uid)
-	_load_scene(scene_uid)
+	_load_scene(scene_uid, spawn_location_index)
 
 ## Event Handler for when a menu is requested to be opened.
 ## Attempts to open the menu given by [param menu_uid]
@@ -63,6 +64,35 @@ func _init_player() -> void:
 		return
 	
 	entity_root.add_child(player)
+
+## Spawns the player at the given location if the ID is non-negative. 
+## Otherwise despawns the player.
+func _try_spawn_player(spawn_location_index: int) -> void:
+	if spawn_location_index < 0:
+		_despawn_player()
+		return
+	
+	if _current_scene == null:
+		var error = "Cannot spawn player: No scene to spawn player into"
+		push_error(error)
+		print(error)
+		return
+	
+	if player == null:
+		_init_player()
+		print("Spawned Player")
+	
+	_current_scene.set_player_location(player, spawn_location_index)
+
+## Despawns the player, removing it from the scene tree
+func _despawn_player() -> void:
+	if player == null:
+		return
+	
+	player.queue_free()
+	player = null
+	await get_tree().process_frame
+	print("Despawned Player")
 
 ## Loads a menu on top of the current scene (if there is one) and pauses the game.
 ## Only one menu should be loaded at any time (i.e. no stacked menus)
@@ -105,11 +135,11 @@ func _close_menu() -> void:
 	get_tree().paused = false
 
 ## Loads a new game scene in the world, specifically cutscenes and rooms
-func _load_scene(scene_uid: String) -> void:
-	_deferred_load_scene.call_deferred(scene_uid)
+func _load_scene(scene_uid: String, spawn_location_index: int) -> void:
+	_deferred_load_scene.call_deferred(scene_uid, spawn_location_index)
 
 ## Does the actual scene loading during idle time
-func _deferred_load_scene(scene_uid: String) -> void:
+func _deferred_load_scene(scene_uid: String, spawn_location_index: int) -> void:
 	# Remove the current scene
 	if _current_scene != null:
 		_current_scene.queue_free()
@@ -125,7 +155,7 @@ func _deferred_load_scene(scene_uid: String) -> void:
 		return
 	
 	# Instantiate the new scene
-	_current_scene = new_scene.instantiate() as Scene
+	_current_scene = new_scene.instantiate() as GameScene
 	if _current_scene == null:
 		var error: String =\
 			"Loaded scene %s is not of type Scene or does not exist" % scene_uid
@@ -135,6 +165,8 @@ func _deferred_load_scene(scene_uid: String) -> void:
 	
 	level_root.add_child(_current_scene)
 	await get_tree().process_frame
+	
+	_try_spawn_player(spawn_location_index)
 
 ## Stops the current scene (if there is one) and loads a puzzle
 func _load_puzzle() -> void:

@@ -14,7 +14,7 @@ func _ready() -> void:
 func _on_start_pressed() -> void:
 	print("Starting Shrimptective!")
 	GameEvents.request_menu_close()
-	GameEvents.request_scene_change(UID.CAR_CUTSCENE)
+	GameEvents.request_scene_change(UID.CAR_CUTSCENE, -1)
 
 ## Event Handler for when the options button is pressed.
 ## Opens the Options Menu
