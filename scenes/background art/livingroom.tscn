@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://7jgwmr3e8qj8"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_7e8s8"]
-[ext_resource type="Script" uid="uid://rsau2eqd80m8" path="res://scripts/game_scenes/game_areas/livingroom.gd" id="1_7wq2n"]
+[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/game_scenes/game_scene.gd" id="1_772ix"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_0vul7"]
 [ext_resource type="Texture2D" uid="uid://dr4feske7gj10" path="res://assets/background/pixelinterior_LRK/doorswindowsstairs_LRK.png" id="3_qum0h"]
 [ext_resource type="Texture2D" uid="uid://boihvu1nshova" path="res://assets/background/rundown house/Old house/old house.png" id="3_swubv"]
@@ -4142,10 +4142,19 @@ texture = ExtResource("12_re2fb")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5j3e2")
 
-[node name="livingRoom" type="Node2D" unique_id=99026483]
+[node name="livingRoom" type="Node2D" unique_id=99026483 node_paths=PackedStringArray("spawn_points")]
 z_index = -1
-script = ExtResource("1_7wq2n")
+script = ExtResource("1_772ix")
 background_music = 1
+spawn_points = [NodePath("SpawnPointMarkers/KitchenDoor"), NodePath("SpawnPointMarkers/StaircaseLanding")]
+
+[node name="SpawnPointMarkers" type="Node2D" parent="." unique_id=1855454316]
+
+[node name="KitchenDoor" type="Marker2D" parent="SpawnPointMarkers" unique_id=499704902]
+position = Vector2(75, 300)
+
+[node name="StaircaseLanding" type="Marker2D" parent="SpawnPointMarkers" unique_id=589450436]
+position = Vector2(450, 175)
 
 [node name="background" type="TileMapLayer" parent="." unique_id=906961781]
 position = Vector2(314, 164)
@@ -4174,12 +4183,10 @@ scale = Vector2(1.6857804, 1.6857804)
 tile_map_data = PackedByteArray("AAAKAP//AAADAAEAAAAKAAAAAAADAAIAAAAKAAEAAAADAAMAAAABAP3/AAABAAgAAAA=")
 tile_set = SubResource("TileSet_po3oh")
 
-[node name="PuzzlePopup" parent="." unique_id=375017414 node_paths=PackedStringArray("puzzle") instance=ExtResource("21_safe")]
+[node name="PuzzlePopup" parent="." unique_id=375017414 instance=ExtResource("21_safe")]
 visible = false
 offset_right = 640.0
 offset_bottom = 360.0
-puzzle = NodePath("SafePuzzle")
-puzzle_trigger = 5
 
 [node name="SafePuzzle" parent="PuzzlePopup" unique_id=966071596 instance=ExtResource("22_safe")]
 z_index = 100
@@ -4203,7 +4210,7 @@ offset_right = 437.0
 offset_bottom = 126.0
 texture = ExtResource("9_85807")
 script = ExtResource("20_safe")
-puzzle_trigger = 5
+puzzle_type = 0
 post_puzzle_dialogue = ExtResource("24_safe")
 dialogue = ExtResource("23_safe")
 

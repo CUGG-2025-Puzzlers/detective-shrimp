@@ -5166,9 +5166,18 @@ texture = ExtResource("10_1r0rb")
 [sub_resource type="TileSet" id="TileSet_pu6ws"]
 sources/1 = SubResource("TileSetAtlasSource_yssk2")
 
-[node name="kitchen" type="Node2D" unique_id=1625024496]
+[node name="kitchen" type="Node2D" unique_id=1625024496 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_l4cce")
 background_music = 1
+spawn_points = [NodePath("SpawnPointMarkers/BackDoor"), NodePath("SpawnPointMarkers/LivingRoomDoor")]
+
+[node name="SpawnPointMarkers" type="Node2D" parent="." unique_id=415541857]
+
+[node name="BackDoor" type="Marker2D" parent="SpawnPointMarkers" unique_id=1622400184]
+position = Vector2(65, 200)
+
+[node name="LivingRoomDoor" type="Marker2D" parent="SpawnPointMarkers" unique_id=1247874823]
+position = Vector2(525, 190)
 
 [node name="background" type="TileMapLayer" parent="." unique_id=326135154]
 position = Vector2(316.00003, 177.00002)

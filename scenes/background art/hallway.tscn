@@ -1566,9 +1566,18 @@ texture = ExtResource("1_jm55p")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gq6ba")
 
-[node name="hallway" type="Node2D" unique_id=402934760]
+[node name="hallway" type="Node2D" unique_id=402934760 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_5xt8j")
 background_music = 1
+spawn_points = [NodePath("SpawnPointMarkers/StaircaseLanding"), NodePath("SpawnPointMarkers/BedroomDoor")]
+
+[node name="SpawnPointMarkers" type="Node2D" parent="." unique_id=2132072407]
+
+[node name="StaircaseLanding" type="Marker2D" parent="SpawnPointMarkers" unique_id=717062900]
+position = Vector2(85, 225)
+
+[node name="BedroomDoor" type="Marker2D" parent="SpawnPointMarkers" unique_id=719135405]
+position = Vector2(180, 185)
 
 [node name="background" type="TileMapLayer" parent="." unique_id=719254047]
 position = Vector2(312, 173)

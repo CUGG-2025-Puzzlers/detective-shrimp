@@ -2051,9 +2051,21 @@ texture = ExtResource("3_8hp3h")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_t6ggx")
 
-[node name="yard" type="Node2D" unique_id=1787916871]
+[node name="yard" type="Node2D" unique_id=1787916871 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_f2p5c")
 background_music = 1
+spawn_points = [NodePath("SpawnPointMarkers/InitialSpawn"), NodePath("SpawnPointMarkers/LivingRoomDoor"), NodePath("SpawnPointMarkers/KitchenDoor")]
+
+[node name="SpawnPointMarkers" type="Node2D" parent="." unique_id=292686344]
+
+[node name="InitialSpawn" type="Marker2D" parent="SpawnPointMarkers" unique_id=1307986906]
+position = Vector2(600, 285)
+
+[node name="LivingRoomDoor" type="Marker2D" parent="SpawnPointMarkers" unique_id=1217307235]
+position = Vector2(130, 300)
+
+[node name="KitchenDoor" type="Marker2D" parent="SpawnPointMarkers" unique_id=1194965764]
+position = Vector2(265, 275)
 
 [node name="bg" type="TileMapLayer" parent="." unique_id=1543266098]
 position = Vector2(350, 184)
@@ -2095,14 +2107,12 @@ offset_top = 210.0
 offset_right = 376.0
 offset_bottom = 242.0
 script = ExtResource("5_vres7")
-puzzle_trigger = 1
+puzzle_type = 0
 post_puzzle_dialogue = ExtResource("6_72c44")
 dialogue = ExtResource("7_426ft")
 
-[node name="Slide Popup" parent="." unique_id=1014368841 node_paths=PackedStringArray("puzzle") instance=ExtResource("8_fjkrq")]
+[node name="Slide Popup" parent="." unique_id=1014368841 instance=ExtResource("8_fjkrq")]
 visible = false
-puzzle = NodePath("Slide Puzzle 1")
-puzzle_trigger = 1
 
 [node name="Slide Puzzle 1" parent="Slide Popup" unique_id=1640013819 instance=ExtResource("9_tb1nq")]
 position = Vector2(232, 48)
@@ -2117,7 +2127,6 @@ offset_right = 609.0
 offset_bottom = 55.0
 text = "Complete Puzzle"
 script = ExtResource("10_grp46")
-puzzle_trigger = 1
 
 [node name="Side Door" parent="." unique_id=1488277507 instance=ExtResource("4_ughhp")]
 offset_left = 245.0
