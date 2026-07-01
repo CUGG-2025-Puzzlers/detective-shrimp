@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7ivr7mc4jp21"]
 
-[ext_resource type="Script" uid="uid://dcjo13kfwmu1c" path="res://scripts/cutscene.gd" id="1_k8fe6"]
+[ext_resource type="Script" uid="uid://dcjo13kfwmu1c" path="res://scripts/game_scenes/cutscenes/cutscene.gd" id="1_k8fe6"]
 [ext_resource type="Texture2D" uid="uid://bamvv12goc44m" path="res://textures/cutscenes/car_scene.jpg" id="1_pqcxc"]
 [ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="3_fyarp"]
 [ext_resource type="Resource" uid="uid://yuhude7h1a3y" path="res://resources/dialogue/cutscene/car.tres" id="4_vsxcy"]

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://e40t17p2oxny"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_qgq5e"]
-[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/scene.gd" id="1_y2juf"]
+[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/game_scenes/scene.gd" id="1_y2juf"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_vdss4"]
 [ext_resource type="Texture2D" uid="uid://dr4feske7gj10" path="res://assets/background/pixelinterior_LRK/doorswindowsstairs_LRK.png" id="3_xpy8l"]
 [ext_resource type="Texture2D" uid="uid://be1jsnikwp2qk" path="res://assets/pixelinterior_BR_v1.1/decorations_BR.png" id="4_804uw"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="14_csd8x"]
 [ext_resource type="Resource" uid="uid://b21n78yes34o5" path="res://resources/dialogue/interact/living_room/casette_1.tres" id="14_qepsd"]
 [ext_resource type="PackedScene" uid="uid://ch13qt1fo7jef" path="res://scenes/cassette_puzzle/cassette_puzzle_1.tscn" id="15_ln1au"]
-[ext_resource type="Script" path="res://scripts/tests/complete_puzzle_test.gd" id="16_g12pr"]
+[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="16_g12pr"]
 [ext_resource type="Resource" uid="uid://cncjgmkjgv72l" path="res://resources/dialogue/interact/bedroom/encrypted_letter_post.tres" id="18_g12pr"]
 [ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="18_lkots"]
 [ext_resource type="PackedScene" uid="uid://n4wqsj43w5yj" path="res://scenes/cryptogram_puzzle/cryptogram_puzzle.tscn" id="20_crypt"]

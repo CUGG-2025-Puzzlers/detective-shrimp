@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jmd287xjo7bm"]
 
-[ext_resource type="Script" uid="uid://dcjo13kfwmu1c" path="res://scripts/cutscene.gd" id="1_jninw"]
+[ext_resource type="Script" uid="uid://dcjo13kfwmu1c" path="res://scripts/game_scenes/cutscenes/cutscene.gd" id="1_jninw"]
 [ext_resource type="Script" uid="uid://6av67jfqula5" path="res://scripts/dialogue/dialogue.gd" id="3_02abs"]
 [ext_resource type="Script" uid="uid://drvyi1grf150r" path="res://scripts/dialogue/dialogue_line.gd" id="4_02abs"]
 [ext_resource type="Texture2D" uid="uid://d318cbfa5mpko" path="res://textures/cameron/cameron_shocked.png" id="5_vdfjs"]

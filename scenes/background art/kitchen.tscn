@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://stupsk6vmjcq"]
 
-[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/scene.gd" id="1_l4cce"]
+[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/game_scenes/scene.gd" id="1_l4cce"]
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_mwmjw"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_cwf2y"]
 [ext_resource type="Texture2D" uid="uid://dr4feske7gj10" path="res://assets/background/pixelinterior_LRK/doorswindowsstairs_LRK.png" id="3_vpxcu"]
@@ -22,7 +22,7 @@
 [ext_resource type="Resource" uid="uid://brlgeynt04lr" path="res://resources/dialogue/interact/kitchen/mirror.tres" id="19_mirrd"]
 [ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="20_ace1i"]
 [ext_resource type="Resource" uid="uid://btwlko81ooq53" path="res://resources/dialogue/interact/kitchen/reflection_win.tres" id="20_refwn"]
-[ext_resource type="Script" path="res://scripts/tests/complete_puzzle_test.gd" id="21_7g777"]
+[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="21_7g777"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efyc0"]
 texture = ExtResource("1_mwmjw")
@@ -5217,7 +5217,7 @@ offset_right = 205.00003
 offset_bottom = 261.0
 texture = ExtResource("12_pu6ws")
 script = ExtResource("16_pzint")
-puzzle_trigger = 3
+puzzle_type = 0
 post_puzzle_dialogue = ExtResource("20_refwn")
 dialogue = ExtResource("19_mirrd")
 
@@ -5235,10 +5235,8 @@ exit_scene = 3
 player_pos = Vector2(72, 272)
 dialogue = ExtResource("14_1il4y")
 
-[node name="PuzzlePopup" parent="." unique_id=1348959205 node_paths=PackedStringArray("puzzle") instance=ExtResource("17_popup")]
+[node name="PuzzlePopup" parent="." unique_id=1348959205 instance=ExtResource("17_popup")]
 visible = false
-puzzle = NodePath("SubViewportContainer/SubViewport/LightBendingPuzzle")
-puzzle_trigger = 3
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="PuzzlePopup" unique_id=141295381]
 z_index = 2
@@ -5262,4 +5260,3 @@ offset_right = 616.0
 offset_bottom = 337.0
 text = "Complete Puzzle"
 script = ExtResource("21_7g777")
-puzzle_trigger = 3

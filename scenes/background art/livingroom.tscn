@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://7jgwmr3e8qj8"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_7e8s8"]
-[ext_resource type="Script" uid="uid://rsau2eqd80m8" path="res://scripts/livingroom.gd" id="1_7wq2n"]
+[ext_resource type="Script" uid="uid://rsau2eqd80m8" path="res://scripts/game_scenes/game_areas/livingroom.gd" id="1_7wq2n"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_0vul7"]
 [ext_resource type="Texture2D" uid="uid://dr4feske7gj10" path="res://assets/background/pixelinterior_LRK/doorswindowsstairs_LRK.png" id="3_qum0h"]
 [ext_resource type="Texture2D" uid="uid://boihvu1nshova" path="res://assets/background/rundown house/Old house/old house.png" id="3_swubv"]

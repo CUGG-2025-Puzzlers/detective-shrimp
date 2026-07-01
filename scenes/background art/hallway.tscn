@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://ckoouorrcli7d"]
 
-[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/scene.gd" id="1_5xt8j"]
+[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/game_scenes/scene.gd" id="1_5xt8j"]
 [ext_resource type="Texture2D" uid="uid://8ohi2tgm0k0x" path="res://assets/background/dark-abstract-background.jpg" id="1_jm55p"]
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_u7i40"]
 [ext_resource type="Texture2D" uid="uid://boihvu1nshova" path="res://assets/background/rundown house/Old house/old house.png" id="2_3w3tr"]

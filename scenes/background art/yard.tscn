@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c56xp07qi7tkm" path="res://assets/background/16x16 TopDown Nature/4_Seasons_Ground_Tiles.png" id="1_3a355"]
 [ext_resource type="Texture2D" uid="uid://8ohi2tgm0k0x" path="res://assets/background/dark-abstract-background.jpg" id="1_b5d1x"]
-[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/scene.gd" id="1_f2p5c"]
+[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/game_scenes/scene.gd" id="1_f2p5c"]
 [ext_resource type="Texture2D" uid="uid://cf8c5tj8hgjbe" path="res://assets/background/House 2.png" id="2_otrge"]
 [ext_resource type="Texture2D" uid="uid://bxmqf66kfi0ju" path="res://assets/background/mailbox.png" id="3_8hp3h"]
 [ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="4_ughhp"]
@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://bj8cd0ekfafes" path="res://resources/dialogue/interact/outside/mailbox.tres" id="7_426ft"]
 [ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="8_fjkrq"]
 [ext_resource type="PackedScene" uid="uid://dc4tvs8q0i3hb" path="res://scenes/slide_puzzle/slide_puzzle_1.tscn" id="9_tb1nq"]
-[ext_resource type="Script" path="res://scripts/tests/complete_puzzle_test.gd" id="10_grp46"]
+[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="10_grp46"]
 [ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="11_grp46"]
 [ext_resource type="Resource" uid="uid://cc1637v8qlbtl" path="res://resources/dialogue/interact/living_room/basement_locked.tres" id="12_f2p5c"]
 [ext_resource type="Resource" uid="uid://c2xvplti0h34q" path="res://resources/dialogue/interact/outside/outside_door.tres" id="13_grp46"]

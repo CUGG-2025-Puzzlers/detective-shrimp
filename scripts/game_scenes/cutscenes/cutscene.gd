@@ -1,4 +1,4 @@
-extends Scene
+extends GameScene
 
 @export var cutscene: Globals.Cutscene
 @export var dialogue: Array[Dialogue]
