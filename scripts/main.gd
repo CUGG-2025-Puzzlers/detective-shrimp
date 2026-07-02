@@ -14,7 +14,6 @@ var player: Player = null
 
 var _current_scene  : GameScene = null
 var _current_menu   : Menu = null
-var _target_spawn_id: int = -1
 
 func _ready() -> void:
 	# Register Event Handlers
