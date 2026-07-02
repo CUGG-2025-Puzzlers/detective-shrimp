@@ -4,7 +4,7 @@ extends Interactable
 @export var post_puzzle_dialogue: Dialogue
 
 func _on_dialogue_ended(name: String) -> void:
-	if not interacting or GameEvents.puzzle_already_completed(puzzle_type):
+	if not interacting or GameData.puzzle_already_completed(puzzle_type):
 		enable()
 		return
 	

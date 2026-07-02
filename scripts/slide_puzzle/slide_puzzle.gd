@@ -13,5 +13,4 @@ func start() -> void:
 # Completes this board
 func finish() -> void:
 	print("You win!")
-	GameEvents.mailbox_complete = true
 	SlidePuzzleEvents.complete_puzzle()
