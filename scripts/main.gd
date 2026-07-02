@@ -64,6 +64,7 @@ func _init_player() -> void:
 		return
 	
 	entity_root.add_child(player)
+	player.visible = true
 
 ## Spawns the player at the given location if the ID is non-negative. 
 ## Otherwise despawns the player.
