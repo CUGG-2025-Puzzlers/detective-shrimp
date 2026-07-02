@@ -57,13 +57,8 @@ func resend_mouse_click(pos: Vector2, pressed: bool) -> void:
 func start_game():
 	transition_to_scene(Area.Car, false)
 
-func end_cutscene(cutscene: Cutscene):
-	match cutscene:
-		Cutscene.Car:
-			transition_to_scene(Area.Yard, true, Vector2(610, 265))
-		Cutscene.End:
-			transition_to_scene(Area.Credits, false)
-			
+func end_cutscene(cutscene: GameScene.SceneType, target_location_index: int = -1):
+	GameEvents.request_scene_change(UID.GAME_SCENES[cutscene], target_location_index)
 
 func transition_to_scene(area: Area, show_player: bool = true, player_pos: Vector2 = Vector2.ZERO):
 	var scene = get_scene_from_enum(area)

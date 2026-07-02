@@ -25,7 +25,8 @@ metadata/_custom_type_script = "uid://6av67jfqula5"
 
 [node name="End Cutscene" type="Node2D" unique_id=753532915]
 script = ExtResource("1_jninw")
-cutscene = 2
+next_scene = 7
+exit_scene_spawn_index = -1
 dialogue = Array[ExtResource("3_02abs")]([SubResource("Resource_nuu88"), ExtResource("6_5gnrx")])
 background_music = 4
 

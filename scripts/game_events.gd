@@ -7,22 +7,16 @@ signal menu_open_requested(menu_uid: String)
 signal menu_close_requested()
 
 ## Emits a signal that a scene change was requested.
-## Does not actually handle scene changing, that should be
-## done by an event handler
 func request_scene_change(scene_uid: String, spawn_location_index: int) -> void:
 	print("Requesting scene change to %s" % scene_uid)
 	scene_change_requested.emit(scene_uid, spawn_location_index)
 
 ## Emits a signal that a menu was requested to be opened.
-## Does not actually open the menu, that should be done by
-## an event handler
 func request_menu_open(menu_uid: String) -> void:
 	print("Requesting to open menu %s" % menu_uid)
 	menu_open_requested.emit(menu_uid)
 
 ## Emits a signal that a menu was requested to be closed.
-## Does not actually close the menu, that should be done by
-## an event handler
 func request_menu_close() -> void:
 	print("Requesting to close current menu")
 	menu_close_requested.emit()
@@ -48,10 +42,12 @@ func end_dialogue(name: String):
 
 #region Scene Events
 
-signal scene_changed(scene_name: String)
+signal door_unlock_requested(door_id: int)
 
-func change_scene(scene_name: String):
-	scene_changed.emit(scene_name)
+## Emits a signal that doors were requested to be unlocked
+func request_door_unlock(door_id: int) -> void:
+	print("Requesting to unlock all doors with ID %d" % door_id)
+	door_unlock_requested.emit(door_id)
 
 #endregion
 

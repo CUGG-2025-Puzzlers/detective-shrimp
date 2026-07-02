@@ -28,3 +28,14 @@ const SAFE_PUZZLE    : String = "uid://hishica6nnlj"
 
 # Entity UIDs
 const PLAYER: String = "uid://dknb10beku6mq"
+
+# GameScene -> UID map
+const GAME_SCENES: Dictionary[GameScene.SceneType, String] = {
+	GameScene.SceneType.CarCutscene      : CAR_CUTSCENE,
+	GameScene.SceneType.Yard             : OUTSIDE,
+	GameScene.SceneType.Kitchen          : KITCHEN,
+	GameScene.SceneType.LivingRoom       : LIVING_ROOM,
+	GameScene.SceneType.Hallway          : HALLWAY,
+	GameScene.SceneType.Bedroom          : BEDROOM,
+	GameScene.SceneType.BasementCutscene : END_CUTSCENE
+}

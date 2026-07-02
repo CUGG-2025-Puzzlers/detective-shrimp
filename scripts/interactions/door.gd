@@ -1,25 +1,29 @@
 extends Interactable
 
+@export var id    : int
 @export var locked: bool
-@export var flag_check: String
-@export var exit_scene: Globals.Area
-@export var player_pos: Vector2
+
+@export var exit_scene         : GameScene.SceneType
+@export var exit_location_index: int
 
 func _ready() -> void:
-	if flag_check == "" or not GameEvents.get(flag_check):
+	GameEvents.door_unlock_requested.connect(_on_door_unlock_requested)
+
+## Event Handler for when a door unlock has been requested
+## Unlocks this door if the requested ID matches this door's ID
+func _on_door_unlock_requested(door_id: int) -> void:
+	if door_id != id:
 		return
 	
-	unlock()
+	_unlock()
 
-func unlock():
+## Unlocks this door
+func _unlock():
 	locked = false
 
+## If locked, displays lock dialogue. Otherwise transitions to the connected scene.
 func interaction() -> void:
 	if locked:
-		if not GameEvents.get(flag_check):
-			super.interaction()
-			return
-		
-		unlock()
+		super.interaction()
 	
-	Globals.transition_to_scene(exit_scene, true, player_pos)
+	GameEvents.request_scene_change(UID.GAME_SCENES[exit_scene], exit_location_index)

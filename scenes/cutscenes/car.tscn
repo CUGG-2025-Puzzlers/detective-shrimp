@@ -7,7 +7,7 @@
 
 [node name="Car" type="Node2D" unique_id=387165000]
 script = ExtResource("1_k8fe6")
-cutscene = 1
+next_scene = 1
 dialogue = Array[ExtResource("3_fyarp")]([ExtResource("4_vsxcy")])
 background_music = 2
 

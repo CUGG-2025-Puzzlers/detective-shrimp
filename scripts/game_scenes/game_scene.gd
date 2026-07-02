@@ -16,3 +16,14 @@ func set_player_location(player: Player, location_id: int) -> void:
 	
 	player.position = spawn_points[location_id].position
 	print("Player location set")
+
+enum SceneType {
+	CarCutscene,
+	Yard,
+	Kitchen,
+	LivingRoom,
+	Hallway,
+	Bedroom,
+	BasementCutscene,
+	End
+}
