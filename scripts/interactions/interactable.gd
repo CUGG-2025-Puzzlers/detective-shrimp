@@ -73,24 +73,24 @@ func interaction() -> void:
 	# how else to do it. - Cameron
 
 	# I did it again.
-	if name == "Painting" and GameEvents.letter_complete:
+	if name == "Painting" and GameData.letter_complete:
 		$%Fallen_Painting.visible = true
 		visible = false
 		GameEvents.start_dialogue(painting_dialogue)
 		return
 
 	if name == "Couch": 
-		if GameEvents.napped:
+		if GameData.napped:
 			GameEvents.start_dialogue(post_nap)
 		else:
-			GameEvents.napped = true
+			GameData.napped = true
 			GameEvents.start_dialogue(dialogue)
 			GameEvents.dialogue_ended.connect(_on_nap_start)
 		return
 		
 	if name == "Groceries":
-		if GameEvents.reflection_complete:
-			GameEvents.grocery_list = true
+		if GameData.reflection_complete:
+			GameData.grocery_list = true
 			GameEvents.start_dialogue(grocery_light)
 		else:
 			GameEvents.start_dialogue(grocery_dark)

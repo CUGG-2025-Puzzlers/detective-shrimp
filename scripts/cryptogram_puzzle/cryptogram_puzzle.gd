@@ -39,7 +39,7 @@ func start():
 	_reset_puzzle()
 
 func finish():
-	GameEvents.letter_complete = true
+	GameData.letter_complete = true
 	CryptogramPuzzleEvents.complete_puzzle()
 
 func _hide_paper_defaults():

@@ -16,7 +16,7 @@ func start() -> void:
 
 func finish() -> void:
 	print("Light puzzle complete!")
-	GameEvents.reflection_complete = true
+	GameData.reflection_complete = true
 
 func _on_start_pressed() -> void:
 	$LightSource/RayCast2D.shoot()
