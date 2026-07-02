@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://wglw4rfn1fc1"]
+[gd_scene format=3 uid="uid://wglw4rfn1fc1"]
 
 [ext_resource type="Script" uid="uid://cusuwmhelbyur" path="res://scripts/puzzle_popup.gd" id="1_n6hj6"]
 [ext_resource type="Texture2D" uid="uid://cay4cc62htaep" path="res://textures/puzzle_background.png" id="2_odmsp"]
 
-[node name="PuzzlePopup" type="Control"]
+[node name="PuzzlePopup" type="Control" unique_id=1546541235]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_n6hj6")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=2023540842]
 z_index = 2
 layout_mode = 0
 offset_right = 640.0

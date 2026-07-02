@@ -2582,12 +2582,14 @@ offset_right = 371.00003
 offset_bottom = 242.00002
 texture = ExtResource("10_ksv6u")
 script = ExtResource("11_j27r0")
-puzzle_type = 0
+puzzle_type = 2
 post_puzzle_dialogue = ExtResource("12_uixac")
 dialogue = ExtResource("14_qepsd")
 
-[node name="Cassette Popup" parent="." unique_id=80780388 instance=ExtResource("14_csd8x")]
+[node name="Cassette Popup" parent="." unique_id=80780388 node_paths=PackedStringArray("_puzzle") instance=ExtResource("14_csd8x")]
 visible = false
+_puzzle = NodePath("Casette Puzzle 1")
+_puzzle_type = 2
 
 [node name="Casette Puzzle 1" parent="Cassette Popup" unique_id=381570189 instance=ExtResource("15_ln1au")]
 position = Vector2(16, 16)
@@ -2602,6 +2604,7 @@ offset_right = 612.0
 offset_bottom = 56.0
 text = "Complete Puzzle"
 script = ExtResource("16_g12pr")
+puzzle_type = 2
 
 [node name="Encrypted Letter" parent="." unique_id=1614911982 instance=ExtResource("9_yaebv")]
 offset_left = 116.0
@@ -2610,12 +2613,14 @@ offset_right = 132.0
 offset_bottom = 169.0
 texture = ExtResource("11_ksv6u")
 script = ExtResource("11_j27r0")
-puzzle_type = 0
+puzzle_type = 4
 post_puzzle_dialogue = ExtResource("18_g12pr")
 dialogue = ExtResource("20_h1e11")
 
-[node name="Letter Popup" parent="." unique_id=2009197540 instance=ExtResource("14_csd8x")]
+[node name="Letter Popup" parent="." unique_id=2009197540 node_paths=PackedStringArray("_puzzle") instance=ExtResource("14_csd8x")]
 visible = false
+_puzzle = NodePath("CryptogramPuzzle")
+_puzzle_type = 4
 
 [node name="CryptogramPuzzle" parent="Letter Popup" unique_id=1419698651 instance=ExtResource("20_crypt")]
 z_index = 3
@@ -2631,3 +2636,4 @@ offset_right = 612.0
 offset_bottom = 56.0
 text = "Complete Puzzle"
 script = ExtResource("16_g12pr")
+puzzle_type = 4

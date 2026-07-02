@@ -4165,7 +4165,7 @@ offset_right = 69.00012
 offset_bottom = 276.0
 scale = Vector2(0.77824265, 1.6371251)
 script = ExtResource("25_noccn")
-id = 0
+puzzle_lock = 0
 locked = false
 exit_scene = 2
 exit_location_index = 1
@@ -4177,7 +4177,7 @@ offset_right = 157.96776
 offset_bottom = 142.67007
 scale = Vector2(0.77824265, 1.6371251)
 script = ExtResource("25_noccn")
-id = 0
+puzzle_lock = 0
 locked = false
 exit_scene = 1
 exit_location_index = 1
@@ -4188,7 +4188,7 @@ offset_top = 132.0
 offset_right = 500.0
 offset_bottom = 184.0
 script = ExtResource("25_noccn")
-id = 0
+puzzle_lock = 0
 locked = false
 exit_scene = 4
 exit_location_index = 0
@@ -4200,7 +4200,7 @@ offset_right = 620.0
 offset_bottom = 278.0
 scale = Vector2(0.77824265, 1.6371251)
 script = ExtResource("25_noccn")
-id = 3
+puzzle_lock = 5
 locked = true
 exit_scene = 6
 exit_location_index = -1
@@ -4233,10 +4233,12 @@ scale = Vector2(1.6857804, 1.6857804)
 tile_map_data = PackedByteArray("AAAKAP//AAADAAEAAAAKAAAAAAADAAIAAAAKAAEAAAADAAMAAAABAP3/AAABAAgAAAA=")
 tile_set = SubResource("TileSet_po3oh")
 
-[node name="PuzzlePopup" parent="." unique_id=375017414 instance=ExtResource("21_safe")]
+[node name="PuzzlePopup" parent="." unique_id=375017414 node_paths=PackedStringArray("_puzzle") instance=ExtResource("21_safe")]
 visible = false
 offset_right = 640.0
 offset_bottom = 360.0
+_puzzle = NodePath("SafePuzzle")
+_puzzle_type = 5
 
 [node name="SafePuzzle" parent="PuzzlePopup" unique_id=966071596 instance=ExtResource("22_safe")]
 z_index = 100
@@ -4260,7 +4262,7 @@ offset_right = 437.0
 offset_bottom = 126.0
 texture = ExtResource("9_85807")
 script = ExtResource("20_safe")
-puzzle_type = 0
+puzzle_type = 5
 post_puzzle_dialogue = ExtResource("24_safe")
 dialogue = ExtResource("23_safe")
 

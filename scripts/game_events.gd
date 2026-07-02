@@ -40,17 +40,6 @@ func end_dialogue(name: String):
 
 #endregion
 
-#region Scene Events
-
-signal door_unlock_requested(door_id: int)
-
-## Emits a signal that doors were requested to be unlocked
-func request_door_unlock(door_id: int) -> void:
-	print("Requesting to unlock all doors with ID %d" % door_id)
-	door_unlock_requested.emit(door_id)
-
-#endregion
-
 #region Puzzle Events
 
 signal puzzle_started(puzzle: GameData.PuzzleType)

@@ -1,6 +1,6 @@
 extends Control
 
-@export var _puzzle: Puzzle
+@export var _puzzle     : Puzzle
 @export var _puzzle_type: GameData.PuzzleType
 
 var previous_music: AudioManager.MusicTheme
