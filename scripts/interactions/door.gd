@@ -25,5 +25,6 @@ func _unlock():
 func interaction() -> void:
 	if locked:
 		super.interaction()
+		return
 	
 	GameEvents.request_scene_change(UID.GAME_SCENES[exit_scene], exit_location_index)
