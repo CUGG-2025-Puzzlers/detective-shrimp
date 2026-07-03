@@ -8,7 +8,7 @@ func _on_dialogue_ended(name: String) -> void:
 		enable()
 		return
 	
-	GameEvents.start_puzzle(puzzle_type)
+	GameEvents.request_puzzle_open(UID.PUZZLES[puzzle_type])
 	GameEvents.puzzle_finished.connect(_on_puzzle_finished)
 	GameEvents.puzzle_exited.connect(_on_puzzle_exited)
 

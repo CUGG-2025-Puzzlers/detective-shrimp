@@ -39,3 +39,12 @@ const GAME_SCENES: Dictionary[GameScene.SceneType, String] = {
 	GameScene.SceneType.Bedroom          : BEDROOM,
 	GameScene.SceneType.BasementCutscene : END_CUTSCENE
 }
+
+# PuzzleType -> UID map
+const PUZZLES: Dictionary[GameData.PuzzleType, String] = {
+	GameData.PuzzleType.Key     : KEY_PUZZLE,
+	GameData.PuzzleType.Cassette: CASSETTE_PUZZLE,
+	GameData.PuzzleType.Light   : LIGHT_PUZZLE,
+	GameData.PuzzleType.Letter  : LETTER_PUZZLE,
+	GameData.PuzzleType.Safe    : SAFE_PUZZLE
+}

@@ -12,14 +12,17 @@ extends Node
 
 var player: Player = null
 
-var _current_scene  : GameScene = null
-var _current_menu   : Menu = null
+var _current_scene : GameScene   = null
+var _current_menu  : Menu        = null
+var _current_puzzle: PuzzlePopup = null
 
 func _ready() -> void:
 	# Register Event Handlers
 	GameEvents.scene_change_requested.connect(_on_scene_change_requested)
 	GameEvents.menu_open_requested.connect(_on_menu_open_requested)
 	GameEvents.menu_close_requested.connect(_on_menu_close_requested)
+	GameEvents.puzzle_open_requested.connect(_on_puzzle_open_requested)
+	GameEvents.puzzle_close_requested.connect(_on_puzzle_close_requested)
 	
 	_load_menu(UID.MAIN_MENU)
 
@@ -42,6 +45,18 @@ func _on_menu_open_requested(menu_uid: String) -> void:
 func _on_menu_close_requested() -> void:
 	print("Menu close request accepted. Attempting to close current menu")
 	_close_menu()
+
+## Event Handler for when a puzzle is requested to be opened.
+## Attempts to open the puzzle given by [param puzzle_uid]
+func _on_puzzle_open_requested(puzzle_uid: String) -> void:
+	print("Puzzle open request accepted. Attempting to open puzzle %s" % puzzle_uid)
+	_load_puzzle(puzzle_uid)
+
+## Event Handler for when a puzzle is requested to be closed.
+## Attempts to close the current puzzle
+func _on_puzzle_close_requested() -> void:
+	print("Puzzle close request accepted. Attempting to close current puzzle")
+	_close_puzzle()
 
 #endregion
 
@@ -168,6 +183,53 @@ func _deferred_load_scene(scene_uid: String, spawn_location_index: int) -> void:
 	
 	_try_spawn_player(spawn_location_index)
 
-## Stops the current scene (if there is one) and loads a puzzle
-func _load_puzzle() -> void:
+## Stops the current scene (if there is one) and loads the given puzzle
+func _load_puzzle(puzzle_uid: String) -> void:
+	# Remove the current scene from the scene tree
+	# Do NOT remove it from memory, so it can be added back
+	if _current_scene != null:
+		level_root.remove_child(_current_scene)
+	
+	# Load the puzzle popup
+	var new_puzzle: PackedScene = ResourceLoader.load(UID.PUZZLE_POPUP) as PackedScene
+	if new_puzzle == null:
+		var error: String = "Could not load scene %s as PackedScene" % UID.PUZZLE_POPUP
+		push_error(error)
+		print(error)
+		return
+	
+	# Instantiate the puzzle popup
+	var _current_puzzle = new_puzzle.instantiate() as PuzzlePopup
+	if _current_puzzle == null:
+		var error: String =\
+		"Loaded scene %s is not of type PuzzlePopup or does not exist" % UID.PUZZLE_POPUP
+		push_error(error)
+		print(error)
+		return
+	
+	puzzle_root.add_child(_current_puzzle)
+	
+	# Load the given puzzle
+	var puzzle_scene: PackedScene = ResourceLoader.load(puzzle_uid) as PackedScene
+	if puzzle_scene == null:
+		var error: String = "Could not load scene %s as PackedScene" % puzzle_uid
+		push_error(error)
+		print(error)
+		return
+	
+	# Instantiate the given puzzle
+	var puzzle = puzzle_scene.instantiate() as Puzzle
+	if puzzle == null:
+		var error: String =\
+		"Loaded scene %s is not of type Puzzle or does not exist" % puzzle_uid
+		push_error(error)
+		print(error)
+		return
+	
+	_current_puzzle.add_child(puzzle)
+	await get_tree().process_frame
+	GameEvents.start_puzzle(puzzle.get_type())
+
+## Closes the current puzzle and returns control to the current scene (if there is one)
+func _close_puzzle() -> void:
 	pass
