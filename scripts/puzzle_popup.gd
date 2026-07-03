@@ -1,3 +1,4 @@
+class_name PuzzlePopup
 extends Control
 
 @export var _puzzle     : Puzzle
