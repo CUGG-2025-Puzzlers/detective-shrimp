@@ -7,10 +7,11 @@
 [ext_resource type="Resource" uid="uid://bnjxmbryu7tgy" path="res://resources/dialogue/cutscene/end.tres" id="6_5gnrx"]
 [ext_resource type="Texture2D" uid="uid://c10jhumwxp45t" path="res://textures/cutscenes/end_1_sized.png" id="7_3vv7h"]
 [ext_resource type="Texture2D" uid="uid://grdb08vgegrm" path="res://textures/cutscenes/end_0.png" id="7_vdfjs"]
-[ext_resource type="Script" uid="uid://ca3ssh1h130uo" path="res://scenes/cutscenes/end_cutscene.gd" id="8_5gnrx"]
+[ext_resource type="Script" uid="uid://ca3ssh1h130uo" path="res://scripts/game_scenes/cutscenes/end_cutscene.gd" id="8_5gnrx"]
 [ext_resource type="Texture2D" uid="uid://wvd2ufv8p2xh" path="res://textures/cutscenes/end_2_sized.png" id="10_nuu88"]
 [ext_resource type="Texture2D" uid="uid://dqw2uhislxrln" path="res://textures/cutscenes/end_3_sized.png" id="11_o8yqd"]
 [ext_resource type="Texture2D" uid="uid://c0s45muom7thi" path="res://textures/cutscenes/end_4_sized.png" id="12_6wr3y"]
+
 
 [sub_resource type="Resource" id="Resource_lnn18"]
 script = ExtResource("4_02abs")
