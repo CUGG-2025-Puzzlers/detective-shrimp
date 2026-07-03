@@ -16,7 +16,7 @@ var cur_char_index = 0
 func _ready() -> void:
 	GameEvents.dialogue_started.connect(_on_dialogue_started)
 	$%TextTimer.timeout.connect(_on_timer_finished)
-	close()
+	_hide_box()
 
 #region Event Handlers
 
@@ -70,18 +70,17 @@ func _on_timer_finished():
 #region Display
 
 func open(dialogue):
-	visible = true
-	$%CanvasLayer.show()
+	_show_box()
+	cur_line = 0
 	cur_dialogue = dialogue
 	displayNextLine()
 
 func close():
-	visible = false
-	$%CanvasLayer.hide()
+	_hide_box()
 	if cur_dialogue == null:
 		return
+	
 	GameEvents.end_dialogue(cur_dialogue.name)
-	cur_line = 0
 	cur_dialogue = null
 
 func displayNextLine():
@@ -99,3 +98,13 @@ func displayNextLine():
 	$%TextTimer.start()
 	
 	GameEvents.end_dialogue_line(cur_line)
+
+func _show_box() -> void:
+	visible = true
+	$%CanvasLayer.show()
+
+func _hide_box() -> void:
+	visible = false
+	$%CanvasLayer.hide()
+
+#endregion
