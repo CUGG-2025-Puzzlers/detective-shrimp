@@ -34,6 +34,9 @@ func _ready():
 	_hide_paper_defaults()
 	_build_initial()
 
+func get_type() -> GameData.PuzzleType:
+	return GameData.PuzzleType.Letter
+
 func start():
 	CryptogramPuzzleEvents.start_puzzle()
 	_reset_puzzle()

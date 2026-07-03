@@ -22,6 +22,9 @@ func _ready() -> void:
 		# Automatically move to the next box when number is in
 		digit.text_changed.connect(_on_digit_typed.bind(i))
 
+func get_type() -> GameData.PuzzleType:
+	return GameData.PuzzleType.Safe
+
 func start() -> void:
 	SafePuzzleEvents.start_puzzle()
 	_reset()

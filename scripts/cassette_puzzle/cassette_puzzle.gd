@@ -46,6 +46,9 @@ func set_up_outputs():
 
 #endregion
 
+func get_type() -> GameData.PuzzleType:
+	return GameData.PuzzleType.Cassette
+
 func start():
 	if outputs.size() == 0:
 		print("Cannot start Cassette Puzzle, there are no outputs")
