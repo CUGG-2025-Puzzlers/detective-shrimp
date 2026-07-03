@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Detective Shrimp"
-run/main_scene="uid://dkrxhuquv6u7e"
+run/main_scene="uid://cjvft1kouddpq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
