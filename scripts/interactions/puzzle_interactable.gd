@@ -9,14 +9,9 @@ func _on_dialogue_ended(name: String) -> void:
 		return
 	
 	GameEvents.request_puzzle_open(UID.PUZZLES[puzzle_type])
-	GameEvents.puzzle_finished.connect(_on_puzzle_finished)
-	GameEvents.puzzle_exited.connect(_on_puzzle_exited)
 
-func _on_puzzle_finished(puzzle: GameData.PuzzleType):
-	GameEvents.puzzle_finished.disconnect(_on_puzzle_finished)
-	dialogue = post_puzzle_dialogue
-	enable()
-
-func _on_puzzle_exited(puzzle: GameData.PuzzleType):
-	GameEvents.puzzle_finished.disconnect(_on_puzzle_finished)
-	enable()
+func interaction():
+	if GameData.puzzle_already_completed(puzzle_type):
+		GameEvents.start_dialogue(post_puzzle_dialogue)
+	else:
+		GameEvents.start_dialogue(dialogue)

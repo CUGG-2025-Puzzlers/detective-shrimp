@@ -189,6 +189,7 @@ func _load_puzzle(puzzle_uid: String) -> void:
 	# Do NOT remove it from memory, so it can be added back
 	if _current_scene != null:
 		level_root.remove_child(_current_scene)
+		await get_tree().process_frame
 	
 	# Load the puzzle popup
 	var new_puzzle: PackedScene = ResourceLoader.load(UID.PUZZLE_POPUP) as PackedScene

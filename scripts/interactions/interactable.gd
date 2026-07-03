@@ -21,6 +21,9 @@ func _ready() -> void:
 	mouse_default_cursor_shape = Control.CURSOR_FORBIDDEN
 	GameEvents.dialogue_started.connect(_on_dialogue_started)
 	GameEvents.dialogue_ended.connect(_on_dialogue_ended)
+	enabled = true
+	interactable = false
+	interacting = false
 	
 	basement_dialogue = preload("res://resources/dialogue/interact/living_room/basement_door.tres")
 	painting_dialogue = preload("res://resources/dialogue/interact/living_room/painting_open.tres")
@@ -57,7 +60,14 @@ func _on_dialogue_started(dialogue: Dialogue) -> void:
 	disable()
 
 func _on_dialogue_ended(name: String) -> void:
+	if name != dialogue.name:
+		return
+	
 	enable()
+
+func _exit_tree() -> void:
+	GameEvents.dialogue_started.disconnect(_on_dialogue_started)
+	GameEvents.dialogue_ended.disconnect(_on_dialogue_ended)
 
 #endregion
 
@@ -68,7 +78,7 @@ func interact() -> void:
 	interacting = true
 	interaction()
 
-func interaction() -> void:	
+func interaction() -> void:
 	# Definitely not the best way to implement it, but I don't know 
 	# how else to do it. - Cameron
 
@@ -112,6 +122,9 @@ func _on_nap_end(name:String):
 	GameEvents.start_dialogue(end_nap)
 
 func enable() -> void:
+	if not is_inside_tree():
+		return
+	
 	# Waiting a frame prevents the user from immediately interacting again when
 	# clicking on this object while clicking to end the interaction dialogue
 	# Maybe use a short cooldown timer instead?
