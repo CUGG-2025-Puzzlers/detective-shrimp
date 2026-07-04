@@ -1,5 +1,5 @@
 @abstract class_name Puzzle
-extends Node2D
+extends Control
 
 ## Returns this puzzle's type
 @abstract func get_type() -> GameData.PuzzleType

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://hishica6nnlj"]
+[gd_scene format=3 uid="uid://hishica6nnlj"]
 
 [ext_resource type="Script" uid="uid://qa2s0vnygumi" path="res://scripts/safe_puzzle/safe_puzzle.gd" id="1_safe"]
 [ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://fonts/m5x7.ttf" id="2_font"]
@@ -16,10 +16,15 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="SafePuzzle" type="Node2D"]
+[node name="SafePuzzle" type="Control" unique_id=437424065]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 280.0
+offset_bottom = 134.0
 script = ExtResource("1_safe")
 
-[node name="Background" type="NinePatchRect" parent="."]
+[node name="Background" type="NinePatchRect" parent="." unique_id=550106061]
+layout_mode = 0
 offset_right = 280.0
 offset_bottom = 134.0
 texture = ExtResource("2_sk2c2")
@@ -28,17 +33,18 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1203608570]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 264.0
 offset_bottom = 134.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=496111044]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1965286890]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
@@ -46,12 +52,12 @@ theme_override_font_sizes/font_size = 20
 text = "Enter Combination"
 horizontal_alignment = 1
 
-[node name="DigitRow" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="DigitRow" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=974452215]
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Digit1" type="LineEdit" parent="CenterContainer/VBoxContainer/DigitRow"]
+[node name="Digit1" type="LineEdit" parent="CenterContainer/VBoxContainer/DigitRow" unique_id=357130984]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 32)
 layout_mode = 2
@@ -63,7 +69,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_digit")
 alignment = 1
 max_length = 1
 
-[node name="Digit2" type="LineEdit" parent="CenterContainer/VBoxContainer/DigitRow"]
+[node name="Digit2" type="LineEdit" parent="CenterContainer/VBoxContainer/DigitRow" unique_id=459169828]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 32)
 layout_mode = 2
@@ -75,7 +81,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_digit")
 alignment = 1
 max_length = 1
 
-[node name="Digit3" type="LineEdit" parent="CenterContainer/VBoxContainer/DigitRow"]
+[node name="Digit3" type="LineEdit" parent="CenterContainer/VBoxContainer/DigitRow" unique_id=1760619201]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 32)
 layout_mode = 2
@@ -87,7 +93,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_digit")
 alignment = 1
 max_length = 1
 
-[node name="Digit4" type="LineEdit" parent="CenterContainer/VBoxContainer/DigitRow"]
+[node name="Digit4" type="LineEdit" parent="CenterContainer/VBoxContainer/DigitRow" unique_id=905033212]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 32)
 layout_mode = 2
@@ -99,14 +105,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_digit")
 alignment = 1
 max_length = 1
 
-[node name="SubmitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="SubmitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=68064825]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 16
 text = "UNLOCK"
 
-[node name="FeedbackLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="FeedbackLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=276059178]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
