@@ -6,6 +6,8 @@
 [node name="CryptogramPuzzle" type="Control" unique_id=589385998]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 195.0
+offset_bottom = 260.0
 script = ExtResource("1_script")
 
 [node name="paper" parent="." unique_id=1938678241 instance=ExtResource("2_paper")]

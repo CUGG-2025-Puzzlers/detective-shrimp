@@ -21,3 +21,11 @@ stretch_mode = 2
 layout_mode = 0
 offset_left = 460.0
 offset_right = 640.0
+
+[node name="PuzzleContainer" type="Control" parent="." unique_id=1244650471]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+offset_right = 460.0
+offset_bottom = 360.0
+pivot_offset_ratio = Vector2(0.5, 0.5)

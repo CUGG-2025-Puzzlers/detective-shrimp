@@ -227,7 +227,8 @@ func _load_puzzle(puzzle_uid: String) -> void:
 		print(error)
 		return
 	
-	_current_puzzle.add_child(puzzle)
+	_current_puzzle.add_puzzle(puzzle)
+	_current_puzzle.center_puzzle()
 	await get_tree().process_frame
 	GameEvents.start_puzzle(puzzle.get_type())
 
