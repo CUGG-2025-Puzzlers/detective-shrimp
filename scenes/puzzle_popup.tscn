@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cusuwmhelbyur" path="res://scripts/puzzle_popup.gd" id="1_n6hj6"]
 [ext_resource type="Texture2D" uid="uid://cay4cc62htaep" path="res://textures/puzzle_background.png" id="2_odmsp"]
+[ext_resource type="PackedScene" path="res://scenes/puzzle_instructions.tscn" id="3_8sys5"]
 
 [node name="PuzzlePopup" type="Control" unique_id=1546541235]
 layout_mode = 3
@@ -15,3 +16,8 @@ offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("2_odmsp")
 stretch_mode = 2
+
+[node name="PuzzleInstructions" parent="." unique_id=898613089 instance=ExtResource("3_8sys5")]
+layout_mode = 0
+offset_left = 460.0
+offset_right = 640.0
