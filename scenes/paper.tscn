@@ -1,6 +1,5 @@
-[gd_scene load_steps=29 format=4 uid="uid://ca63dn5xn6ng"]
+[gd_scene format=4 uid="uid://ca63dn5xn6ng"]
 
-[ext_resource type="PackedScene" uid="uid://lpkbd7fmqk8y" path="res://scenes/camera_2d.tscn" id="1_vas6c"]
 [ext_resource type="Texture2D" uid="uid://1eyj6fdhmafi" path="res://assets/plain paper (texture)/1.png" id="2_lkpnm"]
 [ext_resource type="Texture2D" uid="uid://dviry2dsugusf" path="res://assets/plain paper (texture)/2.png" id="3_hnojf"]
 [ext_resource type="Texture2D" uid="uid://bbdlav8ukx01l" path="res://assets/plain paper (texture)/3.png" id="4_6yxq7"]
@@ -111,24 +110,21 @@ border_color = Color(0.08625444, 0.0052685016, 0, 0.70980394)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7ly7"]
 
-[node name="paper" type="Sprite2D"]
+[node name="paper" type="Sprite2D" unique_id=2088775932]
 
-[node name="Camera2D" parent="." instance=ExtResource("1_vas6c")]
+[node name="Node2D" type="Node2D" parent="." unique_id=1455226258]
 position = Vector2(-3, 0)
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-3, 0)
-
-[node name="paper1" type="TileMapLayer" parent="Node2D"]
+[node name="paper1" type="TileMapLayer" parent="Node2D" unique_id=2054196341]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD///z/AwABAAAAAAD+//z/AwABAAIAADAAAPz/AwABAAIAADABAPz/AwABAAAAAAACAPz/AwACAAAAAAD9/wMABQAAAAAAAAD+/wMAAwABAAIAAAD//wMAAwABAAAAADAAAAMAAwABAAIAAAABAAMAAwABAAAAADACAAMACAAAAAAAAAD9//3/BwAAAAAAAAD9//7/BwAAAAAAAAD9////BwAAAAAAAAD9/wAABwAAAAAAAAD9/wEABwAAAAAAAAD9/wIABwAAAAAAAAD+/wIAAwABAAEAAAD+/wEAAwABAAEAAAD+////AwABAAEAAAD+//7/AwABAAEAAAD+//3/AwABAAEAAAD///3/AwABAAEAAAD///7/AwABAAEAAAD/////AwABAAEAAAD//wAAAwABAAEAAAD//wEAAwABAAEAAAD//wIAAwABAAEAAAAAAAIAAwABAAEAAAAAAAEAAwABAAEAAAABAAEAAwABAAEAAAABAAAAAwABAAEAAAABAP//AwABAAEAAAAAAP//AwABAAEAAAAAAP7/AwABAAEAAAAAAP3/AwABAAEAAAAAAAAAAwABAAEAAAABAAIAAwABAAEAAAACAAIAAwACAAEAAAACAAEAAwACAAEAAAACAAAAAwACAAEAAAACAP//AwACAAEAAAACAP7/AwAAAAEAADACAP3/AwACAAEAAAABAP3/AwABAAEAAAABAP7/AwABAAEAAAD9//z/AAAAAAAAAAD+/wAAAwABAAEAAAA=")
 tile_set = SubResource("TileSet_3g63a")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Node2D"]
+[node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=815460219]
 tile_map_data = PackedByteArray("AAAEAPn/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_hnojf")
 
-[node name="KnownText" type="Label" parent="."]
+[node name="KnownText" type="Label" parent="." unique_id=2023687059]
 custom_minimum_size = Vector2(16, 16)
 offset_left = -82.0
 offset_top = -109.0
@@ -142,7 +138,7 @@ text = "
 __th___ _s s_ p____ul t_ th_ hum__ m___ _s _ ____t ___ su____ ch____. Th_ su_ m__ht sh___ __ th_ cl_u_s m__ht l____, _ut __th___ c_ul_ _pp___ t_ m_ _s _t h__ ____ th_ ___ ______. "
 autowrap_mode = 3
 
-[node name="LetterSlot1" type="Control" parent="."]
+[node name="LetterSlot1" type="Control" parent="." unique_id=1513253726]
 custom_minimum_size = Vector2(12, 20)
 layout_mode = 3
 anchors_preset = 0
@@ -155,18 +151,18 @@ size_flags_vertical = 0
 mouse_filter = 2
 script = ExtResource("12_invp3")
 
-[node name="MarginContainer" type="MarginContainer" parent="LetterSlot1"]
+[node name="MarginContainer" type="MarginContainer" parent="LetterSlot1" unique_id=611330310]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 4.0
 offset_right = 11.0
 offset_bottom = 18.0
 
-[node name="HoverRect" type="Panel" parent="LetterSlot1/MarginContainer"]
+[node name="HoverRect" type="Panel" parent="LetterSlot1/MarginContainer" unique_id=1955201652]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_h7ly7")
 
-[node name="LetterIn" type="LineEdit" parent="LetterSlot1"]
+[node name="LetterIn" type="LineEdit" parent="LetterSlot1" unique_id=1195422895]
 layout_mode = 0
 offset_left = -28.999998
 offset_top = -2.0
