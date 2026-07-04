@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PuzzleInfo" format=3 uid="uid://bcokqcv4jrdeg"]
+
+[ext_resource type="Script" uid="uid://d2b00hfkhgpf" path="res://scripts/resources/puzzle_info.gd" id="1_dn08d"]
+
+[resource]
+script = ExtResource("1_dn08d")
+title = "Mailbox Key Slide"
+description = "Hmm... I can't get a good grip on the key with all this mail in the way. Maybe if I could figure out how to move things around, I could get the key!"
+objective = "Get the key to the bottom right corner by moving the blocks of mail around. Click and drag a piece to move it into a free cell and stop dragging to let it go."
+metadata/_custom_type_script = "uid://d2b00hfkhgpf"
