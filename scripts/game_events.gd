@@ -43,6 +43,7 @@ func end_dialogue(name: String):
 #region Puzzle Events
 
 signal puzzle_open_requested(puzzle_uid: String)
+signal puzzle_restart_requested()
 signal puzzle_close_requested()
 
 signal puzzle_started(puzzle_type: GameData.PuzzleType)
@@ -53,6 +54,11 @@ signal puzzle_exited(puzzle: GameData.PuzzleType)
 func request_puzzle_open(puzzle_uid: String) -> void:
 	print("Requesting to open puzzle %s" % puzzle_uid)
 	puzzle_open_requested.emit(puzzle_uid)
+
+## Emits a signal indicating that the current puzzle was requested to be restarted
+func request_puzzle_restart() -> void:
+	print("Requesting to restart current puzzle")
+	puzzle_restart_requested.emit()
 
  ## Emits a signal indicating that the current puzzle was requested to be closed
 func request_puzzle_close() -> void:
