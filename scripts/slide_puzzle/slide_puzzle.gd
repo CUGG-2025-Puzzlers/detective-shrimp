@@ -8,12 +8,14 @@ func get_type() -> GameData.PuzzleType:
 
 # Starts the puzzle and notifies all pieces
 func start() -> void:
-	SlidePuzzleEvents.start_puzzle()
+	print("Starting Key Puzzle")
+	GameEvents.start_puzzle(get_type())
 	board.print_board()
 	for piece in board.pieces:
 		piece._on_puzzle_started()
 
 # Completes this board
 func finish() -> void:
-	print("You win!")
-	SlidePuzzleEvents.complete_puzzle()
+	print("Key Puzzle Complete!")
+	GameEvents.finish_puzzle(get_type())
+	GameEvents.request_puzzle_close()
