@@ -235,7 +235,7 @@ func _load_puzzle(puzzle_uid: String) -> void:
 	_current_puzzle.center_puzzle()
 	await get_tree().process_frame
 	# TODO: Start puzzle music
-	puzzle.start()
+	GameEvents.request_puzzle_start()
 
 ## Closes the current puzzle and returns control to the current scene (if there is one)
 func _close_puzzle() -> void:

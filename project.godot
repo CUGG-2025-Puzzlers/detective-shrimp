@@ -23,7 +23,6 @@ config/icon="res://icon.svg"
 
 Globals="*res://scripts/globals.gd"
 GameEvents="*res://scripts/game_events.gd"
-SlidePuzzleEvents="*res://scripts/slide_puzzle/slide_puzzle_events.gd"
 CassettePuzzleEvents="*res://scripts/cassette_puzzle/cassette_puzzle_events.gd"
 SafePuzzleEvents="*res://scripts/safe_puzzle/safe_puzzle_events.gd"
 AudioManager="*res://scenes/audio_manager.tscn"

@@ -16,6 +16,4 @@ func start() -> void:
 
 # Completes this board
 func finish() -> void:
-	print("Key Puzzle Complete!")
-	GameEvents.finish_puzzle(get_type())
-	GameEvents.request_puzzle_close()
+	print("Key Puzzle Completed!")

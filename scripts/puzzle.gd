@@ -9,3 +9,17 @@ extends Control
 
 ## Completes this puzzle
 @abstract func finish() -> void
+
+func _ready() -> void:
+	GameEvents.puzzle_start_requested.connect(_on_puzzle_start_requested)
+	GameEvents.puzzle_complete_requested.connect(_on_puzzle_complete_requested)
+
+func _on_puzzle_start_requested() -> void:
+	print("Puzzle start request accepted. Attempting to start puzzle %d" % get_type())
+	start()
+
+func _on_puzzle_complete_requested() -> void:
+	print("Puzzle complete requested accepted. Attempting to complete puzzle %d" % get_type())
+	finish()
+	GameData.complete_puzzle(get_type())
+	GameEvents.request_puzzle_close()

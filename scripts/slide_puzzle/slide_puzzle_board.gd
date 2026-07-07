@@ -235,7 +235,7 @@ func move(piece: SlidePuzzlePiece, direction: Globals.Direction) -> void:
 	print_board()
 	
 	if key_in_goal():
-		GameEvents.finish_puzzle(GameData.PuzzleType.Key)
+		GameEvents.request_puzzle_complete()
 
 # Moves a piece up
 func move_up(shape: Array[Array], cur_cell_pos: Vector2i, indicator: Globals.SlidePuzzleValues) -> void:
