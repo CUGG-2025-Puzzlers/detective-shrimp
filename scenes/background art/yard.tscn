@@ -2,16 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://c56xp07qi7tkm" path="res://assets/background/16x16 TopDown Nature/4_Seasons_Ground_Tiles.png" id="1_3a355"]
 [ext_resource type="Texture2D" uid="uid://8ohi2tgm0k0x" path="res://assets/background/dark-abstract-background.jpg" id="1_b5d1x"]
-[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/game_scenes/game_scene.gd" id="1_f2p5c"]
+[ext_resource type="Script" path="res://scripts/game_scenes/game_scene.gd" id="1_f2p5c"]
 [ext_resource type="Texture2D" uid="uid://cf8c5tj8hgjbe" path="res://assets/background/House 2.png" id="2_otrge"]
 [ext_resource type="Texture2D" uid="uid://bxmqf66kfi0ju" path="res://assets/background/mailbox.png" id="3_8hp3h"]
 [ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="4_ughhp"]
 [ext_resource type="Script" uid="uid://0n23roro5u0u" path="res://scripts/interactions/puzzle_interactable.gd" id="5_vres7"]
 [ext_resource type="Resource" uid="uid://bett2pocdc5qm" path="res://resources/dialogue/interact/outside/mailbox_post.tres" id="6_72c44"]
 [ext_resource type="Resource" uid="uid://bj8cd0ekfafes" path="res://resources/dialogue/interact/outside/mailbox.tres" id="7_426ft"]
-[ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="8_fjkrq"]
-[ext_resource type="PackedScene" uid="uid://dc4tvs8q0i3hb" path="res://scenes/slide_puzzle/slide_puzzle_1.tscn" id="9_tb1nq"]
-[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="10_grp46"]
 [ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="11_grp46"]
 [ext_resource type="Resource" uid="uid://cc1637v8qlbtl" path="res://resources/dialogue/interact/living_room/basement_locked.tres" id="12_f2p5c"]
 [ext_resource type="Resource" uid="uid://c2xvplti0h34q" path="res://resources/dialogue/interact/outside/outside_door.tres" id="13_grp46"]
@@ -2121,7 +2118,7 @@ offset_top = 210.0
 offset_right = 376.0
 offset_bottom = 242.0
 script = ExtResource("5_vres7")
-puzzle_type = 1
+puzzle_type = 2
 post_puzzle_dialogue = ExtResource("6_72c44")
 dialogue = ExtResource("7_426ft")
 
@@ -2131,23 +2128,3 @@ offset_top = 241.0
 offset_right = 146.0
 offset_bottom = 288.0
 dialogue = ExtResource("12_f2p5c")
-
-[node name="Slide Popup" parent="." unique_id=1014368841 node_paths=PackedStringArray("_puzzle") instance=ExtResource("8_fjkrq")]
-visible = false
-_puzzle = NodePath("Slide Puzzle 1")
-_puzzle_type = 1
-
-[node name="Slide Puzzle 1" parent="Slide Popup" unique_id=1640013819 instance=ExtResource("9_tb1nq")]
-position = Vector2(232, 48)
-
-[node name="Button" type="Button" parent="Slide Popup" unique_id=16829129]
-visible = false
-z_index = 2
-layout_mode = 0
-offset_left = 473.0
-offset_top = 24.0
-offset_right = 609.0
-offset_bottom = 55.0
-text = "Complete Puzzle"
-script = ExtResource("10_grp46")
-puzzle_type = 1

@@ -83,7 +83,7 @@ func interaction() -> void:
 	# how else to do it. - Cameron
 
 	# I did it again.
-	if name == "Painting" and GameData.letter_complete:
+	if name == "Painting" and GameData.puzzle_already_completed(GameData.PuzzleType.Letter):
 		$%Fallen_Painting.visible = true
 		visible = false
 		GameEvents.start_dialogue(painting_dialogue)
@@ -99,7 +99,7 @@ func interaction() -> void:
 		return
 		
 	if name == "Groceries":
-		if GameData.reflection_complete:
+		if GameData.puzzle_already_completed(GameData.PuzzleType.Light):
 			GameData.grocery_list = true
 			GameEvents.start_dialogue(grocery_light)
 		else:

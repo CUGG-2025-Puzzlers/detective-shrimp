@@ -9,5 +9,5 @@ func start_puzzle() -> void:
 
 func complete_puzzle() -> void:
 	print("Completed Safe Puzzle")
-	GameData.safe_complete = true
+	GameData.complete_puzzle(GameData.PuzzleType.Safe)
 	puzzle_completed.emit()

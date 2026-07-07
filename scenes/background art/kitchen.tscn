@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://stupsk6vmjcq"]
 
-[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/game_scenes/game_scene.gd" id="1_l4cce"]
+[ext_resource type="Script" path="res://scripts/game_scenes/game_scene.gd" id="1_l4cce"]
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_mwmjw"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_cwf2y"]
 [ext_resource type="Texture2D" uid="uid://dr4feske7gj10" path="res://assets/background/pixelinterior_LRK/doorswindowsstairs_LRK.png" id="3_vpxcu"]
@@ -5243,14 +5243,13 @@ offset_right = 205.00003
 offset_bottom = 261.0
 texture = ExtResource("12_pu6ws")
 script = ExtResource("16_pzint")
-puzzle_type = 3
+puzzle_type = 8
 post_puzzle_dialogue = ExtResource("20_refwn")
 dialogue = ExtResource("19_mirrd")
 
 [node name="PuzzlePopup" parent="." unique_id=1348959205 node_paths=PackedStringArray("_puzzle") instance=ExtResource("17_popup")]
 visible = false
 _puzzle = NodePath("SubViewportContainer/SubViewport/LightBendingPuzzle")
-_puzzle_type = 3
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="PuzzlePopup" unique_id=141295381]
 z_index = 2

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://7jgwmr3e8qj8"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_7e8s8"]
-[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/game_scenes/game_scene.gd" id="1_772ix"]
+[ext_resource type="Script" path="res://scripts/game_scenes/game_scene.gd" id="1_772ix"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_0vul7"]
 [ext_resource type="Texture2D" uid="uid://dr4feske7gj10" path="res://assets/background/pixelinterior_LRK/doorswindowsstairs_LRK.png" id="3_qum0h"]
 [ext_resource type="Texture2D" uid="uid://boihvu1nshova" path="res://assets/background/rundown house/Old house/old house.png" id="3_swubv"]
@@ -4238,11 +4238,14 @@ visible = false
 offset_right = 640.0
 offset_bottom = 360.0
 _puzzle = NodePath("SafePuzzle")
-_puzzle_type = 5
 
 [node name="SafePuzzle" parent="PuzzlePopup" unique_id=966071596 instance=ExtResource("22_safe")]
 z_index = 100
-position = Vector2(180, 113)
+layout_mode = 0
+offset_left = 180.0
+offset_top = 113.0
+offset_right = 460.0
+offset_bottom = 247.0
 
 [node name="Exit Button" type="Button" parent="PuzzlePopup" unique_id=2096852418]
 z_index = 2
@@ -4262,7 +4265,7 @@ offset_right = 437.0
 offset_bottom = 126.0
 texture = ExtResource("9_85807")
 script = ExtResource("20_safe")
-puzzle_type = 5
+puzzle_type = 32
 post_puzzle_dialogue = ExtResource("24_safe")
 dialogue = ExtResource("23_safe")
 
