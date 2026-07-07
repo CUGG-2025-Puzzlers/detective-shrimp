@@ -1,11 +1,7 @@
 class_name GameData
 
-# Puzzle completion flags
-static var mailbox_complete   : bool = false
-static var reflection_complete: bool = false
-static var cassette_complete  : bool = false
-static var letter_complete    : bool = false
-static var safe_complete      : bool = false
+# Puzzle completion tracker
+static var puzzle_completion_status: int = 0
 
 # Interact flag
 static var grocery_list: bool = false
@@ -19,28 +15,20 @@ static func load_game_data() -> void:
 static func save_game_data() -> void:
 	pass
 
-## Returns true if a puzzle has been completed
-static func puzzle_already_completed(puzzle: PuzzleType) -> bool:
-	match puzzle:
-		PuzzleType.Key:
-			return mailbox_complete
-		PuzzleType.Cassette:
-			return cassette_complete
-		PuzzleType.Light:
-			return reflection_complete
-		PuzzleType.Letter:
-			return letter_complete
-		PuzzleType.Safe:
-			return safe_complete
+## Sets the given puzzle's completion flag to true
+static func complete_puzzle(puzzle_type: PuzzleType) -> void:
+	puzzle_completion_status |= puzzle_type
 
-	return false
+## Returns true if the given puzzle has been completed
+static func puzzle_already_completed(puzzle_type: PuzzleType) -> bool:
+	return (puzzle_completion_status & puzzle_type) != 0
 
 ## Puzzle Types
 enum PuzzleType {
-	None,
-	Key,
-	Cassette,
-	Light,
-	Letter,
-	Safe,
+	None     = 0,
+	Key      = 1 << 1,
+	Cassette = 1 << 2,
+	Light    = 1 << 3,
+	Letter   = 1 << 4,
+	Safe     = 1 << 5,
 }

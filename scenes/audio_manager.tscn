@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://jd0k3d6584b4"]
+[gd_scene format=3 uid="uid://jd0k3d6584b4"]
 
 [ext_resource type="Script" uid="uid://d0uq18k3i66gy" path="res://scripts/audio_manager.gd" id="1_8qd8g"]
 
-[node name="AudioManager" type="Node"]
+[node name="AudioManager" type="Node" unique_id=1801225155]
 script = ExtResource("1_8qd8g")
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1922072200]
 unique_name_in_owner = true
