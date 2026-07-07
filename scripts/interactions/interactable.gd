@@ -34,7 +34,7 @@ func _ready() -> void:
 	grocery_dark = preload("res://resources/dialogue/interact/kitchen/grocery_dark.tres")
 	reflection_win = preload("res://resources/dialogue/interact/kitchen/reflection_win.tres")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not interactable and is_player_in_range():
 		interactable = true
 		mouse_default_cursor_shape = Control.CURSOR_HELP
@@ -56,13 +56,10 @@ func _gui_input(event: InputEvent) -> void:
 func _on_mouse_down() -> void:
 	interact()
 
-func _on_dialogue_started(dialogue: Dialogue) -> void:
+func _on_dialogue_started(_dialogue: Dialogue) -> void:
 	disable()
 
-func _on_dialogue_ended(name: String) -> void:
-	if name != dialogue.name:
-		return
-	
+func _on_dialogue_ended(_name: String) -> void:
 	enable()
 
 func _exit_tree() -> void:
@@ -108,27 +105,26 @@ func interaction() -> void:
 
 	GameEvents.start_dialogue(dialogue)
 
-func _on_nap_start(name: String):
+func _on_nap_start(_name: String):
 	GameEvents.dialogue_ended.disconnect(_on_nap_start)
 	Transition.fade_out()
 	await get_tree().create_timer(1.2).timeout
 	GameEvents.start_dialogue(mid_nap)
 	GameEvents.dialogue_ended.connect(_on_nap_end)
 
-func _on_nap_end(name:String):
+func _on_nap_end(_name:String):
 	GameEvents.dialogue_ended.disconnect(_on_nap_end)
 	Transition.fade_in()
 	await get_tree().create_timer(1.2).timeout
 	GameEvents.start_dialogue(end_nap)
 
 func enable() -> void:
-	if not is_inside_tree():
-		return
+	# Waiting a short time prevents the user from immediately interacting again
+	# when clicking on this object while clicking to end the interaction dialogue
+	var delay_tween = create_tween()
+	delay_tween.tween_interval(0.1)
+	await delay_tween.finished
 	
-	# Waiting a frame prevents the user from immediately interacting again when
-	# clicking on this object while clicking to end the interaction dialogue
-	# Maybe use a short cooldown timer instead?
-	await get_tree().process_frame
 	enabled = true
 	interacting = false
 
