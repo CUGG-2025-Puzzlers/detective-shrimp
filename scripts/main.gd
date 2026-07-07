@@ -204,7 +204,7 @@ func _load_puzzle(puzzle_uid: String) -> void:
 		return
 	
 	# Instantiate the puzzle popup
-	var _current_puzzle = new_puzzle.instantiate() as PuzzlePopup
+	_current_puzzle = new_puzzle.instantiate() as PuzzlePopup
 	if _current_puzzle == null:
 		var error: String =\
 		"Loaded scene %s is not of type PuzzlePopup or does not exist" % UID.PUZZLE_POPUP
