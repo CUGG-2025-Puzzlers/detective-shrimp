@@ -20,9 +20,6 @@ func _ready():
 	Globals.requested_player_show.connect(_on_requested_player_show)
 	GameEvents.dialogue_started.connect(_on_dialogue_started)
 	GameEvents.dialogue_ended.connect(_on_dialogue_ended)
-	GameEvents.puzzle_started.connect(_on_puzzle_started)
-	GameEvents.puzzle_finished.connect(_on_puzzle_finished)
-	GameEvents.puzzle_exited.connect(_on_puzzle_exited)
 
 func _physics_process(delta: float) -> void:
 	if not visible or not canMove:
@@ -60,15 +57,6 @@ func _on_dialogue_started(_dialogue: Dialogue):
 	pause_movement()
 
 func _on_dialogue_ended(_name: String):
-	resume_movement()
-
-func _on_puzzle_started(_puzzle: GameData.PuzzleType):
-	pause_movement()
-
-func _on_puzzle_finished(_puzzle: GameData.PuzzleType):
-	resume_movement()
-
-func _on_puzzle_exited(_puzzle: GameData.PuzzleType):
 	resume_movement()
 
 func pause_movement():
