@@ -47,8 +47,8 @@ signal puzzle_restart_requested()
 signal puzzle_close_requested()
 
 signal puzzle_started(puzzle_type: GameData.PuzzleType)
-signal puzzle_finished(puzzle: GameData.PuzzleType)
-signal puzzle_exited(puzzle: GameData.PuzzleType)
+signal puzzle_finished(puzzle_type: GameData.PuzzleType)
+signal puzzle_exited(puzzle_type: GameData.PuzzleType)
 
 ## Emits a signal indicating that a given puzzle was requested to be opened
 func request_puzzle_open(puzzle_uid: String) -> void:
@@ -65,19 +65,19 @@ func request_puzzle_close() -> void:
 	print("Requesting to close current puzzle")
 	puzzle_close_requested.emit()
 
-func start_puzzle(puzzle: GameData.PuzzleType):
-	if GameData.puzzle_already_completed(puzzle):
+func start_puzzle(puzzle_type: GameData.PuzzleType):
+	if GameData.puzzle_already_completed(puzzle_type):
 		return
 	
 	print("Starting Puzzle...")
-	puzzle_started.emit(puzzle)
+	puzzle_started.emit(puzzle_type)
 
-func finish_puzzle(puzzle: GameData.PuzzleType):
-	if GameData.puzzle_already_completed(puzzle):
+func finish_puzzle(puzzle_type: GameData.PuzzleType):
+	if GameData.puzzle_already_completed(puzzle_type):
 		return
 	
 	print("Finishing Puzzle...")
-	puzzle_finished.emit(puzzle)
+	puzzle_finished.emit(puzzle_type)
 
 func exit_puzzle(puzzle: GameData.PuzzleType):
 	if GameData.puzzle_already_completed(puzzle):
