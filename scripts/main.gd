@@ -136,6 +136,7 @@ func _load_menu(menu_uid: String) -> void:
 	
 	get_tree().paused = true
 	pause_root.add_child(_current_menu)
+	# TODO: Pause or lower level music
 
 ## Closes the current menu and returns to control to the current scene
 func _close_menu() -> void:
@@ -148,6 +149,7 @@ func _close_menu() -> void:
 	_current_menu.queue_free()
 	await get_tree().process_frame
 	get_tree().paused = false
+	# TODO: Resume or raise level music
 
 ## Loads a new game scene in the world, specifically cutscenes and rooms
 func _load_scene(scene_uid: String, spawn_location_index: int) -> void:
@@ -181,6 +183,7 @@ func _deferred_load_scene(scene_uid: String, spawn_location_index: int) -> void:
 	level_root.add_child(_current_scene)
 	await get_tree().process_frame
 	
+	# TODO: Start level music (if different)
 	_try_spawn_player(spawn_location_index)
 
 ## Stops the current scene (if there is one) and loads the given puzzle
@@ -188,6 +191,7 @@ func _load_puzzle(puzzle_uid: String) -> void:
 	# Remove the current scene from the scene tree
 	# Do NOT remove it from memory, so it can be added back
 	if _current_scene != null:
+		# TODO: Stop level music
 		level_root.remove_child(_current_scene)
 		await get_tree().process_frame
 	
@@ -230,8 +234,26 @@ func _load_puzzle(puzzle_uid: String) -> void:
 	_current_puzzle.add_puzzle(puzzle)
 	_current_puzzle.center_puzzle()
 	await get_tree().process_frame
-	GameEvents.start_puzzle(puzzle.get_type())
+	# TODO: Start puzzle music
+	puzzle.start()
 
 ## Closes the current puzzle and returns control to the current scene (if there is one)
 func _close_puzzle() -> void:
-	pass
+	if _current_puzzle == null:
+		var error: String = "Could not close puzzle: No puzzle is currently open"
+		push_error(error)
+		print(error)
+		return
+	
+	# Maybe add a fallback scene
+	if _current_scene == null:
+		var error: String = "Could not return to previous scene. No scene to return to"
+		push_error(error)
+		print(error)
+		return
+	
+	_current_puzzle.queue_free()
+	# TODO: Stop puzzle music
+	await get_tree().process_frame
+	level_root.add_child(_current_scene)
+	# TODO: Start level music
