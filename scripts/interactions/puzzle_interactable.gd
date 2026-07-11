@@ -3,8 +3,12 @@ extends Interactable
 @export var puzzle_type: GameData.PuzzleType
 @export var post_puzzle_dialogue: Dialogue
 
-func _on_dialogue_ended(_name: String) -> void:
+func _on_dialogue_ended(name: String) -> void:
 	enable()
+	
+	if name != dialogue.name:
+		return
+	
 	if GameData.puzzle_already_completed(puzzle_type):
 		return
 	
