@@ -110,6 +110,23 @@ enum Area {
 
 #endregion
 
+# Returns a unit direction vector in the given direction
+func get_direction_vector(dir: Direction) -> Vector2:
+	match dir:
+		Direction.Left:  return Vector2.LEFT
+		Direction.Right: return Vector2.RIGHT
+		Direction.Up:    return Vector2.UP
+		Direction.Down:  return Vector2.DOWN
+		_:               return Vector2.ZERO
+
+func get_direction_name(dir: Direction) -> String:
+	match dir:
+		Direction.Left:  return "Left"
+		Direction.Right: return "Right"
+		Direction.Up:    return "Up"
+		Direction.Down:  return "Down"
+		_:               return "None"
+
 enum SlidePuzzleValues {
 	Empty,
 	Wall,

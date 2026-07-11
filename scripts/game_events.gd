@@ -52,6 +52,11 @@ signal puzzle_started(puzzle_type: GameData.PuzzleType)
 signal puzzle_finished(puzzle_type: GameData.PuzzleType)
 signal puzzle_exited(puzzle_type: GameData.PuzzleType)
 
+signal beam_fired()
+signal beam_finished(hit_target: bool)
+signal attempted_reflector_placement(reflector: Reflector, pos: Vector2)
+signal activated_activator(coords: Vector2i, id: int)
+
 ## Emits a signal indicating that a given puzzle was requested to be opened
 func request_puzzle_open(puzzle_uid: String) -> void:
 	print("Requesting to open puzzle %s" % puzzle_uid)
@@ -97,5 +102,24 @@ func exit_puzzle(puzzle: GameData.PuzzleType):
 	
 	print("Exiting Puzzle...")
 	puzzle_exited.emit(puzzle)
+
+func fire_beam():
+	print("Fired light beam!")
+	beam_fired.emit()
+
+func finish_beam(hit_target: bool):
+	print("Light beam finished")
+	if hit_target:
+		print("Hit target!")
+	
+	beam_finished.emit(hit_target)
+
+func attempt_reflector_placement(reflector: Reflector, pos: Vector2):
+	print("Attempting to place reflector %s at (%d, %d)" % [reflector.name, pos.x, pos.y])
+	attempted_reflector_placement.emit(reflector, pos)
+
+func activate_activator(coords: Vector2i, id: int):
+	print("Activator %d at (%d, %d) activated!" % [id, coords.x, coords.y])
+	activated_activator.emit(coords, id)
 
 #endregion

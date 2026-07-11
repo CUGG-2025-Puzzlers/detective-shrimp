@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cj1mrnasn18ri"]
+
+[ext_resource type="Script" uid="uid://c4hboktirdnlc" path="res://scripts/light_puzzle/reflector.gd" id="1_a08vj"]
+[ext_resource type="Texture2D" uid="uid://crm3q8vawg3nm" path="res://textures/light_puzzle/reflector.png" id="2_6tiwy"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lvs36"]
+a = Vector2(-8, 0)
+b = Vector2(8, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a08vj"]
+size = Vector2(15, 15)
+
+[node name="Reflector" type="Node2D" unique_id=1828266084]
+script = ExtResource("1_a08vj")
+
+[node name="LightReflector" type="Area2D" parent="." unique_id=2020861297]
+unique_name_in_owner = true
+collision_layer = 64
+collision_mask = 64
+input_pickable = false
+
+[node name="Sprite" type="Sprite2D" parent="LightReflector" unique_id=565742591]
+texture = ExtResource("2_6tiwy")
+
+[node name="LightCollider" type="CollisionShape2D" parent="LightReflector" unique_id=2124324564]
+scale = Vector2(1, 0.1)
+shape = SubResource("SegmentShape2D_lvs36")
+
+[node name="ClickableArea" type="Area2D" parent="." unique_id=1117018943]
+unique_name_in_owner = true
+collision_layer = 256
+collision_mask = 0
+
+[node name="MouseCollider" type="CollisionShape2D" parent="ClickableArea" unique_id=819686665]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_a08vj")
