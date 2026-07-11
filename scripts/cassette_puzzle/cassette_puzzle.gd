@@ -60,7 +60,7 @@ func start():
 	CassettePuzzleEvents.start_puzzle()
 
 func finish() -> void:
-	GameData.cassette_complete = true
+	GameData.complete_puzzle(GameData.PuzzleType.Cassette)
 	CassettePuzzleEvents.complete_puzzle()
 
 # Checks for completion condition whenever an output is turned on
