@@ -62,10 +62,6 @@ func _on_dialogue_started(_dialogue: Dialogue) -> void:
 func _on_dialogue_ended(_name: String) -> void:
 	enable()
 
-func _exit_tree() -> void:
-	GameEvents.dialogue_started.disconnect(_on_dialogue_started)
-	GameEvents.dialogue_ended.disconnect(_on_dialogue_ended)
-
 #endregion
 
 func interact() -> void:
