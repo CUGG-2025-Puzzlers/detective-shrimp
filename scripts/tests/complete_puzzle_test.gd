@@ -6,4 +6,4 @@ func _ready() -> void:
 	pressed.connect(_on_pressed)
 
 func _on_pressed():
-	GameEvents.finish_puzzle(puzzle_type)
+	GameEvents.request_puzzle_complete()

@@ -67,7 +67,7 @@ func _on_submit() -> void:
 			digit.editable = false
 		feedback_label.text = "Unlocked!"
 		feedback_label.modulate = Color(0.2, 1.0, 0.2)
-		GameEvents.finish_puzzle(GameData.PuzzleType.Safe)
+		GameEvents.request_puzzle_complete()
 	else:
 		#Lose
 		_show_feedback("Wrong combination")

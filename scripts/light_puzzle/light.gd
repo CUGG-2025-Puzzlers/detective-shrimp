@@ -231,4 +231,4 @@ func _animate_beam() -> void:
 	
 	if hit_target:
 		light_beam.material.set_shader_parameter("color", completion_color)
-		GameEvents.finish_puzzle(GameEvents.PuzzleTrigger.PuzzleLight)
+		GameEvents.request_puzzle_complete()
