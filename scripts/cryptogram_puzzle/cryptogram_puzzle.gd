@@ -42,7 +42,7 @@ func start():
 	_reset_puzzle()
 
 func finish():
-	GameData.letter_complete = true
+	GameData.complete_puzzle(GameData.PuzzleType.Letter)
 	CryptogramPuzzleEvents.complete_puzzle()
 
 func _hide_paper_defaults():
@@ -316,4 +316,4 @@ func _check_complete():
 			style.bg_color = solved_color
 	# Wait for player to see solved then signal GameEvents to close popup
 	await get_tree().create_timer(1.5).timeout
-	GameEvents.finish_puzzle(GameData.PuzzleType.Letter)
+	GameEvents.request_puzzle_complete()
