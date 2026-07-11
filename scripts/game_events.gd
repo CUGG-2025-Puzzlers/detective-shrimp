@@ -43,14 +43,14 @@ func end_dialogue(name: String):
 #region Puzzle Events
 
 signal puzzle_open_requested(puzzle_uid: String)
-signal puzzle_start_requested
-signal puzzle_restart_requested
-signal puzzle_complete_requested
-signal puzzle_close_requested
+signal puzzle_start_requested()
+signal puzzle_restart_requested()
+signal puzzle_complete_requested()
+signal puzzle_close_requested()
 
-signal puzzle_started(puzzle_type: GameData.PuzzleType)
-signal puzzle_finished(puzzle_type: GameData.PuzzleType)
-signal puzzle_exited(puzzle_type: GameData.PuzzleType)
+signal puzzle_started()
+signal puzzle_finished()
+signal puzzle_exited()
 
 signal beam_fired()
 signal beam_finished(hit_target: bool)
@@ -82,26 +82,17 @@ func request_puzzle_close() -> void:
 	print("Requesting to close current puzzle")
 	puzzle_close_requested.emit()
 
-func start_puzzle(puzzle_type: GameData.PuzzleType):
-	if GameData.puzzle_already_completed(puzzle_type):
-		return
-	
-	print("Starting Puzzle...")
-	puzzle_started.emit(puzzle_type)
+func start_puzzle():
+	print("Starting current puzzle...")
+	puzzle_started.emit()
 
-func finish_puzzle(puzzle_type: GameData.PuzzleType):
-	if GameData.puzzle_already_completed(puzzle_type):
-		return
-	
-	print("Finishing Puzzle...")
-	puzzle_finished.emit(puzzle_type)
+func finish_puzzle():
+	print("Finishing current puzzle...")
+	puzzle_finished.emit()
 
-func exit_puzzle(puzzle: GameData.PuzzleType):
-	if GameData.puzzle_already_completed(puzzle):
-		return
-	
-	print("Exiting Puzzle...")
-	puzzle_exited.emit(puzzle)
+func exit_puzzle():
+	print("Exiting current puzzle...")
+	puzzle_exited.emit()
 
 func fire_beam():
 	print("Fired light beam!")
