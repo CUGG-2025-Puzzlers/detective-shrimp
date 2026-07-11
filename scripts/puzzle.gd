@@ -17,9 +17,11 @@ func _ready() -> void:
 func _on_puzzle_start_requested() -> void:
 	print("Puzzle start request accepted. Attempting to start puzzle %d" % get_type())
 	start()
+	GameEvents.start_puzzle()
 
 func _on_puzzle_complete_requested() -> void:
 	print("Puzzle complete requested accepted. Attempting to complete puzzle %d" % get_type())
 	finish()
 	GameData.complete_puzzle(get_type())
+	GameEvents.finish_puzzle()
 	GameEvents.request_puzzle_close()

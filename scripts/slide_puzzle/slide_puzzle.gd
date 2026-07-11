@@ -9,7 +9,6 @@ func get_type() -> GameData.PuzzleType:
 # Starts the puzzle and notifies all pieces
 func start() -> void:
 	print("Starting Key Puzzle")
-	GameEvents.start_puzzle(get_type())
 	board.print_board()
 	for piece in board.pieces:
 		piece._on_puzzle_started()
