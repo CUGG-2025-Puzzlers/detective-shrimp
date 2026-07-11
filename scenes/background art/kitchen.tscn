@@ -17,12 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://dwyfvxfuvsabh" path="res://assets/background/pixelinterior_LRK/door.png" id="13_4p702"]
 [ext_resource type="Resource" uid="uid://cc1637v8qlbtl" path="res://resources/dialogue/interact/living_room/basement_locked.tres" id="14_1il4y"]
 [ext_resource type="Script" uid="uid://0n23roro5u0u" path="res://scripts/interactions/puzzle_interactable.gd" id="16_pzint"]
-[ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="17_popup"]
-[ext_resource type="PackedScene" uid="uid://mcdlnsiojpgm" path="res://scenes/light_puzzle/LightBendingPuzzle.tscn" id="18_light"]
 [ext_resource type="Resource" uid="uid://brlgeynt04lr" path="res://resources/dialogue/interact/kitchen/mirror.tres" id="19_mirrd"]
 [ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="20_ace1i"]
 [ext_resource type="Resource" uid="uid://btwlko81ooq53" path="res://resources/dialogue/interact/kitchen/reflection_win.tres" id="20_refwn"]
-[ext_resource type="Script" uid="uid://cqjyu3bdxl7m4" path="res://scripts/tests/complete_puzzle_test.gd" id="21_7g777"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efyc0"]
 texture = ExtResource("1_mwmjw")
@@ -5246,31 +5243,3 @@ script = ExtResource("16_pzint")
 puzzle_type = 8
 post_puzzle_dialogue = ExtResource("20_refwn")
 dialogue = ExtResource("19_mirrd")
-
-[node name="PuzzlePopup" parent="." unique_id=1348959205 node_paths=PackedStringArray("_puzzle") instance=ExtResource("17_popup")]
-visible = false
-_puzzle = NodePath("SubViewportContainer/SubViewport/LightBendingPuzzle")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="PuzzlePopup" unique_id=141295381]
-z_index = 2
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 360.0
-
-[node name="SubViewport" type="SubViewport" parent="PuzzlePopup/SubViewportContainer" unique_id=32484645]
-handle_input_locally = false
-size = Vector2i(640, 360)
-render_target_update_mode = 0
-
-[node name="LightBendingPuzzle" parent="PuzzlePopup/SubViewportContainer/SubViewport" unique_id=351797235 instance=ExtResource("18_light")]
-
-[node name="Button" type="Button" parent="PuzzlePopup/SubViewportContainer/SubViewport" unique_id=1722201120]
-visible = false
-z_index = 2
-offset_left = 480.0
-offset_top = 306.0
-offset_right = 616.0
-offset_bottom = 337.0
-text = "Complete Puzzle"
-script = ExtResource("21_7g777")
-puzzle_type = 3
