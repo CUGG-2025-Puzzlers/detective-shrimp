@@ -108,16 +108,10 @@ func _on_mouse_up() -> void:
 	Input.set_default_cursor_shape(Input.CURSOR_MOVE)
 	GameEvents.attempt_reflector_placement(self, position)
 
-func _on_puzzle_started(trigger: GameEvents.PuzzleTrigger) -> void:
-	if trigger != GameEvents.PuzzleTrigger.PuzzleLight:
-		return
-	
+func _on_puzzle_started() -> void:
 	_set_pickable(true)
 
-func _on_puzzle_finished(trigger: GameEvents.PuzzleTrigger) -> void:
-	if trigger != GameEvents.PuzzleTrigger.PuzzleLight:
-		return
-	
+func _on_puzzle_finished() -> void:
 	_set_pickable(false)
 
 func _on_beam_fired() -> void:
