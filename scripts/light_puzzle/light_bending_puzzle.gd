@@ -12,6 +12,7 @@ var _reflectors: Array[Reflector]
 const PLACEABILITY_LAYER = 0
 
 func _ready() -> void:
+	super._ready()
 	start_light_button.pressed.connect(_on_start_pressed)
 	
 	_setup_reflectors()
