@@ -72,4 +72,4 @@ func _on_outputs_state_changed(new_state: bool) -> void:
 		if not output.state:
 			return
 	
-	GameEvents.finish_puzzle(GameData.PuzzleType.Cassette)
+	GameEvents.request_puzzle_complete()
