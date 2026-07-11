@@ -163,7 +163,7 @@ func _calculate_path() -> void:
 		
 		# Get collision info
 		var collider = raycast.get_collider()
-		var hit_position: Vector2 = (raycast.get_collision_point() - position).snapped(HALF_GRID_SIZE)
+		var hit_position: Vector2 = (raycast.get_collision_point() - global_position).snapped(HALF_GRID_SIZE)
 		print("Collided with %s at (%d, %d)" % [collider.name, hit_position.x, hit_position.y])
 		
 		# Bounce off reflectors
