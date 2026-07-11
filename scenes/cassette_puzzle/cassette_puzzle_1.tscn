@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ch13qt1fo7jef"]
 
+[ext_resource type="Script" uid="uid://xo6incmk80r6" path="res://scripts/cassette_puzzle/cassette_puzzle.gd" id="1_ah7v1"]
 [ext_resource type="PackedScene" uid="uid://bukxbwoax8pwc" path="res://scenes/cassette_puzzle/input_wire.tscn" id="1_nlxpi"]
 [ext_resource type="Texture2D" uid="uid://cenox7e2uoov3" path="res://textures/ui/dialogue_backgroung.png" id="2_ah7v1"]
 [ext_resource type="PackedScene" uid="uid://cyi8enbwjas5f" path="res://scenes/cassette_puzzle/gates/xor_gate.tscn" id="2_ddvrl"]
@@ -10,12 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://brtj6y84xuyc0" path="res://scenes/cassette_puzzle/gates/not_gate.tscn" id="6_m2i0q"]
 [ext_resource type="PackedScene" uid="uid://iioaquy7h686" path="res://scenes/cassette_puzzle/output_wire.tscn" id="7_ddvrl"]
 
-[node name="Casette Puzzle 1" type="Control" unique_id=686165760]
+[node name="Casette Puzzle 1" type="Control" unique_id=686165760 node_paths=PackedStringArray("inputs", "gates", "outputs")]
 z_index = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 250.0
+script = ExtResource("1_ah7v1")
+inputs = [NodePath("Inputs/InputWire"), NodePath("Inputs/InputWire2"), NodePath("Inputs/InputWire3"), NodePath("Inputs/InputWire4"), NodePath("Inputs/InputWire5"), NodePath("Inputs/InputWire6"), NodePath("Inputs/InputWire7"), NodePath("Inputs/InputWire8")]
+gates = [NodePath("Gates/OR Gate"), NodePath("Gates/XOR Gate"), NodePath("Gates/NOT Gate"), NodePath("Gates/XOR Gate2"), NodePath("Gates/XOR Gate3"), NodePath("Gates/RELAY Gate"), NodePath("Gates/AND Gate"), NodePath("Gates/OR Gate2"), NodePath("Gates/AND Gate2")]
+outputs = [NodePath("Outputs/Output")]
 
 [node name="Background" type="Node2D" parent="." unique_id=425751694]
 
