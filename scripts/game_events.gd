@@ -1,6 +1,6 @@
 extends Node
 
-#region Scenes
+#region Scene Events
 
 signal scene_change_requested(scene_uid: String, spawn_location_index: int)
 signal menu_open_requested(menu_uid: String)
@@ -23,7 +23,7 @@ func request_menu_close() -> void:
 
 #endregion
 
-#region Dialogue
+#region Dialogue Events
 
 signal dialogue_started(dialogue: Dialogue)
 signal dialogue_line_ended(cur_line: int)
@@ -40,7 +40,7 @@ func end_dialogue(name: String):
 
 #endregion
 
-#region Puzzle Events
+#region General Puzzle Events
 
 signal puzzle_open_requested(puzzle_uid: String)
 signal puzzle_start_requested()
@@ -51,11 +51,6 @@ signal puzzle_close_requested()
 signal puzzle_started()
 signal puzzle_finished()
 signal puzzle_exited()
-
-signal beam_fired()
-signal beam_finished(hit_target: bool)
-signal attempted_reflector_placement(reflector: Reflector, pos: Vector2)
-signal activated_activator(coords: Vector2i, id: int)
 
 ## Emits a signal indicating that a given puzzle was requested to be opened
 func request_puzzle_open(puzzle_uid: String) -> void:
@@ -82,22 +77,38 @@ func request_puzzle_close() -> void:
 	print("Requesting to close current puzzle")
 	puzzle_close_requested.emit()
 
+## Emits a signal indicating that the current puzzle has started
 func start_puzzle():
 	print("Starting current puzzle...")
 	puzzle_started.emit()
 
+## Emits a signal indicating that the current puzzle has been completed
 func finish_puzzle():
 	print("Finishing current puzzle...")
 	puzzle_finished.emit()
 
+## Emits a signal indicating that the current puzzle has been exited without completion
 func exit_puzzle():
 	print("Exiting current puzzle...")
 	puzzle_exited.emit()
 
+#endregion
+
+#region Reflection Puzzle Events
+
+signal beam_fired()
+signal beam_finished(hit_target: bool)
+signal attempted_reflector_placement(reflector: Reflector, pos: Vector2)
+signal activated_activator(coords: Vector2i, id: int)
+
+## Emits a signal indicating that the light beam has been fired in the 
+## Reflection puzzle
 func fire_beam():
 	print("Fired light beam!")
 	beam_fired.emit()
 
+## Emits a signal indicating that the light beam has finished animating in the 
+## Reflection puzzle. Passes along whether or not it hit its target.
 func finish_beam(hit_target: bool):
 	print("Light beam finished")
 	if hit_target:
@@ -105,10 +116,14 @@ func finish_beam(hit_target: bool):
 	
 	beam_finished.emit(hit_target)
 
+## Emits a signal indicating that the given reflector was attempted to be 
+## dropped at the given position in the Reflection puzzle
 func attempt_reflector_placement(reflector: Reflector, pos: Vector2):
 	print("Attempting to place reflector %s at (%d, %d)" % [reflector.name, pos.x, pos.y])
 	attempted_reflector_placement.emit(reflector, pos)
 
+## Emits a signal indicating that an activator was activated in the Reflection
+## puzzle
 func activate_activator(coords: Vector2i, id: int):
 	print("Activator %d at (%d, %d) activated!" % [id, coords.x, coords.y])
 	activated_activator.emit(coords, id)
