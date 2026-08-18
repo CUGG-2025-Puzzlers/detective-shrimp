@@ -7,7 +7,7 @@ var is_editable: bool
 var is_selected: bool
 var letter_group: CryptogramGroup
 
-static func new(editable: bool, group: CryptogramGroup) -> CryptogramCharSlot:
+static func new_slot(editable: bool, group: CryptogramGroup) -> CryptogramCharSlot:
 	var char_slot = CHAR_SLOT_SCENE.instantiate()
 	char_slot.is_editable = editable
 	char_slot.letter_group = group
