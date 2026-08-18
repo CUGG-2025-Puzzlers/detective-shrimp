@@ -10,7 +10,8 @@ offset_right = 8.0
 offset_bottom = 14.0
 script = ExtResource("1_vr5g7")
 
-[node name="Label" type="Label" parent="." unique_id=1450424568]
+[node name="Text" type="Label" parent="." unique_id=1450424568]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 23.0

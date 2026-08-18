@@ -3,6 +3,8 @@ extends Control
 
 const CHAR_SLOT_SCENE: PackedScene = preload("res://scenes/cryptogram_puzzle/cryptogram_char_slot.tscn")
 
+@onready var _text: Label = %Text
+
 var is_editable: bool
 var is_selected: bool
 var letter_group: CryptogramGroup
@@ -39,4 +41,4 @@ func deselect() -> void:
 	pass
 
 func set_letter(letter: String) -> void:
-	pass
+	_text.text = letter[0] if letter.length() > 1 else letter
