@@ -1,15 +1,22 @@
 class_name CryptogramPuzzle
 extends Puzzle
 
-const PLAINTEXT = "The house is larger than it seems. A silent face distracts from the lies beneath. Seek the frame that holds a borrowed memory and look beyond what it conceals."
-const KNOWN_LETTERS = ["t", "h", "s", "l", "n", "m", "c"]
-const CHARS_PER_LINE = 20
+const INK_COLOR = Color(0.32, 0.123, 0.032)
+const BANK_USED_COLOR = Color(0.32, 0.123, 0.032, 0.25)
+
+@export var _data: CryptogramPuzzleData
+@export var _max_chars_per_line: int
+
+var _selected_group: CryptogramGroup = null
+var _letter_bank: Dictionary[String, bool] = {}
+var _letter_groups: Dictionary[String, CryptogramGroup] = {}
+
+##################
+
 const CHAR_WIDTH = 8
 const CHAR_HEIGHT = 14
-const INK_COLOR = Color(0.32, 0.123, 0.032)
 const SLOT_BG_COLOR = Color(0.45, 0.3, 0.1, 0.2)
 const HIGHLIGHT_COLOR = Color(0.6, 0.35, 0.05, 0.4)
-const BANK_USED_COLOR = Color(0.32, 0.123, 0.032, 0.25)
 
 # Maps each unknown target letter to all time its repreated
 var letter_groups: Dictionary = {}
@@ -29,10 +36,36 @@ var bank_labels: Dictionary = {}
 var font: Font
 var root_container: VBoxContainer
 
+#region Node Overrides
+
 func _ready():
+	GameEvents.group_selected.connect(_on_group_selected)
+	GameEvents.bank_letter_clicked.connect(_on_bank_letter_clicked)
+	
+	_setup()
+	
 	font = preload("res://fonts/PixelOperator8-Bold.ttf")
 	_hide_paper_defaults()
 	_build_initial()
+
+func _input(event: InputEvent) -> void:
+	if _selected_group == null:
+		return
+	
+	var event_key = event as InputEventKey
+	if event_key != null:
+		_handle_key_press(event_key)
+	
+	
+	if event is InputEventKey and event.pressed and not event.is_echo():
+		var keycode = event.keycode
+		if keycode == KEY_ESCAPE:
+			selected_letter = ""
+			_update_highlights()
+
+#endregion
+
+#region Puzzle Overrides
 
 func get_type() -> GameData.PuzzleType:
 	return GameData.PuzzleType.Letter
@@ -45,6 +78,155 @@ func finish():
 	GameData.complete_puzzle(GameData.PuzzleType.Letter)
 	CryptogramPuzzleEvents.complete_puzzle()
 
+#endregion
+
+#region Event Handlers
+
+## Event Handler for when a group is selected. 
+## Sets the given group as the currently selected group
+func _on_group_selected(group: CryptogramGroup) -> void:
+	_select_group(group)
+
+## Event Handler for when a letter in the letter bank is clicked. 
+## Places the given letter in the currently selected group if there is one. 
+func _on_bank_letter_clicked(letter: String) -> void:
+	_place_letter(letter)
+
+#endregion
+
+## Sets up the cryptogram
+func _setup() -> void:
+	_disable_known_letters()
+	
+	var lines: PackedStringArray = _split_phrase()
+	_build_cryptogram(lines)
+	
+	for line in lines:
+		print(line)
+
+## Returns the cryptogram phrase split based on the max characters allowed 
+## per line. Words are never split between two lines unless the word length 
+## exceeds that threshold.
+func _split_phrase() -> PackedStringArray:
+	var lines: PackedStringArray = []
+	
+	var start: int = 0
+	while start < len(_data.phrase):
+		var line_len: int = _max_chars_per_line
+		
+		# The rest of the phrase fits on one line
+		if line_len >= len(_data.phrase) - start:
+			lines.append(_data.phrase.substr(start))
+			break
+		
+		# Phrase too long for one line, break it up
+		while line_len > 0 and _data.phrase[start + line_len] != " ":
+			line_len -= 1
+		
+		# Word is longer than one line
+		# Take all characters that fit in this line
+		if line_len == 0:
+			line_len = _max_chars_per_line
+		
+		lines.append(_data.phrase.substr(start, line_len))
+		start += line_len + 1
+	
+	return lines
+
+## Builds the cryptogram letter by letter, filling in the known letters
+func _build_cryptogram(lines: Array[String]) -> void:
+	# TODO: Implement cryptogram builder
+	pass
+
+## Disables the default known letters in the letter bank
+func _disable_known_letters() -> void:
+	for letter in _data.known_letters:
+		_disable_letter(letter)
+
+## Handles a keyboard key press. Letters try to place the letter in the selected 
+## group. Backspace/Delete clears the selected group. Escape deselects a group.
+func _handle_key_press(event_key: InputEventKey) -> void:
+	if event_key == null:
+		return
+	
+	# Only process initial key presses
+	if not event_key.pressed or event_key.echo:
+		return
+	
+	var keycode = event_key.keycode
+	
+	# Attempt to place a letter in the currently selected group
+	if keycode >= KEY_A and keycode <= KEY_Z:
+		var letter = char(keycode).to_lower()
+		if _letter_bank[letter]:
+			return
+		
+		_place_letter(letter)
+		return
+	
+	# Clear the currently selected group
+	if keycode == KEY_BACKSPACE or keycode == KEY_DELETE:
+		_place_letter("")
+		return
+	
+	# Deselect the currently selected group
+	if keycode == KEY_ESCAPE:
+		_deselect_group()
+
+## Deselects the current group and selects the given group
+func _select_group(group: CryptogramGroup) -> void:
+	if group == null:
+		return
+	
+	_deselect_group()
+	_selected_group = group
+	_selected_group.select()
+
+## Deselects the current group
+func _deselect_group() -> void:
+	if _selected_group == null:
+		return
+	
+	_selected_group.deselect()
+	_selected_group = null
+
+## Enables a letter in the letter bank
+func _enable_letter(letter: String) -> void:
+	_letter_bank[letter] = true
+	GameEvents.enable_letter(letter)
+
+## Disables a letter in the letter bank
+func _disable_letter(letter: String) -> void:
+	_letter_bank[letter] = false
+	GameEvents.disable_letter(letter)
+
+## Places the given letter into all the slots in the currently selected group
+func _place_letter(letter: String) -> void:
+	if _selected_group == null:
+		return
+	
+	var current_letter = _selected_group.current_letter
+	if current_letter != "":
+		_enable_letter(current_letter)
+	
+	_selected_group.set_letter(letter)
+	if letter != "":
+		_disable_letter(letter)
+	
+	if _selected_group.is_correct():
+		_check_for_win()
+
+## Returns true if all letter groups are filled correctly. 
+## Returns false otherwise.
+func _check_for_win():
+	for letter in _letter_groups.keys():
+		if not _letter_groups[letter].is_correct():
+			return false
+	
+	return true
+
+
+# TODO: Remove unneeded code
 func _hide_paper_defaults():
 	var paper = get_node_or_null("paper")
 	if not paper:
@@ -83,7 +265,7 @@ func _build_all():
 	add_child(root_container)
 
 	# Build text grid
-	var lines = _wrap_text(PLAINTEXT, CHARS_PER_LINE)
+	var lines = ""#_wrap_text(PLAINTEXT, CHARS_PER_LINE)
 	for line in lines:
 		var hbox = HBoxContainer.new()
 		hbox.add_theme_constant_override("separation", 0)
@@ -99,7 +281,7 @@ func _build_all():
 	# Separator line
 	var sep = ColorRect.new()
 	sep.color = INK_COLOR * Color(1, 1, 1, 0.3)
-	sep.custom_minimum_size = Vector2(CHARS_PER_LINE * CHAR_WIDTH, 1)
+	#sep.custom_minimum_size = Vector2(CHARS_PER_LINE * CHAR_WIDTH, 1)
 	root_container.add_child(sep)
 
 	# Small spacig for the letters
@@ -114,7 +296,7 @@ func _build_letter_bank():
 	var available: Array[String] = []
 	for i in range(26):
 		var ch = char(97 + i) # a-z
-		if ch not in KNOWN_LETTERS:
+		if ch not in "":#KNOWN_LETTERS:
 			available.append(ch)
 
 	# Split the wording to fill the whole papr
@@ -190,7 +372,7 @@ func _is_letter(ch: String) -> bool:
 	return lower >= "a" and lower <= "z"
 
 func _add_char_cell(parent: HBoxContainer, ch: String):
-	var is_known = ch.to_lower() in KNOWN_LETTERS
+	var is_known = ch.to_lower() in ""#KNOWN_LETTERS
 
 	if ch == " ":
 		var spacer = Control.new()
@@ -261,24 +443,6 @@ func _update_highlights():
 				style.bg_color = HIGHLIGHT_COLOR
 			else:
 				style.bg_color = SLOT_BG_COLOR
-
-func _input(event: InputEvent):
-	if not is_active or selected_letter == "":
-		return
-
-	if event is InputEventKey and event.pressed and not event.echo:
-		var keycode = event.keycode
-		if keycode >= KEY_A and keycode <= KEY_Z:
-			var typed = char(keycode).to_lower()
-			if not _is_letter_used(typed) or player_guesses.get(selected_letter, "") == typed:
-				_assign_letter(typed)
-		elif keycode == KEY_BACKSPACE or keycode == KEY_DELETE:
-			player_guesses.erase(selected_letter)
-			_update_all_slots()
-			_update_bank()
-		elif keycode == KEY_ESCAPE:
-			selected_letter = ""
-			_update_highlights()
 
 func _update_all_slots():
 	for target in letter_groups:
