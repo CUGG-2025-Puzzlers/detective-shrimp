@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://do58ve7o2j28a"]
 
 [ext_resource type="Script" uid="uid://dh7ej3m4mbqvr" path="res://scripts/cryptogram_puzzle/cryptogram_char_slot.gd" id="1_vr5g7"]
+[ext_resource type="LabelSettings" uid="uid://bp6kflc6rnxcd" path="res://resources/puzzles/cryptogram_label_settings.tres" id="2_xvgmy"]
 
 [node name="CryptogramCharSlot" type="Control" unique_id=1754726702]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 8.0
+offset_bottom = 14.0
 script = ExtResource("1_vr5g7")
+
+[node name="Label" type="Label" parent="." unique_id=1450424568]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 23.0
+text = "a"
+label_settings = ExtResource("2_xvgmy")
