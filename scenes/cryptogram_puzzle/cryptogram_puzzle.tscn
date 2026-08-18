@@ -1,14 +1,34 @@
-[gd_scene format=3 uid="uid://n4wqsj43w5yj"]
+[gd_scene format=4 uid="uid://n4wqsj43w5yj"]
 
 [ext_resource type="Script" uid="uid://bsm8p2rhbi4o6" path="res://scripts/cryptogram_puzzle/cryptogram_puzzle.gd" id="1_script"]
+[ext_resource type="Resource" uid="uid://dftaj53wbvgrg" path="res://resources/puzzles/cryptogram_safe_riddle.tres" id="2_ast5u"]
 [ext_resource type="PackedScene" uid="uid://ca63dn5xn6ng" path="res://scenes/paper.tscn" id="2_paper"]
+[ext_resource type="TileSet" uid="uid://d0ushrlo6wcgu" path="res://resources/old_paper_tileset.tres" id="3_7cnxh"]
+[ext_resource type="PackedScene" uid="uid://byf0elwtjrry5" path="res://scenes/cryptogram_puzzle/letter_bank.tscn" id="4_5h2qp"]
 
 [node name="CryptogramPuzzle" type="Control" unique_id=589385998]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 195.0
-offset_bottom = 260.0
+offset_right = 192.0
+offset_bottom = 338.0
 script = ExtResource("1_script")
+_data = ExtResource("2_ast5u")
+_max_chars_per_line = 20
 
 [node name="paper" parent="." unique_id=1938678241 instance=ExtResource("2_paper")]
+visible = false
 position = Vector2(100, 130)
+
+[node name="Paper" type="Node2D" parent="." unique_id=1283578711]
+
+[node name="Background" type="TileMapLayer" parent="Paper" unique_id=1610124230]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAMAAAABAAAAAAABAAAAAAACAAAAAAABAAMAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAADAAIAAAAAAAQAAAADAAIAAAAAAAUAAAAAAAEAAAAAAAYAAAADAAIAAAAAAAcAAAACAAMAAAAEAAcAAAABAAIAAAABAAcAAAABAAIAAAACAAcAAAABAAIAAAADAAcAAAABAAIAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAAEAAQAAAABAAEAAAAEAAUAAAABAAEAAAAEAAYAAAABAAEAAAABAAYAAAABAAEAAAACAAYAAAABAAEAAAADAAYAAAABAAEAAAADAAUAAAABAAEAAAADAAQAAAABAAEAAAADAAMAAAABAAEAAAADAAIAAAABAAEAAAADAAEAAAABAAEAAAACAAEAAAABAAEAAAABAAEAAAABAAEAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAABAAQAAAABAAEAAAABAAUAAAABAAEAAAACAAUAAAABAAEAAAACAAQAAAABAAEAAAACAAMAAAABAAEAAAACAAIAAAABAAEAAAAFAAEAAAACAAEAAAAFAAIAAAACAAEAAAAFAAMAAAACAAEAAAAFAAQAAAACAAEAAAAFAAUAAAACAAEAAAAFAAYAAAACAAEAAAAFAAcAAAADAAMAAAAFAAAAAAACAAAAAAA=")
+tile_set = ExtResource("3_7cnxh")
+
+[node name="Details" type="TileMapLayer" parent="Paper" unique_id=1479501107]
+position = Vector2(8, 8)
+tile_map_data = PackedByteArray("AAAEAAAAAAADAAAAAAA=")
+tile_set = ExtResource("3_7cnxh")
+
+[node name="LetterBank" parent="." unique_id=1700462633 instance=ExtResource("4_5h2qp")]
+position = Vector2(0, 272)
