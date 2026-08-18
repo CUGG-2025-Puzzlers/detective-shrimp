@@ -1,7 +1,14 @@
 class_name BankLetter
 extends Label
 
+const ENABLED_COLOR = Color(0.32, 0.123, 0.032)
+const DISABLED_COLOR = Color(0.32, 0.123, 0.032, 0.25)
+
 var enabled: bool = true
+
+func _ready() -> void:
+	GameEvents.letter_enabled.connect(_on_letter_enabled)
+	GameEvents.letter_disabled.connect(_on_letter_disabled)
 
 func _gui_input(event: InputEvent) -> void:
 	if event is not InputEventMouseButton:
@@ -30,6 +37,7 @@ func _on_letter_enabled(letter: String) -> void:
 		return
 	
 	enabled = true
+	add_theme_color_override("font_color", ENABLED_COLOR)
 
 ## Event Handler for when a letter has been disabled. 
 ## Disables this bank letter
@@ -38,3 +46,4 @@ func _on_letter_disabled(letter: String) -> void:
 		return
 	
 	enabled = false
+	add_theme_color_override("font_color", DISABLED_COLOR)
