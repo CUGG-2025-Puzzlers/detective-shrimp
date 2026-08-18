@@ -113,8 +113,9 @@ func _setup() -> void:
 func _split_phrase() -> PackedStringArray:
 	var lines: PackedStringArray = []
 	
-	var start: int = 0
-	while start < len(_data.phrase):
+	var index: int = 0
+	var phrase = _data.phrase.to_lower()
+	while index < len(phrase):
 		var line_len: int = _max_chars_per_line
 		
 		# The rest of the phrase fits on one line
