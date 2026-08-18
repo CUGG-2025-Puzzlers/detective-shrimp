@@ -118,12 +118,12 @@ func _split_phrase() -> PackedStringArray:
 		var line_len: int = _max_chars_per_line
 		
 		# The rest of the phrase fits on one line
-		if line_len >= len(_data.phrase) - start:
-			lines.append(_data.phrase.substr(start))
+		if line_len >= len(phrase) - index:
+			lines.append(phrase.substr(index))
 			break
 		
 		# Phrase too long for one line, break it up
-		while line_len > 0 and _data.phrase[start + line_len] != " ":
+		while line_len > 0 and phrase[index + line_len] != " ":
 			line_len -= 1
 		
 		# Word is longer than one line
@@ -131,8 +131,8 @@ func _split_phrase() -> PackedStringArray:
 		if line_len == 0:
 			line_len = _max_chars_per_line
 		
-		lines.append(_data.phrase.substr(start, line_len))
-		start += line_len + 1
+		lines.append(phrase.substr(index, line_len))
+		index += line_len + 1
 	
 	return lines
 
