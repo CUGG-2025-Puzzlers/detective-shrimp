@@ -151,14 +151,14 @@ func _build_cryptogram(lines: Array[String]) -> void:
 				continue
 			
 			var is_letter: bool = c.to_lower() in ALPHABET_LOWER
-			var editable: bool = is_letter and _letter_bank.has(c) and not _letter_bank[c]
+			var editable: bool = is_letter and (not _letter_bank.has(c) or _letter_bank[c])
 			var group: CryptogramGroup = null
 			
 			# Use existing group
 			if _letter_groups.has(c):
 				group = _letter_groups[c]
 			# Create new group
-			elif is_letter:
+			elif editable:
 				group = CryptogramGroup.new()
 				group.expected_letter = c
 				_letter_groups[c] = group
