@@ -19,6 +19,15 @@ _max_chars_per_line = 20
 visible = false
 position = Vector2(100, 130)
 
+[node name="Cryptogram" type="Control" parent="." unique_id=1157788953]
+unique_name_in_owner = true
+z_index = 1
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 44.0
+offset_right = 176.0
+offset_bottom = 220.0
+
 [node name="Paper" type="Node2D" parent="." unique_id=1283578711]
 
 [node name="Background" type="TileMapLayer" parent="Paper" unique_id=1610124230]

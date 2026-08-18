@@ -1,15 +1,18 @@
 class_name CryptogramPuzzle
 extends Puzzle
 
-const INK_COLOR = Color(0x521f08ff)
-const BANK_USED_COLOR = Color(0x521f0840)
+const INK_COLOR      : Color = Color(0x521f08ff)
+const BANK_USED_COLOR: Color = Color(0x521f0840)
+const ALPHABET_LOWER : String = "abcdefghijklmnopqrstuvwxyz"
 
 @export var _data: CryptogramPuzzleData
 @export var _max_chars_per_line: int
 
+@onready var _cryptogram: Control = %Cryptogram
+
 var _selected_group: CryptogramGroup = null
-var _letter_bank: Dictionary[String, bool] = {}
-var _letter_groups: Dictionary[String, CryptogramGroup] = {}
+var _letter_bank   : Dictionary[String, bool] = {}
+var _letter_groups : Dictionary[String, CryptogramGroup] = {}
 
 ##################
 
@@ -135,8 +138,44 @@ func _split_phrase() -> PackedStringArray:
 
 ## Builds the cryptogram letter by letter, filling in the known letters
 func _build_cryptogram(lines: Array[String]) -> void:
-	# TODO: Implement cryptogram builder
-	pass
+	var x: float
+	var y: float = 0
+	var line_height : float = 20
+	var line_width  : float = 8
+	for line in lines:
+		x = 0
+		for c in line:
+			# Don't create a slot node for spaces
+			if c == " ":
+				x += line_width
+				continue
+			
+			var is_letter: bool = c.to_lower() in ALPHABET_LOWER
+			var editable: bool = is_letter and _letter_bank.has(c) and not _letter_bank[c]
+			var group: CryptogramGroup = null
+			
+			# Use existing group
+			if _letter_groups.has(c):
+				group = _letter_groups[c]
+			# Create new group
+			elif is_letter:
+				group = CryptogramGroup.new()
+				group.expected_letter = c
+				_letter_groups[c] = group
+			
+			# Create new slot
+			var slot: CryptogramCharSlot = CryptogramCharSlot.new_slot(editable, group)
+			if group != null:
+				group.add_slot(slot)
+			
+			# Position slot
+			_cryptogram.add_child(slot)
+			slot.set_letter(c if not is_letter or _letter_bank.has(c) else "")
+			slot.position = Vector2(x, y)
+			
+			x += line_width
+		
+		y += line_height
 
 ## Disables the default known letters in the letter bank
 func _disable_known_letters() -> void:
