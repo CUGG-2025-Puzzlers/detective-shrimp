@@ -129,3 +129,36 @@ func activate_activator(coords: Vector2i, id: int):
 	activated_activator.emit(coords, id)
 
 #endregion
+
+#region Cryptogram Puzzle Events
+
+signal group_selected(group: CryptogramGroup)
+signal bank_letter_clicked(letter: String)
+signal letter_enabled(letter: String)
+signal letter_disabled(letter: String)
+
+## Emits a signal indicating that the given Cryptogram Group has been selected 
+## in the Cryptogram puzzle
+func select_group(group: CryptogramGroup) -> void:
+	print("Selected group '%s'" % group.expected_letter)
+	group_selected.emit(group)
+
+## Emits a signal indicating that the given bank letter was clicked in the 
+## Cryptogram puzzle
+func click_bank_letter(letter: String):
+	print("Clicked on bank letter '%s'" % letter)
+	bank_letter_clicked.emit(letter)
+
+## Emits a signal indicating that the given letter has been enabled in the 
+## Cryptogram puzzle
+func enable_letter(letter: String) -> void:
+	print("Enabled letter '%s'" % letter)
+	letter_enabled.emit(letter)
+
+## Emits a signal indicating that the given letter has been disabled in the 
+## Cryptogram puzzle
+func disable_letter(letter: String) -> void:
+	print("Disabled letter '%s'" % letter)
+	letter_disabled.emit(letter)
+
+#endregion
