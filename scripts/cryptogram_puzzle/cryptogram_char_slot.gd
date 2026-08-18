@@ -2,8 +2,12 @@ class_name CryptogramCharSlot
 extends Control
 
 const CHAR_SLOT_SCENE: PackedScene = preload("res://scenes/cryptogram_puzzle/cryptogram_char_slot.tscn")
+const UNDERSCORE_POS_SELECTED   : Vector2 = Vector2(0, 1)
+const UNDERSCORE_POS_NONSELECTED: Vector2 = Vector2(0, 3)
 
-@onready var _text: Label = %Text
+@onready var _text      : Label = %Text
+@onready var _underscore: Label = %Underscore
+@onready var _highlight: ColorRect = %Highlight
 
 var is_editable: bool
 var is_selected: bool
@@ -18,27 +22,55 @@ static func new_slot(editable: bool, group: CryptogramGroup) -> CryptogramCharSl
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
+	
+	_remove_highlight_effects()
+	if not is_editable:
+		_underscore.visible = false
+
+func _gui_input(event: InputEvent) -> void:
+	if not event is InputEventMouseButton:
+		return
+	
+	var mouse_event = event as InputEventMouseButton
+	if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT:
+		_on_click()
 
 #region Event Handlers
 
 ## Event Handler for when the mouse has entered this char slot's area
 func _on_mouse_entered() -> void:
-	pass
+	if not is_editable or is_selected:
+		return
+	
+	_apply_highlight_effects()
 
 ## Event Handler for when the mouse has exited this char slot's area
 func _on_mouse_exited() -> void:
-	pass
+	if not is_editable or is_selected:
+		return
+	
+	_remove_highlight_effects()
 
 func _on_click() -> void:
 	GameEvents.select_group(letter_group)
 
 #endregion
 
+func _apply_highlight_effects() -> void:
+	_underscore.position = UNDERSCORE_POS_SELECTED
+	_highlight.visible = true
+
+func _remove_highlight_effects() -> void:
+	_underscore.position = UNDERSCORE_POS_NONSELECTED
+	_highlight.visible = false
+
 func select() -> void:
-	pass
+	is_selected = true
+	_apply_highlight_effects()
 
 func deselect() -> void:
-	pass
+	is_selected = false
+	_remove_highlight_effects()
 
 func set_letter(letter: String) -> void:
 	_text.text = letter[0] if letter.length() > 1 else letter
