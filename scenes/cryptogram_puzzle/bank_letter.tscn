@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://coym8yh6njcux"]
+
+[ext_resource type="FontFile" uid="uid://dp421ommw2lqx" path="res://fonts/PixelOperator8-Bold.ttf" id="1_70nfp"]
+[ext_resource type="Script" uid="uid://c6yobd6a5p0pl" path="res://scripts/cryptogram_puzzle/bank_letter.gd" id="2_vkmdp"]
+
+[node name="BankLetter" type="Label" unique_id=979614569]
+custom_minimum_size = Vector2(12, 12)
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.32156864, 0.12156863, 0.03137255, 1)
+theme_override_fonts/font = ExtResource("1_70nfp")
+theme_override_font_sizes/font_size = 8
+text = "a"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_vkmdp")

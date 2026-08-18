@@ -1,0 +1,121 @@
+[gd_scene format=4 uid="uid://byf0elwtjrry5"]
+
+[ext_resource type="TileSet" uid="uid://d0ushrlo6wcgu" path="res://resources/old_paper_tileset.tres" id="1_p1s2e"]
+[ext_resource type="PackedScene" uid="uid://coym8yh6njcux" path="res://scenes/cryptogram_puzzle/bank_letter.tscn" id="2_8bfvq"]
+
+[node name="LetterBank" type="Node2D" unique_id=1700462633]
+
+[node name="Background" type="TileMapLayer" parent="." unique_id=2100510349]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAIAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAACAAAAAAABAAEAAAABAAIAAAACAAEAAAABAAIAAAADAAEAAAABAAIAAAAEAAEAAAABAAIAAAAFAAEAAAACAAIAAAA=")
+tile_set = ExtResource("1_p1s2e")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1932141921]
+offset_left = 26.0
+offset_top = 10.0
+offset_right = 166.0
+offset_bottom = 54.0
+mouse_filter = 2
+columns = 9
+
+[node name="BankLetter" parent="GridContainer" unique_id=979614569 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+
+[node name="BankLetter2" parent="GridContainer" unique_id=1417357039 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "b"
+
+[node name="BankLetter3" parent="GridContainer" unique_id=1574078990 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "c"
+
+[node name="BankLetter4" parent="GridContainer" unique_id=817042980 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "d"
+
+[node name="BankLetter5" parent="GridContainer" unique_id=1424365079 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "e"
+
+[node name="BankLetter6" parent="GridContainer" unique_id=1256130401 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "f"
+
+[node name="BankLetter7" parent="GridContainer" unique_id=1618027074 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "g"
+
+[node name="BankLetter8" parent="GridContainer" unique_id=1432186415 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "h"
+
+[node name="BankLetter9" parent="GridContainer" unique_id=1164860885 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "i"
+
+[node name="BankLetter10" parent="GridContainer" unique_id=282294669 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "j"
+
+[node name="BankLetter11" parent="GridContainer" unique_id=1747920177 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "k"
+
+[node name="BankLetter12" parent="GridContainer" unique_id=2130564931 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "l"
+
+[node name="BankLetter13" parent="GridContainer" unique_id=1428458910 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "m"
+
+[node name="BankLetter14" parent="GridContainer" unique_id=1042101998 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "n"
+
+[node name="BankLetter15" parent="GridContainer" unique_id=1789884328 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "o"
+
+[node name="BankLetter16" parent="GridContainer" unique_id=528438998 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "p"
+
+[node name="BankLetter17" parent="GridContainer" unique_id=1279312903 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "q"
+
+[node name="BankLetter18" parent="GridContainer" unique_id=1723739865 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "r"
+
+[node name="BankLetter19" parent="GridContainer" unique_id=316445690 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "s"
+
+[node name="BankLetter20" parent="GridContainer" unique_id=229211459 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "t"
+
+[node name="BankLetter21" parent="GridContainer" unique_id=1804448280 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "u"
+
+[node name="BankLetter22" parent="GridContainer" unique_id=489180445 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "v"
+
+[node name="BankLetter23" parent="GridContainer" unique_id=47865641 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "w"
+
+[node name="BankLetter24" parent="GridContainer" unique_id=1820145017 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "x"
+
+[node name="BankLetter25" parent="GridContainer" unique_id=2076263140 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "y"
+
+[node name="BankLetter26" parent="GridContainer" unique_id=1478847780 instance=ExtResource("2_8bfvq")]
+layout_mode = 2
+text = "z"
