@@ -1,8 +1,8 @@
 class_name CryptogramPuzzle
 extends Puzzle
 
-const INK_COLOR = Color(0.32, 0.123, 0.032)
-const BANK_USED_COLOR = Color(0.32, 0.123, 0.032, 0.25)
+const INK_COLOR = Color(0x521f08ff)
+const BANK_USED_COLOR = Color(0x521f0840)
 
 @export var _data: CryptogramPuzzleData
 @export var _max_chars_per_line: int
