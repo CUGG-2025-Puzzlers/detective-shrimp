@@ -197,7 +197,7 @@ func _handle_key_press(event_key: InputEventKey) -> void:
 	# Attempt to place a letter in the currently selected group
 	if keycode >= KEY_A and keycode <= KEY_Z:
 		var letter = char(keycode).to_lower()
-		if _letter_bank[letter]:
+		if _letter_bank.has(letter) and not _letter_bank[letter]:
 			return
 		
 		_place_letter(letter)
