@@ -3,7 +3,6 @@ extends Puzzle
 
 const INK_COLOR      : Color = Color(0x521f08ff)
 const BANK_USED_COLOR: Color = Color(0x521f0840)
-const ALPHABET_LOWER : String = "abcdefghijklmnopqrstuvwxyz"
 
 @export var _data: CryptogramPuzzleData
 @export var _max_chars_per_line: int
@@ -142,7 +141,7 @@ func _build_cryptogram(lines: Array[String]) -> void:
 				x += line_width
 				continue
 			
-			var is_letter: bool = c.to_lower() in ALPHABET_LOWER
+			var is_letter: bool = c >= 'a' and c <= 'z'
 			var editable: bool = is_letter and (not _letter_bank.has(c) or _letter_bank[c])
 			var group: CryptogramGroup = null
 			
