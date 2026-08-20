@@ -9,6 +9,7 @@ const UNDERSCORE_POS_NONSELECTED: Vector2 = Vector2(0, 3)
 @onready var _underscore: Label = %Underscore
 @onready var _highlight: ColorRect = %Highlight
 
+var is_enabled: bool = false
 var is_editable: bool
 var is_selected: bool
 var letter_group: CryptogramGroup
@@ -29,7 +30,7 @@ func _ready() -> void:
 		_underscore.visible = false
 
 func _gui_input(event: InputEvent) -> void:
-	if not is_editable:
+	if not is_enabled or not is_editable:
 		return
 	
 	if not event is InputEventMouseButton:
@@ -43,14 +44,14 @@ func _gui_input(event: InputEvent) -> void:
 
 ## Event Handler for when the mouse has entered this char slot's area
 func _on_mouse_entered() -> void:
-	if is_selected:
+	if not is_enabled or is_selected:
 		return
 	
 	_apply_highlight_effects()
 
 ## Event Handler for when the mouse has exited this char slot's area
 func _on_mouse_exited() -> void:
-	if is_selected:
+	if not is_enabled or is_selected:
 		return
 	
 	_remove_highlight_effects()
@@ -67,6 +68,12 @@ func _apply_highlight_effects() -> void:
 func _remove_highlight_effects() -> void:
 	_underscore.position = UNDERSCORE_POS_NONSELECTED
 	_highlight.visible = false
+
+func enable() -> void:
+	is_enabled = true
+
+func disable() -> void:
+	is_enabled = false
 
 func select() -> void:
 	is_selected = true

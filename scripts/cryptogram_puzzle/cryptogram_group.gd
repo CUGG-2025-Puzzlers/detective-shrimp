@@ -12,6 +12,14 @@ func set_letter(letter: String) -> void:
 	for slot in slots:
 		slot.set_letter(letter)
 
+func enable() -> void:
+	for slot in slots:
+		slot.enable()
+
+func disable() -> void:
+	for slot in slots:
+		slot.disable()
+
 func select() -> void:
 	for slot in slots:
 		slot.select()
