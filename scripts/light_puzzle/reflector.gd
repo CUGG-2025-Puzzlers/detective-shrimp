@@ -19,8 +19,12 @@ var drag_offset: Vector2 = Vector2.ZERO
 var pickup_pos: Vector2
 
 func _ready() -> void:
-	_set_pickable(false)
 	_set_orientation()
+	
+	if Engine.is_editor_hint():
+		return
+	
+	_set_pickable(false)
 	
 	clickable_area.input_event.connect(_on_clickable_area_input_event)
 	clickable_area.mouse_entered.connect(_on_mouse_entered)
@@ -33,6 +37,9 @@ func _ready() -> void:
 	GameEvents.beam_finished.connect(_on_beam_finished)
 
 func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	if not hovering:
 		if dragging:
 			_on_mouse_up()
