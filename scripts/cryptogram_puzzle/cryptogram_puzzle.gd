@@ -13,31 +13,6 @@ var _selected_group: CryptogramGroup = null
 var _letter_bank   : Dictionary[String, bool] = {}
 var _letter_groups : Dictionary[String, CryptogramGroup] = {}
 
-##################
-
-const CHAR_WIDTH = 8
-const CHAR_HEIGHT = 14
-const SLOT_BG_COLOR = Color(0.45, 0.3, 0.1, 0.2)
-const HIGHLIGHT_COLOR = Color(0.6, 0.35, 0.05, 0.4)
-
-# Maps each unknown target letter to all time its repreated
-var letter_groups: Dictionary = {}
-# Maps each unknown target letter to all the pannelcontainers
-var slot_panels: Dictionary = {}
-# Maps panel to target letter
-var slot_to_letter: Dictionary = {}
-# Maps target letter to what player typed
-var player_guesses: Dictionary = {}
-# Highligh selected target letter group
-var selected_letter: String = ""
-var is_active: bool = false
-
-# Letter bank(thing at bottom): maps letter string to on at bottom
-var bank_labels: Dictionary = {}
-
-var font: Font
-var root_container: VBoxContainer
-
 #region Node Overrides
 
 func _ready():
@@ -45,8 +20,6 @@ func _ready():
 	GameEvents.bank_letter_clicked.connect(_on_bank_letter_clicked)
 	
 	_setup()
-	
-	font = preload("res://fonts/PixelOperator8-Bold.ttf")
 
 func _input(event: InputEvent) -> void:
 	if _selected_group == null:
@@ -64,10 +37,13 @@ func get_type() -> GameData.PuzzleType:
 	return GameData.PuzzleType.Letter
 
 func start():
+	# TODO: Enable all editable slots
+	
 	CryptogramPuzzleEvents.start_puzzle()
-	_reset_puzzle()
 
 func finish():
+	# TODO: Disable all editable slots
+	
 	GameData.complete_puzzle(GameData.PuzzleType.Letter)
 	CryptogramPuzzleEvents.complete_puzzle()
 
@@ -254,35 +230,5 @@ func _check_for_win() -> void:
 			return
 	
 	print("Cryptogram solved!")
-
-
-# TODO: Remove unneeded code
-
-func _reset_puzzle():
-	is_active = true
-	player_guesses.clear()
-	selected_letter = ""
-	#_clear_all()
-	#_build_all()
-
-func _is_letter(ch: String) -> bool:
-	var lower = ch.to_lower()
-	return lower >= "a" and lower <= "z"
-
-func _check_complete():
-	for target in letter_groups:
-		var guess = player_guesses.get(target, "")
-		if guess != target:
-			return
-	# Show completed and signal after a delay
-	is_active = false
-	selected_letter = ""
-	# Slots turn green
-	var solved_color = Color(0.15, 0.5, 0.15, 0.35)
-	for letter in slot_panels:
-		for panel in slot_panels[letter]:
-			var style = panel.get_theme_stylebox("panel") as StyleBoxFlat
-			style.bg_color = solved_color
-	# Wait for player to see solved then signal GameEvents to close popup
-	await get_tree().create_timer(1.5).timeout
-	GameEvents.request_puzzle_complete()
+	# TODO: Turn entire phrase green, request puzzle complete wait for player to close
+	# var solved_color = Color(0x26802659)
