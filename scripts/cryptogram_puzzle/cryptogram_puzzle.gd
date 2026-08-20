@@ -249,12 +249,12 @@ func _place_letter(letter: String) -> void:
 
 ## Returns true if all letter groups are filled correctly. 
 ## Returns false otherwise.
-func _check_for_win():
+func _check_for_win() -> void:
 	for letter in _letter_groups.keys():
 		if not _letter_groups[letter].is_correct():
-			return false
+			return
 	
-	return true
+	print("Cryptogram solved!")
 
 
 # TODO: Remove unneeded code
