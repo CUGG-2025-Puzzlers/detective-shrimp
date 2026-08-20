@@ -38,15 +38,15 @@ func get_type() -> GameData.PuzzleType:
 	return GameData.PuzzleType.Letter
 
 func start():
-	# TODO: Enable all editable slots
-	
-	CryptogramPuzzleEvents.start_puzzle()
+	for c in _letter_groups.keys():
+		_letter_groups[c].enable()
 
 func finish():
-	# TODO: Disable all editable slots
-	
-	GameData.complete_puzzle(GameData.PuzzleType.Letter)
-	CryptogramPuzzleEvents.complete_puzzle()
+	_deselect_group()
+	for c in _letter_groups.keys():
+		_letter_groups[c].disable()
+	# TODO:
+	# Turn phrase green (0x26802659)
 
 #endregion
 
@@ -70,9 +70,6 @@ func _setup() -> void:
 	
 	var lines: PackedStringArray = _split_phrase()
 	_build_cryptogram(lines)
-	
-	for line in lines:
-		print(line)
 
 ## Returns the cryptogram phrase split based on the max characters allowed 
 ## per line. Words are never split between two lines unless the word length 
@@ -230,6 +227,4 @@ func _check_for_win() -> void:
 		if not _letter_groups[letter].is_correct():
 			return
 	
-	print("Cryptogram solved!")
-	# TODO: Turn entire phrase green, request puzzle complete wait for player to close
-	# var solved_color = Color(0x26802659)
+	GameEvents.request_puzzle_complete()
