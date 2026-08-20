@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://byf0elwtjrry5" path="res://scenes/cryptogram_puzzle/letter_bank.tscn" id="4_5h2qp"]
 
 [node name="CryptogramPuzzle" type="Control" unique_id=589385998]
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 192.0
