@@ -20,14 +20,18 @@ static func new_slot(editable: bool, group: CryptogramGroup) -> CryptogramCharSl
 	return char_slot
 
 func _ready() -> void:
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exited)
-	
 	_remove_highlight_effects()
-	if not is_editable:
+	
+	if is_editable:
+		mouse_entered.connect(_on_mouse_entered)
+		mouse_exited.connect(_on_mouse_exited)
+	else:
 		_underscore.visible = false
 
 func _gui_input(event: InputEvent) -> void:
+	if not is_editable:
+		return
+	
 	if not event is InputEventMouseButton:
 		return
 	
@@ -39,14 +43,14 @@ func _gui_input(event: InputEvent) -> void:
 
 ## Event Handler for when the mouse has entered this char slot's area
 func _on_mouse_entered() -> void:
-	if not is_editable or is_selected:
+	if is_selected:
 		return
 	
 	_apply_highlight_effects()
 
 ## Event Handler for when the mouse has exited this char slot's area
 func _on_mouse_exited() -> void:
-	if not is_editable or is_selected:
+	if is_selected:
 		return
 	
 	_remove_highlight_effects()
