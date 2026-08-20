@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bsm8p2rhbi4o6" path="res://scripts/cryptogram_puzzle/cryptogram_puzzle.gd" id="1_script"]
 [ext_resource type="Resource" uid="uid://dftaj53wbvgrg" path="res://resources/puzzles/cryptogram_safe_riddle.tres" id="2_ast5u"]
-[ext_resource type="PackedScene" uid="uid://ca63dn5xn6ng" path="res://scenes/paper.tscn" id="2_paper"]
 [ext_resource type="TileSet" uid="uid://d0ushrlo6wcgu" path="res://resources/old_paper_tileset.tres" id="3_7cnxh"]
 [ext_resource type="PackedScene" uid="uid://byf0elwtjrry5" path="res://scenes/cryptogram_puzzle/letter_bank.tscn" id="4_5h2qp"]
 
@@ -14,10 +13,6 @@ offset_bottom = 338.0
 script = ExtResource("1_script")
 _data = ExtResource("2_ast5u")
 _max_chars_per_line = 20
-
-[node name="paper" parent="." unique_id=1938678241 instance=ExtResource("2_paper")]
-visible = false
-position = Vector2(100, 130)
 
 [node name="Cryptogram" type="Control" parent="." unique_id=1157788953]
 unique_name_in_owner = true
