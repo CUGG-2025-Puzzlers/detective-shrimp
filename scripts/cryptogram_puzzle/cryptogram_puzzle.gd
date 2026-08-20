@@ -16,6 +16,7 @@ var _letter_groups : Dictionary[String, CryptogramGroup] = {}
 #region Node Overrides
 
 func _ready():
+	super._ready()
 	GameEvents.group_selected.connect(_on_group_selected)
 	GameEvents.bank_letter_clicked.connect(_on_bank_letter_clicked)
 	
