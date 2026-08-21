@@ -2,7 +2,7 @@ class_name CryptogramPuzzle
 extends Puzzle
 
 const BASE_COLOR   : Color = Color(0x521f08ff)
-const SUCCESS_COLOR: Color = Color(0x26802659)
+const SUCCESS_COLOR: Color = Color(0x268026ff)
 
 @export var _data: CryptogramPuzzleData
 @export var _label_settings: LabelSettings
