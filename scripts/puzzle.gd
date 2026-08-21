@@ -24,4 +24,3 @@ func _on_puzzle_complete_requested() -> void:
 	finish()
 	GameData.complete_puzzle(get_type())
 	GameEvents.finish_puzzle()
-	GameEvents.request_puzzle_close()
