@@ -1,17 +1,18 @@
 class_name CryptogramPuzzle
 extends Puzzle
 
-const INK_COLOR      : Color = Color(0x521f08ff)
-const BANK_USED_COLOR: Color = Color(0x521f0840)
+const BASE_COLOR   : Color = Color(0x521f08ff)
+const SUCCESS_COLOR: Color = Color(0x26802659)
 
 @export var _data: CryptogramPuzzleData
+@export var _label_settings: LabelSettings
 @export var _max_chars_per_line: int
 
 @onready var _cryptogram: Control = %Cryptogram
 
 var _selected_group: CryptogramGroup = null
-var _letter_bank   : Dictionary[String, bool] = {}
-var _letter_groups : Dictionary[String, CryptogramGroup] = {}
+var _letter_bank  : Dictionary[String, bool] = {}
+var _letter_groups: Dictionary[String, CryptogramGroup] = {}
 
 #region Node Overrides
 
@@ -45,8 +46,8 @@ func finish():
 	_deselect_group()
 	for c in _letter_groups.keys():
 		_letter_groups[c].disable()
-	# TODO:
-	# Turn phrase green (0x26802659)
+	
+	_label_settings.font_color = SUCCESS_COLOR
 
 #endregion
 
@@ -66,6 +67,7 @@ func _on_bank_letter_clicked(letter: String) -> void:
 
 ## Sets up the cryptogram
 func _setup() -> void:
+	_label_settings.font_color = BASE_COLOR
 	_disable_known_letters()
 	
 	var lines: PackedStringArray = _split_phrase()
