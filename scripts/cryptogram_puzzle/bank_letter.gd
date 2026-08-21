@@ -4,11 +4,14 @@ extends Label
 const ENABLED_COLOR = Color(0x521f08ff)
 const DISABLED_COLOR = Color(0x521f0840)
 
-var enabled: bool = true
+var enabled: bool
 
 func _ready() -> void:
 	GameEvents.letter_enabled.connect(_on_letter_enabled)
 	GameEvents.letter_disabled.connect(_on_letter_disabled)
+	GameEvents.puzzle_complete_requested.connect(_on_puzzle_complete_requested)
+	
+	enabled = true
 
 func _gui_input(event: InputEvent) -> void:
 	if event is not InputEventMouseButton:
@@ -47,3 +50,8 @@ func _on_letter_disabled(letter: String) -> void:
 	
 	enabled = false
 	add_theme_color_override("font_color", DISABLED_COLOR)
+
+## Event Handler for when the current puzzle has been completed
+## Disabls this bank letter without changing its color
+func _on_puzzle_complete_requested() -> void:
+	enabled = false
