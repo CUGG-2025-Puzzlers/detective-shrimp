@@ -1,8 +1,8 @@
 class_name BankLetter
 extends Label
 
-const ENABLED_COLOR = Color(0.32, 0.123, 0.032)
-const DISABLED_COLOR = Color(0.32, 0.123, 0.032, 0.25)
+const ENABLED_COLOR = Color(0x521f08ff)
+const DISABLED_COLOR = Color(0x521f0840)
 
 var enabled: bool = true
 
