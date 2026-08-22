@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://ch13qt1fo7jef"]
+[gd_scene format=3 uid="uid://ch13qt1fo7jef"]
 
+[ext_resource type="Script" uid="uid://xo6incmk80r6" path="res://scripts/cassette_puzzle/cassette_puzzle.gd" id="1_ah7v1"]
 [ext_resource type="PackedScene" uid="uid://bukxbwoax8pwc" path="res://scenes/cassette_puzzle/input_wire.tscn" id="1_nlxpi"]
 [ext_resource type="Texture2D" uid="uid://cenox7e2uoov3" path="res://textures/ui/dialogue_backgroung.png" id="2_ah7v1"]
 [ext_resource type="PackedScene" uid="uid://cyi8enbwjas5f" path="res://scenes/cassette_puzzle/gates/xor_gate.tscn" id="2_ddvrl"]
@@ -9,18 +10,21 @@
 [ext_resource type="PackedScene" uid="uid://u6t6nj04n00i" path="res://scenes/cassette_puzzle/gates/or_gate.tscn" id="5_ah7v1"]
 [ext_resource type="PackedScene" uid="uid://brtj6y84xuyc0" path="res://scenes/cassette_puzzle/gates/not_gate.tscn" id="6_m2i0q"]
 [ext_resource type="PackedScene" uid="uid://iioaquy7h686" path="res://scenes/cassette_puzzle/output_wire.tscn" id="7_ddvrl"]
-[ext_resource type="Script" uid="uid://xo6incmk80r6" path="res://scripts/cassette_puzzle/cassette_puzzle.gd" id="7_nlxpi"]
 
-[node name="Casette Puzzle 1" type="Node2D" node_paths=PackedStringArray("inputs", "gates", "outputs")]
+[node name="Casette Puzzle 1" type="Control" unique_id=686165760 node_paths=PackedStringArray("inputs", "gates", "outputs")]
 z_index = 3
-script = ExtResource("7_nlxpi")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 250.0
+script = ExtResource("1_ah7v1")
 inputs = [NodePath("Inputs/InputWire"), NodePath("Inputs/InputWire2"), NodePath("Inputs/InputWire3"), NodePath("Inputs/InputWire4"), NodePath("Inputs/InputWire5"), NodePath("Inputs/InputWire6"), NodePath("Inputs/InputWire7"), NodePath("Inputs/InputWire8")]
 gates = [NodePath("Gates/OR Gate"), NodePath("Gates/XOR Gate"), NodePath("Gates/NOT Gate"), NodePath("Gates/XOR Gate2"), NodePath("Gates/XOR Gate3"), NodePath("Gates/RELAY Gate"), NodePath("Gates/AND Gate"), NodePath("Gates/OR Gate2"), NodePath("Gates/AND Gate2")]
 outputs = [NodePath("Outputs/Output")]
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="Node2D" parent="." unique_id=425751694]
 
-[node name="Background" type="NinePatchRect" parent="Background"]
+[node name="Background" type="NinePatchRect" parent="Background" unique_id=666276326]
 offset_right = 400.0
 offset_bottom = 250.0
 texture = ExtResource("2_ah7v1")
@@ -29,7 +33,7 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="Wire 1" type="Line2D" parent="Background"]
+[node name="Wire 1" type="Line2D" parent="Background" unique_id=1462901689]
 position = Vector2(72, 1)
 rotation = 1.5707964
 points = PackedVector2Array(0, 0, 11, 0, 11, -14)
@@ -38,7 +42,7 @@ default_color = Color(0, 0, 1, 1)
 texture = ExtResource("3_m2i0q")
 texture_mode = 2
 
-[node name="Wire 2" type="Line2D" parent="Background"]
+[node name="Wire 2" type="Line2D" parent="Background" unique_id=1745746235]
 position = Vector2(56, 1)
 rotation = 1.5707964
 points = PackedVector2Array(0, 0, 43, 0, 43, -30)
@@ -47,7 +51,7 @@ default_color = Color(1, 0, 0, 1)
 texture = ExtResource("3_m2i0q")
 texture_mode = 2
 
-[node name="Wire 3" type="Line2D" parent="Background"]
+[node name="Wire 3" type="Line2D" parent="Background" unique_id=1206914201]
 position = Vector2(1, 44)
 points = PackedVector2Array(0, 0, 11, 0, 11, 32, 21, 32)
 width = 4.0
@@ -55,7 +59,7 @@ default_color = Color(0, 0, 1, 1)
 texture = ExtResource("3_m2i0q")
 texture_mode = 2
 
-[node name="Wire 4" type="Line2D" parent="Background"]
+[node name="Wire 4" type="Line2D" parent="Background" unique_id=1603823895]
 position = Vector2(1, 108)
 points = PackedVector2Array(0, 0, 21, 0)
 width = 4.0
@@ -63,7 +67,7 @@ default_color = Color(1, 0, 0, 1)
 texture = ExtResource("3_m2i0q")
 texture_mode = 2
 
-[node name="Wire 5" type="Line2D" parent="Background"]
+[node name="Wire 5" type="Line2D" parent="Background" unique_id=448676485]
 position = Vector2(1, 140)
 points = PackedVector2Array(0, 0, 21, 0)
 width = 4.0
@@ -71,7 +75,7 @@ default_color = Color(0, 0, 1, 1)
 texture = ExtResource("3_m2i0q")
 texture_mode = 2
 
-[node name="Wire 6" type="Line2D" parent="Background"]
+[node name="Wire 6" type="Line2D" parent="Background" unique_id=405293400]
 position = Vector2(1, 204)
 points = PackedVector2Array(0, 0, 11, 0, 11, -32, 21, -32)
 width = 4.0
@@ -79,7 +83,7 @@ default_color = Color(0, 0, 1, 1)
 texture = ExtResource("3_m2i0q")
 texture_mode = 2
 
-[node name="Wire 7" type="Line2D" parent="Background"]
+[node name="Wire 7" type="Line2D" parent="Background" unique_id=34435549]
 position = Vector2(56, 249)
 rotation = -1.5707964
 points = PackedVector2Array(0, 0, 45, 0, 45, 30)
@@ -88,7 +92,7 @@ default_color = Color(0, 0, 1, 1)
 texture = ExtResource("3_m2i0q")
 texture_mode = 2
 
-[node name="Wire 8" type="Line2D" parent="Background"]
+[node name="Wire 8" type="Line2D" parent="Background" unique_id=274554863]
 position = Vector2(72, 249)
 rotation = -1.5707964
 points = PackedVector2Array(0, 0, 13, 0, 13, 14)
@@ -97,7 +101,7 @@ default_color = Color(1, 0, 0, 1)
 texture = ExtResource("3_m2i0q")
 texture_mode = 2
 
-[node name="Wire 9" type="Line2D" parent="Background"]
+[node name="Wire 9" type="Line2D" parent="Background" unique_id=1116413859]
 position = Vector2(372, 123)
 rotation = -1.5707964
 points = PackedVector2Array(-1, -4, -1, 27)
@@ -105,101 +109,101 @@ width = 4.0
 texture = ExtResource("3_m2i0q")
 texture_mode = 2
 
-[node name="Inputs" type="Node2D" parent="."]
+[node name="Inputs" type="Node2D" parent="." unique_id=78082665]
 unique_name_in_owner = true
 position = Vector2(16, 4)
 
-[node name="InputWire" parent="Inputs" instance=ExtResource("1_nlxpi")]
+[node name="InputWire" parent="Inputs" unique_id=971277985 instance=ExtResource("1_nlxpi")]
 position = Vector2(68, 4)
 state = true
 
-[node name="InputWire2" parent="Inputs" instance=ExtResource("1_nlxpi")]
+[node name="InputWire2" parent="Inputs" unique_id=1532785851 instance=ExtResource("1_nlxpi")]
 position = Vector2(68, 36)
 
-[node name="InputWire3" parent="Inputs" instance=ExtResource("1_nlxpi")]
+[node name="InputWire3" parent="Inputs" unique_id=56477360 instance=ExtResource("1_nlxpi")]
 position = Vector2(4, 68)
 state = true
 
-[node name="InputWire4" parent="Inputs" instance=ExtResource("1_nlxpi")]
+[node name="InputWire4" parent="Inputs" unique_id=1452248402 instance=ExtResource("1_nlxpi")]
 position = Vector2(4, 100)
 
-[node name="InputWire5" parent="Inputs" instance=ExtResource("1_nlxpi")]
+[node name="InputWire5" parent="Inputs" unique_id=440728324 instance=ExtResource("1_nlxpi")]
 position = Vector2(4, 132)
 state = true
 
-[node name="InputWire6" parent="Inputs" instance=ExtResource("1_nlxpi")]
+[node name="InputWire6" parent="Inputs" unique_id=916540024 instance=ExtResource("1_nlxpi")]
 position = Vector2(4, 164)
 state = true
 
-[node name="InputWire7" parent="Inputs" instance=ExtResource("1_nlxpi")]
+[node name="InputWire7" parent="Inputs" unique_id=1728535898 instance=ExtResource("1_nlxpi")]
 position = Vector2(68, 196)
 state = true
 
-[node name="InputWire8" parent="Inputs" instance=ExtResource("1_nlxpi")]
+[node name="InputWire8" parent="Inputs" unique_id=920421387 instance=ExtResource("1_nlxpi")]
 position = Vector2(68, 228)
 
-[node name="Gates" type="Node2D" parent="."]
+[node name="Gates" type="Node2D" parent="." unique_id=577955140]
 unique_name_in_owner = true
 position = Vector2(16, 4)
 
-[node name="OR Gate" parent="Gates" instance=ExtResource("5_ah7v1")]
+[node name="OR Gate" parent="Gates" unique_id=561201033 instance=ExtResource("5_ah7v1")]
 offset_left = 52.0
 offset_top = 72.0
 offset_right = 84.0
 offset_bottom = 104.0
 
-[node name="XOR Gate" parent="Gates" instance=ExtResource("2_ddvrl")]
+[node name="XOR Gate" parent="Gates" unique_id=1069276349 instance=ExtResource("2_ddvrl")]
 offset_left = 52.0
 offset_top = 136.0
 offset_right = 84.0
 offset_bottom = 168.0
 
-[node name="NOT Gate" parent="Gates" instance=ExtResource("6_m2i0q")]
+[node name="NOT Gate" parent="Gates" unique_id=696082238 instance=ExtResource("6_m2i0q")]
 offset_left = 148.0
 offset_top = 8.0
 offset_right = 180.0
 offset_bottom = 40.0
 
-[node name="XOR Gate2" parent="Gates" instance=ExtResource("2_ddvrl")]
+[node name="XOR Gate2" parent="Gates" unique_id=1783240947 instance=ExtResource("2_ddvrl")]
 offset_left = 132.0
 offset_top = 72.0
 offset_right = 164.0
 offset_bottom = 104.0
 
-[node name="XOR Gate3" parent="Gates" instance=ExtResource("2_ddvrl")]
+[node name="XOR Gate3" parent="Gates" unique_id=755061316 instance=ExtResource("2_ddvrl")]
 offset_left = 132.0
 offset_top = 136.0
 offset_right = 164.0
 offset_bottom = 168.0
 
-[node name="RELAY Gate" parent="Gates" instance=ExtResource("4_io58p")]
+[node name="RELAY Gate" parent="Gates" unique_id=1481130896 instance=ExtResource("4_io58p")]
 offset_left = 148.0
 offset_top = 192.0
 offset_right = 180.0
 offset_bottom = 224.0
 
-[node name="AND Gate" parent="Gates" instance=ExtResource("3_nlxpi")]
+[node name="AND Gate" parent="Gates" unique_id=1225097404 instance=ExtResource("3_nlxpi")]
 offset_left = 212.0
 offset_top = 72.0
 offset_right = 244.0
 offset_bottom = 104.0
 
-[node name="OR Gate2" parent="Gates" instance=ExtResource("5_ah7v1")]
+[node name="OR Gate2" parent="Gates" unique_id=1617703923 instance=ExtResource("5_ah7v1")]
 offset_left = 212.0
 offset_top = 136.0
 offset_right = 244.0
 offset_bottom = 168.0
 
-[node name="AND Gate2" parent="Gates" instance=ExtResource("3_nlxpi")]
+[node name="AND Gate2" parent="Gates" unique_id=2053603624 instance=ExtResource("3_nlxpi")]
 offset_left = 276.0
 offset_top = 104.0
 offset_right = 308.0
 offset_bottom = 136.0
 
-[node name="Outputs" type="Node2D" parent="."]
+[node name="Outputs" type="Node2D" parent="." unique_id=973105295]
 unique_name_in_owner = true
 position = Vector2(16, 4)
 
-[node name="Output" parent="Outputs" node_paths=PackedStringArray("wire") instance=ExtResource("7_ddvrl")]
+[node name="Output" parent="Outputs" unique_id=1202989829 node_paths=PackedStringArray("wire") instance=ExtResource("7_ddvrl")]
 position = Vector2(348, 116)
 wire = NodePath("../../Background/Wire 9")

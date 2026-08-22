@@ -28,6 +28,9 @@ func play_background_music(new_music: MusicTheme, fade_time: float = 2.5) -> voi
 	music_player.stream = THEMES[new_music]
 	_fade_in_music(fade_time)
 
+func play_menu_music(new_music: MusicTheme, fade_time: float = 2.5) -> void:
+	pass
+
 func get_current_music():
 	return music_player.stream
 

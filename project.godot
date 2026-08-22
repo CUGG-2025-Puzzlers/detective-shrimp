@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Detective Shrimp"
-run/main_scene="uid://dkrxhuquv6u7e"
+run/main_scene="uid://cjvft1kouddpq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,12 +23,10 @@ config/icon="res://icon.svg"
 
 Globals="*res://scripts/globals.gd"
 GameEvents="*res://scripts/game_events.gd"
-SlidePuzzleEvents="*res://scripts/slide_puzzle/slide_puzzle_events.gd"
 CassettePuzzleEvents="*res://scripts/cassette_puzzle/cassette_puzzle_events.gd"
 SafePuzzleEvents="*res://scripts/safe_puzzle/safe_puzzle_events.gd"
 AudioManager="*res://scenes/audio_manager.tscn"
 DialogueBox="*res://scenes/dialogue_box.tscn"
-Player="*res://scenes/characters/player.tscn"
 Transition="*res://scenes/cutscenes/transition.tscn"
 CryptogramPuzzleEvents="*res://scripts/cryptogram_puzzle/cryptogram_puzzle_events.gd"
 

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CryptogramPuzzleData" format=3 uid="uid://dftaj53wbvgrg"]
+
+[ext_resource type="Script" uid="uid://86km0nlpcdw" path="res://scripts/resources/cryptogram_puzzle_data.gd" id="1_l65a4"]
+
+[resource]
+script = ExtResource("1_l65a4")
+phrase = "The house is larger than it seems. A silent face distracts from the lies beneath. Seek the frame that holds a borrowed memory and look beyond what it conceals."
+known_letters = "chlmnst"
+metadata/_custom_type_script = "uid://86km0nlpcdw"

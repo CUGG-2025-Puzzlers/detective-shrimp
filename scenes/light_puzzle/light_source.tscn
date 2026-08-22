@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://behvep1mrg318"]
+
+[ext_resource type="Script" uid="uid://c4vopa3kv3lx6" path="res://scripts/light_puzzle/light.gd" id="1_s3iea"]
+[ext_resource type="Shader" uid="uid://01bybwrouxg8" path="res://textures/light_puzzle/light.gdshader" id="2_6lls2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kkr6w"]
+shader = ExtResource("2_6lls2")
+shader_parameter/progress = 0.0
+shader_parameter/color = Color(1, 1, 1, 1)
+
+[node name="LightSource" type="Node2D" unique_id=1055232262]
+script = ExtResource("1_s3iea")
+speed_of_light = 800.0
+default_color = Color(1, 0.8745098, 0.13333334, 1)
+completion_color = Color(0, 0.5686275, 0, 1)
+
+[node name="LightBeam" type="Line2D" parent="." unique_id=416779311]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_kkr6w")
+width = 2.0
+texture_mode = 2
+joint_mode = 2
+begin_cap_mode = 2
+antialiased = true
+
+[node name="Raycast" type="RayCast2D" parent="." unique_id=1215641513]
+unique_name_in_owner = true
+target_position = Vector2(0, 0)
+collision_mask = 192
+collide_with_areas = true

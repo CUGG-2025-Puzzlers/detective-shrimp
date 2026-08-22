@@ -3,15 +3,16 @@ extends Puzzle
 
 @onready var board: SlidePuzzleBoard = $%Board
 
+func get_type() -> GameData.PuzzleType:
+	return GameData.PuzzleType.Key
+
 # Starts the puzzle and notifies all pieces
 func start() -> void:
-	SlidePuzzleEvents.start_puzzle()
+	print("Starting Key Puzzle")
 	board.print_board()
 	for piece in board.pieces:
 		piece._on_puzzle_started()
 
 # Completes this board
 func finish() -> void:
-	print("You win!")
-	GameEvents.mailbox_complete = true
-	SlidePuzzleEvents.complete_puzzle()
+	print("Key Puzzle Completed!")

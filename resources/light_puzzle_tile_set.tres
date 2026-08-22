@@ -1,0 +1,63 @@
+[gd_resource type="TileSet" format=3 uid="uid://bhtvxkxuc0kws"]
+
+[ext_resource type="Texture2D" uid="uid://rdtgnssq3t45" path="res://textures/light_puzzle/light_puzzle_tileset.png" id="1_osn1h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qoblw"]
+resource_name = "light_puzzle_tileset"
+texture = ExtResource("1_osn1h")
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/next_alternative_id = 3
+2:0/0 = 0
+2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/custom_data_3 = true
+2:0/1 = 1
+2:0/1/modulate = Color(0.9151745, 0.26971963, 0.2595738, 1)
+2:0/1/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/1/custom_data_3 = true
+2:0/1/custom_data_4 = 1
+2:0/2 = 2
+2:0/2/modulate = Color(0.7799512, 0.90824294, 0.16519764, 1)
+2:0/2/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/2/custom_data_3 = true
+2:0/2/custom_data_4 = 2
+0:1/next_alternative_id = 2
+0:1/0 = 0
+0:1/1 = 1
+0:1/1/modulate = Color(0.882951, 0.7805772, 0.12788838, 1)
+1:1/0 = 0
+1:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/custom_data_1 = true
+2:1/next_alternative_id = 3
+2:1/0 = 0
+2:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0/custom_data_2 = true
+2:1/1 = 1
+2:1/1/modulate = Color(0.9151745, 0.26971963, 0.2595738, 1)
+2:1/1/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/1/custom_data_2 = true
+2:1/1/custom_data_4 = 1
+2:1/2 = 2
+2:1/2/modulate = Color(0.7799512, 0.90824294, 0.16519764, 1)
+2:1/2/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/2/custom_data_2 = true
+2:1/2/custom_data_4 = 2
+
+[resource]
+physics_layer_0/collision_layer = 128
+physics_layer_0/collision_mask = 0
+physics_layer_1/collision_layer = 64
+physics_layer_1/collision_mask = 0
+custom_data_layer_0/name = "is_placeable_on"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "is_target"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "is_activator"
+custom_data_layer_2/type = 1
+custom_data_layer_3/name = "is_activable"
+custom_data_layer_3/type = 1
+custom_data_layer_4/name = "activation_id"
+custom_data_layer_4/type = 2
+sources/0 = SubResource("TileSetAtlasSource_qoblw")

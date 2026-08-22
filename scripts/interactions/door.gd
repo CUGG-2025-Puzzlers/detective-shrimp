@@ -1,25 +1,22 @@
 extends Interactable
 
-@export var locked: bool
-@export var flag_check: String
-@export var exit_scene: Globals.Area
-@export var player_pos: Vector2
+@export var puzzle_lock: GameData.PuzzleType
+@export var locked     : bool
 
-func _ready() -> void:
-	if flag_check == "" or not GameEvents.get(flag_check):
-		return
-	
-	unlock()
+@export var exit_scene         : GameScene.SceneType
+@export var exit_location_index: int
 
-func unlock():
+## Unlocks this door
+func _unlock():
 	locked = false
 
+## If locked, displays lock dialogue. Otherwise transitions to the connected scene.
 func interaction() -> void:
-	if locked:
-		if not GameEvents.get(flag_check):
-			super.interaction()
-			return
-		
-		unlock()
+	if locked and puzzle_lock != GameData.PuzzleType.None:
+		locked = not GameData.puzzle_already_completed(puzzle_lock)
 	
-	Globals.transition_to_scene(exit_scene, true, player_pos)
+	if not locked:
+		GameEvents.request_scene_change(UID.GAME_SCENES[exit_scene], exit_location_index)
+		return
+	
+	super.interaction()

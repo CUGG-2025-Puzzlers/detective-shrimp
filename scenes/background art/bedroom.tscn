@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://e40t17p2oxny"]
 
 [ext_resource type="Texture2D" uid="uid://ux7qylmoifwu" path="res://assets/background/pixelinterior_LRK/floorswalls_LRK.png" id="1_qgq5e"]
-[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/scene.gd" id="1_y2juf"]
+[ext_resource type="Script" path="res://scripts/game_scenes/game_scene.gd" id="1_y2juf"]
 [ext_resource type="Texture2D" uid="uid://c3siqj1wxu6tl" path="res://assets/background/pixelinterior_LRK/livingroom_LRK.png" id="2_vdss4"]
 [ext_resource type="Texture2D" uid="uid://dr4feske7gj10" path="res://assets/background/pixelinterior_LRK/doorswindowsstairs_LRK.png" id="3_xpy8l"]
 [ext_resource type="Texture2D" uid="uid://be1jsnikwp2qk" path="res://assets/pixelinterior_BR_v1.1/decorations_BR.png" id="4_804uw"]
@@ -15,13 +15,9 @@
 [ext_resource type="Script" uid="uid://0n23roro5u0u" path="res://scripts/interactions/puzzle_interactable.gd" id="11_j27r0"]
 [ext_resource type="Texture2D" uid="uid://dkir51ujummi4" path="res://assets/background/pixelinterior_LRK/letter.png" id="11_ksv6u"]
 [ext_resource type="Resource" uid="uid://egbyseh68n50" path="res://resources/dialogue/interact/living_room/casette_2.tres" id="12_uixac"]
-[ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="14_csd8x"]
 [ext_resource type="Resource" uid="uid://b21n78yes34o5" path="res://resources/dialogue/interact/living_room/casette_1.tres" id="14_qepsd"]
-[ext_resource type="PackedScene" uid="uid://ch13qt1fo7jef" path="res://scenes/cassette_puzzle/cassette_puzzle_1.tscn" id="15_ln1au"]
-[ext_resource type="Script" path="res://scripts/tests/complete_puzzle_test.gd" id="16_g12pr"]
 [ext_resource type="Resource" uid="uid://cncjgmkjgv72l" path="res://resources/dialogue/interact/bedroom/encrypted_letter_post.tres" id="18_g12pr"]
 [ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="18_lkots"]
-[ext_resource type="PackedScene" uid="uid://n4wqsj43w5yj" path="res://scenes/cryptogram_puzzle/cryptogram_puzzle.tscn" id="20_crypt"]
 [ext_resource type="Resource" uid="uid://bxqpr5qepyneq" path="res://resources/dialogue/interact/bedroom/encrypted_letter.tres" id="20_h1e11"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lv7wv"]
@@ -2518,9 +2514,29 @@ texture = ExtResource("8_xpy8l")
 sources/0 = SubResource("TileSetAtlasSource_804uw")
 sources/3 = SubResource("TileSetAtlasSource_yaebv")
 
-[node name="bedroom" type="Node2D" unique_id=2093066829]
+[node name="bedroom" type="Node2D" unique_id=2093066829 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_y2juf")
 background_music = 1
+spawn_points = [NodePath("SpawnPointMarkers/HallwayDoor")]
+
+[node name="SpawnPointMarkers" type="Node2D" parent="." unique_id=1932137249]
+
+[node name="HallwayDoor" type="Marker2D" parent="SpawnPointMarkers" unique_id=2144226549]
+position = Vector2(575, 305)
+
+[node name="Exits" type="Node2D" parent="." unique_id=486713441]
+
+[node name="Door" parent="Exits" unique_id=1126005573 instance=ExtResource("9_yaebv")]
+offset_left = 586.0
+offset_top = 243.0
+offset_right = 613.5286
+offset_bottom = 259.0
+scale = Vector2(0.6071832, 4.767659)
+script = ExtResource("18_lkots")
+puzzle_lock = 0
+locked = false
+exit_scene = 4
+exit_location_index = 1
 
 [node name="background" type="TileMapLayer" parent="." unique_id=614651664]
 position = Vector2(314.00003, 178.00002)
@@ -2562,41 +2578,9 @@ offset_right = 371.00003
 offset_bottom = 242.00002
 texture = ExtResource("10_ksv6u")
 script = ExtResource("11_j27r0")
-puzzle_trigger = 2
+puzzle_type = 4
 post_puzzle_dialogue = ExtResource("12_uixac")
 dialogue = ExtResource("14_qepsd")
-
-[node name="Cassette Popup" parent="." unique_id=80780388 node_paths=PackedStringArray("puzzle") instance=ExtResource("14_csd8x")]
-visible = false
-puzzle = NodePath("Casette Puzzle 1")
-puzzle_trigger = 2
-
-[node name="Casette Puzzle 1" parent="Cassette Popup" unique_id=381570189 instance=ExtResource("15_ln1au")]
-position = Vector2(16, 16)
-
-[node name="Button" type="Button" parent="Cassette Popup" unique_id=794201254]
-visible = false
-z_index = 2
-layout_mode = 0
-offset_left = 476.0
-offset_top = 25.0
-offset_right = 612.0
-offset_bottom = 56.0
-text = "Complete Puzzle"
-script = ExtResource("16_g12pr")
-puzzle_trigger = 2
-
-[node name="Door" parent="." unique_id=1126005573 instance=ExtResource("9_yaebv")]
-offset_left = 586.0
-offset_top = 243.0
-offset_right = 613.5286
-offset_bottom = 259.0
-scale = Vector2(0.6071832, 4.767659)
-script = ExtResource("18_lkots")
-locked = false
-flag_check = ""
-exit_scene = 4
-player_pos = Vector2(176, 160)
 
 [node name="Encrypted Letter" parent="." unique_id=1614911982 instance=ExtResource("9_yaebv")]
 offset_left = 116.0
@@ -2605,27 +2589,6 @@ offset_right = 132.0
 offset_bottom = 169.0
 texture = ExtResource("11_ksv6u")
 script = ExtResource("11_j27r0")
-puzzle_trigger = 4
+puzzle_type = 16
 post_puzzle_dialogue = ExtResource("18_g12pr")
 dialogue = ExtResource("20_h1e11")
-
-[node name="Letter Popup" parent="." unique_id=2009197540 node_paths=PackedStringArray("puzzle") instance=ExtResource("14_csd8x")]
-visible = false
-puzzle = NodePath("CryptogramPuzzle")
-puzzle_trigger = 4
-
-[node name="CryptogramPuzzle" parent="Letter Popup" unique_id=1419698651 instance=ExtResource("20_crypt")]
-z_index = 3
-position = Vector2(320, 180)
-
-[node name="Button" type="Button" parent="Letter Popup" unique_id=1483741085]
-visible = false
-z_index = 2
-layout_mode = 0
-offset_left = 476.0
-offset_top = 25.0
-offset_right = 612.0
-offset_bottom = 56.0
-text = "Complete Puzzle"
-script = ExtResource("16_g12pr")
-puzzle_trigger = 4

@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dkcwe4x0d06i7"]
+
+[ext_resource type="Texture2D" uid="uid://cenox7e2uoov3" path="res://textures/ui/dialogue_backgroung.png" id="1_fo5up"]
+[ext_resource type="PackedScene" uid="uid://vss4dx8y6io5" path="res://scenes/configured_text_label.tscn" id="2_2h7lw"]
+[ext_resource type="Script" uid="uid://bqxwnxm3xl2bs" path="res://scripts/puzzle_instructions.gd" id="2_uk60a"]
+[ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://fonts/m5x7.ttf" id="3_uk60a"]
+
+[node name="PuzzleInstructions" type="NinePatchRect" unique_id=898613089]
+z_index = 3
+offset_right = 180.0
+offset_bottom = 360.0
+texture = ExtResource("1_fo5up")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+script = ExtResource("2_uk60a")
+
+[node name="PuzzleTitle" parent="." unique_id=181225285 instance=ExtResource("2_2h7lw")]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 180.0
+offset_bottom = 24.0
+text = "[b]PUZZLE TITLE[/b]"
+horizontal_alignment = 1
+
+[node name="DescriptionText" parent="." unique_id=2111313183 instance=ExtResource("2_2h7lw")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 172.0
+offset_bottom = 64.0
+text = "Shrimtective's Puzzle Description"
+fit_content = true
+
+[node name="ObjectiveTitle" parent="." unique_id=228620914 instance=ExtResource("2_2h7lw")]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 180.0
+offset_bottom = 144.0
+text = "[b]OBJECTIVE[/b]"
+horizontal_alignment = 1
+
+[node name="ObjectiveText" parent="." unique_id=2142511206 instance=ExtResource("2_2h7lw")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 152.0
+offset_right = 172.0
+offset_bottom = 191.0
+text = "Puzzle Objective Text"
+fit_content = true
+
+[node name="RestartButton" type="Button" parent="." unique_id=690135352]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 313.0
+offset_right = 90.0
+offset_bottom = 344.0
+theme_override_fonts/font = ExtResource("3_uk60a")
+theme_override_font_sizes/font_size = 19
+text = " Restart "
+
+[node name="QuitButton" type="Button" parent="." unique_id=1001902359]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 313.0
+offset_right = 172.0
+offset_bottom = 344.0
+theme_override_fonts/font = ExtResource("3_uk60a")
+theme_override_font_sizes/font_size = 19
+text = "Quit"

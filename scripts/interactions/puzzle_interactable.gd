@@ -1,22 +1,21 @@
 extends Interactable
 
-@export var puzzle_trigger: GameEvents.PuzzleTrigger
+@export var puzzle_type: GameData.PuzzleType
 @export var post_puzzle_dialogue: Dialogue
 
 func _on_dialogue_ended(name: String) -> void:
-	if not interacting or GameEvents.puzzle_already_completed(puzzle_trigger):
-		enable()
+	enable()
+	
+	if name != dialogue.name:
 		return
 	
-	GameEvents.start_puzzle(puzzle_trigger)
-	GameEvents.puzzle_finished.connect(_on_puzzle_finished)
-	GameEvents.puzzle_exited.connect(_on_puzzle_exited)
+	if GameData.puzzle_already_completed(puzzle_type):
+		return
+	
+	GameEvents.request_puzzle_open(UID.PUZZLES[puzzle_type])
 
-func _on_puzzle_finished(trigger: GameEvents.PuzzleTrigger):
-	GameEvents.puzzle_finished.disconnect(_on_puzzle_finished)
-	dialogue = post_puzzle_dialogue
-	enable()
-
-func _on_puzzle_exited(trigger: GameEvents.PuzzleTrigger):
-	GameEvents.puzzle_finished.disconnect(_on_puzzle_finished)
-	enable()
+func interaction():
+	if GameData.puzzle_already_completed(puzzle_type):
+		GameEvents.start_dialogue(post_puzzle_dialogue)
+	else:
+		GameEvents.start_dialogue(dialogue)

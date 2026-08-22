@@ -1,0 +1,27 @@
+[gd_resource type="TileSet" format=3 uid="uid://d0ushrlo6wcgu"]
+
+[ext_resource type="Texture2D" uid="uid://h7u3v5pojobr" path="res://textures/cryptogram_puzzle/old_paper.png" id="1_2s1s4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omm3u"]
+texture = ExtResource("1_2s1s4")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_omm3u")

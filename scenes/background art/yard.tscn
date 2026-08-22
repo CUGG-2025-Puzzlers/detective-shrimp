@@ -2,16 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://c56xp07qi7tkm" path="res://assets/background/16x16 TopDown Nature/4_Seasons_Ground_Tiles.png" id="1_3a355"]
 [ext_resource type="Texture2D" uid="uid://8ohi2tgm0k0x" path="res://assets/background/dark-abstract-background.jpg" id="1_b5d1x"]
-[ext_resource type="Script" uid="uid://cigqhbsfbth7k" path="res://scripts/scene.gd" id="1_f2p5c"]
+[ext_resource type="Script" path="res://scripts/game_scenes/game_scene.gd" id="1_f2p5c"]
 [ext_resource type="Texture2D" uid="uid://cf8c5tj8hgjbe" path="res://assets/background/House 2.png" id="2_otrge"]
 [ext_resource type="Texture2D" uid="uid://bxmqf66kfi0ju" path="res://assets/background/mailbox.png" id="3_8hp3h"]
 [ext_resource type="PackedScene" uid="uid://di44t0wja2ndt" path="res://scenes/interactable.tscn" id="4_ughhp"]
 [ext_resource type="Script" uid="uid://0n23roro5u0u" path="res://scripts/interactions/puzzle_interactable.gd" id="5_vres7"]
 [ext_resource type="Resource" uid="uid://bett2pocdc5qm" path="res://resources/dialogue/interact/outside/mailbox_post.tres" id="6_72c44"]
 [ext_resource type="Resource" uid="uid://bj8cd0ekfafes" path="res://resources/dialogue/interact/outside/mailbox.tres" id="7_426ft"]
-[ext_resource type="PackedScene" uid="uid://wglw4rfn1fc1" path="res://scenes/puzzle_popup.tscn" id="8_fjkrq"]
-[ext_resource type="PackedScene" uid="uid://dc4tvs8q0i3hb" path="res://scenes/slide_puzzle/slide_puzzle_1.tscn" id="9_tb1nq"]
-[ext_resource type="Script" path="res://scripts/tests/complete_puzzle_test.gd" id="10_grp46"]
 [ext_resource type="Script" uid="uid://bclup1uaxdaff" path="res://scripts/interactions/door.gd" id="11_grp46"]
 [ext_resource type="Resource" uid="uid://cc1637v8qlbtl" path="res://resources/dialogue/interact/living_room/basement_locked.tres" id="12_f2p5c"]
 [ext_resource type="Resource" uid="uid://c2xvplti0h34q" path="res://resources/dialogue/interact/outside/outside_door.tres" id="13_grp46"]
@@ -2051,9 +2048,35 @@ texture = ExtResource("3_8hp3h")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_t6ggx")
 
-[node name="yard" type="Node2D" unique_id=1787916871]
+[node name="yard" type="Node2D" unique_id=1787916871 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_f2p5c")
 background_music = 1
+spawn_points = [NodePath("SpawnPointMarkers/InitialSpawn"), NodePath("SpawnPointMarkers/LivingRoomDoor"), NodePath("SpawnPointMarkers/KitchenDoor")]
+
+[node name="SpawnPointMarkers" type="Node2D" parent="." unique_id=292686344]
+
+[node name="InitialSpawn" type="Marker2D" parent="SpawnPointMarkers" unique_id=1307986906]
+position = Vector2(600, 285)
+
+[node name="LivingRoomDoor" type="Marker2D" parent="SpawnPointMarkers" unique_id=1217307235]
+position = Vector2(130, 300)
+
+[node name="KitchenDoor" type="Marker2D" parent="SpawnPointMarkers" unique_id=1194965764]
+position = Vector2(265, 275)
+
+[node name="Exits" type="Node2D" parent="." unique_id=670381904]
+
+[node name="Side Door" parent="Exits" unique_id=1488277507 instance=ExtResource("4_ughhp")]
+offset_left = 245.0
+offset_top = 241.0
+offset_right = 261.0
+offset_bottom = 283.0
+script = ExtResource("11_grp46")
+puzzle_lock = 2
+locked = true
+exit_scene = 2
+exit_location_index = 0
+dialogue = ExtResource("13_grp46")
 
 [node name="bg" type="TileMapLayer" parent="." unique_id=1543266098]
 position = Vector2(350, 184)
@@ -2095,41 +2118,9 @@ offset_top = 210.0
 offset_right = 376.0
 offset_bottom = 242.0
 script = ExtResource("5_vres7")
-puzzle_trigger = 1
+puzzle_type = 2
 post_puzzle_dialogue = ExtResource("6_72c44")
 dialogue = ExtResource("7_426ft")
-
-[node name="Slide Popup" parent="." unique_id=1014368841 node_paths=PackedStringArray("puzzle") instance=ExtResource("8_fjkrq")]
-visible = false
-puzzle = NodePath("Slide Puzzle 1")
-puzzle_trigger = 1
-
-[node name="Slide Puzzle 1" parent="Slide Popup" unique_id=1640013819 instance=ExtResource("9_tb1nq")]
-position = Vector2(232, 48)
-
-[node name="Button" type="Button" parent="Slide Popup" unique_id=16829129]
-visible = false
-z_index = 2
-layout_mode = 0
-offset_left = 473.0
-offset_top = 24.0
-offset_right = 609.0
-offset_bottom = 55.0
-text = "Complete Puzzle"
-script = ExtResource("10_grp46")
-puzzle_trigger = 1
-
-[node name="Side Door" parent="." unique_id=1488277507 instance=ExtResource("4_ughhp")]
-offset_left = 245.0
-offset_top = 241.0
-offset_right = 261.0
-offset_bottom = 283.0
-script = ExtResource("11_grp46")
-locked = true
-flag_check = "mailbox_complete"
-exit_scene = 2
-player_pos = Vector2(56, 196)
-dialogue = ExtResource("13_grp46")
 
 [node name="Front Door" parent="." unique_id=746174531 instance=ExtResource("4_ughhp")]
 offset_left = 116.0

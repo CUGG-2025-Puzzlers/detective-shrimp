@@ -46,6 +46,9 @@ func set_up_outputs():
 
 #endregion
 
+func get_type() -> GameData.PuzzleType:
+	return GameData.PuzzleType.Cassette
+
 func start():
 	if outputs.size() == 0:
 		print("Cannot start Cassette Puzzle, there are no outputs")
@@ -57,7 +60,7 @@ func start():
 	CassettePuzzleEvents.start_puzzle()
 
 func finish() -> void:
-	GameEvents.cassette_complete = true
+	GameData.complete_puzzle(GameData.PuzzleType.Cassette)
 	CassettePuzzleEvents.complete_puzzle()
 
 # Checks for completion condition whenever an output is turned on
@@ -69,4 +72,4 @@ func _on_outputs_state_changed(new_state: bool) -> void:
 		if not output.state:
 			return
 	
-	GameEvents.finish_puzzle(GameEvents.PuzzleTrigger.PuzzleCassette)
+	GameEvents.request_puzzle_complete()

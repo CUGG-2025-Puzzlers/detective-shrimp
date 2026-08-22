@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cjvft1kouddpq"]
+
+[ext_resource type="Script" uid="uid://b2pmnjh8m2w2w" path="res://scripts/main.gd" id="1_o5qli"]
+
+[node name="Main" type="Node" unique_id=1182747227]
+process_mode = 3
+script = ExtResource("1_o5qli")
+
+[node name="World" type="Node2D" parent="." unique_id=386042603]
+process_mode = 1
+
+[node name="LevelRoot" type="Node2D" parent="World" unique_id=1130385675]
+unique_name_in_owner = true
+
+[node name="EntityRoot" type="Node2D" parent="World" unique_id=2095164068]
+unique_name_in_owner = true
+
+[node name="PuzzleLayer" type="CanvasLayer" parent="." unique_id=1175309335]
+process_mode = 1
+layer = 10
+
+[node name="PuzzleRoot" type="Control" parent="PuzzleLayer" unique_id=1655740724]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=605232085]
+process_mode = 1
+layer = 20
+
+[node name="HUDRoot" type="Control" parent="HUDLayer" unique_id=810720078]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1898843469]
+process_mode = 1
+layer = 30
+
+[node name="TransitionRoot" type="Control" parent="TransitionLayer" unique_id=41978584]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1640143183]
+process_mode = 2
+layer = 40
+
+[node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=1807507078]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="DebugLayer" type="CanvasLayer" parent="." unique_id=1794797134]
+process_mode = 3
+layer = 100
+
+[node name="DebugRoot" type="Control" parent="DebugLayer" unique_id=1111411985]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2

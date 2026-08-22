@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bp6kflc6rnxcd"]
+
+[ext_resource type="FontFile" uid="uid://dp421ommw2lqx" path="res://fonts/PixelOperator8-Bold.ttf" id="1_s5uqn"]
+
+[resource]
+font = ExtResource("1_s5uqn")
+font_size = 8
+font_color = Color(0.32156864, 0.12156863, 0.03137255, 1)

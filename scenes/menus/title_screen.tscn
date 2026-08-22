@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://dkrxhuquv6u7e"]
+
+[ext_resource type="Script" uid="uid://cawj4rf3u78w5" path="res://scripts/menus/title_screen.gd" id="1_fgkus"]
+[ext_resource type="Texture2D" uid="uid://cnox8etfus617" path="res://assets/sprites/background.png" id="2_s4lrb"]
+[ext_resource type="Texture2D" uid="uid://d3g4hpohtv88y" path="res://assets/sprites/title_logo.png" id="2_sa3yf"]
+[ext_resource type="FontFile" uid="uid://drdsn5yt0d73t" path="res://fonts/m5x7.ttf" id="3_mgrm8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgrm8"]
+
+[sub_resource type="Animation" id="Animation_s4lrb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LogoSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -25)]
+}
+
+[sub_resource type="Animation" id="Animation_sa3yf"]
+resource_name = "new_animation"
+length = 1.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LogoSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, -20), Vector2(-1, -15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mgrm8"]
+_data = {
+&"RESET": SubResource("Animation_s4lrb"),
+&"new_animation": SubResource("Animation_sa3yf")
+}
+
+[node name="TitleScreen" type="Node2D" unique_id=1026944352]
+script = ExtResource("1_fgkus")
+music = 1
+
+[node name="Background" type="Sprite2D" parent="." unique_id=762932808]
+position = Vector2(320, 180)
+texture = ExtResource("2_s4lrb")
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=56175083]
+offset_left = 40.0
+offset_top = 200.0
+offset_right = 600.0
+offset_bottom = 320.0
+theme_override_constants/separation = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="Button" parent="Buttons" unique_id=1194364210]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_mgrm8")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mgrm8")
+text = "START
+"
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionsButton" type="Button" parent="Buttons" unique_id=1034940317]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_mgrm8")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mgrm8")
+disabled = true
+text = "OPTIONS
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="Buttons" unique_id=1924839687]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_mgrm8")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mgrm8")
+text = "QUIT
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Logo" type="Node2D" parent="." unique_id=2109828058]
+position = Vector2(320, 180)
+
+[node name="LogoSprite" type="Sprite2D" parent="Logo" unique_id=621362415]
+position = Vector2(-1, -25)
+texture = ExtResource("2_sa3yf")
+
+[node name="LogoAnimator" type="AnimationPlayer" parent="Logo" unique_id=2105896775]
+libraries/ = SubResource("AnimationLibrary_mgrm8")
+autoplay = &"new_animation"
+
+[node name="DevTagline" type="Label" parent="." unique_id=2140510943]
+offset_left = 197.0
+offset_top = 330.0
+offset_right = 443.0
+offset_bottom = 353.0
+theme_override_fonts/font = ExtResource("3_mgrm8")
+text = "Created by Dominic, Mouad, Joseph, and Huajin"
+metadata/_edit_use_anchors_ = true

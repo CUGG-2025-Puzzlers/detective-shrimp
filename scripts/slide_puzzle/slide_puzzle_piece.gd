@@ -69,14 +69,14 @@ func _on_mouse_up() -> void:
 # Listens for puzzle completion
 func _on_puzzle_started() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	SlidePuzzleEvents.puzzle_completed.connect(_on_puzzle_completed)
+	GameEvents.puzzle_complete_requested.connect(_on_puzzle_completed)
 
 # Ignores clicking once puzzle is complete
 # Stops listening for puzzle completion
 func _on_puzzle_completed() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	dragging = false
-	SlidePuzzleEvents.puzzle_completed.disconnect(_on_puzzle_completed)
+	GameEvents.puzzle_complete_requested.disconnect(_on_puzzle_completed)
 
 #endregion
 

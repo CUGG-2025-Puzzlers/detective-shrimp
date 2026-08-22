@@ -1,38 +1,21 @@
+class_name PuzzlePopup
 extends Control
 
-@export var puzzle: Puzzle
-@export var puzzle_trigger: GameEvents.PuzzleTrigger
+@export var _puzzle: Puzzle
 
-var previous_music: AudioManager.MusicTheme
+@onready var _puzzle_containter: Control = %PuzzleContainer
 
-func _ready() -> void:
-	close()
-	GameEvents.puzzle_started.connect(_on_puzzle_started)
-	GameEvents.puzzle_finished.connect(_on_puzzle_finished)
+## Adds the given puzzle to the popup as a child of the container
+func add_puzzle(puzzle: Puzzle) -> void:
+	_puzzle = puzzle
+	_puzzle_containter.add_child(puzzle)
 
-func _on_puzzle_started(trigger: GameEvents.PuzzleTrigger):
-	if trigger != puzzle_trigger:
+## Centers the puzzle within the puzzle area based on its set size
+func center_puzzle() -> void:
+	if _puzzle == null:
+		var error: String = "Cannot center puzzle: No puzzle found"
+		push_error(error)
+		print(error)
 		return
 	
-	open()
-	puzzle.start()
-
-func _on_puzzle_finished(trigger: GameEvents.PuzzleTrigger):
-	if trigger != puzzle_trigger:
-		return
-	
-	puzzle.finish()
-	close()
-
-func open():
-	visible = true
-	previous_music = AudioManager.current_theme
-	AudioManager.play_background_music(AudioManager.MusicTheme.Puzzle)
-
-func close():
-	visible = false
-	AudioManager.play_background_music(previous_music)
-
-func _on_exit_pressed():
-	close()
-	GameEvents.exit_puzzle(puzzle_trigger)
+	_puzzle.position = (_puzzle_containter.size - _puzzle.size) / 2

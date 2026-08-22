@@ -91,4 +91,4 @@ func create_confetti_gradient() -> Gradient:
 
 func trigger_victory():
 	print("VICTORY! Puzzle solved!")
-	GameEvents.finish_puzzle(GameEvents.PuzzleTrigger.PuzzleLight)
+	GameEvents.request_puzzle_complete()
